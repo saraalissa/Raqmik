@@ -146,4 +146,321 @@ details.card summary{cursor:pointer;font-weight:800;font-size:18px;list-style:no
 details.card summary::-webkit-details-marker{display:none}
 details.card summary .opt{font-size:13px;font-weight:600;color:var(--muted)}
 .months{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:4px;margin-top:10px}
-.months i{height:24px
+.months i{height:24px;border-radius:6px;background:var(--blue-soft);transition:background .3s}
+.surv{margin-top:8px;font-weight:700}
+.foot{margin-top:16px;background:var(--grad-hero);color:#FFFFFF;border-radius:24px;padding:16px 18px;font-size:15.5px;font-weight:600;line-height:1.6}
+.foot a{color:#FFFFFF;font-weight:800}
+.small{font-size:13px;color:var(--muted);text-align:center;margin:10px 0 0}
+.small a{color:var(--blue);font-weight:800}
+.reset{display:block;margin:4px auto 0;background:none;border:0;color:var(--muted);text-decoration:underline;font-size:14px;min-height:44px;cursor:pointer}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+[hidden]{display:none!important}
+.note textarea{width:100%;margin-top:10px;font:inherit;font-size:16.5px;font-weight:600;color:var(--ink);background:var(--blue-soft);border:2px solid transparent;border-radius:14px;padding:10px 12px;resize:vertical;min-height:70px;line-height:1.5}
+.note textarea:focus{border-color:var(--green);outline:none}
+.note-ok{font-size:13.5px;color:var(--green-text);font-weight:700;min-height:20px;margin-top:4px}
+.letter{background:linear-gradient(135deg,var(--green-soft),var(--blue-soft));border-color:transparent}
+.letter-h{font-size:14px;font-weight:800;color:var(--green-text)}
+.letter-t{font-size:19px;font-weight:700;line-height:1.5;margin-top:2px}
+.saveBtn{margin-top:14px;min-height:48px;padding:0 22px;border-radius:24px;border:0;background:#FFFFFF;color:#13203B;font-size:16.5px;font-weight:800;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.2)}
+.saveBtn:active{transform:scale(.97)}
+.modal{position:fixed;inset:0;z-index:50;background:rgba(10,16,30,.82);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top,0px) + 16px) 16px calc(env(safe-area-inset-bottom,0px) + 16px);gap:12px}
+.modal img{max-width:100%;max-height:62vh;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.4);-webkit-touch-callout:default}
+.modal .mtxt{color:#FFFFFF;font-size:16px;font-weight:700;text-align:center;max-width:34ch;line-height:1.5}
+.modal .mrow{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.modal button{min-height:48px;padding:0 22px;border-radius:24px;border:0;font:inherit;font-size:16px;font-weight:800;cursor:pointer}
+.modal .mshare{background:var(--grad-green);color:#FFFFFF}
+.modal .mclose{background:rgba(255,255,255,.18);color:#FFFFFF}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="blob" aria-hidden="true"></div>
+  <svg class="coin" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="6"/><circle cx="50" cy="50" r="32" fill="none" stroke="currentColor" stroke-width="4"/></svg>
+  <div class="top"><span>أداة صغيرة من سارة</span>
+    <label>العملة <select id="cur" aria-label="العملة">
+      <option>$</option><option>د.إ</option><option>ر.س</option><option>د.أ</option><option>د.ك</option><option>ر.ق</option><option>د.ب</option><option>ر.ع</option><option>€</option><option>£</option>
+    </select></label></div>
+  <h1>رقمك الحرج</h1>
+  <p>أقل مبلغ لازم يدخل كل شهر… لراحة البال، مش بس للعيش.</p>
+</header>
+
+<section class="card letter" id="letter" hidden aria-live="polite"><div class="letter-h" id="letterH"></div><div class="letter-t" id="letterT"></div></section>
+
+<section class="card" aria-labelledby="h1">
+  <div class="h"><span class="num-badge">١</span><h2 id="h1">المصاريف الشهرية</h2></div>
+  <p class="hint">يلا نبلّش! اسحبوا أي عمود لفوق، أو اضغطوا عليه واكتبوا الرقم. ما في جواب غلط هون.</p>
+  <div class="bars" id="bars"></div>
+  <div class="editor">
+    <div class="who"><b id="edName"></b><span id="edSub"></span></div>
+    <div class="stepper">
+      <button type="button" id="minus" aria-label="نقّص">−</button>
+      <input class="money" id="edVal" inputmode="decimal" autocomplete="off" aria-label="المبلغ">
+      <button type="button" id="plus" aria-label="زيد">+</button>
+    </div>
+  </div>
+  <div class="total"><span>مجموع المصاريف</span><b id="totA">٠</b></div>
+</section>
+
+<section class="card" aria-labelledby="h2">
+  <div class="h"><span class="num-badge">٢</span><h2 id="h2">هامش الأمان</h2></div>
+  <p class="hint">هدية صغيرة لحالكم: راحة بال للمصروف اللي ما كان عالبال</p>
+  <div class="chips" role="group" aria-label="الهامش">
+    <button class="chip" data-m="10" type="button" aria-pressed="false"><b>١٠٪</b><span>خفيف</span></button>
+    <button class="chip" data-m="15" type="button" aria-pressed="true"><b>١٥٪</b><span>مريح</span></button>
+    <button class="chip" data-m="20" type="button" aria-pressed="false"><b>٢٠٪</b><span>نوم عميق</span></button>
+  </div>
+</section>
+
+<section class="card result" aria-live="polite">
+  <div class="lbl">رقمك الحرج</div>
+  <div class="big" id="crit">٠</div>
+  <div class="daily" id="daily">يعني ٠ باليوم</div>
+  <div><button class="saveBtn" id="saveBtn" type="button">احفظوا نتيجتكم 📸</button></div>
+</section>
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-label="نتيجتكم">
+  <img id="shot" alt="صورة نتيجتكم">
+  <div class="mtxt" id="mtxt">اضغطوا مطوّل عالصورة واختاروا «حفظ بالصور» 📲</div>
+  <div class="mrow"><button class="mshare" id="mshare" type="button" hidden>شاركوا الصورة</button><button class="mclose" id="mclose" type="button">سكّروا</button></div>
+</div>
+
+<section class="card" aria-labelledby="h3">
+  <div class="h"><span class="num-badge">٣</span><h2 id="h3">وين أنا اليوم؟</h2></div>
+  <p class="hint">آخر خطوة! اسحبوا الدبوس لعند دخلكم. ولا تخافوا من الرقم، هو بس نقطة انطلاق.</p>
+  <div class="gauge" id="gauge">
+    <div class="zones"><div class="z-red" id="zR" style="width:0"></div><div class="z-blue" id="zB" style="width:0"></div><div class="z-green" id="zG" style="width:100%"></div></div>
+    <div class="tick" id="tA" style="right:0">المصاريف</div>
+    <div class="tick" id="tC" style="right:0">الرقم الحرج</div>
+    <div class="pin" id="pin" role="slider" tabindex="0" aria-label="دخلك الشهري" aria-valuemin="0" style="right:0">
+      <span class="bubble" id="bubble">٠</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M9 6 L3 12 L9 18 M15 6 L21 12 L15 18"/></svg>
+    </div>
+  </div>
+  <div class="legend"><span><i style="background:var(--red)"></i>خطر</span><span><i style="background:var(--blue)"></i>حرجة</span><span><i style="background:var(--green)"></i>راحة</span></div>
+  <div class="inc-row"><label for="inc">دخلي الشهري</label><input class="money" id="inc" inputmode="decimal" autocomplete="off" placeholder="٠"></div>
+  <div class="status none" id="status"></div>
+  <button class="tryBtn" id="tryBtn" type="button" hidden>جرّبوا سحر الـ١٠٪ ✨</button>
+  <div class="tip" id="tip"></div>
+</section>
+
+<details class="card" id="survBox">
+  <summary><span class="num-badge">+</span><span>عدّاد الصمود <span class="opt">(اختياري)</span></span></summary>
+  <p class="hint">إذا سكّر كل شي بليلة وحدة… كم شهر فيكم تصمدوا؟</p>
+  <div class="inc-row"><label for="sav">مدخراتي</label><input class="money" id="sav" inputmode="decimal" autocomplete="off" placeholder="٠"></div>
+  <div class="months" id="months" aria-hidden="true"></div>
+  <div class="surv" id="surv"></div>
+</details>
+
+<section class="card note" aria-labelledby="hN">
+  <div class="h"><span class="num-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6 H20 V18 H4 Z"/><path d="M4 6 L12 13 L20 6"/></svg></span><h2 id="hN">رسالة للشهر الجاي</h2></div>
+  <p class="hint">اكتبوا جملة تشجيع لحالكم. رح تستقبلكم هون أول ما ترجعوا الشهر الجاي.</p>
+  <textarea id="noteIn" rows="2" maxlength="220" placeholder="مثلاً: «الشهر الجاي بدي خفّف الطلبيات… وبدي كون أقرب لرقمي»"></textarea>
+  <div class="note-ok" id="noteOk" aria-live="polite"></div>
+</section>
+<p class="small" id="last"></p>
+<p class="small credit">صُنعت بحب من <a href="https://instagram.com/the.saraalissa" target="_blank" rel="noopener" dir="ltr">@the.saraalissa</a></p>
+<p class="small">كل الأرقام محفوظة على هالجهاز بس. ما حدا بيشوفها، ولا حتى أنا.</p>
+<button class="reset" id="reset" type="button">مسح كل الأرقام</button>
+</div>
+
+<script>
+(function(){
+  var KEY='raqmak-v2';
+  var CATS=[
+    {id:'house',t:'السكن',s:'إيجار أو قسط، أول واحد بيوصل',f:0,ic:'<path d="M4 11 L12 4 L20 11"/><path d="M6 10 V20 H18 V10"/>'},
+    {id:'bills',t:'فواتير',s:'كهربا، مي، نت، تلفونات',f:0.10,ic:'<path d="M13 3 L5 14 H11 L10 21 L19 9 H13 Z"/>'},
+    {id:'food',t:'أكل',s:'مع الطلبيات اللي ما منحسبها',f:0.10,ic:'<path d="M3 4 H6 L8 15 H18 L20 7 H7"/><circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/>'},
+    {id:'car',t:'مواصلات',s:'بنزين، قسط، صيانة',f:0.10,ic:'<path d="M3 16 V12 L6 7 H18 L21 12 V16 Z"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/>'},
+    {id:'kids',t:'الولاد',s:'مدارس، نشاطات، وكل «بدي… بدي»',f:0.05,ic:'<rect x="6" y="8" width="12" height="13" rx="3"/><path d="M9 8 V6 A3 3 0 0 1 15 6 V8"/>'},
+    {id:'fixed',t:'التزامات',s:'تأمين، أقساط، التزامات عائلية',f:0,ic:'<path d="M12 3 L19 6 V11 C19 16 15.5 19.5 12 21 C8.5 19.5 5 16 5 11 V6 Z"/>'},
+    {id:'other',t:'غيرو',s:'اللي منعرفه كلنا وما منحكيه',f:0.10,ic:'<circle cx="6" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="18" cy="12" r="1.4"/>'}
+  ];
+  var $=function(i){return document.getElementById(i)};
+  var S={v:[0,0,0,0,0,0,0],m:15,inc:0,sav:0,cur:'$',sel:0,backup:null,hist:[],note:null};
+  try{var r=JSON.parse(localStorage.getItem(KEY)||'null'); if(r&&Array.isArray(r.v)&&r.v.length===7){S=Object.assign(S,r);}}catch(e){}
+  if(!Array.isArray(S.hist))S.hist=[];
+
+  var nf; try{nf=new Intl.NumberFormat('ar-u-nu-arab',{maximumFractionDigits:0})}catch(e){nf={format:function(n){return String(n)}}}
+  var nfPlain; try{nfPlain=new Intl.NumberFormat('ar-u-nu-arab',{maximumFractionDigits:0,useGrouping:false})}catch(e){nfPlain=nf}
+  function money(n){return nf.format(Math.round(n))+' '+S.cur}
+  function parse(s){s=String(s||'').replace(/[٠-٩]/g,function(d){return '٠١٢٣٤٥٦٧٨٩'.indexOf(d)}).replace(/[۰-۹]/g,function(d){return '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)}).replace(/[٬,\s]/g,'').replace('٫','.');var n=parseFloat(s);return isFinite(n)&&n>0?n:0}
+  function niceStep(max){var raw=max/60;var p=Math.pow(10,Math.floor(Math.log10(Math.max(raw,1))));var m=raw/p;return (m<1.5?1:m<3.5?2.5:m<7.5?5:10)*p}
+  function niceCeil(x){if(x<=0)return 1000;var p=Math.pow(10,Math.floor(Math.log10(x)));var m=x/p;return (m<=1?1:m<=1.5?1.5:m<=2?2:m<=3?3:m<=5?5:m<=7.5?7.5:10)*p}
+
+  /* build bars */
+  var scale=niceCeil(Math.max.apply(null,S.v)*1.3);
+  var barsEl=$('bars'), cols=[];
+  CATS.forEach(function(c,i){
+    var col=document.createElement('div'); col.className='col';
+    col.innerHTML='<div class="track" role="slider" tabindex="0" aria-valuemin="0"><div class="fill"></div><span class="v"></span></div>'+
+      '<div class="cap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+c.ic+'</svg><span></span></div>';
+    col.querySelector('.cap span').textContent=c.t;
+    var tr=col.querySelector('.track'); tr.setAttribute('aria-label',c.t);
+    barsEl.appendChild(col); cols.push(col);
+    function setFromY(y){var rc=tr.getBoundingClientRect();var f=1-(y-rc.top)/rc.height;f=Math.max(0,Math.min(1,f));var st=niceStep(scale);S.v[i]=Math.round(f*scale/st)*st;render(true);}
+    tr.addEventListener('pointerdown',function(e){select(i);tr.classList.add('drag');try{tr.setPointerCapture(e.pointerId)}catch(_){}setFromY(e.clientY);e.preventDefault();});
+    tr.addEventListener('pointermove',function(e){if(tr.classList.contains('drag'))setFromY(e.clientY);});
+    function end(){if(!tr.classList.contains('drag'))return;tr.classList.remove('drag');rescale();}
+    tr.addEventListener('pointerup',end);tr.addEventListener('pointercancel',end);
+    tr.addEventListener('keydown',function(e){var st=niceStep(scale);if(e.key==='ArrowUp'||e.key==='ArrowRight'){S.v[i]+=st;}else if(e.key==='ArrowDown'||e.key==='ArrowLeft'){S.v[i]=Math.max(0,S.v[i]-st);}else return;e.preventDefault();select(i);if(S.v[i]>scale*0.95)rescale();render();});
+    tr.addEventListener('focus',function(){select(i)});
+  });
+  function rescale(){var mx=Math.max.apply(null,S.v);var ns=niceCeil(Math.max(mx*1.3,1));if(mx>=scale*0.9||ns<scale*0.5)scale=ns;render();}
+  function select(i){S.sel=i;var c=CATS[i];$('edName').textContent=c.t;$('edSub').textContent=c.s;cols.forEach(function(col,k){col.classList.toggle('sel',k===i)});syncEditor();}
+  function syncEditor(){var ed=$('edVal');if(document.activeElement!==ed)ed.value=S.v[S.sel]?nfPlain.format(S.v[S.sel]):'';ed.placeholder='٠';}
+  $('edVal').addEventListener('input',function(){S.v[S.sel]=parse(this.value);if(S.v[S.sel]>scale*0.95)scale=niceCeil(S.v[S.sel]*1.3);S.backup=null;render();});
+  $('edVal').addEventListener('blur',function(){syncEditor();rescale();});
+  $('plus').addEventListener('click',function(){S.v[S.sel]+=niceStep(scale);S.backup=null;if(S.v[S.sel]>scale*0.95)rescale();render();syncEditor();});
+  $('minus').addEventListener('click',function(){S.v[S.sel]=Math.max(0,S.v[S.sel]-niceStep(scale));S.backup=null;render();syncEditor();});
+
+  /* margin */
+  var chips=[].slice.call(document.querySelectorAll('.chip'));
+  chips.forEach(function(b){b.addEventListener('click',function(){S.m=+b.dataset.m;render();})});
+
+  /* currency */
+  var cur=$('cur');cur.value=S.cur;if(cur.value!==S.cur){S.cur='$';cur.value='$'}
+  cur.addEventListener('change',function(){S.cur=cur.value;render();});
+
+  /* income gauge */
+  var gauge=$('gauge'), gmax=1000;
+  function gaugeMax(A,crit){return niceCeil(Math.max(crit*1.45,S.inc*1.15,A*1.6,500))}
+  function setIncFromX(x){var rc=gauge.getBoundingClientRect();var f=(rc.right-x)/rc.width;f=Math.max(0,Math.min(1,f));var st=niceStep(gmax);S.inc=Math.round(f*gmax/st)*st;$('inc').value=S.inc?nfPlain.format(S.inc):'';render(true);}
+  gauge.addEventListener('pointerdown',function(e){gauge.classList.add('drag');try{gauge.setPointerCapture(e.pointerId)}catch(_){}setIncFromX(e.clientX);e.preventDefault();});
+  gauge.addEventListener('pointermove',function(e){if(gauge.classList.contains('drag'))setIncFromX(e.clientX);});
+  function gend(){if(!gauge.classList.contains('drag'))return;gauge.classList.remove('drag');render();}
+  gauge.addEventListener('pointerup',gend);gauge.addEventListener('pointercancel',gend);
+  $('pin').addEventListener('keydown',function(e){var st=niceStep(gmax);if(e.key==='ArrowLeft'||e.key==='ArrowUp')S.inc+=st;else if(e.key==='ArrowRight'||e.key==='ArrowDown')S.inc=Math.max(0,S.inc-st);else return;e.preventDefault();$('inc').value=S.inc?nfPlain.format(S.inc):'';render();});
+  var inc=$('inc'); inc.value=S.inc?nfPlain.format(S.inc):'';
+  inc.addEventListener('input',function(){S.inc=parse(inc.value);render();});
+
+  /* try cut */
+  $('tryBtn').addEventListener('click',function(){
+    if(S.backup){S.v=S.backup.slice();S.backup=null;}
+    else{S.backup=S.v.slice();S.v=S.v.map(function(x,i){var st=niceStep(scale);return Math.round(x*(1-CATS[i].f)/ (st/5))*(st/5)});}
+    render();syncEditor();
+  });
+
+  /* savings */
+  var sav=$('sav'); sav.value=S.sav?nfPlain.format(S.sav):'';
+  sav.addEventListener('input',function(){S.sav=parse(sav.value);render();});
+  var monthsEl=$('months'); for(var k=0;k<12;k++)monthsEl.appendChild(document.createElement('i'));
+  if(S.sav)$('survBox').open=true;
+
+  var saveT=null, shown=0, raf=null;
+  function countTo(el,to){if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){el.textContent=money(to);shown=to;return}cancelAnimationFrame(raf);var from=shown,t0=null;function st(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/450),e=1-Math.pow(1-p,3),v=from+(to-from)*e;el.textContent=money(v);if(p<1)raf=requestAnimationFrame(st);else shown=to}raf=requestAnimationFrame(st)}
+  function today(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+
+  function render(dragging){
+    var A=S.v.reduce(function(a,b){return a+b},0), B=A*S.m/100, crit=A+B;
+    // bars
+    var flexIdx=-1,flexMax=0;
+    S.v.forEach(function(x,i){if(CATS[i].f>0&&x>flexMax){flexMax=x;flexIdx=i}});
+    var zone = crit<=0||S.inc<=0?'none': S.inc<A?'red': S.inc<crit?'blue':'green';
+    cols.forEach(function(col,i){
+      var pct=Math.min(S.v[i]/scale*100,100);
+      col.querySelector('.fill').style.height=pct+'%';
+      var v=col.querySelector('.v'); v.style.bottom='calc('+pct+'% + 4px)'; if(pct>88)v.style.bottom='calc('+pct+'% - 22px)';
+      v.textContent=S.v[i]?nfPlain.format(S.v[i]):'';
+      v.style.color=pct>88?'var(--on-blue)':'';
+      var tr=col.querySelector('.track'); tr.setAttribute('aria-valuenow',S.v[i]); tr.setAttribute('aria-valuetext',money(S.v[i]));
+      col.classList.toggle('flag',(zone==='red'||zone==='blue')&&i===flexIdx&&!S.backup);
+    });
+    if(!dragging||document.activeElement!==$('edVal'))syncEditor();
+    $('totA').textContent=money(A);
+    chips.forEach(function(b){b.setAttribute('aria-pressed',String(+b.dataset.m===S.m))});
+    countTo($('crit'),crit);
+    $('daily').textContent='يعني '+money(crit/30)+' باليوم… وأنتو قدّها';
+
+    // gauge
+    if(!gauge.classList.contains('drag'))gmax=gaugeMax(A,crit);
+    var pa=Math.min(A/gmax*100,100), pc=Math.min(crit/gmax*100,100), pi=Math.min(S.inc/gmax*100,100);
+    $('zR').style.width=pa+'%';$('zB').style.width=(pc-pa)+'%';$('zG').style.width=(100-pc)+'%';
+    $('tA').style.right=pa+'%';$('tC').style.right=pc+'%';$('tA').hidden=!(A>0)||(pc-pa)<16;$('tC').hidden=!(crit>0);
+    $('pin').style.right=pi+'%';$('bubble').textContent=money(S.inc);
+    $('pin').setAttribute('aria-valuenow',S.inc);$('pin').setAttribute('aria-valuetext',money(S.inc));
+    $('pin').style.borderColor= zone==='red'?'var(--red)':zone==='blue'?'var(--blue)':zone==='green'?'var(--green)':'var(--ink)';
+
+    // status
+    var st=$('status'), h, p, tip='';
+    st.className='status '+zone;
+    if(crit<=0){h='يلا نبلّش';p='كل رحلة بتبلّش برقم. اسحبوا أعمدة المصاريف فوق، والرقم الحرج رح يطلع هون.'}
+    else if(S.inc<=0){h='قرّبتوا!';p='اسحبوا الدبوس لعند دخلكم، لتشوفوا وين أنتو بالرحلة.'}
+    else if(zone==='red'){h='هون نقطة البداية… وأحلى شي إنكم عرفتوها';p='الناقص <b>'+money(A-S.inc)+'</b> للأساسيات، و<b>'+money(crit-S.inc)+'</b> للرقم الحرج. هلأ صار عندكم هدف واضح بدل الضياع، وهاي أصعب خطوة وعملتوها. أنا كمان بلّشت من هون.'}
+    else if(zone==='blue'){h='قريبين كتير!';p='المصاريف مغطاية، وضايلكم بس <b>'+money(crit-S.inc)+'</b> لتوصلوا للرقم الحرج. كم خطوة صغيرة وبتكونوا بالأخضر.'}
+    else {h='برافو عليكم! أنتو بمنطقة الراحة';p='عندكم <b>'+money(S.inc-crit)+'</b> زيادة كل شهر. هلأ فيكم تجربوا وتحلموا بلا خوف: كبّروا الهامش، استثمروا بمهارة جديدة، أو كافئوا حالكم. بتستاهلوا.'}
+    st.innerHTML='<h3></h3><p></p>';st.querySelector('h3').textContent=h;st.querySelector('p').innerHTML=p;
+    var tb=$('tryBtn'), showTry=(zone==='red'||zone==='blue')||!!S.backup;
+    tb.hidden=!showTry;
+    if(S.backup){tb.textContent='رجّعوا الأرقام متل ما كانت';tb.classList.add('undo');
+      var saved=S.backup.reduce(function(a,b){return a+b},0)-A; tip=saved<=0?'ما في مصاريف مرنة لسا. زيدوا أرقام للأكل أو المواصلات أو الفواتير وجرّبوا مرة تانية.':zone==='green'?'شايفين؟ بتخفيف صغير وفّرتوا '+money(saved)+' ووصلتوا للأخضر!':'شايفين؟ بخطوة صغيرة وفّرتوا '+money(saved)+' بالشهر، والدبوس قرّب أكتر من الأخضر.';}
+    else{tb.textContent='جرّبوا سحر الـ١٠٪ ✨';tb.classList.remove('undo');
+      if(showTry&&flexIdx>=0)tip='العمود الأحمر فوق هو أكبر مصروف مرن ('+CATS[flexIdx].t+'). هون أسهل مكان تبلّشوا منه… وخطوة صغيرة بتعمل فرق كبير.';}
+    $('tip').textContent=tip;
+
+    // survival
+    var mo=crit>0?S.sav/crit:0, cells=monthsEl.children, col=mo<3?'var(--red)':mo<6?'var(--blue)':'var(--green)';
+    for(var k=0;k<12;k++)cells[k].style.background=k<Math.floor(mo)?col:'';
+    $('surv').textContent= !S.sav?'': crit<=0?'حطوا المصاريف فوق أول.':'فيكم تصمدوا '+nf.format(Math.floor(mo*10)/10)+((Math.round(mo)>=3&&Math.round(mo)<=10)?' شهور':' شهر')+(mo>=12?' وأكتر. أنتو صخرة!':mo>=6?'. أساس قوي، فخورة فيكم!':mo>=3?'. منيح كتير، كمّلوا!':'. كل مبلغ صغير بتضيفوه بيلوّن مربع جديد.');
+
+    // last time
+    var prev=null;for(var q=S.hist.length-1;q>=0;q--){if(S.hist[q].d!==today()){prev=S.hist[q];break}}
+    $('last').textContent=prev?('أهلاً برجعتكم! آخر مرة كان الرقم الحرج '+nf.format(prev.c)+' والدخل '+nf.format(prev.i)+' '+(prev.cur||S.cur)+'.'):'';
+
+    clearTimeout(saveT);saveT=setTimeout(function(){
+      if(crit>0){var t=today(),snap={d:t,c:Math.round(crit),i:Math.round(S.inc),cur:S.cur};if(S.hist.length&&S.hist[S.hist.length-1].d===t)S.hist[S.hist.length-1]=snap;else S.hist.push(snap);if(S.hist.length>24)S.hist.splice(0,S.hist.length-24);}
+      try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
+    },600);
+  }
+
+  $('reset').addEventListener('click',function(){if(!confirm('متأكدين؟ رح تنمسح كل الأرقام والرسالة.'))return;S={v:[0,0,0,0,0,0,0],m:15,inc:0,sav:0,cur:S.cur,sel:0,backup:null,hist:[],note:null};noteIn.value='';noteOk.textContent='';$('letter').hidden=true;try{localStorage.removeItem(KEY)}catch(e){}inc.value='';sav.value='';scale=1000;select(0);render();});
+
+
+  /* note to future self */
+  var noteIn=$('noteIn'), noteOk=$('noteOk');
+  function fmtD(d){try{return new Date(d+'T12:00:00').toLocaleDateString('ar',{day:'numeric',month:'long'})}catch(e){return d}}
+  if(S.note&&S.note.t){
+    if(S.note.d!==today()){ $('letter').hidden=false; $('letterH').textContent='رسالة منكم لحالكم، من '+fmtD(S.note.d)+':'; $('letterT').textContent='«'+S.note.t+'»'; }
+    else { noteIn.value=S.note.t; }
+  }
+  var noteT=null;
+  noteIn.addEventListener('input',function(){clearTimeout(noteT);noteT=setTimeout(function(){var t=noteIn.value.trim();S.note=t?{t:t,d:today()}:null;noteOk.textContent=t?'انحفظت! رح تلاقوها هون الشهر الجاي… ورح تفرحوا فيها.':'';try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}},500);});
+  /* save result as image */
+  var shotBlob=null;
+  function rr(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath();}
+  function drawShot(){
+    var A=S.v.reduce(function(a,b){return a+b},0), crit=A*(1+S.m/100);
+    var W=1080,H=1350,cv=document.createElement('canvas');cv.width=W;cv.height=H;var c=cv.getContext('2d');
+    var g=c.createLinearGradient(0,0,W,H);g.addColorStop(0,'#13203B');g.addColorStop(.6,'#1E3A7A');g.addColorStop(1,'#1C6E6A');c.fillStyle=g;c.fillRect(0,0,W,H);
+    var r1=c.createRadialGradient(W-60,80,0,W-60,80,420);r1.addColorStop(0,'rgba(79,140,255,.45)');r1.addColorStop(1,'rgba(79,140,255,0)');c.fillStyle=r1;c.fillRect(0,0,W,H);
+    var r2=c.createRadialGradient(80,H-80,0,80,H-80,440);r2.addColorStop(0,'rgba(52,211,153,.35)');r2.addColorStop(1,'rgba(52,211,153,0)');c.fillStyle=r2;c.fillRect(0,0,W,H);
+    try{c.direction='rtl'}catch(e){}
+    c.textAlign='center';c.fillStyle='#FFFFFF';
+    var D='Lalezar, "Baloo Bhaijaan 2", sans-serif', B='"Baloo Bhaijaan 2", sans-serif';
+    c.globalAlpha=.85;c.font='700 46px '+B;c.fillText('رقمي الحرج',W/2,250);c.globalAlpha=1;
+    var big=money(crit),fs=190;c.font=fs+'px '+D;while(c.measureText(big).width>W-140&&fs>80){fs-=10;c.font=fs+'px '+D;}
+    c.fillText(big,W/2,470);
+    c.font='700 40px '+B;var dl='يعني '+money(crit/30)+' باليوم';var dw=c.measureText(dl).width+80;
+    c.fillStyle='rgba(255,255,255,.16)';rr(c,(W-dw)/2,530,dw,84,42);c.fill();c.fillStyle='#FFFFFF';c.fillText(dl,W/2,586);
+    var rows=[['مجموع المصاريف',money(A)],['هامش الأمان',nf.format(S.m)+'٪']];
+    if(S.inc>0)rows.push(['دخلي الشهري',money(S.inc)]);
+    var y=720;rows.forEach(function(rw){c.fillStyle='rgba(255,255,255,.1)';rr(c,120,y,W-240,96,28);c.fill();c.fillStyle='#FFFFFF';c.font='700 38px '+B;c.textAlign='right';c.fillText(rw[0],W-170,y+62);c.textAlign='left';c.font='800 40px '+B;c.fillText(rw[1],170,y+62);c.textAlign='center';y+=118;});
+    var zone=crit<=0||S.inc<=0?'':S.inc<A?'red':S.inc<crit?'blue':'green';
+    if(zone){var lab=zone==='red'?'نقطة البداية… وعرفتها':zone==='blue'?'قريبة كتير من الأخضر':'بمنطقة الراحة ✨',col=zone==='red'?'#FF7A6B':zone==='blue'?'#8FB4FF':'#34D399';c.font='800 44px '+B;c.fillStyle=col;c.fillText(lab,W/2,y+50);}
+    c.fillStyle='rgba(255,255,255,.75)';c.font='700 34px '+B;c.fillText('رقمك الحرج · @the.saraalissa',W/2,H-80);
+    return cv;
+  }
+  $('saveBtn').addEventListener('click',function(){
+    var go=function(){var cv=drawShot();$('shot').src=cv.toDataURL('image/png');$('modal').hidden=false;shotBlob=null;$('mshare').hidden=true;
+      if(cv.toBlob)cv.toBlob(function(b){if(!b)return;shotBlob=b;try{var f=new File([b],'raqmi.png',{type:'image/png'});if(navigator.canShare&&navigator.canShare({files:[f]}))$('mshare').hidden=false;}catch(e){}},'image/png');};
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(go,go);else go();
+  });
+  $('mshare').addEventListener('click',function(){if(!shotBlob)return;try{navigator.share({files:[new File([shotBlob],'raqmi.png',{type:'image/png'})],title:'رقمي الحرج'}).catch(function(){})}catch(e){}});
+  $('mclose').addEventListener('click',function(){$('modal').hidden=true;});
+  $('modal').addEventListener('click',function(e){if(e.target===this)this.hidden=true;});
+
+  select(Math.min(Math.max(S.sel|0,0),6));
+  render();
+})();
+</script>
+</body>
+</html>
