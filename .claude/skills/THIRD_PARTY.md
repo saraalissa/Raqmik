@@ -7,3 +7,4 @@ Copied (MIT licensed, reviewed before install) from:
 
 Each skill keeps its original LICENSE file where the source provided one.
 House rule for every skill: no fabricated reviews, counts, urgency, or claims (see `conversion-copy`).
+- https://github.com/coreyhaines31/marketingskills (MIT, 30 skills selected; evals omitted; license copy in THIRD_PARTY_marketingskills_LICENSE.txt)
