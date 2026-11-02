@@ -44,3 +44,8 @@ Prepare caption + media URL + cover choice + posting time (use online_followers 
 - Fix the link path: one clear link-in-bio destination, pinned reel that explains it, and a comment-to-DM keyword on every 2nd reel.
 - Turn the 208-comment topic into a mini-series.
 - Collaborations with creators in career/entrepreneurship.
+
+## Specialist ig-* skills (Jakeschincariol/instagram-agent-skill)
+Use them for the craft, keep this skill's golden rules for every action:
+ig-reel (26 scored hook formulas + beat sheet), ig-viral (what works in the niche, read-only), ig-caption (caption linter), ig-carousel, ig-story, ig-profile (bio/profile score), ig-plan (weekly plan), ig-comment, ig-reply, ig-dm, ig-repurpose, ig-audit, ig-human (strips AI tells).
+Notes: their hook lists, linters and humanizer are written for English. For Sara's Levantine Arabic, apply the principles (hook strength, truncation length, plain voice) and do not run English-only scripts on Arabic text as a pass/fail gate. Nothing they produce is posted without Sara's approval.
