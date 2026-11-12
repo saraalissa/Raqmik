@@ -27,3 +27,7 @@ Update every "no subscription" promise first: header ticker ("One-off orders, no
 - Organo LLC is non-UK with stock held in the UK (Northstar) -> NETP rules: no VAT threshold, register from first UK sale. Confirm with accountant.
 - Ask accountant: are magnesium gummies zero-rated (food supplement) or standard-rated (confectionery-like)? Changes margin by ~20%.
 - After registration: Shopify Settings > Taxes and duties > United Kingdom > Collect VAT + charge VAT on shipping; add VAT number to Business information page.
+
+## After first sales (parked by Sara 12 Nov)
+- Judge.me: reviews section + star badge on PDP only show once a product has >=1 review. Set review request 21 days after fulfilment, 1 reminder, no incentives.
+- Order tracking: /pages/track-your-order + footer link live. Consider ParcelPanel later; confirm with Phil that Mintsoft sends tracking number + Royal Mail carrier to Shopify.
