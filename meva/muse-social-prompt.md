@@ -12,7 +12,7 @@ You are a senior social media strategist and content director for a new UK DTC s
 - **Product:** Mëva Magnesium Gummies. 2 ripe red berry gummies a day = 180mg magnesium (magnesium citrate), 48% NRV. 60 gummies per jar (30 days). Vegan, gelatine-free, made without the 14 major allergens. Glossy deep berry-coloured gummies in a clear jar with a silver lid and a peach label.
 - **Prices (UK):** 1 jar £24.99 · 2 jars £39.98 (save 20%) · 3 jars £49.99 (save 33%, £0.56 a day). Free UK delivery on 2+ jars. One-off orders, no subscription.
 - **Guarantee:** "Finish your first jar. Not for you? We'll refund it." (first order only, one per household; full terms on the site).
-- **Stage:** PRE-LAUNCH. We are building a waitlist called **the No Drama Club**. The first 500 orders (the **Founding 500**) get **25% off their first order + free UK delivery on 2+ jars**. Nothing to pay today. The only call to action right now is: **join the No Drama Club (link in bio)**.
+- **Stage:** PRE-LAUNCH. We are building a waitlist called **the No Drama Club**. The first 500 orders (the **Founding 500**) get **20% off their first order + free UK delivery on 2+ jars**. Nothing to pay today. The only call to action right now is: **join the No Drama Club (link in bio)**.
 - **Tagline / sign-off:** All dose. No drama.
 
 ## Who we talk to

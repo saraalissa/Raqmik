@@ -29,13 +29,13 @@ Trigger: customer created with tag `waitlist`. Exit: launch day (they move to Fl
 
 ### Email 1. Immediately
 Subject: You're in, babe.
-Preview: 25% off, free delivery on 2+ jars, and a promise we'll keep.
+Preview: 20% off, free delivery on 2+ jars, and a promise we'll keep.
 
 Hi gorgeous,
 
 You just joined the No Drama Club. Good call. Here's what that gets you:
 
-- 25% off your first order at launch
+- 20% off your first order at launch
 - Free UK delivery on 2+ jars
 - Finish your first jar. Not for you? We'll refund it. No awkward questions. (First order only, one per household. Full terms: trymeva.co/pages/refunds)
 
@@ -97,12 +97,12 @@ CTA: none, reply only
 ## Flow 2: Launch (one-off campaigns to `waitlist`)
 
 ### Launch day
-Subject: It's here, girl. Your 25% is waiting.
+Subject: It's here, girl. Your 20% is waiting.
 Preview: Founding price, free UK delivery on 2+ jars, and our no-drama guarantee on your first jar.
 
 It's launch day and you're first in line, exactly where you should be.
 
-Use code FOUNDING25 for 25% off your first order (use the same email you signed up with). Delivery is free on 2+ jars. Finish your first jar. Not for you? We'll refund it. No forms, no fuss.
+Use code FOUNDING20 for 20% off your first order (use the same email you signed up with). Delivery is free on 2+ jars. Finish your first jar. Not for you? We'll refund it. No forms, no fuss.
 
 The founding price ends Sunday at midnight.
 
@@ -113,9 +113,9 @@ Segment tip: send `reserve-3` a version that opens the 3-jar pack.
 Subject: Babe, Sunday.
 Preview: That's when the founding price ends. That's the whole email.
 
-Quick one, because we know your inbox is a lot. The founding price (25% off, plus free delivery on 2+ jars) ends Sunday at midnight. After that it's the normal price. That's it. Go on.
+Quick one, because we know your inbox is a lot. The founding price (20% off, plus free delivery on 2+ jars) ends Sunday at midnight. After that it's the normal price. That's it. Go on.
 
-CTA: Use my 25% → product page
+CTA: Use my 20% → product page
 
 ---
 
