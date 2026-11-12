@@ -12,4 +12,4 @@ Sara removed these until she has them. Add them back everywhere at once:
 
 Also pending:
 - Shopify Settings > Store details: customer-facing contact email should be info@trymeva.co (not a personal address).
-- Free delivery threshold is £30: a Founding 500 2-jar order (£39.98 - 25% = £29.99) would be charged £4.99. Decide: lower threshold to £29 and/or make FOUNDING25 include free shipping.
+- DONE 12 Nov: free delivery threshold lowered to £29 (Shopify rates, cart bar, Delivery page, shipping-policy.txt). Still decide whether FOUNDING25 should include free shipping on 1 jar.
