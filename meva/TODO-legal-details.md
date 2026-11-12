@@ -12,4 +12,4 @@ Sara removed these until she has them. Add them back everywhere at once:
 
 Also pending:
 - Shopify Settings > Store details: customer-facing contact email should be info@trymeva.co (not a personal address).
-- DONE 12 Nov: free delivery threshold lowered to £29 (Shopify rates, cart bar, Delivery page, shipping-policy.txt). Still decide whether FOUNDING25 should include free shipping on 1 jar.
+- DONE 12 Nov: free delivery threshold lowered to £29 (Shopify rates, cart bar, Delivery page, shipping-policy.txt). FOUNDING25 created 12 Nov (25% off, segment "Founding 500 (first order)", once per customer, 500 uses) + automatic free UK delivery for the same segment.
