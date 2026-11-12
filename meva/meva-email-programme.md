@@ -37,7 +37,7 @@ You just joined the No Drama Club. Good call. Here's what that gets you:
 
 - 25% off your first order at launch
 - Free UK delivery
-- Finish the jar. Not for you? Full refund, no awkward questions.
+- Finish your first jar. Not for you? We'll refund it. No awkward questions. (First order only, one per household. Full terms: trymeva.co/pages/refunds)
 
 And here's what you won't get from us: miracle words, scare stories, or a new "breakthrough" every Tuesday.
 
@@ -98,11 +98,11 @@ CTA: none, reply only
 
 ### Launch day
 Subject: It's here, girl. Your 25% is waiting.
-Preview: Founding price, free UK delivery, full refund if it's not for you.
+Preview: Founding price, free UK delivery, and our no-drama guarantee on your first jar.
 
 It's launch day and you're first in line, exactly where you should be.
 
-Use code FOUNDING25 for 25% off your first order, with free UK delivery. Finish the jar. Not for you? Full refund, no forms, no fuss.
+Use code FOUNDING25 for 25% off your first order, with free UK delivery. Finish your first jar. Not for you? We'll refund it. No forms, no fuss.
 
 The founding price ends Sunday at midnight.
 
@@ -164,7 +164,7 @@ Refill email body:
 
 Psst. You've got about six days left in your jar. If two gummies by the kettle has become your thing, here's the easy way to keep it going.
 
-The 2-jar pack ships free and works out cheaper per day. And the promise stands: not for you, full refund. No awkward questions.
+The 2-jar pack ships free and works out cheaper per day. And the guarantee stands: finish your first jar, and if it's not for you, we'll refund it. No awkward questions.
 
 CTA: Restock in one click → product page (2 jars preselected)
 
