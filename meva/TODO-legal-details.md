@@ -12,7 +12,7 @@ Sara removed these until she has them. Add them back everywhere at once:
 
 Also pending:
 - Shopify Settings > Store details: customer-facing contact email should be info@trymeva.co (not a personal address).
-- DONE 12 Nov: free delivery threshold lowered to £29 (Shopify rates, cart bar, Delivery page, shipping-policy.txt). FOUNDING25 created 12 Nov (25% off, segment "Founding 500 (first order)", once per customer, 500 uses) + automatic free UK delivery for the same segment.
+- DONE 12 Nov: free delivery threshold lowered to £29 (Shopify rates, cart bar, Delivery page, shipping-policy.txt). FOUNDING25 created 12 Nov (25% off, segment "Founding 500 (first order)", once per customer, 500 uses). Automatic free-delivery discount for founders REMOVED 12 Nov: founders get free delivery on 2+ jars like everyone (threshold £29).
 
 ## If monthly subscriptions are added later
 Update every "no subscription" promise first: header ticker ("One-off orders, no subscription"), PDP comparison row "Paying", FAQ "Do I have to subscribe?", Refunds page + Terms "No subscriptions", product description. Add: reminder email before each charge, one-click cancel.
