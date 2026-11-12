@@ -21,3 +21,9 @@ Update every "no subscription" promise first: header ticker ("One-off orders, no
 - Statement descriptor set to SP TRYMEVA.CO. Trade name: Meva.
 - Phone on billing statement is personal: replace with a business/virtual UK number before ads.
 - Ask Shopify support to update Payments business description (remove "licensed UK manufacturers").
+
+## VAT (before first sale)
+- UK market prices are set to INCLUDE tax (good). No UK VAT registration added in Shopify yet, so VAT is not itemised/collected.
+- Organo LLC is non-UK with stock held in the UK (Northstar) -> NETP rules: no VAT threshold, register from first UK sale. Confirm with accountant.
+- Ask accountant: are magnesium gummies zero-rated (food supplement) or standard-rated (confectionery-like)? Changes margin by ~20%.
+- After registration: Shopify Settings > Taxes and duties > United Kingdom > Collect VAT + charge VAT on shipping; add VAT number to Business information page.
