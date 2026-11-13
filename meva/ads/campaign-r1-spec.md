@@ -77,3 +77,36 @@ These are approved for now. Swap them for real product photography when the offi
 - **Ads:** not created yet. Meta returned "Facebook Page is Missing": the Windsor token has no access to Page 61596592942162. Sara needs to reconnect Windsor and select the MEVA Page and @trymeva.co.
 - **Ad payloads:** asset_feed_spec with 3 bodies and 3 titles, built in the scratchpad.
 - **Tracking:** `utm_campaign` is static (`meva_waitlist_r1`), so the campaign name, with its date, can be changed at launch.
+
+## BUILT (13 Nov, night). Everything PAUSED, nothing spending
+- **Page:** 1368462283024523. The old ID, 61596592942162, was wrong.
+- **Instagram:** 17841479804583743
+- **Images:** hosted on Shopify Files (`cdn.shopify.com/.../files/meva-ad-<ID>-feed.jpg` and `-story.jpg`). Meta could not fetch the earlier image URLs.
+- **Each ad has:**
+  - 4:5 for FB/IG feed, 9:16 for stories and reels (placement asset customisation)
+  - every Advantage+ creative enhancement OPT_OUT
+  - URL tags on
+- **Multiple text options are not allowed together with placement customisation.** So each ad has one primary text and one headline, and the 3 texts are spread across the 5 ads in each ad set.
+
+### Ad IDs
+| Ad set | Ad | ID |
+|---|---|---|
+| A | A1 | 120247372197020424 |
+| A | A2 | 120247372202020424 |
+| A | A3 | 120247372203030424 |
+| A | A4 | 120247372204620424 |
+| A | A5 | 120247372205770424 |
+| B | B1 | 120247372209760424 |
+| B | B2 | 120247372210970424 |
+| B | B3 | 120247372212290424 |
+| B | B4 | 120247372217040424 |
+| B | B5 | 120247372219100424 |
+| C | C1 | 120247372229340424 |
+| C | C2 | 120247372233750424 |
+| C | C3 | 120247372237970424 |
+| C | C4 | 120247372246730424 |
+| C | C5 | 120247372256370424 |
+
+### To launch
+1. Rename the campaign with the launch date.
+2. Enable the campaign, the 3 ad sets and the 15 ads, only on Sara's explicit go-ahead.
