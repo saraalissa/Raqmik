@@ -1,6 +1,12 @@
-# Mëva (trymeva.co) — session handoff, 13 Nov 2026
+# Mëva (trymeva.co) — session handoff
 
-Read this first. It replaces the memory of the previous session.
+Last updated: 13 Nov 2026, end of session.
+Read this first. It replaces the memory of the previous session. Everything here is on branch `meva-email-voice`.
+
+## Start here (in this order)
+1. Check the Shopify connector works: `{themes(first:5){nodes{id name role}}}`. It was down (502) for the last part of the previous session, which is why work is pending. If it is still down, tell Sara to reconnect Shopify under Claude settings → Connectors.
+2. Finish the pending upload (next section).
+3. Black Friday task: read `black-friday-brief.md`. Do NOT build the copy until Sara answers the two open questions in it. If she has answered in her first message, follow her answer.
 
 ## Who and how to work
 - **Owner:** Sara (Organo LLC). She writes in Levantine Arabic and expects **short Arabic replies**. All site copy is **British English**.
@@ -73,10 +79,17 @@ The source line is mandatory. Figures verified against NDNS 2019–2023 Table 5.
 5. Zoho Mail for info@trymeva.co (EU data centre, new account, DNS in Shopify Domains), then set as Shopify sender email.
 6. Later: business address, VAT/NETP, GDPR rep, reviews and tracking after first sales.
 7. Possible: yellow Founding box also removed outside waitlist mode (ask her).
+8. Black Friday upgrade (see section above).
 
-## Next task after the pending upload
-`black-friday-brief.md`: Black Friday reservation upgrade. Not built. Read the open questions in it and get Sara's answers before writing the copy.
+## Black Friday task (not started)
+Full brief and build notes: `black-friday-brief.md`. Window: 27 Nov 2026 00:01 to 30 Nov 2026 23:59 UK time.
+Two questions were put to Sara and were unanswered when the session ended:
+1. The brief says "your 3rd jar is on us… after Monday the third jar is full price", but the 3-jar pack is £49.99 before, during and after, and prices must not change. That deadline claim is untrue and is fake urgency. Recommended: lead with the real new benefit (free UK delivery on any pack, incl. 1 jar) and tie the deadline to that only.
+2. "Discounts never stack" means the Founding 20% only helps 1-jar buyers, while the live site says "20% off your first order" next to pack prices. If she confirms no stacking, the Founding copy and the FOUNDING20 discount need changing before launch.
+Tracking required by the brief: tags `waitlist, founding-500, bf-founding` inside the window (no `bf-founding` outside), and "Reserved pack: N jars" in the customer note. Prove it with a real sign-up; hCaptcha blocks headless browsers.
 
 ## Other files in this folder
+- `black-friday-brief.md`: Black Friday brief (verbatim), open questions, build notes.
+- `theme-pending/`: theme files waiting to be uploaded, plus the upload helper scripts.
 - `cro-audit-2026-11-13.md`: full CRO audit.
 - `muse-social-prompt.md`, `meva-email-programme.md`, policy `.txt` files, `TODO-legal-details.md`.
