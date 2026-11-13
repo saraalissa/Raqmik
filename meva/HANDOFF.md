@@ -16,6 +16,24 @@ UPDATE (later on 13 Nov): Muse checked Commerce Manager. The review was submitte
 2. Check whether Sara published the stats-section change (next section) and sync the other theme copy.
 3. Black Friday task: read `black-friday-brief.md`. Do NOT build the copy until Sara answers the two open questions in it. If she has answered in her first message, follow her answer.
 
+## Update 13 Nov, evening (latest)
+- **MAIN theme** = "Copy of Mëva - Draft (Claude)" `145862000699`. It was published by Sara and holds all of today's edits. The other copy, `145622106171`, is synced and identical.
+- **Today's site edits:**
+  - eyebrow "Magnesium berry gummies"
+  - "What's in the jar."
+  - GMP wording taken from the Nutribl CoC (made in Spain under GMP, packed in the UK)
+  - "hormones" removed from the vs table
+  - 20% = a single jar only. FOUNDING20 is now £5 off once per order, on the 1-jar variant only, capped at 500 uses
+  - one guarantee wording everywhere (30-day satisfaction guarantee, no need to finish the jar); the refunds page is updated too
+  - "Reserve" defined: reservations ship first, in the order they came in
+- **Ad tracking:** the waitlist form saves the ad's UTMs as customer tags (`src-`, `adset-`, `ad-`) and adds an "Ad: ..." line to the note.
+- **Meta R1 campaign:** built PAUSED. Details are in `ads/campaign-r1-spec.md`. The ads are blocked by "Facebook Page is Missing": the Windsor token has no access to the MEVA Page. A Muse prompt to fix it has been given to Sara. All 15 creatives are in `ads/2026-11-13/`.
+- **Open items:**
+  - sugar per serving (asked from Nutribl)
+  - December stock date
+  - subscription plans
+  - Page access for ads
+
 ## Who and how to work
 - **Owner:** Sara (Organo LLC). She writes in Levantine Arabic and expects **short Arabic replies**. All site copy is **British English**.
 - **Voice:** the honest best friend with no drama. Mature, not cutesy. "Pinky promise" and sticker-style graphics were rejected.
