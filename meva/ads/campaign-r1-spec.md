@@ -55,3 +55,14 @@
   - adding site links and catalogue items
   - comments
 - **Targeting expansion:** off. No detailed-targeting expansion and no lookalike expansion.
+
+## Temporary images (Sara, 13 Nov)
+These are approved for now. Swap them for real product photography when the official photos/samples arrive from the source (Nutribl).
+
+| Ad | Image source | When the real photos arrive |
+|---|---|---|
+| A2 | AI-generated (plain bottle next to the jar) | Replace |
+| A4 | AI-generated (hand holding the jar) | Replace |
+| B1 | AI-generated (tired woman) | Replace the jar in shot |
+| A1, A3, B3, C3, C5 | Existing jar render or cut-out | Replace |
+| A5, C1 | Sara's / site product images | Keep unless the label changes |
