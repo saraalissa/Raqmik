@@ -17,12 +17,12 @@ Read this first. It replaces the memory of the previous session. Everything here
 - Never expose her personal email, phone or address anywhere customer-facing.
 - Never activate Meta ads without her explicit confirmation.
 
-## Pending upload: DONE, waiting for Sara to publish
-Uploaded 13 Nov (Shopify reconnected) to the then-unpublished theme "Mëva - Draft (Claude)" `145622106171`, verified on mobile and desktop:
-1. The 3-stat strip is its own section `<section class="pstats">` (cream #F8EFE6) directly above "Notes to self". Stats and source line appear once; nothing left in the hero.
-2. The yellow "Founding 500" box above the pack selector is removed in waitlist mode.
-Preview: `https://trymeva.co/products/meva-magnesium-gummies?preview_theme_id=145622106171`
-If that theme is now MAIN, she published it: sync the other copy with `theme-pending/sections/meva-pdp.liquid` + `meva-pdpx.liquid`. If it is still unpublished, remind her to publish.
+## Stats section: latest state (13 Nov)
+- LIVE at that point: "Mëva - Draft (Claude)" `145622106171` with the plain stats section above "Notes to self" and the yellow Founding box removed.
+- UNPUBLISHED "Copy of Mëva - Draft (Claude)" `145862000699` has the newer, livelier version Sara asked for (she called the plain one boring): three white cards on cream, 15% as 3-of-20 dots, 83% as a bar, 180mg with two gummy shapes and a 48% ring, count-up on scroll. Copy and source line unchanged; shown once. Awaiting her approval/publish.
+- Source of truth for both pdp files: `theme-pending/sections/`. After she publishes, sync the other theme copy with them.
+- She rejected tilted coloured "sticker" cards earlier. Do not bring those back.
+Preview: `https://trymeva.co/products/meva-magnesium-gummies?preview_theme_id=145862000699`
 
 ## Store facts
 - Shopify store trymeva.co. Pre-launch **waitlist mode**: "No Drama Club", Founding 500 = 20% off first order (code FOUNDING20), free UK delivery on 2+ jars, first-jar refund guarantee. Nothing is paid today.
