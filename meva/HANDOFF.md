@@ -82,7 +82,7 @@ The source line is mandatory. Figures verified against NDNS 2019–2023 Table 5.
 8. Black Friday upgrade (see section above).
 
 ## Black Friday offer: LIVE (published by Sara 13 Nov 15:41 UTC), hidden until 27 Nov
-Both theme copies now carry the same files (synced after she published). Real sign-ups verified in Shopify: new customer saved with tags `waitlist, founding-500, reserve-3` and note `Reserved pack: 3 jars` (outside the window, so correctly no `bf-founding`); an earlier preview sign-up with `&bf=1` saved `bf-founding`. Known limit: when an existing email signs up again Shopify adds tags but does NOT overwrite the note, so treat the `reserve-N` tag as the source of truth for the pack. Two test customers of Sara's exist (one carries `bf-founding`); ask her before deleting.
+Both theme copies now carry the same files (synced after she published). Real sign-ups verified in Shopify: new customer saved with tags `waitlist, founding-500, reserve-3` and note `Reserved pack: 3 jars` (outside the window, so correctly no `bf-founding`); an earlier preview sign-up with `&bf=1` saved `bf-founding`. Known limit: when an existing email signs up again Shopify adds tags but does NOT overwrite the note, so treat the `reserve-N` tag as the source of truth for the pack. Sara's two test customers were deleted with her approval on 13 Nov; the customer list is empty again.
 
 (Build details below.)
 Final brief (v3, hers): no price expiry; the only time-limited thing is first-batch shipping priority for reservations made 27 Nov 2026 00:01 to 30 Nov 2026 23:59 UK time. Delivery policy unchanged (1 jar pays delivery). Offers don't stack.
