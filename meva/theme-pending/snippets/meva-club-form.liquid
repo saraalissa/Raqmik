@@ -68,6 +68,16 @@
 </style>
 <script>
 (function(){
+  /* Ad attribution: read utm_* from the current URL (no cookies/storage) and carry them on internal links so a later sign-up on the same visit still knows which ad it came from. */
+  var UP=['utm_source','utm_medium','utm_campaign','utm_term','utm_content','placement'];
+  var cur=new URLSearchParams(location.search),utm={};
+  UP.forEach(function(k){var x=cur.get(k);if(x)utm[k]=x.slice(0,120);});
+  if(Object.keys(utm).length&&!window.MV_UTM_LINKS){window.MV_UTM_LINKS=1;
+    document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;
+      try{var u=new URL(a.href,location.href);if(u.host!==location.host)return;
+        var ch=false;UP.forEach(function(k){if(utm[k]&&!u.searchParams.get(k)){u.searchParams.set(k,utm[k]);ch=true;}});
+        if(ch)a.href=u.toString();}catch(err){}},true);}
+  function slug(x){return String(x).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,60);}
   document.querySelectorAll('.mvclub form').forEach(function(f){
     if(f.dataset.bound)return;f.dataset.bound='1';
     var qs=f.querySelector('[data-club-q]'),ow=f.querySelector('.mvother'),oi=f.querySelector('[data-club-other]');
@@ -79,10 +89,14 @@
       var r=new URLSearchParams(location.search).get('reserve');
       if(r)v.push('reserve-'+r.replace(/[^0-9a-z]/gi,'').slice(0,4));
       if(window.MV_BF)v.push('bf-founding');
+      if(utm.utm_source)v.push('src-'+slug(utm.utm_source));
+      if(utm.utm_term)v.push('adset-'+slug(utm.utm_term));
+      if(utm.utm_content)v.push('ad-'+slug(utm.utm_content));
       var nt=f.querySelector('[data-club-note]');
       if(nt){var parts=[],pk=r?parseInt(r,10):0;
         if(pk>=1&&pk<=3)parts.push('Reserved pack: '+pk+(pk===1?' jar':' jars'));
         if(q&&q.value==='q-other'&&oi&&oi.value.trim())parts.push('Draining me most: '+oi.value.trim().slice(0,200));
+        if(Object.keys(utm).length)parts.push('Ad: '+UP.filter(function(k){return utm[k]}).map(function(k){return k.replace('utm_','')+'='+utm[k]}).join(', '));
         nt.value=parts.join(' | ');}
       t.value=v.join(',');
     });
