@@ -24,7 +24,7 @@
 - Images: feed JPGs. Their public URLs are in `2026-11-13/_image-urls.json`.
 - Link: `https://trymeva.co/products/meva-magnesium-gummies`
 - URL parameters (url_tags on every ad): `utm_source=meta&utm_medium=paid_social&utm_campaign={{campaign.name}}&utm_term={{adset.name}}&utm_content={{ad.name}}&placement={{placement}}`
-- Ad names: `A1_search-dose`, `A2_check-bottle`, `A3_simplified`, `A4_circled-dose`, `A5_sticky-note`, `B1_3pm-empty`, `B2_15pct`, `B3_83pct`, `B4_todo-4sec`, `B5_tired-same`, `C1_056-a-day`, `C2_breakup`, `C3_3for2`, `C4_receipt`, `C5_founding-member`
+- Ad names: `A1_search-dose`, `A2_check-bottle`, `A3_simplified`, `A4_circled-dose`, `A5_sticky-note`, `B1_3pm-empty`, `B2_15pct`, `B3_stuck-at-83`, `B4_todo-4sec`, `B5_tired-same`, `C1_056-a-day`, `C2_breakup`, `C3_3for2`, `C4_receipt`, `C5_founding-member`
 - Headline: "Join free: 20% off your first jar"
 - Description: "Nothing to pay today"
 - CTA: SIGN_UP
