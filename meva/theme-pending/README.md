@@ -1,3 +1,5 @@
+# UPDATE 13 Nov: these files WERE uploaded to theme 145622106171 (unpublished at the time) and verified. Kept here as the source for syncing the other theme copy.
+
 # Mëva theme: pending upload (13 Nov 2026)
 
 The Shopify connector dropped mid-task, so these files were NOT uploaded.

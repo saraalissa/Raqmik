@@ -5,7 +5,7 @@ Read this first. It replaces the memory of the previous session. Everything here
 
 ## Start here (in this order)
 1. Check the Shopify connector works: `{themes(first:5){nodes{id name role}}}`. It was down (502) for the last part of the previous session, which is why work is pending. If it is still down, tell Sara to reconnect Shopify under Claude settings → Connectors.
-2. Finish the pending upload (next section).
+2. Check whether Sara published the stats-section change (next section) and sync the other theme copy.
 3. Black Friday task: read `black-friday-brief.md`. Do NOT build the copy until Sara answers the two open questions in it. If she has answered in her first message, follow her answer.
 
 ## Who and how to work
@@ -17,12 +17,12 @@ Read this first. It replaces the memory of the previous session. Everything here
 - Never expose her personal email, phone or address anywhere customer-facing.
 - Never activate Meta ads without her explicit confirmation.
 
-## FIRST JOB: finish the pending upload
-See `meva/theme-pending/README.md`. Two changes are saved in `theme-pending/sections/meva-pdp.liquid` and `meva-pdpx.liquid` but are NOT on Shopify (the connector dropped):
-1. The 3-stat strip is now its own section `<section class="pstats">` (cream #F8EFE6), directly above "Notes to self".
+## Pending upload: DONE, waiting for Sara to publish
+Uploaded 13 Nov (Shopify reconnected) to the then-unpublished theme "Mëva - Draft (Claude)" `145622106171`, verified on mobile and desktop:
+1. The 3-stat strip is its own section `<section class="pstats">` (cream #F8EFE6) directly above "Notes to self". Stats and source line appear once; nothing left in the hero.
 2. The yellow "Founding 500" box above the pack selector is removed in waitlist mode.
-
-Upload to the unpublished theme, verify, send her screenshots + the preview link.
+Preview: `https://trymeva.co/products/meva-magnesium-gummies?preview_theme_id=145622106171`
+If that theme is now MAIN, she published it: sync the other copy with `theme-pending/sections/meva-pdp.liquid` + `meva-pdpx.liquid`. If it is still unpublished, remind her to publish.
 
 ## Store facts
 - Shopify store trymeva.co. Pre-launch **waitlist mode**: "No Drama Club", Founding 500 = 20% off first order (code FOUNDING20), free UK delivery on 2+ jars, first-jar refund guarantee. Nothing is paid today.
