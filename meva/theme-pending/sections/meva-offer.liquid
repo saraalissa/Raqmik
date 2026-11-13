@@ -1,0 +1,202 @@
+{%- comment -%} Mëva ad landing page (/pages/offer). Shared styles come from sections/meva-header.liquid. {%- endcomment -%}
+{%- liquid
+  assign is_product = false
+  assign p = all_products[section.settings.product_handle]
+  assign v1 = p.variants.first
+  assign v2 = p.variants.first
+  assign v3 = p.variants.first
+  for v in p.variants
+    if v.title contains '3'
+      assign v3 = v
+    elsif v.title contains '2'
+      assign v2 = v
+    else
+      assign v1 = v
+    endif
+  endfor
+  assign each3 = v3.price | divided_by: 3
+  assign each2 = v2.price | divided_by: 2
+  assign save3 = v3.price | times: 100.0 | divided_by: v1.price | divided_by: 3 | round | minus: 100 | abs
+  assign save2 = v2.price | times: 100.0 | divided_by: v1.price | divided_by: 2 | round | minus: 100 | abs
+  assign n = section.settings.jar_count
+  assign pd1 = v1.price | times: 1.0 | divided_by: n | round
+  assign pd2 = v2.price | times: 1.0 | divided_by: n | divided_by: 2 | round
+  assign pd3 = v3.price | times: 1.0 | divided_by: n | divided_by: 3 | round
+  assign sv2 = v1.price | times: 2 | minus: v2.price
+  assign sv3 = v1.price | times: 3 | minus: v3.price
+  assign brand = section.settings.brand_name
+  assign home = routes.root_url
+  if home == '/'
+    assign home = ''
+  endif
+  assign img_jar = section.settings.jar_image
+  if img_jar == blank
+    assign img_jar = p.featured_image
+  endif
+-%}
+<style>
+/* Ad landing page: hide site navigation so the only action is buying */
+#header-group .hnav,#header-group .mnav,#header-group .hr .btn,#header-group .hr .ico{display:none!important}
+#header-group .logo{pointer-events:none}
+.mv5 .ftr .cols>div:nth-child(2),.mv5 .ftr .cols>div:nth-child(3){display:none}
+.mv5 .oh1{font-size:clamp(34px,5vw,54px);line-height:1;margin-top:8px}
+.mv5 .oh1 em{font-style:normal;color:var(--berry)}
+.mv5 .ocks{margin-top:14px;display:flex;flex-direction:column;gap:8px;font-weight:600;font-size:15px}
+.mv5 .ochoose{margin-top:20px;font-weight:800;color:var(--plum);font-size:17px}
+.mv5 .ochoose+.qrows{margin-top:10px}
+.mv5 .qb.ofirst{padding-top:clamp(12px,2vw,28px)}
+@media (max-width:860px){.mv5 .qb.ofirst .qimg{aspect-ratio:16/11}}
+</style>
+<div class="mv5">
+  <section class="qb ofirst" id="buy"><div class="wrap"><div class="qbox">
+    <div class="qimg">{%- if img_jar != blank -%}{{ img_jar | image_url: width: 900 | image_tag: alt: img_jar.alt, loading: 'eager', fetchpriority: 'high', sizes: '(max-width: 860px) 100vw, 45vw', widths: '450, 900' }}{%- endif -%}<span class="qsale">Up to {{ save3 }}% off</span></div>
+    <div class="qtxt">
+      <p class="kick">For the women who hold everyone together</p>
+      <h1 class="oh1">Tired of being tired? <em>Same, babe.</em></h1>
+      <p class="qsub">Two berry gummies. 180mg magnesium, the real dose on the front. Magnesium contributes to the reduction of tiredness and fatigue. All dose. No drama.</p>
+      <p class="opd">From <b>{{ pd3 | money }} a day</b> · one-off orders, no subscription</p>
+      <ul class="cks ocks"><li class="ck">Two berry gummies a day · vegan</li><li class="ck">Only UK-authorised claims, word for word</li><li class="ck">Finish your first jar. Not for you? We&#39;ll refund it.</li></ul>
+      <p class="ochoose">Choose your pack</p>
+      <div class="packs2 qpacks">
+        <label class="pk2"><input type="radio" name="qbv" data-href="{% if section.settings.waitlist_mode %}?reserve=1#club{% else %}{{ routes.root_url }}cart/{{ v1.id }}:1{% endif %}" value="{{ v1.id }}" data-price="{{ v1.price | money }}" data-note="1 jar · + {{ section.settings.single_delivery }} delivery"><span class="t"><b>1 jar</b><span class="sup">{{ n }}-day supply</span></span><span class="p"><b>{{ v1.price | money }}</b><small>~{{ pd1 | money }} a day</small></span><span class="extra"><span class="ln"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>UK delivery {{ section.settings.single_delivery }}</span><span class="ln"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>{{ section.settings.guarantee_days }}-day guarantee</span></span></label>
+        <label class="pk2"><input type="radio" name="qbv" data-href="{% if section.settings.waitlist_mode %}?reserve=2#club{% else %}{{ routes.root_url }}cart/{{ v2.id }}:1{% endif %}" value="{{ v2.id }}" data-price="{{ v2.price | money }}" data-note="2 jars · free delivery" checked><span class="t"><b>2 jars</b><span class="tag">Our pick</span><span class="sup">{{ n | times: 2 }}-day supply</span></span><span class="p"><b>{{ v2.price | money }}</b><small>~{{ pd2 | money }} a day</small></span><span class="extra"><span class="savepill">Save {{ sv2 | money }} vs 2 single jars</span><span class="ln fs"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>FREE UK delivery included</span><span class="ln"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>{{ section.settings.guarantee_days }}-day guarantee</span></span></label>
+        <label class="pk2"><input type="radio" name="qbv" data-href="{% if section.settings.waitlist_mode %}?reserve=3#club{% else %}{{ routes.root_url }}cart/{{ v3.id }}:1{% endif %}" value="{{ v3.id }}" data-price="{{ v3.price | money }}" data-note="3 jars · free delivery"><span class="t"><b>3 jars</b><span class="tag">Best price</span><span class="sup">{{ n | times: 3 }}-day supply</span></span><span class="p"><b>{{ v3.price | money }}</b><small>~{{ pd3 | money }} a day</small></span><span class="extra"><span class="savepill">Save {{ sv3 | money }} vs 3 single jars</span><span class="ln fs"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>FREE UK delivery included</span><span class="ln"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>{{ section.settings.guarantee_days }}-day guarantee</span></span></label>
+      </div>
+      {%- if section.settings.waitlist_mode -%}<a class="btn qcta" id="mv-qcta" href="?reserve=2#club">Reserve mine</a>
+      <p class="qnote">Launching soon. Nothing to pay today. Founding 500: 20% off your first order, free UK delivery on 2+ jars and our no-drama guarantee on your first jar.</p>{%- else -%}<a class="btn qcta" id="mv-qcta" href="{{ routes.root_url }}cart/{{ v2.id }}:1">Get {{ brand }}</a>
+      <p class="qnote">One-off purchase. No subscription. Prices include VAT.</p>{%- endif -%}
+      <div class="qtrust">
+        <div><img src="{{ 'meva-clayp2.png' | file_url }}" alt="" width="56" height="56" loading="lazy"><span>{{ section.settings.guarantee_days }}-day first-jar guarantee</span></div>
+        <div><img src="{{ 'meva-clayp3.png' | file_url }}" alt="" width="56" height="56" loading="lazy"><span>Free tracked UK delivery on 2+ jars</span></div>
+        <div><img src="{{ 'meva-clayp1.png' | file_url }}" alt="" width="56" height="56" loading="lazy"><span>Vegan, gelatine-free berry gummy</span></div>
+      </div>
+    </div>
+  </div></div></section>
+  <script>(function(){var c=document.getElementById('mv-qcta');if(!c)return;document.querySelectorAll('.mv5 .qpacks input').forEach(function(r){r.addEventListener('change',function(){c.href=r.getAttribute('data-href');});});})();</script>
+
+  {%- if section.settings.waitlist_mode -%}
+  <section class="clubsec" style="padding:clamp(40px,6vw,72px) 0;background:#f6e6dc"><div class="wrap" style="display:flex;justify-content:center">{% render 'meva-club-form', fid: 'club' %}</div></section>
+  <script>(function(){var r=new URLSearchParams(location.search).get('reserve');if(!r)return;var i=document.querySelector('.mv5 .qpacks input[data-href*="reserve='+r.replace(/[^0-9]/g,'')+'"]');if(i){i.checked=true;var c=document.getElementById('mv-qcta');if(c)c.href=i.getAttribute('data-href');}})();</script>
+  {%- endif -%}
+  <section class="rit" id="how"><div class="wrap"><div class="ritbox">
+    <div class="txt"><p class="kick">The ritual</p><h2>Three steps. Under a minute.</h2>
+      <ol class="rsteps"><li><b>Keep the jar by the kettle</b><span>Where you&#39;ll see it every morning.</span></li><li><b>Chew two berry gummies</b><span>Straight from the jar, with your morning tea.</span></li><li><b>Get on with your day</b><span>That&#39;s your magnesium done. Give it the full {{ n }} days. You&#39;d do the same for a new mascara.</span></li></ol>
+      <a class="btn" href="#buy">Choose your pack</a></div>
+    <div class="photo">{%- if section.settings.moment1_image != blank -%}{{ section.settings.moment1_image | image_url: width: 1100 | image_tag: alt: section.settings.moment1_image.alt, loading: 'lazy' }}{%- endif -%}</div>
+  </div></div></section>
+<section class="otl"><div class="wrap">
+    <p class="kick">What to expect</p>
+    <h2>Your first jar, day by day.</h2>
+    <ol>
+      <li><span>Day 1</span><b>Two by the kettle.</b><p>Open the jar, two gummies, four seconds. No water.</p></li>
+      <li><span>Day 7</span><b>It&#39;s a habit now.</b><p>Same time every day. The jar lives in your bag on busy days.</p></li>
+      <li><span>Day 14</span><b>Halfway.</b><p>28 gummies in. Keep showing up for you.</p></li>
+      <li><span>Day 30</span><b>Jar finished. Honest check-in.</b><p>Loving it? Keep going. Not for you? We&#39;ll refund your first jar.</p></li>
+    </ol>
+    <p class="fine">Magnesium contributes to the reduction of tiredness and fatigue.</p>
+    <div class="octa"><a class="btn" href="#buy">Reserve mine</a><span>Nothing to pay today · Finish your first jar. Not for you? We&#39;ll refund it.</span></div>
+  </div></section>
+
+  <section class="ogap"><div class="wrap">
+    <p class="kick">The food gap</p>
+    <h2>It&#39;s not just you. It&#39;s the food.</h2>
+    <p>In the UK&#39;s own national diet survey, 15% of women aged 19&ndash;64 don&#39;t reach even the minimum magnesium intake from food alone. Busy days, skipped lunches, one more coffee instead of a meal &mdash; it adds up quietly.</p>
+    <p>M&euml;va adds 180mg of magnesium a day &mdash; 48% of your daily reference intake &mdash; in two berry gummies. The real dose, printed on the front.</p>
+    <p class="claim">Magnesium contributes to the reduction of tiredness and fatigue.</p>
+    <div class="octa"><a class="btn" href="#buy">Reserve mine</a><span>Nothing to pay today · Finish your first jar. Not for you? We&#39;ll refund it.</span></div>
+    <p class="src">Source: National Diet and Nutrition Survey 2019&ndash;2023, Office for Health Improvement and Disparities &amp; Food Standards Agency (2025). Women aged 19&ndash;64 with magnesium intakes from food below the Lower Reference Nutrient Intake.</p>
+  </div></section>
+  <section class="claims" id="inside-claims"><div class="wrap">
+    <div class="head"><div><p class="kick">Our claims</p><h2 style="margin-top:10px">One mineral. Said plainly.</h2></div><p>These are the UK-authorised claims for magnesium. We use them word for word, because if we can&#39;t prove it, we won&#39;t say it.</p></div>
+    <div class="cgrid">
+      <div><b>Energy</b><span>Contributes to the reduction of tiredness and fatigue</span></div>
+      <div><b>Mind</b><span>Contributes to normal psychological function</span></div>
+      <div><b>Nerves</b><span>Contributes to normal functioning of the nervous system</span></div>
+      <div><b>Muscles</b><span>Contributes to normal muscle function</span></div>
+      <div><b>Bones</b><span>Contributes to the maintenance of normal bones</span></div>
+    </div>
+  </div>  <div class="octa"><a class="btn" href="#buy">Reserve mine</a><span>Nothing to pay today · Finish your first jar. Not for you? We&#39;ll refund it.</span></div>
+</section>
+
+  <section class="vs"><div class="wrap">
+    <div><p class="kick">Compare</p><h2 style="margin-top:10px">{{ brand }} vs the usual wellness hype</h2><p>Comparing claims, labels and format. Not a medical comparison, and not about any one brand.</p></div>
+    <div class="tbox"><table class="cmp cmp2">
+      <thead><tr><td></td><th scope="col" class="us">{{ brand | downcase }}</th><th scope="col">The usual wellness hype</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">What it claims</th><td class="us"><span class="cv"><span class="ic y" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Five UK-authorised claims, word for word</span></span></td><td><span class="cv"><span class="ic n" aria-hidden="true">–</span><span>Big promises, like &ldquo;balances your hormones&rdquo;</span></span></td></tr>
+        <tr><th scope="row">The label</th><td class="us"><span class="cv"><span class="ic y" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>One mineral, with the exact amount</span></span></td><td><span class="cv"><span class="ic n" aria-hidden="true">–</span><span>Long blends that are hard to decode</span></span></td></tr>
+        <tr><th scope="row">How we talk to you</th><td class="us"><span class="cv"><span class="ic y" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Like your best friend. Straight, no fear</span></span></td><td><span class="cv"><span class="ic n" aria-hidden="true">–</span><span>Symptoms, fear and miracle words</span></span></td></tr>
+        <tr><th scope="row">Subscription</th><td class="us"><span class="cv"><span class="ic y" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Never. Every order is one-off</span></span></td><td><span class="cv"><span class="ic n" aria-hidden="true">–</span><span>Often hard to cancel</span></span></td></tr>
+        <tr><th scope="row">Taste</th><td class="us"><span class="cv"><span class="ic y" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Soft berry gummy</span></span></td><td><span class="cv"><span class="ic n" aria-hidden="true">–</span><span>Large tablets or capsules</span></span></td></tr>
+      </tbody>
+    </table></div>
+  </div>  <div class="octa"><a class="btn" href="#buy">Reserve mine</a><span>Nothing to pay today · Finish your first jar. Not for you? We&#39;ll refund it.</span></div>
+</section>
+
+  <section class="faq" id="faq"><div class="wrap">
+    <div class="side"><h2>Questions?</h2><p>Email {{ section.settings.contact_email }} and a real person replies. Not a bot, promise.</p></div>
+    <div>
+      <details><summary>What&#39;s in each jar?</summary><p>{{ n | times: 2 }} berry gummies with 90mg magnesium each. One jar lasts {{ n }} days at two gummies a day.</p></details>
+      <details><summary>How many gummies do I take?</summary><p>{{ section.settings.dose_text }} Do not exceed the recommended daily intake.</p></details>
+      <details><summary>What do they taste like?</summary><p>Ripe red berry. Soft, chewy and glossy, never chalky. Honestly, you&#39;ll look forward to it.</p></details>
+      <details><summary>How long until I notice a difference?</summary><p>Real talk: everyone&#39;s different, so we won&#39;t promise results. Give it a full jar ({{ n }} days) as part of your daily routine. If it isn&#39;t for you, our {{ section.settings.guarantee_days }}-day guarantee has you covered.</p></details>
+      <details><summary>Can I take it alongside HRT or other medication?</summary><p>Please check with your GP or pharmacist before taking any supplement alongside medication.</p></details>
+      <details><summary>Do I have to subscribe?</summary><p>No. Every order is a one-off purchase. Nothing renews automatically.</p></details>
+      <details><summary>How fast is delivery?</summary><p>Royal Mail Tracked, usually 2 to 3 working days. Free on 2 or more jars, {{ section.settings.single_delivery }} for one jar.</p></details>
+      <details><summary>What if it isn&#39;t for me?</summary><p>Email us within {{ section.settings.guarantee_days }} days of your first order arriving and we&#39;ll refund the jar you opened. No need to send it back. Bought 2 or 3 jars? Post the unopened ones back and we&#39;ll refund those too. One guarantee per customer and household. <a href="{{ routes.root_url }}pages/refunds">Full terms</a>.</p></details>
+    </div>
+  </div></section>
+  <section class="close"><div class="wrap"><div class="box">
+    <div class="txt"><h2>Go on. Do one thing for you.</h2><p>Two berry gummies a day, made for this chapter of your life. Backed by our {{ section.settings.guarantee_days }}-day guarantee.</p><a class="btn" href="#buy">Choose your pack</a></div>
+    <div class="cimg"><div class="photo">{%- if section.settings.jar_image != blank -%}{{ section.settings.jar_image | image_url: width: 1100 | image_tag: alt: section.settings.jar_image.alt, loading: 'lazy' }}{%- endif -%}</div><ul class="cfeat"><li class="ck">UK-authorised claims only</li><li class="ck">Two gummies a day, no water</li><li class="ck">Vegan and gelatine-free</li><li class="ck">Free UK delivery on 2+ jars</li><li class="ck">{{ section.settings.guarantee_days }}-day guarantee</li></ul></div>
+  </div></div></section>
+  <div class="sbar"><div><b>{{ v2.price | money }}</b><small>2 jars · free UK delivery</small></div><a class="btn" href="#buy">Choose your pack</a></div>
+</div>
+<style>
+.mv5 .opd{margin:-4px 0 14px;font-size:15px;color:var(--muted)}.mv5 .opd b{color:var(--plum);font-weight:800}
+.mv5 .octa{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;margin-top:clamp(26px,4vw,40px)}
+.mv5 .octa span{font-size:13.5px;color:var(--muted);max-width:460px}
+.mv5 .otl{background:#fbf7f4;padding:clamp(48px,7vw,88px) 0;text-align:center}
+.mv5 .otl h2{font-size:clamp(28px,3.8vw,44px);letter-spacing:-.04em;margin:6px 0 clamp(22px,3vw,34px)}
+.mv5 .otl ol{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1080px;text-align:left}
+.mv5 .otl li{background:#fff;border-radius:20px;padding:20px 18px;box-shadow:0 10px 24px rgba(61,15,39,.07)}
+.mv5 .otl li span{display:inline-block;background:var(--plum,#3d0f27);color:#ffd84d;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:999px}
+.mv5 .otl li b{display:block;font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--plum,#3d0f27);margin:10px 0 4px}
+.mv5 .otl li p{margin:0;font-size:14.5px;line-height:1.5;color:var(--muted)}
+.mv5 .otl .fine{font-size:12.5px;color:var(--muted);margin-top:16px}
+@media (max-width:860px){.mv5 .otl ol{grid-template-columns:1fr 1fr}.mv5 .octa .btn{width:100%}}
+@media (max-width:480px){.mv5 .otl ol{grid-template-columns:1fr}}
+</style>
+<style>
+.mv5 .ogap{background:#f6e6dc;padding:clamp(48px,7vw,88px) 0;text-align:center}
+.mv5 .ogap .wrap{max-width:720px}
+.mv5 .ogap h2{font-size:clamp(28px,3.8vw,44px);letter-spacing:-.04em;margin:6px 0 16px}
+.mv5 .ogap p{font-size:17px;line-height:1.65;margin:0 0 14px}
+.mv5 .ogap .claim{font-weight:700;color:var(--plum,#3d0f27)}
+.mv5 .ogap .octa{margin-top:22px}
+.mv5 .ogap .src{font-size:12px;line-height:1.5;color:var(--muted);margin:22px auto 0;max-width:560px}
+</style>
+{% schema %}
+{
+  "name": "Mëva offer page",
+  "settings": [
+    { "type": "text", "id": "brand_name", "label": "Brand name", "default": "Mëva" },
+    { "type": "checkbox", "id": "waitlist_mode", "label": "Waitlist mode (No Drama Club, no checkout)", "default": true },
+    { "type": "text", "id": "product_handle", "label": "Product handle", "default": "meva-magnesium-gummies" },
+    { "type": "number", "id": "jar_count", "label": "Days per jar (60 gummies at 2 a day)", "default": 30 },
+    { "type": "text", "id": "guarantee_days", "label": "Guarantee days", "default": "30" },
+    { "type": "text", "id": "single_delivery", "label": "Delivery price for 1 jar", "default": "£4.99" },
+    { "type": "text", "id": "dose_text", "label": "Dose text", "default": "Adults: chew two gummies a day. Do not exceed the stated dose. Not recommended during pregnancy or breastfeeding unless advised by a healthcare professional." },
+    { "type": "textarea", "id": "ingredients", "label": "Ingredients", "default": "Glucose syrup, sugar, magnesium citrate, water, pectin (gelling agent), citric acid (acid), trisodium citrate (acidity regulator), spirulina, anthocyanins (colour), coconut oil, natural flavouring, carnauba wax (glazing agent). Made without the 14 major allergens." },
+    { "type": "text", "id": "contact_email", "label": "Contact email", "default": "info@trymeva.co" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "image_picker", "id": "jar_image", "label": "Jar image" },
+    { "type": "image_picker", "id": "macro_image", "label": "Gummies close-up" },
+    { "type": "image_picker", "id": "moment1_image", "label": "Moment 1 (breakfast)" },
+    { "type": "image_picker", "id": "moment2_image", "label": "Moment 2 (treat)" },
+    { "type": "image_picker", "id": "moment3_image", "label": "Moment 3 (friends)" },
+    { "type": "image_picker", "id": "closing_image", "label": "Closing image" }
+  ],
+  "presets": [{ "name": "Mëva offer page" }]
+}
+{% endschema %}

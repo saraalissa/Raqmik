@@ -1,0 +1,27 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "meva_header": {
+      "type": "meva-header",
+      "settings": {
+        "brand_name": "Mëva",
+        "waitlist_mode": true,
+        "announcement": "Free UK delivery on 2+ jars | Up to 33% off multipacks | 30-day first-jar guarantee | Vegan & gelatine-free | Packed in the UK | One-off orders, no subscription",
+        "product_handle": "meva-magnesium-gummies"
+      }
+    }
+  },
+  "order": [
+    "meva_header"
+  ]
+}

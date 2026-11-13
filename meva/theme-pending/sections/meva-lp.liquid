@@ -1,0 +1,122 @@
+{%- liquid
+  assign p = all_products[section.settings.product_handle]
+  assign v1 = p.variants.first
+  assign v2 = p.variants.first
+  assign v3 = p.variants.first
+  for v in p.variants
+    if v.title contains '3'
+      assign v3 = v
+    elsif v.title contains '2'
+      assign v2 = v
+    else
+      assign v1 = v
+    endif
+  endfor
+  assign n = section.settings.jar_count
+  assign g = section.settings.guarantee_days
+  assign brand = section.settings.brand_name
+  assign pd1 = v1.price | times: 1.0 | divided_by: n | round
+  assign pd2 = v2.price | times: 1.0 | divided_by: n | divided_by: 2 | round
+  assign pd3 = v3.price | times: 1.0 | divided_by: n | divided_by: 3 | round
+  assign sv2 = v1.price | times: 2 | minus: v2.price
+  assign sv3 = v1.price | times: 3 | minus: v3.price
+-%}
+<style>
+.mv5 .lp-top{display:block;text-align:center;background:var(--cream);color:var(--plum);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:10px 16px;text-decoration:none;border-bottom:1px solid var(--line)}
+.mv5 .lp-top span{opacity:.4;margin:0 6px}
+.mv5 .lp-top b{font-weight:800}
+.mv5 .lp-hero{padding-block:clamp(32px,5vw,64px) 12px}
+.mv5 .lp-hero .wrap{max-width:720px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.mv5 .lp-logo{font-family:var(--display);font-weight:900;font-size:44px;letter-spacing:-.05em;color:var(--berry);line-height:1;margin-bottom:18px}
+.mv5 .lp-hero .dek b,.mv5 .rs p b{color:var(--plum);font-weight:700}
+.mv5 .kit{background:#fff;border-radius:28px;padding:clamp(22px,4vw,36px);display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+.mv5 .kit-img{width:min(260px,70%);aspect-ratio:1/1;border-radius:22px;overflow:hidden}
+.mv5 .kit-img img{width:100%;height:100%;object-fit:cover}
+.mv5 .kit-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;text-align:left;font-weight:600;font-size:15px}
+.mv5 .lp-hero h1{font-size:clamp(34px,5vw,54px)}
+.mv5 .lp-hero .dek{font-size:18px;color:var(--muted);margin-top:16px;max-width:58ch;line-height:1.6}
+.mv5 .lp-hero .dek+.dek{margin-top:10px}
+.mv5 .lp-list{padding-block:20px clamp(48px,6vw,80px)}
+.mv5 .lp-list .wrap{max-width:720px;display:flex;flex-direction:column;gap:clamp(40px,6vw,64px)}
+.mv5 .rs .photo{aspect-ratio:16/9;margin-bottom:22px}
+.mv5 .rs h2{font-size:clamp(24px,3vw,30px);margin:0 0 12px}
+.mv5 .rs p{color:var(--muted);font-size:17px;line-height:1.7}
+.mv5 .rs p+p{margin-top:12px}
+.mv5 .rs .claim{display:block;margin-top:12px;font-size:13px;color:var(--muted)}
+.mv5 .lp-quote{background:var(--cream);border-radius:24px;padding:clamp(28px,4vw,44px);display:flex;flex-direction:column;gap:6px}
+.mv5 .lp-quote b{font-family:var(--display);font-weight:800;font-size:clamp(48px,7vw,72px);color:var(--berry);letter-spacing:-.04em;line-height:1}
+.mv5 .lp-quote span{font-size:clamp(19px,2.4vw,24px);font-weight:600;color:var(--plum);line-height:1.35;max-width:30ch}
+.mv5 .lp-offer{background:var(--cream)}
+.mv5 .lp-offer .wrap{max-width:720px;display:flex;flex-direction:column;gap:18px}
+.mv5 .lp-offer .head{text-align:center;display:flex;flex-direction:column;gap:10px;align-items:center}
+.mv5 .lp-offer .head p{color:var(--muted);max-width:52ch}
+.mv5 .lp-offer .packs2 a.pk2{text-decoration:none;color:inherit}
+.mv5 .lp-offer .packs2 a.pk2 .go{width:22px;height:22px;border-radius:50%;border:2px solid var(--plum);margin-top:5px}
+.mv5 .lp-offer .packs2 a.pk2.best{background:var(--lilac);border:2px solid var(--plum);box-shadow:4px 5px 0 var(--plum)}
+.mv5 .lp-offer .packs2 a.pk2.best .go{background:var(--plum);box-shadow:inset 0 0 0 4px var(--lilac)}
+.mv5 .lp-offer .cta{align-self:stretch;min-height:62px;font-size:18px}
+.mv5 .lp-offer .cta2{align-self:stretch;min-height:56px}
+.mv5 .lp-inline{display:flex;flex-direction:column;gap:8px;align-items:stretch;text-align:center}
+.mv5 .lp-inline .btn{min-height:60px;font-size:17px}
+.mv5 .lp-inline span{font-size:13px;color:var(--muted)}
+body:has(.lp-offer) .hnav{display:none!important}
+.mv5 .lp-sbar{display:none}
+@media (max-width:900px){.mv5 .lp-sbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:25;background:#fff;border-top:1.5px solid var(--line);align-items:center;justify-content:space-between;gap:12px;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}.mv5 .lp-sbar b{font-family:var(--display);font-weight:800;font-size:16px;color:var(--plum);line-height:1.2}.mv5 .lp-sbar small{display:block;font-size:12px;color:var(--muted)}.mv5 .lp-sbar .btn{min-height:48px;padding:0 22px;box-shadow:none;white-space:nowrap}}
+</style>
+<div class="mv5">
+<a class="lp-top" href="#offer">Secure your pack <span>|</span> <b>Get {{ brand }}</b></a>
+  <section class="lp-hero"><div class="wrap">
+    <p class="lp-logo">{{ brand | downcase }}</p>
+    <h1>7 reasons why {{ brand }} is the honest magnesium gummy made for this chapter</h1>
+    <p class="dek"><b>You hold everyone together. You&#39;ve got enough to think about.</b> Your supplement shouldn&#39;t be one more thing. {{ brand }} is built on a simple idea: <b>two berry gummies a day, with only the claims UK law allows.</b></p>
+    <p class="dek"><b>It&#39;s a small daily habit you&#39;ll actually keep</b>, and every order is a one-off purchase.</p>
+  </div></section>
+  <section class="lp-list"><div class="wrap">
+    <article class="rs"><div class="photo">{%- if section.settings.jar_image != blank -%}{{ section.settings.jar_image | image_url: width: 1100 | image_tag: alt: section.settings.jar_image.alt, loading: 'lazy' }}{%- endif -%}</div><h2>1. It only says what&#39;s proven</h2><p><b>Every claim we make is one UK law allows for magnesium, word for word.</b> Every ingredient is listed on the jar with its exact amount.</p><p>Vegan, gelatine-free and made without the 14 major allergens. Made to Good Manufacturing Practice standards and packed in the UK.</p></article>
+    <aside class="lp-quote"><b>5</b><span>UK-authorised health claims for magnesium. We use every one word for word.</span></aside>
+    <article class="rs"><div class="photo">{%- if section.settings.macro_image != blank -%}{{ section.settings.macro_image | image_url: width: 1100 | image_tag: alt: section.settings.macro_image.alt, loading: 'lazy' }}{%- endif -%}</div><h2>2. Magnesium helps with tiredness and fatigue</h2><p><b>Magnesium contributes to the reduction of tiredness and fatigue.</b> It also contributes to normal psychological function and to the normal functioning of the nervous system.</p><p>Each gummy holds <b>90mg of magnesium</b>, so a daily serving of two gives you 180mg.</p><span class="claim">UK-authorised health claims for magnesium.</span></article>
+    <div class="lp-inline"><a class="btn" href="/cart/{{ v2.id }}:1">Try it for {{ n }} days, risk-free →</a><span>{{ g }}-day guarantee · Free UK delivery on 2+ jars · No subscription</span></div>
+    <article class="rs"><div class="photo">{%- if section.settings.friends_image != blank -%}{{ section.settings.friends_image | image_url: width: 1100 | image_tag: alt: section.settings.friends_image.alt, loading: 'lazy' }}{%- endif -%}</div><h2>3. It supports your muscles and bones too</h2><p><b>Magnesium contributes to normal muscle function and to the maintenance of normal bones.</b> Two more reasons to keep it in your daily routine as the years go on.</p><span class="claim">UK-authorised health claims for magnesium.</span></article>
+    <aside class="lp-quote"><b>180mg</b><span>of magnesium in a daily serving</span></aside>
+    <article class="rs"><div class="photo">{%- if section.settings.kitchen_image != blank -%}{{ section.settings.kitchen_image | image_url: width: 1100 | image_tag: alt: section.settings.kitchen_image.alt, loading: 'lazy' }}{%- endif -%}</div><h2>4. Simple, easy, and nothing to swallow</h2><p>Big tablets and gritty powders are easy to give up on. <b>{{ brand }} is two soft berry gummies a day.</b> You chew it with your morning tea and you&#39;re done.</p><p>Keep the jar by the kettle and it becomes part of the morning in about ten seconds.</p></article>
+    <article class="rs"><div class="photo">{%- if section.settings.take_image != blank -%}{{ section.settings.take_image | image_url: width: 1100 | image_tag: alt: section.settings.take_image.alt, loading: 'lazy' }}{%- endif -%}</div><h2>5. It tastes like a treat, so you keep it up</h2><p><b>A supplement only works if you actually take it.</b> {{ brand }} tastes like ripe red berries, soft and chewy, never chalky.</p><p>Two gummies, one small moment, every morning.</p></article>
+    <div class="lp-inline"><a class="btn" href="/cart/{{ v2.id }}:1">Get 2 jars for {{ v2.price | money }} →</a><span>{{ g }}-day guarantee · Free UK delivery on 2+ jars · No subscription</span></div>
+    <article class="rs"><div class="photo">{%- if section.settings.hand_image != blank -%}{{ section.settings.hand_image | image_url: width: 1100 | image_tag: alt: section.settings.hand_image.alt, loading: 'lazy' }}{%- endif -%}</div><h2>6. Costs less than a coffee a day</h2><p>On the 3-jar pack, {{ brand }} works out at about <b>{{ pd3 | money }} a day</b>, with free UK delivery. That&#39;s less than a takeaway coffee.</p><p>Every order is a one-off purchase. There&#39;s no subscription to remember to cancel.</p></article>
+    <aside class="lp-quote"><b>{{ pd3 | money }}</b><span>a day on the 3-jar pack, with free UK delivery</span></aside>
+    <article class="rs"><div class="photo">{%- if section.settings.hero_image != blank -%}{{ section.settings.hero_image | image_url: width: 1100 | image_tag: alt: section.settings.hero_image.alt, loading: 'eager' }}{%- endif -%}</div><h2>7. Try it properly, with no risk</h2><p>Give it a full {{ n }} days as part of your routine. <b>If it isn&#39;t for you, email us within {{ g }} days of your first order and we&#39;ll refund it.</b> No need to post anything back.</p></article>
+  </div></section>
+  <section class="lp-offer" id="offer"><div class="wrap">
+    <div class="kit"><div class="kit-img">{%- if section.settings.jar_image != blank -%}{{ section.settings.jar_image | image_url: width: 1100 | image_tag: alt: section.settings.jar_image.alt, loading: 'lazy' }}{%- endif -%}</div><h2>Get started with {{ brand }}</h2>
+      <ul class="kit-list"><li class="ck">{{ n | times: 2 }} berry gummies in every jar, 90mg magnesium each</li><li class="ck">A daily habit that takes less than a minute</li><li class="ck">UK-authorised claims only, vegan and gelatine-free</li><li class="ck">Free UK delivery on 2 or more jars</li><li class="ck">Backed by our {{ g }}-day guarantee</li></ul></div>
+    <div class="packs2">
+      <a class="pk2" href="/cart/{{ v1.id }}:1"><span class="go" aria-hidden="true"></span><span class="t"><b>1 jar</b><span class="sup">{{ n }}-day supply</span></span><span class="p"><b>{{ v1.price | money }}</b><small>~{{ pd1 | money }} a day</small></span><span class="extra"><span class="ln"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>UK delivery {{ section.settings.single_delivery }}</span><span class="ln"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>{{ g }}-day guarantee</span></span></a>
+      <a class="pk2 best" href="/cart/{{ v2.id }}:1"><span class="go" aria-hidden="true"></span><span class="t"><b>2 jars</b><span class="tag">Our pick</span><span class="sup">{{ n | times: 2 }}-day supply</span></span><span class="p"><b>{{ v2.price | money }}</b><small>~{{ pd2 | money }} a day</small></span><span class="extra"><span class="savepill">Save {{ sv2 | money }} vs 2 single jars</span><span class="ln fs"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>FREE UK delivery included</span><span class="ln"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>{{ g }}-day guarantee</span></span></a>
+      <a class="pk2" href="/cart/{{ v3.id }}:1"><span class="go" aria-hidden="true"></span><span class="t"><b>3 jars</b><span class="tag">Best price</span><span class="sup">{{ n | times: 3 }}-day supply</span></span><span class="p"><b>{{ v3.price | money }}</b><small>~{{ pd3 | money }} a day</small></span><span class="extra"><span class="savepill">Save {{ sv3 | money }} vs 3 single jars</span><span class="ln fs"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>FREE UK delivery included</span><span class="ln"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>{{ g }}-day guarantee</span></span></a>
+    </div>
+    <a class="btn cta" href="/cart/{{ v2.id }}:1">Try now · 2 jars for {{ v2.price | money }} →</a>
+    <a class="btn o cta2" href="{{ p.url }}">Learn more →</a>
+    <div class="perks"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>Free UK delivery on 2+ jars ({{ section.settings.single_delivery }} for one jar)</span><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>Backed by our {{ g }}-day guarantee</span><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0114-5.3L20 9"/><path d="M20 4v5h-5"/><path d="M20 12a8 8 0 01-14 5.3L4 15"/><path d="M4 20v-5h5"/></svg>One-off purchase. No subscription, nothing renews.</span></div>
+  </div></section>
+  <div class="lp-sbar"><div><b>2 jars · {{ v2.price | money }}</b><small>Free UK delivery · {{ g }}-day guarantee</small></div><a class="btn" href="/cart/{{ v2.id }}:1">Try now</a></div>
+</div>
+
+{% schema %}
+{
+  "name": "Mëva ad landing page",
+  "settings": [
+    { "type": "text", "id": "brand_name", "label": "Brand name", "default": "Mëva" },
+    { "type": "text", "id": "product_handle", "label": "Product handle", "default": "meva-magnesium-gummies" },
+    { "type": "number", "id": "jar_count", "label": "Days per jar (60 gummies at 2 a day)", "default": 30 },
+    { "type": "text", "id": "guarantee_days", "label": "Guarantee days", "default": "30" },
+    { "type": "text", "id": "single_delivery", "label": "Delivery price for 1 jar", "default": "£4.99" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "image_picker", "id": "kitchen_image", "label": "Reason 1 image" },
+    { "type": "image_picker", "id": "macro_image", "label": "Reason 2 image" },
+    { "type": "image_picker", "id": "take_image", "label": "Reason 3 image" },
+    { "type": "image_picker", "id": "jar_image", "label": "Reason 4 image" },
+    { "type": "image_picker", "id": "friends_image", "label": "Reason 3 image" },
+    { "type": "image_picker", "id": "hand_image", "label": "Reason 6 image" }
+  ],
+  "presets": [{ "name": "Mëva ad landing page" }]
+}
+{% endschema %}

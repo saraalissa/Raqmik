@@ -1,0 +1,1067 @@
+{%- comment -%}
+  Mëva v5 main section. Home and product templates. Styles live in sections/meva-header.liquid.
+{%- endcomment -%}
+{%- liquid
+  assign is_product = false
+  if request.page_type == 'product' and product
+    assign is_product = true
+    assign p = product
+  else
+    assign p = all_products[section.settings.product_handle]
+  endif
+  assign v1 = p.variants.first
+  assign v2 = p.variants.first
+  assign v3 = p.variants.first
+  for v in p.variants
+    if v.title contains '3'
+      assign v3 = v
+    elsif v.title contains '2'
+      assign v2 = v
+    else
+      assign v1 = v
+    endif
+  endfor
+  assign each3 = v3.price | divided_by: 3
+  assign each2 = v2.price | divided_by: 2
+  assign save3 = v3.price | times: 100.0 | divided_by: v1.price | divided_by: 3 | round | minus: 100 | abs
+  assign save2 = v2.price | times: 100.0 | divided_by: v1.price | divided_by: 2 | round | minus: 100 | abs
+  assign n = section.settings.jar_count
+  assign pd1 = v1.price | times: 1.0 | divided_by: n | round
+  assign pd2 = v2.price | times: 1.0 | divided_by: n | divided_by: 2 | round
+  assign pd3 = v3.price | times: 1.0 | divided_by: n | divided_by: 3 | round
+  assign sv2 = v1.price | times: 2 | minus: v2.price
+  assign sv3 = v1.price | times: 3 | minus: v3.price
+  assign brand = section.settings.brand_name
+  assign wl = section.settings.waitlist_mode
+  assign cta_url = p.url
+  assign cta_txt = 'Shop now'
+  if wl
+    assign cta_url = '#club'
+    assign cta_txt = 'Join the No Drama Club'
+  endif
+  assign home = routes.root_url
+  if home == '/'
+    assign home = ''
+  endif
+  assign img_jar = section.settings.jar_image
+  if img_jar == blank
+    assign img_jar = p.featured_image
+  endif
+-%}
+
+<style>
+.mv5 .mvinner{padding:clamp(56px,8vw,96px) 0;background:var(--plum,#5c1638);color:#fff}
+.mv5 .mvinner .kick{color:#ffd84d}
+.mv5 .mvinner blockquote .rep{display:block;margin-top:14px;padding-top:12px;border-top:1px dashed rgba(255,255,255,.22);font-family:var(--body,'Inter',sans-serif);font-weight:700;font-size:15.5px;line-height:1.4;color:#f3c9d4}
+.mv5 .mvinner blockquote .rep::before{content:"m\00EB";display:inline-grid;place-items:center;width:24px;height:24px;margin-right:8px;border-radius:50%;background:#f7a58c;color:var(--plum,#3d0f27);font-family:var(--display,'Inter Tight',sans-serif);font-weight:900;font-size:10px;vertical-align:1px}
+.mv5 .mvinner .qgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:18px 0 34px}
+.mv5 .mvinner blockquote{margin:0;padding:22px;border-radius:20px;background:rgba(255,255,255,.08);font-family:var(--display);font-weight:700;font-size:clamp(19px,2vw,23px);line-height:1.3}
+.mv5 .mvinner h2{color:#fff;max-width:18ch}
+.mv5 .mvinner .lead2{max-width:56ch;font-size:18px;opacity:.92;margin-top:12px}
+.mv5 .mvwont{padding:clamp(56px,8vw,96px) 0}
+.mv5 .mvwont .wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+.mv5 .mvwont .wgrid>div{background:#fff;border-radius:20px;padding:22px;border:1.5px solid rgba(0,0,0,.07)}
+.mv5 .mvwont .wgrid b{display:block;font-family:var(--display);font-weight:900;font-size:20px;margin-bottom:6px}
+.mv5 .mvwont .wgrid .no{background:var(--ink,#1a1210);color:#fff}
+.mv5 .band2{padding-block:clamp(48px,6vw,80px)!important;overflow:hidden}
+.mv5 .band2 .bk{color:#f3c9d4;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin:0 0 22px}
+.mv5 .band2 .wrap{display:block!important}
+.mv5 .band2 .bgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.mv5 .band2 .bgrid>div{position:relative;border-radius:26px;padding:26px 22px 26px;color:var(--plum,#3d0f27);transform:rotate(var(--r,0deg));box-shadow:0 18px 40px rgba(0,0,0,.28);transition:transform .35s cubic-bezier(.2,.8,.2,1.2),box-shadow .35s}
+.mv5 .band2 .bgrid>div:hover{transform:rotate(0) translateY(-8px) scale(1.03);box-shadow:0 26px 50px rgba(0,0,0,.35)}
+.mv5 .band2 .bgrid>div:nth-child(1){background:#f3dbe2;--r:-2deg}
+.mv5 .band2 .bgrid>div:nth-child(2){background:#fbe3d9;--r:1.6deg;margin-top:18px}
+.mv5 .band2 .bgrid>div:nth-child(3){background:#eebec1;--r:-1.2deg}
+.mv5 .band2 .bgrid>div:nth-child(4){background:#fff;--r:2deg;margin-top:18px}
+.mv5 .band2 .big{display:block;font-family:var(--display,'Inter Tight',sans-serif);font-weight:900;font-size:clamp(40px,4.4vw,60px);line-height:.95;letter-spacing:-.045em;color:var(--berry,#8e2a5a);margin:0 0 14px}
+.mv5 .band2 .big small{font-size:.45em;letter-spacing:-.01em;margin-left:2px}
+.mv5 .band2 .bgrid i{position:absolute;top:18px;right:18px;width:44px!important;height:44px!important;border-radius:50%;background:#f7a58c!important;color:var(--plum,#3d0f27)!important;display:flex;align-items:center;justify-content:center;transition:transform .4s}
+.mv5 .band2 .bgrid>div:hover i{transform:rotate(-14deg) scale(1.12)}
+.mv5 .band2 .bgrid h3{color:var(--plum,#3d0f27)!important;font-size:19px!important;margin:0!important}
+.mv5 .band2 .bgrid p{color:rgba(61,15,39,.78)!important;font-size:15px!important;margin-top:6px!important}
+@media (max-width:860px){.mv5 .band2 .bgrid{grid-template-columns:1fr 1fr;gap:16px 14px}.mv5 .band2 .bgrid>div{padding:20px 16px 20px}.mv5 .band2 .big{font-size:34px}.mv5 .band2 .bgrid i{width:34px!important;height:34px!important;top:14px;right:14px}.mv5 .band2 .bgrid i svg{width:16px;height:16px}.mv5 .band2 .bgrid h3{font-size:16px!important}.mv5 .band2 .bgrid p{font-size:13.5px!important}}
+.mv5 .nums.nonum .head{margin-bottom:36px}
+.mv5 .exl{max-width:1080px;margin:0 auto;border-top:1.5px solid rgba(61,15,39,.15)}
+.mv5 .ex{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(18px,4vw,56px);align-items:center;padding:clamp(22px,3vw,34px) 0;border-bottom:1.5px solid rgba(61,15,39,.15)}
+.mv5 .ext{margin:0;font-family:var(--display,'Inter Tight',sans-serif);font-weight:900;font-size:clamp(30px,4.2vw,56px);line-height:1.02;letter-spacing:-.04em;color:var(--plum,#3d0f27)}
+.mv5 .ext span{position:relative;display:inline-block}
+.mv5 .ext .sk{position:absolute;left:-2%;top:42%;width:104%;height:.42em;overflow:visible}
+.mv5 .ext .sk path{fill:none;stroke:var(--berry,#8e2a5a);stroke-width:5;stroke-linecap:round;stroke-dasharray:340;stroke-dashoffset:340;transition:stroke-dashoffset .9s cubic-bezier(.6,.1,.3,1) .2s}
+.mv5 .ex.in .sk path,.mv5 .ex:hover .sk path{stroke-dashoffset:0}
+.mv5 .ex.in .ext{color:rgba(61,15,39,.45);transition:color .6s .6s}
+.mv5 .exa b{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--berry,#8e2a5a);padding:5px 11px;border-radius:999px}
+.mv5 .exa p{margin:10px 0 0;font-size:18px;line-height:1.5;font-weight:600;color:var(--plum,#3d0f27)}
+@media (max-width:860px){.mv5 .ex{grid-template-columns:1fr;gap:12px}.mv5 .ext{font-size:34px}.mv5 .exa p{font-size:16px}}
+.mv5 .nums.nonum .head{margin-bottom:28px}
+.mv5 .nums .hsub{max-width:46ch;margin:14px auto 0;font-size:18px}
+.mv5 .ritbox .txt h2 em{font-style:normal;color:var(--berry,#8e2a5a);display:block;font-size:.62em;letter-spacing:-.02em;margin-top:6px}
+.mv5 .rsteps{gap:14px!important}
+.mv5 .rsteps li{grid-template-columns:58px 1fr!important;align-items:center;background:#fbf2f4;border-radius:18px;padding:14px 16px;transition:transform .25s}
+.mv5 .rsteps li:nth-child(2){transform:rotate(-1deg)}.mv5 .rsteps li:nth-child(3){transform:rotate(.8deg)}
+.mv5 .rsteps li:hover{transform:rotate(0) scale(1.02)}
+.mv5 .rsteps li::before{width:46px;height:46px;border-radius:50%;background:#f7a58c;color:var(--plum,#3d0f27)!important;display:grid;place-items:center;font-size:17px!important;font-weight:900!important}
+.mv5 .rsteps b{font-family:var(--display,'Inter Tight',sans-serif);font-weight:900;font-size:20px!important;letter-spacing:-.02em}
+.mv5 .ritbox .photo img{object-position:50% 30%}
+.mv5 .icards.cast{grid-template-columns:1fr 1fr;gap:16px}
+.mv5 .cast .ic2{position:relative;display:block;padding:22px 20px 20px;border-radius:24px;transition:transform .3s cubic-bezier(.2,.8,.2,1.3),box-shadow .3s;box-shadow:0 10px 24px rgba(61,15,39,.07)}
+.mv5 .cast .ic2:nth-child(6n+1){background:#f3dbe2;transform:rotate(-1.2deg)}
+.mv5 .cast .ic2:nth-child(6n+2){background:#fbe3d9;transform:rotate(1deg)}
+.mv5 .cast .ic2:nth-child(6n+3){background:#fff;transform:rotate(.8deg)}
+.mv5 .cast .ic2:nth-child(6n+4){background:#eebec1;transform:rotate(-1deg)}
+.mv5 .cast .ic2:nth-child(6n+5){background:#fbe3d9;transform:rotate(-.6deg)}
+.mv5 .cast .ic2:nth-child(6n){background:#f3dbe2;transform:rotate(1.2deg)}
+.mv5 .cast .ic2:hover{transform:rotate(0) translateY(-6px) scale(1.02);box-shadow:0 18px 36px rgba(61,15,39,.14)}
+.mv5 .cast .role{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--plum,#3d0f27);color:#fff;padding:5px 10px;border-radius:999px;margin-bottom:12px}
+.mv5 .cast .ic2 i{position:absolute;top:16px;right:16px;width:46px;height:46px;background:#f7a58c!important;color:var(--plum,#3d0f27)!important;transition:transform .4s}
+.mv5 .cast .ic2:hover i{transform:rotate(-14deg) scale(1.1)}
+.mv5 .cast .ic2 h3{font-family:var(--display,'Inter Tight',sans-serif);font-weight:900;font-size:22px!important;letter-spacing:-.025em;margin:0 56px 4px 0}
+.mv5 .cast .ic2 p{font-size:15px!important;color:rgba(61,15,39,.78)!important;margin:0}
+@media (max-width:860px){.mv5 .icards.cast{grid-template-columns:1fr}.mv5 .cast .ic2 h3{font-size:20px!important}}
+.mv5 .cgrid.stamped{grid-template-columns:repeat(5,1fr);gap:16px}
+.mv5 .stamped>div{position:relative;background:#fff;border:2px dashed rgba(61,15,39,.22);border-radius:22px;padding:22px 20px 24px;display:flex;flex-direction:column;gap:10px;transition:transform .3s cubic-bezier(.2,.8,.2,1.3);overflow:hidden}
+.mv5 .stamped>div:nth-child(odd){background:#fbf2f4}
+.mv5 .stamped>div:hover{transform:translateY(-6px) rotate(-1deg)}
+.mv5 .stamped .no{margin-right:60px;min-height:58px;display:flex;align-items:center;font-family:var(--display,'Inter Tight',sans-serif);font-weight:900;font-size:34px;letter-spacing:-.04em;color:var(--plum,#3d0f27);line-height:1}
+.mv5 .stamped p{margin:0;font-size:15px;line-height:1.45;color:rgba(61,15,39,.8)}
+.mv5 .stamped p strong{color:var(--plum,#3d0f27);font-weight:800}
+.mv5 .stamped .stamp{position:absolute;right:10px;top:10px;width:66px;height:66px;color:#e0785d;transform:rotate(-14deg);opacity:.92}
+.mv5 .stamped .stamp text{font:800 9.6px/1 'Inter',sans-serif;letter-spacing:.14em;fill:currentColor}
+.mv5 .stamped .stamp .ok{font-family:var(--display,'Inter Tight',sans-serif);font-size:22px;font-weight:900;letter-spacing:0}
+@media (prefers-reduced-motion:no-preference){.mv5 .stamped .stamp{animation:stampin .5s cubic-bezier(.2,.8,.2,1.4) both;animation-play-state:paused}.mv5 .stamped.in .stamp{animation-play-state:running}.mv5 .stamped>div:nth-child(2) .stamp{animation-delay:.12s}.mv5 .stamped>div:nth-child(3) .stamp{animation-delay:.24s}.mv5 .stamped>div:nth-child(4) .stamp{animation-delay:.36s}.mv5 .stamped>div:nth-child(5) .stamp{animation-delay:.48s}}
+@keyframes stampin{from{transform:rotate(-30deg) scale(2.2);opacity:0}to{transform:rotate(-14deg) scale(1);opacity:.92}}
+@media (max-width:1100px){.mv5 .cgrid.stamped{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.mv5 .cgrid.stamped{grid-template-columns:1fr}.mv5 .stamped .stamp{width:76px;height:76px;right:14px;top:14px}.mv5 .stamped .no{min-height:72px}}
+.mv5 .mom{background:var(--plum,#3d0f27)!important;color:#fff}
+.mv5 .mom .kick{color:#f7a58c;text-align:center}
+.mv5 .mom h2{color:#fff!important}
+.mv5 .mom h2 em{font-style:normal;color:#f7a58c;display:block;font-size:.55em;letter-spacing:-.01em;margin-top:6px}
+.mv5 .mgrid.spot{gap:22px}
+.mv5 .spot figure{background:#fff;padding:12px 12px 18px;border-radius:6px;box-shadow:0 18px 40px rgba(0,0,0,.35);transition:transform .35s cubic-bezier(.2,.8,.2,1.3)}
+.mv5 .spot figure:nth-child(1){transform:rotate(-2deg)}.mv5 .spot figure:nth-child(2){transform:rotate(1.5deg) translateY(14px)}.mv5 .spot figure:nth-child(3){transform:rotate(-1deg)}
+.mv5 .spot figure:hover{transform:rotate(0) scale(1.03)}
+.mv5 .spot .photo{border-radius:2px!important;aspect-ratio:4/5}
+.mv5 .spot .photo img{object-fit:cover;width:100%;height:100%}
+.mv5 .spot figcaption{color:rgba(61,15,39,.75)!important;font-size:14.5px!important;padding:4px 4px 0}
+.mv5 .spot figcaption .tag{display:inline-block;font-family:ui-monospace,Menlo,monospace;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#f7a58c;color:var(--plum,#3d0f27);padding:3px 8px;border-radius:4px;margin-bottom:8px}
+.mv5 .spot figcaption b{color:var(--plum,#3d0f27);font-family:var(--display,'Inter Tight',sans-serif);font-weight:900;font-size:19px!important;letter-spacing:-.02em;line-height:1.15;margin-bottom:4px}
+@media (max-width:860px){.mv5 .spot figure:nth-child(2){transform:rotate(1.5deg)}.mv5 .mgrid.spot{padding:14px 4px 18px}}
+.mv5 .mgrid.spot{grid-template-columns:repeat(4,1fr)}
+@media (max-width:1100px){.mv5 .mgrid.spot{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:860px){.mv5 .mgrid.spot{grid-template-columns:repeat(4,78%)}}
+.mv5 .spot figure:nth-child(4){transform:rotate(1.2deg)}
+.mv5 .vs .wrap{display:block!important}
+.mv5 .vs .head.rf{text-align:center;max-width:720px;margin:0 auto 34px}
+.mv5 .vs .head.rf h2{margin-top:10px}
+.mv5 .vs .head.rf h2 em{font-style:normal;color:#e0785d}
+.mv5 .vs .head.rf p:last-child{color:var(--muted);margin:12px auto 0;font-size:14px}
+.mv5 .flags{max-width:980px;margin:0 auto;display:grid;gap:12px}
+.mv5 .flags .fhead{display:grid;grid-template-columns:170px 1fr 1fr;gap:12px;font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.mv5 .flags .fhead span{display:flex;align-items:center;gap:6px}
+.mv5 .flags .fhead .r{grid-column:2;color:#b23a50}.mv5 .flags .fhead .g{color:var(--plum,#3d0f27)}
+.mv5 .frow{display:grid;grid-template-columns:170px 1fr 1fr;gap:12px;align-items:stretch}
+.mv5 .frow .ft{display:flex;align-items:center;font-family:var(--display,'Inter Tight',sans-serif);font-weight:900;font-size:17px;color:var(--plum,#3d0f27)}
+.mv5 .frow .red,.mv5 .frow .grn{display:flex;gap:12px;align-items:center;border-radius:18px;padding:16px 18px;transition:transform .3s cubic-bezier(.2,.8,.2,1.3)}
+.mv5 .frow .red{background:#fff;border:1.5px dashed rgba(178,58,80,.35);color:#9a8790}
+.mv5 .frow .red p{margin:0;text-decoration:line-through;text-decoration-color:rgba(178,58,80,.55);text-decoration-thickness:2px;font-size:15px}
+.mv5 .frow .red svg{color:#b23a50;flex:none}
+.mv5 .frow .grn{background:#fbe3d9;color:var(--plum,#3d0f27);box-shadow:0 10px 22px rgba(61,15,39,.08)}
+.mv5 .frow .grn p{margin:0;font-weight:700;font-size:15.5px}
+.mv5 .frow .grn svg{color:var(--plum,#3d0f27);flex:none}
+.mv5 .frow:nth-child(odd) .grn{background:#f3dbe2}
+.mv5 .frow:hover .grn{transform:translateY(-3px) rotate(-.5deg)}
+.mv5 .frow:hover .red{transform:rotate(.5deg)}
+@media (max-width:860px){.mv5 .flags .fhead{display:none}.mv5 .frow{grid-template-columns:1fr;gap:8px;padding:14px;background:#fff;border-radius:22px}.mv5 .frow .ft{font-size:16px}}
+@media (max-width:860px){
+.mv5 .flags{gap:10px}
+.mv5 .flags .fhead{display:grid!important;grid-template-columns:1fr 1fr;gap:8px;font-size:11px;letter-spacing:.08em;position:sticky;top:0}
+.mv5 .flags .fhead .r{grid-column:1!important}
+.mv5 .frow{grid-template-columns:1fr 1fr!important;gap:8px!important;padding:0!important;background:none!important;border-radius:0!important}
+.mv5 .frow .ft{grid-column:1/-1;font-size:14px!important;letter-spacing:.06em;text-transform:uppercase;font-family:inherit!important;font-weight:800!important;color:var(--berry,#8e2a5a)!important;margin-top:8px}
+.mv5 .frow .red,.mv5 .frow .grn{flex-direction:column;align-items:flex-start;gap:6px;padding:12px 12px;border-radius:14px}
+.mv5 .frow .red p,.mv5 .frow .grn p{font-size:13.5px!important;line-height:1.35}
+.mv5 .frow .red svg,.mv5 .frow .grn svg{display:none}
+.mv5 .frow .red,.mv5 .frow .grn{justify-content:center}
+}
+@media (max-width:860px){
+.mv5 .vs .flags{gap:0!important;border:1.5px solid var(--plum,#3d0f27);border-radius:22px;overflow:hidden;background:#fff}
+.mv5 .vs .flags .fhead{display:grid!important;grid-template-columns:1fr 1fr!important;gap:0!important;margin:0}
+.mv5 .vs .flags .fhead span{justify-content:center;padding:12px 8px;font-size:11px!important;letter-spacing:.08em}
+.mv5 .vs .flags .fhead .r{grid-column:1!important;background:#fff;color:#b23a50}
+.mv5 .vs .flags .fhead .g{grid-column:2!important;background:var(--plum,#3d0f27);color:#fff!important}
+.mv5 .vs .flags .fhead .g svg path:last-child{fill:#f7a58c}
+.mv5 .vs .frow{gap:0!important;border-top:1.5px solid rgba(61,15,39,.12)}
+.mv5 .vs .frow .ft{margin:0!important;padding:10px 12px 0;font-size:11px!important;background:#fff;grid-column:1/-1}
+.mv5 .vs .frow .ft{background:linear-gradient(90deg,#fff 50%,#fbe3d9 50%)}
+.mv5 .vs .frow .red,.mv5 .vs .frow .grn{border:0!important;border-radius:0!important;box-shadow:none!important;transform:none!important;padding:8px 12px 14px!important;justify-content:flex-start}
+.mv5 .vs .frow .red{background:#fff}
+.mv5 .vs .frow .grn{background:#fbe3d9!important}
+}
+.mv5 .flags .fhead i.wh{font-style:normal}
+@media (max-width:860px){.mv5 .flags .fhead i.wh{display:none}}
+.mv5 .vs .wrap{display:block!important}
+.mv5 .vs .shead{text-align:center;max-width:640px;margin:0 auto 30px}
+.mv5 .vs .shead h2{margin-top:10px}
+.mv5 .vs .shead p:last-child{color:var(--muted);font-size:14px;margin:10px auto 0}
+.mv5 .stbl{max-width:900px;margin:0 auto;border-radius:24px;overflow:hidden;border:1.5px solid rgba(61,15,39,.14);background:#fff;box-shadow:0 14px 34px rgba(61,15,39,.07)}
+.mv5 .stbl table{width:100%;border-collapse:collapse;table-layout:fixed}
+.mv5 .stbl th,.mv5 .stbl td{padding:18px 20px;text-align:left;vertical-align:middle;border-top:1px solid rgba(61,15,39,.08);font-size:15px}
+.mv5 .stbl thead th,.mv5 .stbl thead td{border-top:0;padding:16px 20px}
+.mv5 .stbl thead td{width:24%}
+.mv5 .stbl thead .us{background:var(--plum,#3d0f27);color:#fff;font-family:var(--display,'Inter Tight',sans-serif);font-weight:900;font-size:24px;letter-spacing:-.03em}
+.mv5 .stbl thead .them{color:var(--muted);font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.mv5 .stbl tbody th{font-weight:800;color:var(--plum,#3d0f27);font-size:14.5px}
+.mv5 .stbl td.us{background:#fbe3d9;color:var(--plum,#3d0f27);font-weight:700}
+.mv5 .stbl td.them{color:#8a7b82}
+.mv5 .stbl td span{display:block}
+.mv5 .stbl i{font-style:normal;display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;font-size:12px;font-weight:900;margin-bottom:6px}
+.mv5 .stbl .tk{background:var(--plum,#3d0f27);color:#fff}
+.mv5 .stbl .ds{background:#efe7ea;color:#8a7b82}
+@media (max-width:860px){.mv5 .stbl{border-radius:18px}.mv5 .stbl th,.mv5 .stbl td{padding:12px 10px;font-size:13px}.mv5 .stbl thead td{width:27%}.mv5 .stbl thead .us{font-size:19px}.mv5 .stbl thead .them{font-size:10.5px}.mv5 .stbl tbody th{font-size:12.5px}}
+.mv5 .qband{background:var(--plum,#3d0f27)!important;color:#fff!important}
+.mv5 .qband .wrap{display:block!important}
+.mv5 .qband h2{color:#fff!important;font-size:clamp(40px,5.4vw,72px)!important;line-height:1!important;letter-spacing:-.04em;max-width:14ch;margin:0}
+.mv5 .qband .sub2{color:#e6c9d8!important;font-size:18px;line-height:1.6;max-width:60ch;margin:22px 0 40px}
+.mv5 .qcards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.mv5 .qcd{background:#2a0a1b;border-radius:24px;padding:36px 22px 32px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px}
+.mv5 .qcd svg{width:72px;height:72px;color:#f3c9d4}
+.mv5 .qcd p{margin:0;color:#fff;font-weight:600;font-size:17px;line-height:1.35}
+@media (max-width:860px){.mv5 .qband h2{font-size:42px!important}.mv5 .qband .sub2{font-size:16px;margin:16px 0 28px}.mv5 .qcards{grid-template-columns:1fr 1fr;gap:12px}.mv5 .qcd{padding:28px 12px 24px;gap:16px}.mv5 .qcd svg{width:62px;height:62px}.mv5 .qcd p{font-size:15px}}
+.mv5 .offer.pk3s .wrap{display:block!important}.mv5 .offer.pk3s .phead{max-width:640px;margin:0 0 30px}.mv5 .offer.pk3s .phead p{margin-top:12px;font-weight:600}.mv5 .pk3g{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}.mv5 .pkc{position:relative;background:#fff;border-radius:26px;padding:22px 22px 24px;display:flex;flex-direction:column;border:2px solid transparent}.mv5 .pkc.best{border-color:var(--plum,#3d0f27)}.mv5 .pkc .pflag{position:absolute;top:-13px;left:22px;background:var(--plum,#3d0f27);color:#fff;font-size:12.5px;font-weight:800;padding:5px 12px;border-radius:999px}.mv5 .pkc .pimg{height:150px;display:flex;align-items:flex-end;justify-content:center;margin-bottom:14px;background:#fbf2f4;border-radius:18px;padding-top:14px}.mv5 .pkc .pimg img{height:128px;width:auto;display:block}.mv5 .pkc h3{font-family:var(--display,'Inter Tight',sans-serif);font-weight:900;font-size:28px;letter-spacing:-.03em;margin:0;color:var(--plum,#3d0f27)}.mv5 .pkc .pdur{margin:2px 0 0;font-weight:600;color:var(--muted)}.mv5 .pkc .ppr{margin:14px 0 0;font-family:var(--display,'Inter Tight',sans-serif);font-weight:900;font-size:38px;letter-spacing:-.04em;line-height:1;color:var(--plum,#3d0f27)}.mv5 .pkc .pper{margin:6px 0 12px;font-weight:800;font-size:14px;color:var(--berry,#8e2a5a)}.mv5 .pkc ul{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:6px;font-size:14.5px;font-weight:600}.mv5 .pkc li{position:relative;padding-left:24px}.mv5 .pkc li::before{content:"\2713";position:absolute;left:0;top:0;width:17px;height:17px;border-radius:50%;background:var(--berry,#8e2a5a);color:#fff;font-size:10px;display:grid;place-items:center}.mv5 .pkc .btn{margin-top:auto;width:100%}@media (max-width:860px){.mv5 .pk3g{grid-template-columns:1fr;gap:24px}.mv5 .pkc .pimg{height:130px}.mv5 .pkc .pimg img{height:110px}}.mv5 .offer.pk3s{background:#f7e8e2!important}.mv5 .pkc .pimg{background:#fbf3ef}.mv5 .pkc .pmeta{display:grid;grid-template-columns:1fr 1fr;margin:16px 0 10px;border-top:1px solid #ecdcd6;border-bottom:1px solid #ecdcd6}.mv5 .pkc .pmeta div{padding:10px 0;display:flex;flex-direction:column;gap:2px}.mv5 .pkc .pmeta div+div{border-left:1px solid #ecdcd6;padding-left:16px}.mv5 .pkc .pmeta span{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}.mv5 .pkc .pmeta b{font-size:19px;font-weight:900;color:var(--plum,#3d0f27)}.mv5 .pkc .psave{align-self:flex-start;margin:0 0 14px;background:#e9f3df;color:#2f5b1e;font-weight:800;font-size:13px;padding:4px 10px;border-radius:999px}.mv5 .pkc .psave.none{background:#f3ece9;color:var(--muted)}.mv5 .mvclubsec{padding:clamp(56px,8vw,96px) 0;background:#f6e6dc}
+.mv5 .mvclubsec .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.mv5 .mvclubsec .ctxt p{font-size:18px;margin-top:10px}.mv5 .mvclubsec .ctxt .sm{font-size:14px;opacity:.7}
+.mv5 .mvclubsec .clubpic{margin-top:24px;border-radius:24px;overflow:hidden;aspect-ratio:4/3;max-width:560px}
+.mv5 .mvclubsec .clubpic img{width:100%;height:100%;object-fit:cover;object-position:60% 35%;display:block}
+.mv5 .wlnote{font-size:14px;font-weight:600;margin:10px 0 14px;padding:12px 14px;border-radius:14px;background:#f6e6dc}
+.mv5 .hero.hb{position:relative;padding:0;background:#f0d9d2;overflow:hidden}
+.mv5 .hero.hb .hbimg{position:absolute;inset:0}
+.mv5 .hero.hb .hbimg img{width:100%;height:100%;object-fit:cover;object-position:right center;display:block}
+.mv5 .hero.hb .hbimg picture{display:block;width:100%;height:100%}
+@media (min-width:861px){.mv5 .hero.hbm .mvseal{left:calc(50% + 10px);bottom:auto;top:16%}}
+.mv5 .hero.hb .wrap{position:relative;min-height:clamp(520px,44vw,700px);grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.mv5 .hero.hb .txt{padding-block:clamp(40px,5vw,72px)}
+@media (max-width:860px){.mv5 .hero.hb .hbimg{position:relative;aspect-ratio:4/3}.mv5 .hero.hb .hbimg img{object-position:78% center}.mv5 .hero.hb .wrap{min-height:0;grid-template-columns:1fr}.mv5 .hero.hb .txt{padding-block:28px 40px}}
+.mv5 .buy .mvclub{margin-top:6px}
+.mv5 #mv-stage .arrows{inset:50% 8px auto 8px;transform:translateY(-50%);justify-content:space-between;pointer-events:none}
+.mv5 #mv-stage .arrows button{pointer-events:auto;width:34px;height:34px;font-size:15px;background:rgba(255,255,255,.82);backdrop-filter:blur(4px)}
+.mv5 #mv-thumbs{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px) / 6);overflow-x:auto;scrollbar-width:none}
+.mv5 #mv-thumbs::-webkit-scrollbar{display:none}
+.mv5 #mv-stage .slide img{width:100%;height:100%;object-fit:cover}
+@media (max-width:860px){.mv5 .mvinner .qgrid,.mv5 .mvwont .wgrid,.mv5 .mvclubsec .wrap{grid-template-columns:1fr}}
+</style>
+<div class="mv5">
+{%- unless is_product -%}
+<!-- ================= HOMEPAGE ================= -->
+  {%- assign hb = section.settings.hero_banner -%}
+  {%- assign hbm = section.settings.hero_banner_mobile -%}<section class="hero{% if hb != blank %} hb{% endif %}{% if hbm != blank %} hbm{% endif %}">{%- if hb != blank -%}<div class="hbimg"><picture>{%- if hbm != blank -%}<source media="(max-width: 860px)" srcset="{{ hbm | image_url: width: 600 }} 600w, {{ hbm | image_url: width: 941 }} 941w" sizes="100vw">{%- endif -%}{{ hb | image_url: width: 2000 | image_tag: alt: hb.alt, loading: 'eager', fetchpriority: 'high', sizes: '100vw', widths: '800, 1200, 1600, 2000' }}</picture></div>{%- endif -%}<div class="wrap">
+    <div class="txt">
+      <p class="kick">For the women who hold everyone together</p>
+      <h1>Tired of being tired? <em>Same, babe.</em></h1>
+      <p class="lead">You look after everyone. So who&#39;s looking after you? {{ brand }} is two berry gummies with 180mg magnesium, the real dose on the front, and no wellness hype. All dose. No drama.</p>
+      <ul class="cks">
+        <li class="ck">Magnesium contributes to the reduction of tiredness and fatigue</li>
+        <li class="ck">180mg magnesium a day, printed on the front · vegan</li>
+        <li class="ck">Finish your first jar. Not for you? We&#39;ll refund it.</li>
+      </ul>
+      <div class="ctas"><a class="btn" href="{{ cta_url }}">{{ cta_txt }}</a><a class="btn o" href="#inner">Sound familiar?</a></div>
+    </div>
+    {%- unless hb != blank -%}    <div class="pic"><div class="photo">{%- if section.settings.hero_image != blank -%}{{ section.settings.hero_image | image_url: width: 1200 | image_tag: alt: section.settings.hero_image.alt, loading: 'eager', fetchpriority: 'high', sizes: '(max-width: 860px) 100vw, 50vw', widths: '600, 900, 1200' }}{%- endif -%}</div><div class="hcap"><b>Two gummies a day</b><span>{{ n | times: 2 }} berry gummies in every jar</span></div></div>{%- endunless -%}
+  </div></section>
+
+  <section class="band2"><div class="wrap">
+    <p class="bk">The short version</p><div class="bgrid"><div><span class="big">4<small>sec</small></span><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg></i><h3>Four seconds</h3><p>Two berry gummies. Faster than finding your keys.</p></div><div><span class="big">Yum.</span><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5s1.3 2 3.5 2 3.5-2 3.5-2M9 9.5h.01M15 9.5h.01"/></svg></i><h3>Ripe red berry</h3><p>The one bit of your morning that&#39;s just for you.</p></div><div><span class="big">180<small>mg</small></span><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></i><h3>Real dose, on the front</h3><p>180mg, printed on the front. No fine-print games.</p></div><div><span class="big">30<small>days</small></span><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg></i><h3>No-drama guarantee</h3><p>Finish your first jar. Not for you? We&#39;ll refund it. No awkward questions.</p></div></div>
+  </div></section>
+
+  <section class="mvinner" id="inner"><div class="wrap">
+    <p class="kick">Sound familiar?</p>
+    <div class="qgrid">
+      <blockquote>&ldquo;Some days I look in the mirror and think: where did she go?&rdquo;<span class="rep">Babe, she&#39;s right here. Just knackered.</span></blockquote>
+      <blockquote>&ldquo;Everyone needs something from me. Nobody asks how I am.&rdquo;<span class="rep">We&#39;re asking. How are you, really?</span></blockquote>
+      <blockquote>&ldquo;I&#39;ve got a cupboard full of supplements that &lsquo;changed someone&#39;s life&rsquo;.&rdquo;<span class="rep">Bin half of them. We&#39;ll wait.</span></blockquote>
+    </div>
+    <h2>Babe, you&#39;re not broken. You&#39;re carrying everything.</h2>
+    <p class="lead2">So here&#39;s one small thing that&#39;s just for you. No lectures, no miracle words. Just your friend, telling it straight.</p>
+  </div></section>
+
+  {%- if wl -%}
+  <section class="mvclubsec"><div class="wrap">
+    <div class="ctxt"><p class="kick">Launching soon</p><h2>Join the No Drama Club.</h2><p>Get in early, girl. The first 500 get 20% off their first order, free UK delivery on 2+ jars and our no-drama guarantee on their first jar. Nothing to pay today. We&#39;ll email you the second we launch.</p><p class="sm">Magnesium contributes to the reduction of tiredness and fatigue.</p>{%- if section.settings.club_image != blank -%}<div class="photo clubpic">{{ section.settings.club_image | image_url: width: 1200 | image_tag: alt: section.settings.club_image.alt, loading: 'lazy', widths: '600, 900, 1200', sizes: '(max-width: 860px) 100vw, 50vw' }}</div>{%- endif -%}</div>
+    {% render 'meva-club-form', fid: 'club' %}
+  </div></section>
+  {%- endif -%}
+  <section class="mvwont"><div class="wrap">
+    <div class="wcol"><p class="kick">The honest bit</p><h2>What&#39;s in the jar. And what isn&#39;t.</h2></div>
+    <div class="wgrid">
+      <div><b>What&#39;s in it</b><p>180mg magnesium (citrate) in two berry gummies. 60 gummies, 30 days. Vegan.</p></div>
+      <div><b>What it does</b><p>Magnesium contributes to the reduction of tiredness and fatigue, and to normal psychological function.</p></div>
+      <div class="no"><b>What it won&#39;t do</b><p>Fix your inbox, your teenager or your boss. Sorry, babe. We&#39;d tell you if it could.</p></div>
+    </div>
+  </div></section>
+
+
+  <section class="rit" id="how"><div class="wrap"><div class="ritbox">
+    <div class="txt"><p class="kick">The very complicated ritual</p><h2>How to take it. <em>(Spoiler: it&#39;s easy.)</em></h2>
+      <ol class="rsteps"><li><b>Open the jar.</b><span>Honestly, the hardest bit. We believe in you.</span></li><li><b>Eat two berry gummies.</b><span>Two. Not the whole jar. We see you.</span></li><li><b>Go back to running the world.</b><span>That&#39;s it. Same again tomorrow. Give it the full {{ n }} days.</span></li></ol>
+
+      <a class="btn" href="{{ cta_url }}">{{ cta_txt }}</a></div>
+    <div class="photo">{%- if section.settings.rit_image != blank -%}{{ section.settings.rit_image | image_url: width: 1200 | image_tag: alt: section.settings.rit_image.alt, loading: 'lazy', widths: '600, 900, 1200' }}{%- elsif section.settings.moment1_image != blank -%}{{ section.settings.moment1_image | image_url: width: 1100 | image_tag: alt: section.settings.moment1_image.alt, loading: 'lazy' }}{%- endif -%}</div>
+  </div></div></section>
+  <section class="nums nonum"><div class="wrap">
+    <div class="head"><p class="kick">Real talk</p><h2>Girl, we&#39;ve heard every excuse.</h2><p class="hsub">We&#39;ve used most of them too. No lectures, no guilt trips. Here&#39;s the honest answer to each.</p></div><div class="exl"><div class="ex"><p class="ext"><span>I always forget.<svg class="sk" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M3 15 C 60 6, 120 20, 180 11 S 270 8, 297 13"/></svg></span></p><div class="exa"><b>Real talk</b><p>Babe, same. That&#39;s why it&#39;s two gummies by the kettle. Done before the toast pops.</p></div></div><div class="ex"><p class="ext"><span>I hate swallowing pills.<svg class="sk" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M3 15 C 60 6, 120 20, 180 11 S 270 8, 297 13"/></svg></span></p><div class="exa"><b>Real talk</b><p>Who doesn&#39;t? It&#39;s a berry gummy. Chew, done. No glass of water, no washing up.</p></div></div><div class="ex"><p class="ext"><span>I&#39;m never home.<svg class="sk" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M3 15 C 60 6, 120 20, 180 11 S 270 8, 297 13"/></svg></span></p><div class="exa"><b>Real talk</b><p>Tell us something new. Small jar. Bag, desk, gym, holiday. It goes where you go.</p></div></div><div class="ex"><p class="ext"><span>Supplements taste like chalk.<svg class="sk" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M3 15 C 60 6, 120 20, 180 11 S 270 8, 297 13"/></svg></span></p><div class="exa"><b>Real talk</b><p>Not on our watch. A berry gummy you&#39;ll actually look forward to.</p></div></div></div>
+  </div></section>
+
+  <section class="inside" id="inside"><div class="wrap">
+    <div class="head"><div><p class="kick">What&#39;s inside</p><h2 style="margin-top:10px">Meet the cast. <em style="font-style:normal;color:var(--berry,#8e2a5a)">All six of them.</em></h2></div><p>No secrets. Here&#39;s exactly what goes into {{ brand }}, and why.</p></div>
+    <div class="ingrid"><div class="photo">{%- if section.settings.macro_image != blank -%}{{ section.settings.macro_image | image_url: width: 1100 | image_tag: alt: section.settings.macro_image.alt, loading: 'lazy' }}{%- endif -%}</div><div class="icards cast"><div class="ic2"><span class="role">The main character</span><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M8.5 15V9l3.5 4 3.5-4v6"/></svg></i><h3>Magnesium citrate</h3><p>90mg in every gummy. 180mg in your two a day.</p></div><div class="ic2"><span class="role">The crowd-pleaser</span><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="12" r="2.2"/><circle cx="14" cy="12" r="2.2"/><circle cx="11.5" cy="16" r="2.2"/><path d="M11.5 9.5c0-2 1-3.5 3-4.5"/></svg></i><h3>Ripe red berry</h3><p>Soft and chewy. Never chalky, never medicinal.</p></div><div class="ic2"><span class="role">The vegan one</span><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 19c8 0 14-6 14-14-8 0-14 5-14 12 0 1 0 1.5 0 2z"/><path d="M5 19c3-5 6-8 10-10"/></svg></i><h3>Plant pectin</h3><p>Set with plant pectin, not gelatine. Vegan, babe.</p></div><div class="ic2"><span class="role">The colourist</span><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3s6 7 6 11a6 6 0 01-12 0c0-4 6-11 6-11z"/></svg></i><h3>That purple</h3><p>Colours from spirulina and anthocyanins.</p></div><div class="ic2"><span class="role">The well-behaved one</span><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></i><h3>Made without allergens</h3><p>Made without the 14 major allergens.</p></div><div class="ic2"><span class="role">The open book</span><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg></i><h3>Nothing hidden</h3><p>Every ingredient and amount, printed on the jar. Go on, check.</p></div></div></div>
+  </div></section>
+  <section class="claims" id="inside-claims"><div class="wrap">
+    <div class="head"><div><p class="kick">The legal bit (stay with us)</p><h2 style="margin-top:10px">Five claims. <em style="font-style:normal;color:var(--berry,#8e2a5a)">No bluffing.</em></h2></div><p>These are the UK-authorised claims for magnesium, copied word for word. Babe, if we can&#39;t prove it, we won&#39;t say it.</p></div>
+    <div class="cgrid stamped"><div><span class="no">No. 1</span><p>Magnesium contributes to <strong>the reduction of tiredness and fatigue</strong>.</p><svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="stp0" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs><circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.5"/><text><textPath href="#stp0">UK APPROVED · WORD FOR WORD · </textPath></text><text x="60" y="66" text-anchor="middle" class="ok">OK</text></svg></div><div><span class="no">No. 2</span><p>Magnesium contributes to <strong>normal psychological function</strong>.</p><svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="stp1" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs><circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.5"/><text><textPath href="#stp1">UK APPROVED · WORD FOR WORD · </textPath></text><text x="60" y="66" text-anchor="middle" class="ok">OK</text></svg></div><div><span class="no">No. 3</span><p>Magnesium contributes to <strong>the normal functioning of the nervous system</strong>.</p><svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="stp2" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs><circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.5"/><text><textPath href="#stp2">UK APPROVED · WORD FOR WORD · </textPath></text><text x="60" y="66" text-anchor="middle" class="ok">OK</text></svg></div><div><span class="no">No. 4</span><p>Magnesium contributes to <strong>normal muscle function</strong>.</p><svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="stp3" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs><circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.5"/><text><textPath href="#stp3">UK APPROVED · WORD FOR WORD · </textPath></text><text x="60" y="66" text-anchor="middle" class="ok">OK</text></svg></div><div><span class="no">No. 5</span><p>Magnesium contributes to <strong>the maintenance of normal bones</strong>.</p><svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="stp4" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs><circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.5"/><text><textPath href="#stp4">UK APPROVED · WORD FOR WORD · </textPath></text><text x="60" y="66" text-anchor="middle" class="ok">OK</text></svg></div></div>
+  </div></section>
+
+  <section class="mom"><div class="wrap">
+    <p class="kick">Spotted</p><h2>M&euml;va in the wild. <em>Paparazzi edition.</em></h2>
+    <div class="mgrid spot">
+      <figure><div class="photo">{%- if section.settings.spot1_image != blank -%}{{ section.settings.spot1_image | image_url: width: 900 | image_tag: alt: section.settings.spot1_image.alt, loading: 'lazy', widths: '450, 700, 900' }}{%- endif -%}</div><figcaption><span class="tag">8:42am &middot; school run</span><b>Two gummies before the school gates.</b>Parked. Sunglasses on. Nobody needs to know.</figcaption></figure>
+      <figure><div class="photo">{%- if section.settings.spot2_image != blank -%}{{ section.settings.spot2_image | image_url: width: 900 | image_tag: alt: section.settings.spot2_image.alt, loading: 'lazy', widths: '450, 700, 900' }}{%- endif -%}</div><figcaption><span class="tag">11:05am &middot; on mute</span><b>Caught in the meeting that could&#39;ve been an email.</b>Camera off. Gummy in.</figcaption></figure>
+      <figure><div class="photo">{%- if section.settings.spot3_image != blank -%}{{ section.settings.spot3_image | image_url: width: 900 | image_tag: alt: section.settings.spot3_image.alt, loading: 'lazy', widths: '450, 700, 900' }}{%- endif -%}</div><figcaption><span class="tag">12:40pm &middot; in foils</span><b>Forty minutes of me-time. Not sharing.</b>Two gummies with the salon tea. Don&#39;t tell.</figcaption></figure>
+      <figure><div class="photo">{%- if section.settings.spot4_image != blank -%}{{ section.settings.spot4_image | image_url: width: 900 | image_tag: alt: section.settings.spot4_image.alt, loading: 'lazy', widths: '450, 700, 900' }}{%- endif -%}</div><figcaption><span class="tag">Saturday &middot; 3:15pm</span><b>Do not disturb. Seriously.</b>Book open. Phone face down. Two gummies, done.</figcaption></figure>
+    </div>
+  </div></section>
+
+  <section class="vs"><div class="wrap">
+    <div class="shead"><p class="kick">Compare</p><h2>{{ brand }} vs the usual wellness hype</h2><p>Comparing claims, labels and format. Not a medical comparison, and not about any one brand.</p></div>
+    <div class="stbl"><table><thead><tr><td></td><th scope="col" class="us">m&euml;va</th><th scope="col" class="them">The usual hype</th></tr></thead><tbody><tr><th scope="row">What it claims</th><td class="us"><i class="tk" aria-hidden="true">&#10003;</i><span>Real claims, not fairy tales</span></td><td class="them"><i class="ds" aria-hidden="true">&ndash;</i><span>&ldquo;Balances your hormones&rdquo;</span></td></tr><tr><th scope="row">The label</th><td class="us"><i class="tk" aria-hidden="true">&#10003;</i><span>One mineral. 180mg on the front.</span></td><td class="them"><i class="ds" aria-hidden="true">&ndash;</i><span>Long blends that are hard to decode</span></td></tr><tr><th scope="row">The guarantee</th><td class="us"><i class="tk" aria-hidden="true">&#10003;</i><span>First jar refunded if it&#39;s not for you</span></td><td class="them"><i class="ds" aria-hidden="true">&ndash;</i><span>&ldquo;Money back&rdquo; on unopened packs only</span></td></tr><tr><th scope="row">Subscription</th><td class="us"><i class="tk" aria-hidden="true">&#10003;</i><span>Never. Every order is a one-off.</span></td><td class="them"><i class="ds" aria-hidden="true">&ndash;</i><span>Often hard to cancel</span></td></tr><tr><th scope="row">Format</th><td class="us"><i class="tk" aria-hidden="true">&#10003;</i><span>Soft berry gummy. Chew, done.</span></td><td class="them"><i class="ds" aria-hidden="true">&ndash;</i><span>Big tablets and a glass of water</span></td></tr></tbody></table></div>
+  </div></section>
+
+  <section class="offer pk3s" id="shop"><div class="wrap">
+    <div class="phead"><h2>Pick the pack that fits your routine</h2><p>Prices include VAT. Ships from our UK fulfilment centre. No subscription, no commitment.</p></div>
+    <div class="pk3g">
+      <div class="pkc"><div class="pimg"><img src="{{ 'packjar1.png' | file_url }}" alt="1 jar of Mëva" loading="lazy" width="400" height="280"></div>
+        <h3>1 jar</h3><p class="pdur">{{ n | times: 1 }} days &middot; {{ n | times: 2 }} gummies</p>
+        <p class="ppr">{{ v1.price | money }}</p>
+        <div class="pmeta"><div><span>Per jar</span><b>{{ v1.price | money }}</b></div><div><span>Per day</span><b>{{ v1.price | times: 1.0 | divided_by: n | divided_by: 1 | round | money }}</b></div></div>
+        <p class="psave none">Single jar price</p>
+        <ul><li>Delivery {{ section.settings.single_delivery }}</li><li>{{ section.settings.guarantee_days }}-day guarantee</li></ul>
+        {%- if wl -%}<a class="btn o" href="{{ p.url }}?reserve=1#club">Reserve 1 jar</a>{%- else -%}<a class="btn o" href="{{ p.url }}?variant={{ v1.id }}">Choose 1 jar</a>{%- endif -%}
+      </div>
+      <div class="pkc"><span class="pflag">Free delivery</span><div class="pimg"><img src="{{ 'packjar2.png' | file_url }}" alt="2 jars of Mëva" loading="lazy" width="400" height="280"></div>
+        <h3>2 jars</h3><p class="pdur">{{ n | times: 2 }} days &middot; {{ n | times: 4 }} gummies</p>
+        <p class="ppr">{{ v2.price | money }}</p>
+        <div class="pmeta"><div><span>Per jar</span><b>{{ each2 | money }}</b></div><div><span>Per day</span><b>{{ v2.price | times: 1.0 | divided_by: n | divided_by: 2 | round | money }}</b></div></div>
+        <p class="psave">You save {{ save2 }}%</p>
+        <ul><li>Free UK delivery on 2+ jars</li><li>{{ section.settings.guarantee_days }}-day guarantee</li></ul>
+        {%- if wl -%}<a class="btn" href="{{ p.url }}?reserve=2#club">Reserve 2 jars</a>{%- else -%}<a class="btn" href="{{ p.url }}?variant={{ v2.id }}">Choose 2 jars</a>{%- endif -%}
+      </div>
+      <div class="pkc best"><span class="pflag">Best value</span><div class="pimg"><img src="{{ 'packjar3.png' | file_url }}" alt="3 jars of Mëva" loading="lazy" width="400" height="280"></div>
+        <h3>3 jars</h3><p class="pdur">{{ n | times: 3 }} days &middot; {{ n | times: 6 }} gummies</p>
+        <p class="ppr">{{ v3.price | money }}</p>
+        <div class="pmeta"><div><span>Per jar</span><b>{{ each3 | money }}</b></div><div><span>Per day</span><b>{{ v3.price | times: 1.0 | divided_by: n | divided_by: 3 | round | money }}</b></div></div>
+        <p class="psave">You save {{ save3 }}%</p>
+        <ul><li>Free UK delivery on 2+ jars</li><li>{{ section.settings.guarantee_days }}-day guarantee</li></ul>
+        {%- if wl -%}<a class="btn" href="{{ p.url }}?reserve=3#club">Reserve 3 jars</a>{%- else -%}<a class="btn" href="{{ p.url }}?variant={{ v3.id }}">Choose 3 jars</a>{%- endif -%}
+      </div>
+    </div>
+  </div></section>
+{%- else -%}
+<!-- ================= PRODUCT PAGE ================= -->
+  <section class="pdp mv-pdp-main"><div class="wrap">
+    <div class="gal">
+      {%- if p.media.size > 0 -%}
+      <div class="stage" id="mv-stage">
+        {%- for m in p.media -%}{%- if m.media_type == 'image' -%}
+        {%- liquid
+          assign ld = 'lazy'
+          if forloop.first
+            assign ld = 'eager'
+          endif
+        -%}
+        <div class="slide"{% if forloop.first %} data-on{% endif %}>{{ m | image_url: width: 1254 | image_tag: alt: m.alt, loading: ld, sizes: '(max-width: 900px) 100vw, 55vw', widths: '600, 900, 1254' }}</div>
+        {%- endif -%}{%- endfor -%}
+        <div class="arrows"><button type="button" data-mv-prev aria-label="Previous photo">‹</button><button type="button" data-mv-next aria-label="Next photo">›</button></div>
+      </div>
+      <div class="thumbs" id="mv-thumbs">
+        {%- for m in p.media -%}{%- if m.media_type == 'image' -%}
+        <button type="button" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}" aria-label="Photo {{ forloop.index }}">{{ m | image_url: width: 200 | image_tag: alt: '' }}</button>
+        {%- endif -%}{%- endfor -%}
+      </div>
+      {%- else -%}
+      <div class="stage" id="mv-stage">
+        <div class="slide" data-on>{%- if img_jar != blank -%}{{ img_jar | image_url: width: 1200 | image_tag: alt: img_jar.alt, loading: 'eager', fetchpriority: 'high', sizes: '(max-width: 900px) 100vw, 55vw', widths: '600, 900, 1200' }}{%- endif -%}</div>
+        <div class="slide card"><h3>What&#39;s in every gummy</h3><ul><li class="ck">180mg magnesium a day (citrate)</li><li class="ck">Ripe red berry</li><li class="ck">Plant pectin, no gelatine</li><li class="ck">Colour from spirulina and anthocyanins</li><li class="ck">None of the 14 major allergens</li></ul></div>
+        <div class="slide">{%- if section.settings.hero_image != blank -%}{{ section.settings.hero_image | image_url: width: 1200 | image_tag: alt: section.settings.hero_image.alt, loading: 'lazy' }}{%- endif -%}</div>
+        <div class="slide card y"><h3>Your first {{ n }} days</h3><div class="days"><div><b>Day 1</b><span>Jar goes by the kettle</span></div><div><b>Day 7</b><span>Two gummies are part of your morning</span></div><div><b>Day {{ n }}</b><span>Notice how your days feel</span></div></div><p style="font-weight:600;font-size:14px">A routine, not a promise of results. Magnesium contributes to the reduction of tiredness and fatigue.</p></div>
+        <div class="slide">{%- if section.settings.macro_image != blank -%}{{ section.settings.macro_image | image_url: width: 1200 | image_tag: alt: section.settings.macro_image.alt, loading: 'lazy' }}{%- endif -%}</div>
+        <div class="slide">{%- if section.settings.moment2_image != blank -%}{{ section.settings.moment2_image | image_url: width: 1200 | image_tag: alt: section.settings.moment2_image.alt, loading: 'lazy' }}{%- endif -%}</div>
+        <div class="arrows"><button type="button" data-mv-prev aria-label="Previous photo">‹</button><button type="button" data-mv-next aria-label="Next photo">›</button></div>
+      </div>
+      <div class="thumbs" id="mv-thumbs">
+        <button type="button" aria-pressed="true" aria-label="Jar">{%- if img_jar != blank -%}{{ img_jar | image_url: width: 200 | image_tag: alt: '' }}{%- endif -%}</button>
+        <button type="button" aria-pressed="false">Inside</button>
+        <button type="button" aria-pressed="false" aria-label="Lifestyle">{%- if section.settings.hero_image != blank -%}{{ section.settings.hero_image | image_url: width: 200 | image_tag: alt: '' }}{%- endif -%}</button>
+        <button type="button" aria-pressed="false">{{ n }} days</button>
+        <button type="button" aria-pressed="false" aria-label="Gummies">{%- if section.settings.macro_image != blank -%}{{ section.settings.macro_image | image_url: width: 200 | image_tag: alt: '' }}{%- endif -%}</button>
+        <button type="button" aria-pressed="false" aria-label="Taking one">{%- if section.settings.moment2_image != blank -%}{{ section.settings.moment2_image | image_url: width: 200 | image_tag: alt: '' }}{%- endif -%}</button>
+      </div>
+      {%- endif -%}
+    </div>
+
+    <div class="buy" id="buy-top">
+      <p class="eyebrow">Real talk: two gummies, 180mg, zero drama.</p>
+      <div class="bdg"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-14 14-14 0 9-6 14-14 14z"/><path d="M5 19l8-8"/></svg>Vegan</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Gelatine-free</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg>Every ingredient listed</span></div>
+      <h1>{{ p.title }}</h1>
+      {%- if p.metafields.reviews.rating_count.value > 0 -%}<div class="jdgm-widget jdgm-preview-badge" data-id="{{ p.id }}">{{ p.metafields.judgeme.badge }}</div>{%- endif -%}
+      <p class="sub">Girl, we know you&#39;re tired. Two ripe red berry gummies a day, with 180mg magnesium printed right on the front. All dose. No drama.</p>
+      <ul class="cks">
+        <li class="ck">Contributes to the reduction of tiredness and fatigue</li>
+        <li class="ck">Contributes to normal psychological function</li>
+        <li class="ck">Contributes to normal muscle function</li>
+        <li class="ck">180mg magnesium a day · vegan · gelatine-free</li>
+      </ul>
+      {%- unless wl -%}<div class="hl fnd"><b>Free UK delivery</b> on 2+ jars &middot; {{ section.settings.guarantee_days }}-day guarantee</div>{%- endunless -%}
+      {%- liquid
+        assign sel = v2.id
+        if p.selected_variant
+          assign sel = p.selected_variant.id
+        endif
+      -%}
+      {%- form 'product', p, id: 'mv-buy' -%}
+      {%- liquid
+        assign pd1 = v1.price | times: 1.0 | divided_by: n | round
+        assign pd2 = v2.price | times: 1.0 | divided_by: n | divided_by: 2 | round
+        assign pd3 = v3.price | times: 1.0 | divided_by: n | divided_by: 3 | round
+        assign sv2 = v1.price | times: 2 | minus: v2.price
+        assign sv3 = v1.price | times: 3 | minus: v3.price
+      -%}
+      <fieldset><legend>Choose your pack</legend>
+        <div class="packs2">
+          <label class="pk2 pbx"><input type="radio" name="id" value="{{ v1.id }}" data-price="{{ v1.price | money }}" data-note="1 jar · + {{ section.settings.single_delivery }} delivery" {% if sel == v1.id %}checked{% endif %} data-avail="{{ v1.available }}" data-pack="1"><span class="pbx-th"><img src="{{ 'packjar1.png' | file_url }}" alt="" width="120" height="84" loading="eager"></span><span class="pbx-t"><b>1 jar</b><span class="pbx-sup">{{ n | times: 1 }} days &middot; {{ n | times: 2 }} gummies</span><span class="pbx-del">+ {{ section.settings.single_delivery }} delivery</span></span><span class="pbx-p"><b>{{ v1.price | money }}</b><small>{{ pd1 | money }} a day</small></span></label>
+          <label class="pk2 pbx"><span class="pbx-badge">Free delivery</span><input type="radio" name="id" value="{{ v2.id }}" data-price="{{ v2.price | money }}" data-note="2 jars · free delivery" {% if sel == v2.id %}checked{% endif %} data-avail="{{ v2.available }}" data-pack="2"><span class="pbx-th"><img src="{{ 'packjar2.png' | file_url }}" alt="" width="120" height="84" loading="eager"></span><span class="pbx-t"><b>2 jars</b><span class="pbx-save">Save {{ save2 }}%</span><span class="pbx-sup">{{ n | times: 2 }} days &middot; {{ n | times: 4 }} gummies</span><span class="pbx-del free">Free UK delivery</span></span><span class="pbx-p"><b>{{ v2.price | money }}</b><s>{{ v1.price | times: 2 | money }}</s><small>{{ pd2 | money }} a day</small></span></label>
+          <label class="pk2 pbx best"><span class="pbx-badge hot">Best value</span><input type="radio" name="id" value="{{ v3.id }}" data-price="{{ v3.price | money }}" data-note="3 jars · free delivery" {% if sel == v3.id %}checked{% endif %} data-avail="{{ v3.available }}" data-pack="3"><span class="pbx-th"><img src="{{ 'packjar3.png' | file_url }}" alt="" width="120" height="84" loading="eager"></span><span class="pbx-t"><b>3 jars</b><span class="pbx-save">Save {{ save3 }}%</span><span class="pbx-sup">{{ n | times: 3 }} days &middot; {{ n | times: 6 }} gummies</span><span class="pbx-del free">Free UK delivery</span></span><span class="pbx-p"><b>{{ v3.price | money }}</b><s>{{ v1.price | times: 3 | money }}</s><small>{{ pd3 | money }} a day</small></span></label>
+        </div>
+      </fieldset>
+      <input type="hidden" name="quantity" value="1">
+      <button class="btn add" type="submit" id="mv-add">{% if wl %}Reserve mine{% else %}Add to basket{% endif %}</button>
+      {%- if wl -%}<p class="ntp">Nothing to pay today</p>{%- endif -%}
+      {%- endform -%}
+      {%- if wl -%}<p class="wlnote">Launching soon. Reserve your pack and join the Founding 500: 20% off your first order, free UK delivery on 2+ jars and our no-drama guarantee on your first jar. Nothing to pay today.</p>{% render 'meva-club-form', fid: 'club' %}{%- endif -%}
+      <div class="perks"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>Free UK delivery on 2+ jars ({{ section.settings.single_delivery }} for one jar)</span><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>Backed by our 30-day guarantee</span><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0114-5.3L20 9"/><path d="M20 4v5h-5"/><path d="M20 12a8 8 0 01-14 5.3L4 15"/><path d="M4 20v-5h5"/></svg>One-off purchase. No subscription, nothing renews.</span></div>
+      <div class="trust">
+        <div><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></i>{{ section.settings.guarantee_days }}-day guarantee</div>
+        <div><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/></svg></i>Made to GMP standards</div>
+        <div><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/></svg></i>Tracked UK delivery</div>
+      </div>
+      <div class="acc2">
+        <details open><summary>About the product</summary><div class="in"><p>{{ brand }} is a ripe red berry gummy for the women who hold everyone together. Each gummy holds 90mg of magnesium, the mineral behind five UK-authorised health claims. What it won&#39;t do: fix your inbox, your teenager or your boss. Sorry, babe. We only say what we can prove.</p><p>Two gummies a day, chewed straight from the jar.</p></div></details>
+        <details><summary>What magnesium does</summary><div class="in"><ul class="cl"><li class="ck">Contributes to the reduction of tiredness and fatigue</li><li class="ck">Contributes to normal psychological function</li><li class="ck">Contributes to normal functioning of the nervous system</li><li class="ck">Contributes to normal muscle function</li><li class="ck">Contributes to the maintenance of normal bones</li></ul></div></details>
+        <details><summary>Ingredients &amp; allergens</summary><div class="in"><p>{{ section.settings.ingredients }}</p><p>Vegan and gelatine-free. Made without the 14 major allergens.</p></div></details>
+        <details><summary>Nutrition information</summary><div class="in"><table class="nt"><thead><tr><th scope="col">Per daily dose (2 gummies)</th><th scope="col">Amount</th><th scope="col">%NRV*</th></tr></thead><tbody><tr><th scope="row">Magnesium</th><td>180mg</td><td>48%</td></tr></tbody></table><p class="fine">*NRV = Nutrient Reference Value.</p></div></details>
+        <details><summary>How to take &amp; storage</summary><div class="in"><p>{{ section.settings.dose_text }}</p><p>Store in a cool, dry place out of direct sunlight and keep the lid closed. Keep out of reach of young children. Do not exceed the recommended daily intake. Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle.</p></div></details>
+        <details><summary>Delivery &amp; returns</summary><div class="in"><p>Royal Mail Tracked, usually 2 to 3 working days. Free on 2+ jars, {{ section.settings.single_delivery }} for one jar.</p><p>Not for you? Email {{ section.settings.contact_email }} within {{ section.settings.guarantee_days }} days of your first order arriving and we&#39;ll refund the jar you opened. Unopened jars from a multipack can be sent back for a refund too. <a href="{{ routes.root_url }}pages/refunds">Full terms</a>.</p></div></details>
+        <details><summary>Frequently asked questions</summary><div class="in"><div class="qa"><b>What&#39;s in each jar?</b><p>{{ n | times: 2 }} ripe red berry gummies with 90mg magnesium each. One jar lasts {{ n }} days at two gummies a day.</p></div><div class="qa"><b>How many gummies do I take?</b><p>{{ section.settings.dose_text }} Do not exceed the recommended daily intake.</p></div><div class="qa"><b>What do they taste like?</b><p>Ripe red berry. Soft, chewy and glossy, never chalky. Honestly, you&#39;ll look forward to it.</p></div><div class="qa"><b>When should I take it?</b><p>Any time of day. Most women keep the jar by the kettle and take it with breakfast, so it becomes part of the morning.</p></div><div class="qa"><b>How long until I notice a difference?</b><p>Real talk: everyone&#39;s different, so we won&#39;t promise results. Give it a full jar ({{ n }} days) as part of your daily routine. If it isn&#39;t for you, our {{ section.settings.guarantee_days }}-day guarantee has you covered.</p></div><div class="qa"><b>Can I take it alongside HRT or other medication?</b><p>Please check with your GP or pharmacist before taking any supplement alongside medication.</p></div><div class="qa"><b>Is it suitable if I&#39;m pregnant or breastfeeding?</b><p>Please speak to your GP or midwife before taking any food supplement.</p></div><div class="qa"><b>Is it vegan?</b><p>Yes. We use plant pectin instead of gelatine, and it contains none of the 14 major allergens.</p></div><div class="qa"><b>How is it made?</b><p>To Good Manufacturing Practice (GMP) standards, then packed and shipped from the UK.</p></div><div class="qa"><b>Do I have to subscribe?</b><p>No. Every order is a one-off purchase. Nothing renews automatically.</p></div><div class="qa"><b>How fast is delivery?</b><p>Royal Mail Tracked, usually 2 to 3 working days. Free on 2 or more jars, {{ section.settings.single_delivery }} for one jar.</p></div><div class="qa"><b>What if it isn&#39;t for me?</b><p>Email us within {{ section.settings.guarantee_days }} days of your first order arriving and we&#39;ll refund the jar you opened. No need to send it back. Bought 2 or 3 jars? Post the unopened ones back and we&#39;ll refund those too. One guarantee per customer and household. <a href="{{ routes.root_url }}pages/refunds">Full terms</a>.</p></div></div></details>
+      </div>
+      <div class="tp"><h3>Taste profile</h3><div class="tpi">
+        <div><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="14" r="4"/><circle cx="15" cy="14" r="4"/><circle cx="12" cy="9" r="4"/><path d="M12 5V2"/></svg></i><span>Ripe red berry</span></div>
+        <div><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-14 14-14 0 9-6 14-14 14z"/><path d="M5 19l8-8"/></svg></i><span>Soft &amp; chewy</span></div>
+        <div><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg></i><span>Never chalky</span></div>
+      </div></div>
+      <div class="eg"><h3>In every gummy</h3><ul>
+        <li><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M8.5 15V9l3.5 4 3.5-4v6"/></svg></i><div><b>Magnesium citrate</b><span>90mg per gummy</span></div></li>
+        <li><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="14" r="4"/><circle cx="15" cy="14" r="4"/><circle cx="12" cy="9" r="4"/><path d="M12 5V2"/></svg></i><div><b>Ripe red berry</b><span>Ripe red berry flavour from natural flavouring</span></div></li>
+        <li><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-14 14-14 0 9-6 14-14 14z"/><path d="M5 19l8-8"/></svg></i><div><b>Plant pectin</b><span>Plant-based, so no gelatine</span></div></li>
+        <li><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg></i><div><b>Colour from nature</b><span>Spirulina and anthocyanins</span></div></li>
+        <li><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></i><div><b>Made without allergens</b><span>None of the 14 major allergens</span></div></li>
+      </ul><p class="egnote">Full nutrition table under Nutrition information above.</p></div>
+    </div>
+  </div></section>
+
+
+  <section class="pban"><div class="wrap">
+    <div class="txt"><p class="kick">The easy bit</p><h2>Two gummies. Four seconds. Back to running the world.</h2><p>No horse-pill tablets. No gritty powders. No glass of water. Just two ripe red berry gummies, chewed straight from the jar. Honestly, the easiest thing you&#39;ll do all day.</p><a class="btn pink" href="#buy-top">{% if wl %}Reserve mine{% else %}Choose your pack{% endif %}</a></div>
+    <div class="ph">{%- if section.settings.club_image != blank -%}{{ section.settings.club_image | image_url: width: 1100 | image_tag: alt: section.settings.club_image.alt, loading: 'lazy', sizes: '(max-width: 860px) 100vw, 50vw' }}{%- endif -%}</div>
+  </div></section>
+
+  <section class="pfacts"><div class="wrap">
+    
+    <div class="txt"><p class="kick">The plain facts</p><h2>Made for real life, not the bathroom shelf.</h2>
+      <ul class="fl">
+        <li><b>2</b><span><strong>gummies a day.</strong> Not the whole jar. We see you.</span></li>
+        <li><b>180<small>mg</small></b><span><strong>magnesium a day.</strong> Printed on the front, not hidden on the back.</span></li>
+        <li><b>48<small>%</small></b><span><strong>of your daily NRV.</strong> From magnesium citrate.</span></li>
+        <li><b>4<small>sec</small></b><span><strong>and you&#39;re done.</strong> No water, no washing up.</span></li>
+        <li><b>{{ pd3 | money }}</b><span><strong>a day on the 3-jar pack.</strong> Cheaper than your coffee.</span></li>
+        <li><b>{{ section.settings.guarantee_days }}<small>days</small></b><span><strong>to change your mind.</strong> We refund your first jar, no awkward questions.</span></li>
+        <li><b>0</b><span><strong>drama.</strong> Obviously.</span></li>
+      </ul>
+      <a class="btn" href="#buy-top">{% if wl %}Reserve mine{% else %}Choose your pack{% endif %}</a></div>
+  </div></section>
+
+  <section class="pstats"><div class="wrap">
+    <div class="pstat" role="list">
+          <div role="listitem"><b>15%</b><span>of UK women aged 19&ndash;64 don&#39;t reach the minimum magnesium intake from food</span></div>
+          <div role="listitem"><b>83%</b><span>of the recommended daily intake is the average UK woman&#39;s magnesium intake from food</span></div>
+          <div role="listitem"><b>180mg</b><span>of magnesium in your two gummies &mdash; 48% of your daily reference intake</span></div>
+        </div>
+        <p class="pstat-src">Source: National Diet and Nutrition Survey 2019&ndash;2023, Office for Health Improvement and Disparities &amp; Food Standards Agency (2025).</p>
+  </div></section>
+  <section class="pnotes"><div class="wrap">
+    <div class="nh"><p class="kick">Notes to self</p><h2>It fits wherever your day goes.</h2></div>
+    <div class="ngrid">
+      <div class="note n1"><span class="tape"></span><b>7:05am</b><p>Jar by the kettle. Two gummies before the toast pops. Done.</p></div>
+      <div class="note n2"><span class="tape"></span><b>Reminder</b><p>No glass of water. No shaker. No washing up. The sink says thanks x</p></div>
+      <div class="note n3"><span class="tape"></span><b>Lives in</b><p>Handbag, desk drawer, glovebox. It goes where I go.</p></div>
+      <div class="note n4"><span class="tape"></span><b>Packing list</b><p>Passport. Sun cream. M&euml;va. Sunbed approved.</p></div>
+    </div>
+  </div></section>
+
+  <section class="plabel"><div class="wrap">
+    <p class="kick">Quality you can actually check</p><h2>The small print, made big.</h2>
+    <div class="lbl"><div class="in">
+      <p class="lg">m&euml;va</p><p class="lt">Quality &middot; Honestly labelled</p>
+      <ul>
+        <li><b>Made to GMP standards</b><span>the quality standard food supplements are made to</span></li>
+        <li><b>Every ingredient on the label</b><span>with exact amounts. No secret blends.</span></li>
+        <li><b>Batch-coded</b><span>every jar is traceable, with a best-before date</span></li>
+        <li><b>Packed &amp; shipped from the UK</b><span>tracked delivery to your door</span></li>
+        <li><b>Vegan &middot; gelatine-free</b><span>made without the 14 major allergens</span></li>
+      </ul>
+    </div></div>
+  </div></section>
+
+  <section class="pjar"><div class="wrap">
+    <div class="jh"><p class="kick">What&#39;s actually in it</p><h2>Six things. No secrets.</h2><p>Here&#39;s the label, read out loud.</p></div>
+    <div class="jg">
+      <ul class="jl"><li><i>1</i><div><b>Magnesium citrate</b><span>The star. 90mg per gummy, so 180mg in your two a day. That&#39;s 48% NRV.</span></div></li><li><i>2</i><div><b>Ripe red berry</b><span>From natural flavouring. Never chalky, never medicinal.</span></div></li><li><i>3</i><div><b>Plant pectin</b><span>Sets the gummy instead of gelatine. Vegan, babe.</span></div></li></ul>
+      <div class="jimg"><img src="{{ 'meva-jar-cut.png' | file_img_url: '700x' }}" alt="A jar of M&euml;va magnesium berry gummies" loading="lazy" width="598" height="900"></div>
+      <ul class="jl r"><li><i>4</i><div><b>That purple</b><span>Spirulina and anthocyanins. That&#39;s it.</span></div></li><li><i>5</i><div><b>Allergens</b><span>Made without any of the 14 major allergens.</span></div></li><li><i>6</i><div><b>The full list</b><span>Glucose syrup, sugar, magnesium citrate, water, pectin, citric acid, trisodium citrate, spirulina, anthocyanins, coconut oil, natural flavouring, carnauba wax.</span></div></li></ul>
+    </div>
+  </div></section>
+
+  <section class="pmonth"><div class="wrap">
+    <div class="mh"><p class="kick">Your first jar, honestly</p><h2>Give your body 30 days of what it needs.</h2><p><b>Magnesium contributes to the reduction of tiredness and fatigue.</b> Your job is simple: two gummies, every day, for a full jar. Here&#39;s how that month goes.</p></div>
+    <ol class="tl">
+      <li><div class="ph"><img src="{{ 'meva-day1.jpg' | file_img_url: '800x' }}" alt="Two Mëva gummies in a palm next to the jar and a mug of tea" loading="lazy" width="800" height="600"></div><span class="day">Day 1</span><b>Your first two.</b><p>180mg of magnesium, done before the kettle boils. One thing today that&#39;s just for you.</p></li>
+      <li><div class="ph">{%- if section.settings.bag_image != blank -%}{{ section.settings.bag_image | image_url: width: 700 | image_tag: alt: section.settings.bag_image.alt, loading: 'lazy', sizes: '(max-width: 860px) 80vw, 25vw' }}{%- endif -%}</div><span class="day">Day 7</span><b>It&#39;s a habit now.</b><p>Same time every morning. The jar lives in your bag on busy days.</p></li>
+      <li><div class="ph"><img src="{{ 'm9-friends.jpg' | file_img_url: '800x' }}" alt="Two friends laughing over tea on the sofa, a jar of Mëva on the table" style="object-position:50% 30%" loading="lazy" width="800" height="600"></div><span class="day">Day 14</span><b>Two weeks of showing up for you.</b><p>Fourteen days, 28 gummies, every dose on the front of the jar. Magnesium also contributes to normal psychological function. Notice how you&#39;re doing.</p></li>
+      <li><div class="ph"><img src="{{ 'meva-day30.jpg' | file_img_url: '800x' }}" alt="A relaxed woman in sunglasses leaning on a pink wall holding a jar of Mëva" loading="lazy" width="800" height="600"></div><span class="day">Day 30</span><b>Jar finished. Honest check-in.</b><p>A full month of magnesium. How do you feel? Loving it? Keep going. Not for you? We&#39;ll refund your first jar. No drama.</p></li>
+    </ol>
+  </div></section>
+
+  <section class="ogap"><div class="wrap">
+    <p class="kick">The food gap</p>
+    <h2>It&#39;s not just you. It&#39;s the food.</h2>
+    <p>In the UK&#39;s own national diet survey, 15% of women aged 19&ndash;64 don&#39;t reach even the minimum magnesium intake from food alone. Busy days, skipped lunches, one more coffee instead of a meal &mdash; it adds up quietly.</p>
+    <p>M&euml;va adds 180mg of magnesium a day &mdash; 48% of your daily reference intake &mdash; in two berry gummies. The real dose, printed on the front.</p>
+    <p class="claim">Magnesium contributes to the reduction of tiredness and fatigue.</p>
+    <div class="octa"><a class="btn" href="#buy-top">Reserve mine</a><span>Nothing to pay today · Finish your first jar. Not for you? We&#39;ll refund it.</span></div>
+    <p class="src">Source: National Diet and Nutrition Survey 2019&ndash;2023, Office for Health Improvement and Disparities &amp; Food Standards Agency (2025). Women aged 19&ndash;64 with magnesium intakes from food below the Lower Reference Nutrient Intake.</p>
+  </div></section>
+  <section class="vs"><div class="wrap">
+    <div class="shead"><p class="kick">Compare</p><h2>{{ brand }} vs the usual wellness hype</h2><p>Comparing claims, labels and format. Not a medical comparison, and not about any one brand.</p></div>
+    <div class="stbl"><table><thead><tr><td></td><th scope="col" class="us">m&euml;va</th><th scope="col" class="them">The usual hype</th></tr></thead><tbody><tr><th scope="row">What it claims</th><td class="us"><i class="tk" aria-hidden="true">&#10003;</i><span>Real claims, not fairy tales</span></td><td class="them"><i class="ds" aria-hidden="true">&ndash;</i><span>&ldquo;Balances your hormones&rdquo;</span></td></tr><tr><th scope="row">The label</th><td class="us"><i class="tk" aria-hidden="true">&#10003;</i><span>One mineral. 180mg on the front.</span></td><td class="them"><i class="ds" aria-hidden="true">&ndash;</i><span>Long blends that are hard to decode</span></td></tr><tr><th scope="row">The guarantee</th><td class="us"><i class="tk" aria-hidden="true">&#10003;</i><span>First jar refunded if it&#39;s not for you</span></td><td class="them"><i class="ds" aria-hidden="true">&ndash;</i><span>&ldquo;Money back&rdquo; on unopened packs only</span></td></tr><tr><th scope="row">Subscription</th><td class="us"><i class="tk" aria-hidden="true">&#10003;</i><span>Never. Every order is a one-off.</span></td><td class="them"><i class="ds" aria-hidden="true">&ndash;</i><span>Often hard to cancel</span></td></tr><tr><th scope="row">Format</th><td class="us"><i class="tk" aria-hidden="true">&#10003;</i><span>Soft berry gummy. Chew, done.</span></td><td class="them"><i class="ds" aria-hidden="true">&ndash;</i><span>Big tablets and a glass of water</span></td></tr></tbody></table></div>
+  </div></section>
+
+  <section class="ppromise"><div class="wrap">
+    <div class="seal"><span class="d">{{ section.settings.guarantee_days }}</span><span class="dl">days</span><span class="pp">no drama</span></div>
+    <div class="txt"><p class="kick">The no-drama refund</p><h2>Finish your first jar. Not for you? We&#39;ll refund it.</h2><p>Email us within {{ section.settings.guarantee_days }} days of your first order arriving. No forms. No posting back the jar you opened. No drama. First order only, one per household. <a href="{{ routes.root_url }}pages/refunds">Full terms</a>.</p><a class="btn" href="#buy-top">{% if wl %}Reserve mine{% else %}Choose your pack{% endif %}</a></div>
+  </div></section>
+
+  <section class="pnote"><div class="wrap">
+    <div class="letter">
+      <p class="kick">A note from us</p>
+      <h2>We got tired of being shouted at.</h2>
+      <p>The supplement aisle loves fear, miracle words and tiny print. We wanted the opposite for women like us: one clear dose, only the claims UK law allows, and a ripe red berry gummy you actually look forward to.</p>
+      <p>No subscriptions to trap you. No promises we can&#39;t keep. And if it&#39;s not for you, we&#39;ll refund your first jar.</p>
+      <p class="sig">All dose. No drama.<span>The m&euml;va team</span></p>
+      <a class="btn o" href="{{ routes.root_url }}pages/our-story">Read our story</a>
+    </div>
+  </div></section>
+
+  <section class="offer pk3s" id="shop2"><div class="wrap">
+    <div class="phead"><h2>Ready when you are.</h2><p>Prices include VAT. Ships from our UK fulfilment centre. No subscription, no commitment.</p></div>
+    <div class="pk3g">
+      <div class="pkc"><div class="pimg"><img src="{{ 'packjar1.png' | file_url }}" alt="1 jar of Mëva" loading="lazy" width="400" height="280"></div>
+        <h3>1 jar</h3><p class="pdur">{{ n | times: 1 }} days &middot; {{ n | times: 2 }} gummies</p>
+        <p class="ppr">{{ v1.price | money }}</p>
+        <div class="pmeta"><div><span>Per jar</span><b>{{ v1.price | money }}</b></div><div><span>Per day</span><b>{{ v1.price | times: 1.0 | divided_by: n | divided_by: 1 | round | money }}</b></div></div>
+        <p class="psave none">Single jar price</p>
+        <ul><li>Delivery {{ section.settings.single_delivery }}</li><li>{{ section.settings.guarantee_days }}-day guarantee</li></ul>
+        {%- if wl -%}<a class="btn o" href="{{ p.url }}?reserve=1#club">Reserve 1 jar</a>{%- else -%}<a class="btn o" href="{{ p.url }}?variant={{ v1.id }}">Choose 1 jar</a>{%- endif -%}
+      </div>
+      <div class="pkc"><span class="pflag">Free delivery</span><div class="pimg"><img src="{{ 'packjar2.png' | file_url }}" alt="2 jars of Mëva" loading="lazy" width="400" height="280"></div>
+        <h3>2 jars</h3><p class="pdur">{{ n | times: 2 }} days &middot; {{ n | times: 4 }} gummies</p>
+        <p class="ppr">{{ v2.price | money }}</p>
+        <div class="pmeta"><div><span>Per jar</span><b>{{ each2 | money }}</b></div><div><span>Per day</span><b>{{ v2.price | times: 1.0 | divided_by: n | divided_by: 2 | round | money }}</b></div></div>
+        <p class="psave">You save {{ save2 }}%</p>
+        <ul><li>Free UK delivery on 2+ jars</li><li>{{ section.settings.guarantee_days }}-day guarantee</li></ul>
+        {%- if wl -%}<a class="btn" href="{{ p.url }}?reserve=2#club">Reserve 2 jars</a>{%- else -%}<a class="btn" href="{{ p.url }}?variant={{ v2.id }}">Choose 2 jars</a>{%- endif -%}
+      </div>
+      <div class="pkc best"><span class="pflag">Best value</span><div class="pimg"><img src="{{ 'packjar3.png' | file_url }}" alt="3 jars of Mëva" loading="lazy" width="400" height="280"></div>
+        <h3>3 jars</h3><p class="pdur">{{ n | times: 3 }} days &middot; {{ n | times: 6 }} gummies</p>
+        <p class="ppr">{{ v3.price | money }}</p>
+        <div class="pmeta"><div><span>Per jar</span><b>{{ each3 | money }}</b></div><div><span>Per day</span><b>{{ v3.price | times: 1.0 | divided_by: n | divided_by: 3 | round | money }}</b></div></div>
+        <p class="psave">You save {{ save3 }}%</p>
+        <ul><li>Free UK delivery on 2+ jars</li><li>{{ section.settings.guarantee_days }}-day guarantee</li></ul>
+        {%- if wl -%}<a class="btn" href="{{ p.url }}?reserve=3#club">Reserve 3 jars</a>{%- else -%}<a class="btn" href="{{ p.url }}?variant={{ v3.id }}">Choose 3 jars</a>{%- endif -%}
+      </div>
+    </div>
+  </div></section>
+
+{%- if p.metafields.reviews.rating_count.value > 0 -%}
+  <section class="previews" id="reviews"><div class="wrap">
+    <div class="rh"><p class="kick">Real reviews only</p><h2>What women actually say.</h2><p>Every review here is from a verified customer. We never edit, hide or pay for them.</p></div>
+    <div class="rbox"><div id="judgeme_product_reviews" class="jdgm-widget jdgm-review-widget jdgm-outside-widget" data-id="{{ p.id }}">{{ p.metafields.judgeme.widget }}</div></div>
+  </div></section>
+{%- endif -%}
+
+  <section class="faq pfaq" id="faq"><div class="wrap">
+    <div class="side"><p class="kick">Good questions</p><h2>Asked and answered.</h2><p>Still wondering? Email <a href="mailto:{{ section.settings.contact_email }}">{{ section.settings.contact_email }}</a>. A real person replies.</p></div>
+    <div>
+      <details><summary>What&#39;s in each jar?</summary><p>{{ n | times: 2 }} ripe red berry gummies with 90mg magnesium each. One jar lasts {{ n }} days at two gummies a day.</p></details>
+      <details><summary>How many gummies do I take?</summary><p>{{ section.settings.dose_text }} Do not exceed the recommended daily intake.</p></details>
+      <details><summary>When should I take them?</summary><p>Any time that suits you. Most women keep the jar by the kettle and take two with breakfast, so it sticks.</p></details>
+      <details><summary>What do they taste like?</summary><p>Ripe red berry. Soft, chewy and glossy, never chalky. Honestly, you&#39;ll look forward to it.</p></details>
+      <details><summary>Is there sugar in them?</summary><p>Yes. Like most gummies, they&#39;re made with glucose syrup and sugar. Every ingredient is listed on the jar and in the details above, so there are no surprises.</p></details>
+      <details><summary>Are they vegan?</summary><p>Yes. They&#39;re set with plant pectin instead of gelatine, and made without the 14 major allergens.</p></details>
+      <details><summary>Why magnesium citrate?</summary><p>It&#39;s one of the most widely used forms of magnesium. Two gummies give you 180mg, which is 48% of the Nutrient Reference Value.</p></details>
+      <details><summary>How long until I notice a difference?</summary><p>Real talk: everyone&#39;s different, so we won&#39;t promise results. Give it a full jar ({{ n }} days) as part of your daily routine. If it isn&#39;t for you, our {{ section.settings.guarantee_days }}-day guarantee has you covered.</p></details>
+      <details><summary>Can I take it alongside HRT or other medication?</summary><p>Please check with your GP or pharmacist before taking any supplement alongside medication.</p></details>
+      <details><summary>Can I take it if I&#39;m pregnant or breastfeeding?</summary><p>It&#39;s not recommended during pregnancy or breastfeeding unless a healthcare professional advises it.</p></details>
+      <details><summary>How is it made?</summary><p>To Good Manufacturing Practice (GMP) standards, then packed and shipped from the UK.</p></details>
+      <details><summary>Do I have to subscribe?</summary><p>No. Every order is a one-off purchase. Nothing renews automatically.</p></details>
+      {%- if wl -%}<details><summary>What&#39;s the Founding 500?</summary><p>The first 500 women to join the No Drama Club get 20% off their first order, free UK delivery on 2+ jars and our no-drama guarantee on their first jar. Nothing to pay today. We&#39;ll email you the moment we launch.</p></details>{%- endif -%}
+      <details><summary>How fast is delivery?</summary><p>Royal Mail Tracked, usually 2 to 3 working days. Free on 2 or more jars, {{ section.settings.single_delivery }} for one jar.</p></details>
+      <details><summary>What if it isn&#39;t for me?</summary><p>Email us within {{ section.settings.guarantee_days }} days of your first order arriving and we&#39;ll refund the jar you opened. No need to send it back. Bought 2 or 3 jars? Post the unopened ones back and we&#39;ll refund those too. One guarantee per customer and household. <a href="{{ routes.root_url }}pages/refunds">Full terms</a>.</p></details>
+    </div>
+  </div></section>
+
+
+<style>
+.mv5 .buy .hl.fnd{background:#ffd84d;color:var(--plum,#3d0f27);font-weight:700}
+.mv5 .buy .hl.fnd b{margin-right:6px}
+.mv5 .previews{background:#fff;padding:clamp(56px,8vw,96px) 0}
+.mv5 .previews .rh{text-align:center;max-width:640px;margin:0 auto clamp(22px,3vw,36px)}
+.mv5 .previews h2{font-size:clamp(30px,4vw,46px);letter-spacing:-.04em;margin:6px 0 10px}
+.mv5 .previews .rh p:last-child{color:var(--muted)}
+.mv5 .previews .rbox{max-width:900px;margin:0 auto}
+.mv5 .jdgm-preview-badge{margin:4px 0 6px}
+.mv5 .jdgm-widget .jdgm-star{color:var(--berry,#8e2a5a)!important}
+.mv5 .jdgm-write-rev-link,.mv5 .jdgm-btn{background:var(--plum,#3d0f27)!important;color:#fff!important;border-radius:999px!important;border:none!important}
+
+.mv5 .pfacts{background:#f3dbe2;padding:clamp(48px,7vw,96px) 0}
+.mv5 .pfacts .wrap{display:grid;grid-template-columns:1fr;max-width:820px;gap:clamp(28px,5vw,72px);align-items:center}
+.mv5 .pfacts .fph{border-radius:28px;overflow:hidden;aspect-ratio:1/1;box-shadow:0 20px 44px rgba(61,15,39,.16)}
+.mv5 .pfacts .fph img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
+.mv5 .pfacts h2{font-size:clamp(30px,3.8vw,46px);line-height:1.03;letter-spacing:-.04em;margin:8px 0 18px;max-width:15ch}
+.mv5 .pfacts .fl{list-style:none;margin:0 0 24px;padding:0;border-top:1.5px solid rgba(61,15,39,.16)}
+.mv5 .pfacts .fl li{display:grid;grid-template-columns:118px 1fr;gap:16px;align-items:baseline;padding:13px 0;border-bottom:1.5px solid rgba(61,15,39,.16)}
+.mv5 .pfacts .fl b{font-family:var(--display);font-weight:900;font-size:34px;letter-spacing:-.04em;line-height:1;color:var(--berry,#8e2a5a)}
+.mv5 .pfacts .fl b small{font-size:.45em;margin-left:2px;letter-spacing:-.01em}
+.mv5 .pfacts .fl span{font-size:16px;line-height:1.45;color:var(--muted)}
+.mv5 .pfacts .fl strong{color:var(--plum,#3d0f27);font-weight:800}
+@media (max-width:860px){.mv5 .pfacts .wrap{grid-template-columns:1fr}.mv5 .pfacts .fph{aspect-ratio:4/3}.mv5 .pfacts .fl li{grid-template-columns:96px 1fr;gap:12px}.mv5 .pfacts .fl b{font-size:28px}.mv5 .pfacts .fl span{font-size:15px}.mv5 .pfacts .btn{width:100%}}
+
+.mv5 .prcpt{background:#f3dbe2;padding:clamp(56px,8vw,100px) 0;overflow:hidden}
+.mv5 .prcpt .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center}
+.mv5 .prcpt .txt{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.mv5 .prcpt h2{font-size:clamp(32px,4.2vw,52px);line-height:1.02;letter-spacing:-.04em;max-width:13ch}
+.mv5 .prcpt .txt p{font-size:17px;color:var(--muted);max-width:40ch;line-height:1.6}
+.mv5 .prcpt .txt small{font-size:13px;color:var(--muted);font-weight:600}
+.mv5 .prcpt .rc{display:flex;justify-content:center}
+.mv5 .prcpt .paper{position:relative;width:min(100%,380px);background:#fff;padding:30px 28px 22px;transform:rotate(2.5deg);box-shadow:0 24px 50px rgba(61,15,39,.18);font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--plum,#3d0f27);transition:transform .4s cubic-bezier(.2,.8,.2,1.2)}
+.mv5 .prcpt .paper:hover{transform:rotate(0) translateY(-6px)}
+.mv5 .prcpt .paper::after{content:"";position:absolute;left:0;right:0;bottom:-12px;height:12px;background:linear-gradient(-45deg,transparent 8px,#fff 0) 0 0/16px 12px repeat-x,linear-gradient(45deg,transparent 8px,#fff 0) 0 0/16px 12px repeat-x}
+.mv5 .prcpt .rh{text-align:center;font-family:var(--display);font-weight:900;font-size:34px;letter-spacing:-.04em;line-height:1;padding-bottom:14px;border-bottom:2px dashed #d9c4cc}
+.mv5 .prcpt .rh span{display:block;font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.mv5 .prcpt ul{list-style:none;margin:0;padding:14px 0;display:grid;gap:9px;border-bottom:2px dashed #d9c4cc}
+.mv5 .prcpt li,.mv5 .prcpt .tot,.mv5 .prcpt .g{display:flex;justify-content:space-between;gap:12px;font-size:14px;margin:0}
+.mv5 .prcpt li span{color:#6d5562}
+.mv5 .prcpt li b{font-weight:700}
+.mv5 .prcpt .tot{padding-top:14px;font-size:16px;font-weight:800}
+.mv5 .prcpt .tot b{background:#ffd84d;padding:0 6px}
+.mv5 .prcpt .g{padding-top:6px;color:#6d5562}
+.mv5 .prcpt .ty{text-align:center;font-size:13px;margin:18px 0 12px;color:var(--berry,#8e2a5a);font-weight:700}
+.mv5 .prcpt .bc{height:38px;background:repeating-linear-gradient(90deg,var(--plum,#3d0f27) 0 2px,transparent 2px 4px,var(--plum,#3d0f27) 4px 7px,transparent 7px 9px,var(--plum,#3d0f27) 9px 10px,transparent 10px 13px);opacity:.85}
+@media (max-width:860px){.mv5 .prcpt .wrap{grid-template-columns:1fr}.mv5 .prcpt .paper{transform:rotate(1.5deg)}.mv5 .prcpt .txt .btn{width:100%}}
+
+.mv5 .buy .packs2{display:grid;gap:12px}
+.mv5 .buy .pk2.pbx{grid-template-columns:22px 72px 1fr auto;align-items:center;gap:0 14px;padding:16px 18px;background:#fff;border:1.5px solid #ecdcd6;border-radius:20px;box-shadow:none;transition:border-color .2s,box-shadow .2s,transform .2s}
+.mv5 .buy .pk2.pbx:hover{border-color:var(--berry,#8e2a5a)}
+.mv5 .buy .pk2.pbx:has(input:checked){background:#fff7f4;border:2px solid var(--plum,#3d0f27);box-shadow:0 10px 26px rgba(61,15,39,.12);transform:translateY(-1px)}
+.mv5 .buy .pk2.pbx input{appearance:none;-webkit-appearance:none;width:22px;height:22px;margin:0;border:2px solid #cdb6bf;border-radius:50%;background:#fff;display:grid;place-items:center}
+.mv5 .buy .pk2.pbx input:checked{border-color:var(--plum,#3d0f27);background:radial-gradient(circle,var(--plum,#3d0f27) 0 5px,#fff 6px)}
+.mv5 .buy .pbx-th{width:72px;height:56px;border-radius:12px;background:#fbf3ef;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;padding-top:6px}
+.mv5 .buy .pbx-th img{height:48px;width:auto;display:block}
+.mv5 .buy .pbx-t{display:flex;flex-wrap:wrap;align-items:center;gap:3px 8px;min-width:0}
+.mv5 .buy .pbx-t b{font-family:var(--display);font-weight:800;font-size:20px;color:var(--plum,#3d0f27);letter-spacing:-.02em;line-height:1.1}
+.mv5 .buy .pbx-save{background:#e9f3df;color:#2f5b1e;font-size:12px;font-weight:800;padding:3px 9px;border-radius:999px}
+.mv5 .buy .pbx-sup{flex-basis:100%;font-size:13.5px;color:var(--muted)}
+.mv5 .buy .pbx-del{flex-basis:100%;font-size:13px;font-weight:700;color:var(--muted)}
+.mv5 .buy .pbx-del.free{color:var(--berry,#8e2a5a)}
+.mv5 .buy .pbx-del.free::before{content:"\2713 ";font-weight:900}
+.mv5 .buy .pbx-p{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:1px}
+.mv5 .buy .pbx-p b{font-family:var(--display);font-weight:900;font-size:24px;color:var(--plum,#3d0f27);letter-spacing:-.03em;line-height:1}
+.mv5 .buy .pbx-p s{font-size:13px;color:#a8939c}
+.mv5 .buy .pbx-p small{font-size:12.5px;font-weight:700;color:var(--berry,#8e2a5a);background:#f3dbe2;padding:2px 8px;border-radius:999px;margin-top:4px}
+.mv5 .buy .pk2.pbx:has(.pbx-badge){padding-top:24px}
+.mv5 .buy .pbx-sup{white-space:nowrap}
+.mv5 .buy .pbx-badge{position:absolute;top:-11px;left:16px;background:var(--berry,#8e2a5a);color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.mv5 .buy .pbx-badge.hot{background:var(--plum,#3d0f27);color:#ffd84d}
+@media (max-width:420px){.mv5 .buy .pk2.pbx{grid-template-columns:20px 56px 1fr auto;gap:0 10px;padding:14px 12px}.mv5 .buy .pbx-th{width:56px;height:48px}.mv5 .buy .pbx-th img{height:40px}.mv5 .buy .pbx-t b{font-size:18px}.mv5 .buy .pbx-p b{font-size:21px}.mv5 .buy .pbx-sup{font-size:12.5px}}
+
+.mv5 .pban{background:var(--plum,#3d0f27)!important}
+.mv5 .pban .kick{color:#ffd84d}
+.mv5 .pban h2{text-transform:none!important;letter-spacing:-.035em}
+.mv5 .pban .btn.pink{background:#ffd84d!important;color:var(--plum,#3d0f27)!important;box-shadow:none}
+.mv5 .pban .ph img{object-position:center 30%}
+.mv5 .pcards .g2{grid-template-columns:1fr 1fr!important}
+.mv5 .ptabs .kick,.mv5 .pmom .kick,.mv5 .pcta .kick{display:block;text-align:inherit;margin-bottom:6px}
+.mv5 .ptabs{text-align:center}
+.mv5 .pcta{background:#f7e8e2!important}
+.mv5 .pmom figcaption{font-size:14px}
+.mv5 .vs3 .stbl table{min-width:0}
+.mv5 .vs3 .stbl th.them,.mv5 .vs3 .stbl td.them{width:24%}
+.mv5 .vs3 .stbl td.us{width:28%}
+.mv5 .ppacks .ph.pj{background:#fbf3ef;display:flex;align-items:flex-end;justify-content:center;padding-top:16px;height:170px;position:relative}
+.mv5 .ppacks .ph.pj img{height:140px;width:auto;object-fit:contain}
+.mv5 .ppacks .pd{font-size:13px;font-weight:700;color:var(--berry,#8e2a5a);margin-top:4px}
+@media (max-width:860px){.mv5 .pcards .g2{grid-template-columns:1fr!important}.mv5 .vs3 .stbl th,.mv5 .vs3 .stbl td{font-size:12.5px;padding:10px 8px}}
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+.mv5 .pnotes{background:#f7efe9;padding:clamp(56px,8vw,100px) 0}
+.mv5 .pnotes .nh{text-align:center;margin-bottom:clamp(28px,4vw,48px)}
+.mv5 .pnotes h2{font-size:clamp(30px,4vw,48px);letter-spacing:-.04em;margin-top:6px}
+.mv5 .pnotes .ngrid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2.4vw,30px)}
+.mv5 .eg .egnote{font-size:12.5px;color:var(--muted);margin-top:12px}
+.mv5 .note{position:relative;padding:34px 22px 26px;min-height:200px;box-shadow:0 14px 26px rgba(61,15,39,.12),0 2px 0 rgba(61,15,39,.04);transform:rotate(var(--r));transition:transform .3s}
+.mv5 .note:hover{transform:rotate(0) translateY(-6px)}
+.mv5 .note.n1{background:#fbe3d9;--r:-2.5deg}.mv5 .note.n2{background:#f3dbe2;--r:1.8deg;margin-top:18px}.mv5 .note.n3{background:#fff;--r:-1.2deg}.mv5 .note.n4{background:#efe2f1;--r:2.4deg;margin-top:18px}
+.mv5 .note .tape{position:absolute;top:-12px;left:50%;width:88px;height:24px;margin-left:-44px;background:rgba(255,255,255,.65);box-shadow:0 1px 3px rgba(0,0,0,.08);transform:rotate(-3deg)}
+.mv5 .note b{display:block;font-family:'Caveat',cursive;font-weight:700;font-size:30px;color:var(--berry,#8e2a5a);line-height:1;margin-bottom:8px}
+.mv5 .note p{font-family:'Caveat',cursive;font-weight:600;font-size:25px;line-height:1.15;color:var(--plum,#3d0f27);margin:0}
+.mv5 .plabel{background:#fff;padding:clamp(56px,8vw,100px) 0;text-align:center}
+.mv5 .plabel h2{font-size:clamp(30px,4vw,48px);letter-spacing:-.04em;margin:6px 0 clamp(26px,4vw,40px)}
+.mv5 .lbl{max-width:620px;margin:0 auto;background:#f4b9a1;padding:14px;border-radius:10px;box-shadow:0 22px 44px rgba(61,15,39,.16)}
+.mv5 .lbl .in{border:1.5px solid #b8875a;outline:1px solid #b8875a;outline-offset:-6px;padding:30px clamp(18px,4vw,40px) 26px;color:#1d1316}
+.mv5 .lbl .lg{font-family:var(--display);font-weight:900;font-size:clamp(46px,7vw,64px);letter-spacing:-.05em;line-height:1;margin:0}
+.mv5 .lbl .lt{font-size:12px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;margin:12px 0 18px;padding-bottom:16px;border-bottom:1px solid #b8875a}
+.mv5 .lbl ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.mv5 .lbl li{display:flex;flex-direction:column;gap:2px}
+.mv5 .lbl li b{font-size:13px;font-weight:800;letter-spacing:.22em;text-transform:uppercase}
+.mv5 .lbl li span{font-size:14.5px;color:#4b3238}
+.mv5 .pjar{background:#f3dbe2;padding:clamp(56px,8vw,100px) 0}
+.mv5 .pjar .jh{text-align:center;margin-bottom:clamp(24px,4vw,44px)}
+.mv5 .pjar h2{font-size:clamp(30px,4vw,48px);letter-spacing:-.04em;margin:6px 0 8px}
+.mv5 .pjar .jh p:last-child{color:var(--muted);font-size:17px}
+.mv5 .pjar .jg{display:grid;grid-template-columns:1fr 300px 1fr;gap:clamp(18px,3vw,40px);align-items:center}
+.mv5 .pjar .jimg img{width:100%;height:auto;display:block;filter:drop-shadow(0 26px 30px rgba(61,15,39,.22))}
+.mv5 .pjar .jl{list-style:none;margin:0;padding:0;display:grid;gap:22px}
+.mv5 .pjar .jl li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;position:relative}
+.mv5 .pjar .jl i{font-style:normal;width:40px;height:40px;border-radius:50%;background:var(--plum,#3d0f27);color:#fff;font-family:var(--display);font-weight:900;font-size:18px;display:grid;place-items:center}
+.mv5 .pjar .jl b{display:block;font-family:var(--display);font-weight:800;font-size:19px;color:var(--plum,#3d0f27);letter-spacing:-.02em}
+.mv5 .pjar .jl span{display:block;font-size:15px;line-height:1.5;color:var(--muted);margin-top:3px}
+.mv5 .pjar .jl:not(.r) li{text-align:right;grid-template-columns:1fr 40px}
+.mv5 .pjar .jl:not(.r) li i{order:2}
+.mv5 .p3w{background:#fbf7f4;padding:clamp(56px,8vw,100px) 0;overflow:hidden}
+.mv5 .p3w .th{text-align:center;max-width:760px;margin:0 auto clamp(28px,4vw,48px)}
+.mv5 .p3w h2{font-size:clamp(28px,3.8vw,44px);letter-spacing:-.04em;margin-top:6px}
+.mv5 .p3w .tg{display:grid;grid-template-columns:1fr 1fr 1.1fr;gap:18px;align-items:center}
+.mv5 .p3w .tc{position:relative;background:#efe8e4;border-radius:24px;padding:26px 24px}
+.mv5 .p3w .tc .tt{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.02em;color:#8a7880;margin:0 0 14px}
+.mv5 .p3w .tc ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.mv5 .p3w .tc li{position:relative;padding-left:26px;font-size:15.5px;color:#8a7880;text-decoration:line-through;text-decoration-color:rgba(138,120,128,.45)}
+.mv5 .p3w .tc li::before{content:"\2013";position:absolute;left:4px;top:0;font-weight:800}
+.mv5 .p3w .tc.us{background:var(--plum,#3d0f27);transform:rotate(-1.5deg) scale(1.03);box-shadow:0 22px 44px rgba(61,15,39,.25);padding:34px 28px}
+.mv5 .p3w .tc.us .tt{color:#fff;font-size:26px}
+.mv5 .p3w .tc.us li{color:#fff;text-decoration:none;font-weight:700;font-size:16.5px}
+.mv5 .p3w .tc.us li::before{content:"\2713";color:#ffd84d}
+.mv5 .p3w .stamp{position:absolute;top:-22px;right:-10px;width:96px;height:96px;border-radius:50%;background:#f4b9a1;color:var(--plum,#3d0f27);display:grid;place-items:center;text-align:center;font-family:'Caveat',cursive;font-weight:700;font-size:21px;line-height:1;transform:rotate(12deg);box-shadow:0 8px 18px rgba(0,0,0,.2)}
+.mv5 .p3w .fine{text-align:center;font-size:13px;color:var(--muted);margin-top:28px}
+.mv5 .ppromise{background:var(--plum,#3d0f27);color:#fff;padding:clamp(56px,8vw,100px) 0}
+.mv5 .ppromise .wrap{display:grid;grid-template-columns:auto 1fr;gap:clamp(28px,6vw,80px);align-items:center;max-width:980px}
+.mv5 .ppromise .seal{width:clamp(200px,24vw,260px);aspect-ratio:1/1;border-radius:50%;background:#f4b9a1;color:var(--plum,#3d0f27);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-8deg);box-shadow:0 0 0 10px rgba(244,185,161,.18),0 24px 44px rgba(0,0,0,.3);position:relative}
+.mv5 .ppromise .seal::before{content:"";position:absolute;inset:12px;border-radius:50%;border:2px dashed rgba(61,15,39,.4)}
+.mv5 .ppromise .seal .d{font-family:var(--display);font-weight:900;font-size:clamp(70px,9vw,96px);line-height:.85;letter-spacing:-.05em}
+.mv5 .ppromise .seal .dl{font-size:13px;font-weight:800;letter-spacing:.3em;text-transform:uppercase;margin-top:6px}
+.mv5 .ppromise .seal .pp{font-family:'Caveat',cursive;font-weight:700;font-size:30px;margin-top:4px;color:var(--berry,#8e2a5a)}
+.mv5 .ppromise .kick{color:#ffd84d}
+.mv5 .ppromise h2{color:#fff;font-size:clamp(30px,4.2vw,50px);letter-spacing:-.04em;line-height:1.03;margin:8px 0 14px}
+.mv5 .ppromise p{color:rgba(255,255,255,.82);font-size:17px;line-height:1.6;max-width:46ch}
+.mv5 .ppromise .btn{margin-top:22px;background:#f4b9a1;color:var(--plum,#3d0f27)}
+@media (max-width:860px){
+ .mv5 .pnotes .ngrid{grid-template-columns:1fr 1fr;gap:22px 16px}
+ .mv5 .note{min-height:170px;padding:30px 16px 20px}.mv5 .note b{font-size:26px}.mv5 .note p{font-size:22px}
+ .mv5 .pjar .jg{grid-template-columns:1fr}.mv5 .pjar .jimg{order:-1;width:200px;margin:0 auto}
+ .mv5 .pjar .jl:not(.r) li{text-align:left;grid-template-columns:40px 1fr}.mv5 .pjar .jl:not(.r) li i{order:0}
+ .mv5 .p3w .tg{grid-template-columns:1fr;gap:16px}.mv5 .p3w .tc.us{order:-1;margin:16px 6px 10px}
+ .mv5 .ppromise .wrap{grid-template-columns:1fr;justify-items:center;text-align:center}.mv5 .ppromise p{margin:0 auto}.mv5 .ppromise .btn{width:100%}
+}
+</style>
+
+<style>
+.mv5 .pmonth{background:#fbf7f4;padding:clamp(56px,8vw,100px) 0}
+.mv5 .pmonth .mh b{color:var(--plum,#3d0f27)}
+.mv5 .pmonth .mh{text-align:center;max-width:720px;margin:0 auto clamp(28px,4vw,48px)}
+.mv5 .pmonth h2{font-size:clamp(28px,3.8vw,46px);letter-spacing:-.04em;margin:6px 0 10px}
+.mv5 .pmonth .mh p:last-child{color:var(--muted);font-size:17px}
+.mv5 .pmonth .tl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
+.mv5 .pmonth .tl::before{content:"";position:absolute;left:4%;right:4%;top:calc(var(--ph,180px) + 18px);border-top:2px dashed rgba(61,15,39,.25)}
+.mv5 .pmonth .tl li{position:relative;display:flex;flex-direction:column;gap:6px}
+.mv5 .pmonth .ph{border-radius:20px;overflow:hidden;height:var(--ph,180px)}
+.mv5 .pmonth .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.mv5 .pmonth .day{align-self:flex-start;margin-top:8px;background:var(--plum,#3d0f27);color:#ffd84d;font-weight:800;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px;position:relative;z-index:1}
+.mv5 .pmonth b{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.02em;color:var(--plum,#3d0f27);margin-top:4px}
+.mv5 .pmonth li p{font-size:15px;line-height:1.5;color:var(--muted);margin:0}
+.mv5 .pnote{background:#f3dbe2;padding:clamp(56px,8vw,100px) 0}
+.mv5 .pnote .letter{max-width:680px;margin:0 auto;background:#fffdfb;border-radius:6px;padding:clamp(28px,5vw,56px);box-shadow:0 22px 44px rgba(61,15,39,.14);transform:rotate(-.6deg);background-image:repeating-linear-gradient(transparent 0 33px,rgba(61,15,39,.06) 33px 34px)}
+.mv5 .pnote h2{font-size:clamp(28px,3.6vw,42px);letter-spacing:-.04em;margin:6px 0 16px}
+.mv5 .pnote p{font-size:17px;line-height:1.7;color:#4b3238}
+.mv5 .pnote p+p{margin-top:12px}
+.mv5 .pnote .sig{font-family:'Caveat',cursive;font-weight:700;font-size:32px;color:var(--berry,#8e2a5a);margin-top:22px;line-height:1.1}
+.mv5 .pnote .sig span{display:block;font-family:var(--body);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.mv5 .pnote .btn{margin-top:22px}
+.mv5 .pfaq .wrap{display:block!important;max-width:1080px}
+.mv5 .pfaq .side{text-align:center;max-width:640px;margin:0 auto clamp(26px,4vw,40px)}
+.mv5 .pfaq .side h2{font-size:clamp(30px,4vw,48px);letter-spacing:-.04em;margin:6px 0 10px}
+.mv5 .pfaq .side a{color:var(--berry,#8e2a5a);font-weight:700}
+.mv5 .pfaq .wrap>div:last-child{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+.mv5 .pfaq details{background:#fff;border-radius:18px;padding:4px 20px;border:none!important}
+@media (max-width:860px){
+ .mv5 .pmonth .tl{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:72%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+ .mv5 .pmonth{padding-bottom:0}.mv5 .pmonth+.vs{padding-top:4px}.mv5 .pmonth .tl{padding-bottom:0}.mv5 .pmonth li p{font-size:14.5px}.mv5 .pmonth .tl{grid-auto-columns:84%;align-items:start}
+ .mv5 .pmonth .tl li{scroll-snap-align:start}.mv5 .pmonth .tl::before{display:none}
+ .mv5 .pfaq .wrap>div:last-child{grid-template-columns:1fr}
+ .mv5 .pnote .btn{width:100%}
+}
+</style>
+<style>
+.mv5 .ogap{background:#f6e6dc;padding:clamp(48px,7vw,88px) 0;text-align:center}
+.mv5 .ogap .wrap{max-width:720px}
+.mv5 .ogap h2{font-size:clamp(28px,3.8vw,44px);letter-spacing:-.04em;margin:6px 0 16px}
+.mv5 .ogap p{font-size:17px;line-height:1.65;margin:0 0 14px}
+.mv5 .ogap .claim{font-weight:700;color:var(--plum,#3d0f27)}
+.mv5 .ogap .octa{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:22px}
+.mv5 .ogap .octa span{font-size:13.5px;color:var(--muted);max-width:460px}
+.mv5 .ogap .src{font-size:12px;line-height:1.5;color:var(--muted);margin:22px auto 0;max-width:560px}
+@media (max-width:860px){.mv5 .ogap .octa .btn{width:100%}}
+</style>
+<style>
+.mv5 .pstat{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(61,15,39,.14);border-bottom:1px solid rgba(61,15,39,.14)}
+.mv5 .pstat>div{padding:14px 12px;text-align:center}
+.mv5 .pstat>div+div{border-left:1px solid rgba(61,15,39,.14)}
+.mv5 .pstat b{display:block;font-family:var(--display);font-weight:900;font-size:clamp(26px,3vw,34px);line-height:1;letter-spacing:-.04em;color:var(--berry,#8e2a5a);margin-bottom:6px}
+.mv5 .pstat span{display:block;font-size:12.5px;line-height:1.4;color:var(--muted)}
+.mv5 .pstat-src{font-size:12px;line-height:1.5;color:var(--muted);opacity:.85;margin:14px 0 0}
+.mv5 .pstats{background:#F8EFE6;padding:clamp(44px,7vw,84px) 0}
+.mv5 .pstats .wrap{max-width:860px}
+.mv5 .buy .ntp{text-align:center;font-size:13.5px;font-weight:700;color:var(--muted);margin:10px 0 0}
+@media (max-width:600px){
+ .mv5 .pstat{grid-template-columns:1fr}.mv5 .pstat>div{display:flex;align-items:center;gap:14px;text-align:left;padding:10px 4px}.mv5 .pstat>div+div{border-left:0;border-top:1px solid rgba(61,15,39,.14)}.mv5 .pstat b{margin:0;min-width:92px;font-size:28px}
+ .mv5 .pdp{padding-top:10px}
+ .mv5 .pdp .wrap{gap:14px}
+ .mv5 .pdp .gal{gap:8px}
+ .mv5 .pdp .stage{aspect-ratio:1/1;width:min(100%,280px);width:min(100%,max(240px,calc(100svh - 384px)));margin-inline:auto;border-radius:22px}
+ .mv5 .pdp .buy{gap:12px}
+ .mv5 .pdp .buy .eyebrow{order:-2;font-size:15px}
+ .mv5 .pdp .buy h1{order:-1;font-size:30px;line-height:1.05}
+}
+</style>
+  <div class="sbar"><div><b id="mv-sbp">{% if wl %}2 jars{% else %}{{ v2.price | money }}{% endif %}</b><small id="mv-sbt">{% if wl %}Nothing to pay today{% else %}2 jars · free delivery{% endif %}</small></div>{% if wl %}<a class="btn" href="#club">Reserve mine</a>{% else %}<button class="btn" type="submit" form="mv-buy">Add to basket</button>{% endif %}</div>
+{%- endunless -%}
+
+{%- unless is_product -%}
+  <section class="qband"><div class="wrap">
+    <h2>Made properly.<br>Labelled honestly.</h2><p class="sub2">Every jar is made to Good Manufacturing Practice standards, batch-coded and packed in the UK. Here&rsquo;s what that means for you:</p>
+    <div class="qcards"><div class="qcd"><svg viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="32" cy="32" r="30"/><rect x="21" y="16" width="22" height="32" rx="3"/><path d="M26 24h12M26 30h12M26 36h8"/></svg><p>Every ingredient &amp; amount <br>on the label</p></div><div class="qcd"><svg viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="32" cy="32" r="30"/><path d="M27 16h10M29 16v10l-9 16a3 3 0 0 0 2.6 4.5h18.8A3 3 0 0 0 44 42l-9-16V16"/><path d="M24 38h16"/></svg><p>Made to <br>GMP standards</p></div><div class="qcd"><svg viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="32" cy="32" r="30"/><path d="M18 30V19a1 1 0 0 1 1-1h11l15 15-12 12z"/><circle cx="24.5" cy="24.5" r="2.2"/></svg><p>Batch number &amp; best-before <br>on every jar</p></div><div class="qcd"><svg viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="32" cy="32" r="30"/><path d="M20 44c14 0 24-10 24-24-14 0-24 9-24 21 0 1 0 2 0 3z"/><path d="M20 44c5-8 10-13 17-17"/></svg><p>Vegan, gelatine-free, made without the 14 major allergens</p></div></div>
+  </div></section>
+{%- endunless -%}
+{%- unless is_product -%}
+  <section class="faq" id="faq"><div class="wrap">
+    <div class="side"><h2>Any last questions?</h2><p>Email {{ section.settings.contact_email }} and a real person replies. Not a bot, promise.</p></div>
+    <div>
+      <details><summary>What&#39;s in each jar?</summary><p>{{ n | times: 2 }} berry gummies with 90mg magnesium each. One jar lasts {{ n }} days at two gummies a day.</p></details>
+      <details><summary>How many gummies do I take?</summary><p>{{ section.settings.dose_text }} Do not exceed the recommended daily intake.</p></details>
+      <details><summary>What do they taste like?</summary><p>Ripe red berry. Soft, chewy and glossy, never chalky. Honestly, you&#39;ll look forward to it.</p></details>
+      <details><summary>How long until I notice a difference?</summary><p>Real talk: everyone&#39;s different, so we won&#39;t promise results. Give it a full jar ({{ n }} days) as part of your daily routine. If it isn&#39;t for you, our {{ section.settings.guarantee_days }}-day guarantee has you covered.</p></details>
+      <details><summary>Can I take it alongside HRT or other medication?</summary><p>Please check with your GP or pharmacist before taking any supplement alongside medication.</p></details>
+      <details><summary>Do I have to subscribe?</summary><p>No. Every order is a one-off purchase. Nothing renews automatically.</p></details>
+      <details><summary>How fast is delivery?</summary><p>Royal Mail Tracked, usually 2 to 3 working days. Free on 2 or more jars, {{ section.settings.single_delivery }} for one jar.</p></details>
+      <details><summary>What if it isn&#39;t for me?</summary><p>Email us within {{ section.settings.guarantee_days }} days of your first order arriving and we&#39;ll refund the jar you opened. No need to send it back. Bought 2 or 3 jars? Post the unopened ones back and we&#39;ll refund those too. One guarantee per customer and household. <a href="{{ routes.root_url }}pages/refunds">Full terms</a>.</p></details>
+    </div>
+  </div></section>
+{%- endunless -%}
+
+{%- unless is_product -%}
+  <section class="close"><div class="wrap"><div class="box">
+    <div class="txt"><h2>Go on. Do one thing for you.</h2><p>Two berry gummies a day. All dose. No drama. Backed by our {{ section.settings.guarantee_days }}-day guarantee.</p><a class="btn" href="{{ cta_url }}">{{ cta_txt }}</a></div>
+    <div class="cimg"><div class="photo mvsmile">{%- if section.settings.smile_image != blank -%}{{ section.settings.smile_image | image_url: width: 1400 | image_tag: alt: section.settings.smile_image.alt, loading: 'lazy' }}{%- elsif section.settings.jar_image != blank -%}{{ section.settings.jar_image | image_url: width: 1100 | image_tag: alt: section.settings.jar_image.alt, loading: 'lazy' }}{%- endif -%}</div><ul class="cfeat"><li class="ck">UK-authorised claims only</li><li class="ck">Two gummies a day, no water</li><li class="ck">Vegan and gelatine-free</li><li class="ck">Free UK delivery on 2+ jars</li><li class="ck">{{ section.settings.guarantee_days }}-day guarantee</li></ul></div>
+  </div></div></section>
+{%- endunless -%}
+</div>
+
+{%- if is_product -%}
+<script>
+(function(){var tl=document.querySelector('.mv5 .ptabs .tl');if(!tl)return;tl.addEventListener('click',function(e){var b=e.target.closest('button[data-tab]');if(!b)return;tl.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false');});document.querySelectorAll('.mv5 .ptabs .tpan').forEach(function(p){p.hidden=p.getAttribute('data-pan')!==b.getAttribute('data-tab');});});})();
+(function () {
+  var stage = document.getElementById('mv-stage');
+  if (stage) {
+    var slides = [].slice.call(stage.querySelectorAll('.slide'));
+    var thumbs = [].slice.call(document.querySelectorAll('#mv-thumbs button'));
+    var cur = 0;
+    function go(i) {
+      cur = (i + slides.length) % slides.length;
+      slides.forEach(function (s, k) { if (k === cur) s.setAttribute('data-on', ''); else s.removeAttribute('data-on'); });
+      thumbs.forEach(function (b, k) { b.setAttribute('aria-pressed', k === cur ? 'true' : 'false'); });
+    }
+    thumbs.forEach(function (b, k) { b.addEventListener('click', function () { go(k); }); });
+    stage.querySelector('[data-mv-prev]').addEventListener('click', function () { go(cur - 1); });
+    stage.querySelector('[data-mv-next]').addEventListener('click', function () { go(cur + 1); });
+  }
+  var form = document.getElementById('mv-buy');
+  if (!form) return;
+  var WL = {{ wl | json }};
+  if (WL) form.addEventListener('submit', function (e) { e.preventDefault(); var r = form.querySelector('input[name=id]:checked'); var pk = r ? r.getAttribute('data-pack') : '2'; window.location.href = window.location.pathname + '?reserve=' + pk + '#club'; });
+  function upd() {
+    var r = form.querySelector('input[name=id]:checked');
+    if (!r) return;
+    var btn = document.getElementById('mv-add');
+    var ok = WL || r.getAttribute('data-avail') === 'true';
+    btn.disabled = !ok;
+    btn.textContent = ok ? (WL ? 'Reserve mine' : 'Add to basket · ' + r.getAttribute('data-price')) : 'Sold out';
+    var sb = document.querySelector('.mv5 .sbar button.btn'); if (sb) { sb.disabled = !ok; sb.textContent = ok ? 'Add to basket' : 'Sold out'; }
+    document.getElementById('mv-sbp').textContent = WL ? r.getAttribute('data-note').split(' · ')[0] : r.getAttribute('data-price');
+    document.getElementById('mv-sbt').textContent = WL ? 'Nothing to pay today' : r.getAttribute('data-note');
+    var url = new URL(window.location.href);
+    if (!WL) url.searchParams.set('variant', r.value);
+    window.history.replaceState({}, '', url.toString());
+  }
+  var rs = new URLSearchParams(location.search).get('reserve'); if (rs) { var ri = form.querySelector('input[data-pack="' + rs.replace(/[^0-9]/g,'') + '"]'); if (ri) ri.checked = true; }
+  form.querySelectorAll('input[name=id]').forEach(function (i) { i.addEventListener('change', upd); });
+  upd();
+})();
+</script>
+{%- endif -%}
+
+{%- unless is_product -%}
+<style>
+/* Mëva home · clean + lively (original palette) */
+@media (prefers-reduced-motion:no-preference){
+.mv5 .mvr{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.mv5 .mvr.in{opacity:1;transform:none}
+.mv5 .hero h1.mvh,.mv5 .hero h1.mvh em{display:inline-block;opacity:0;transform:translateY(.35em);animation:mvup .9s cubic-bezier(.2,.7,.2,1) forwards}
+.mv5 .hero h1.mvh{display:block}
+.mv5 .hero h1.mvh em{display:inline;animation-delay:.35s}
+@keyframes mvup{to{opacity:1;transform:none}}
+@keyframes mvbreath{from{transform:scale(1)}to{transform:scale(1.035)}}
+}
+/* hover life */
+.mv5 .fc,.mv5 .ic2,.mv5 .cgrid>div,.mv5 .wgrid>div,.mv5 .qc,.mv5 .oc{transition:transform .25s ease,box-shadow .25s ease}
+.mv5 .fc:hover,.mv5 .ic2:hover,.mv5 .cgrid>div:hover,.mv5 .wgrid>div:hover,.mv5 .qc:hover,.mv5 .oc:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(61,15,39,.10)}
+.mv5 .photo{overflow:hidden}
+.mv5 .photo img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.mv5 .photo:hover img,.mv5 figure:hover .photo img{transform:scale(1.04)}
+.mv5 .btn{transition:background .2s,transform .2s}
+.mv5 .btn:hover{transform:translateY(-2px)}
+.mv5 .btn:not(.o)::after{content:"→";display:inline-block;transition:transform .2s;margin-left:2px}
+.mv5 .btn:not(.o):hover::after{transform:translateX(4px)}
+@media (prefers-reduced-motion:no-preference){.mv5 .close .mvsmile img{animation:mvbreath 10s ease-in-out infinite alternate;transform-origin:70% 40%}}
+.mv5 .close .mvsmile img{object-position:72% 30%}
+/* rotating seal on hero */
+.mv5 .mvseal{position:absolute;z-index:3;left:calc(50% - 20px);bottom:9%;width:128px;height:128px;border-radius:50%;background:var(--paper,#fbf7f4);box-shadow:0 12px 30px rgba(61,15,39,.14);display:grid;place-items:center}
+.mv5 .mvseal svg{position:absolute;inset:0;width:100%;height:100%}
+.mv5 .mvseal text{font:800 10.5px/1 'Inter',sans-serif;letter-spacing:.16em;fill:var(--plum,#3d0f27)}
+.mv5 .mvseal b{font-family:var(--display);font-weight:900;font-size:30px;letter-spacing:-.03em;color:var(--berry,#8e2a5a);line-height:1}
+/* big quiet marquee */
+.mv5 .mvmq{overflow:hidden;border-block:1.5px solid rgba(61,15,39,.12);background:var(--paper,#fbf7f4);padding:22px 0}
+.mv5 .mvmq .t{display:flex;align-items:center;width:max-content;gap:0;white-space:nowrap}
+.mv5 .mvmq span{font-family:var(--display);font-weight:900;font-size:clamp(28px,4vw,52px);letter-spacing:-.03em;color:var(--plum,#3d0f27);padding:0 28px}
+.mv5 .mvmq span:nth-child(even){color:transparent;-webkit-text-stroke:1.5px var(--berry,#8e2a5a)}
+.mv5 .mvmq i{font-style:normal;color:var(--berry,#8e2a5a);font-size:clamp(18px,2.2vw,28px);line-height:1}
+@media (max-width:860px){.mv5 .hero.hb.hbm .hbimg{aspect-ratio:1/1}.mv5 .hero.hb.hbm .hbimg img{object-position:center 92%}}
+@media (max-width:860px){.mv5 .hero.hb,.mv5 .hero.hb .hbimg{overflow:visible}.mv5 .hero.hb .kick{max-width:240px}.mv5 .mvseal{width:88px;height:88px;left:auto;right:16px;bottom:-42px;top:auto}.mv5 .mvseal b{font-size:22px}.mv5 .mvseal text{font-size:9px}}
+
+@media (prefers-reduced-motion:no-preference){
+.mv5 .mvseal svg{animation:mvspin 22s linear infinite}
+@keyframes mvspin{to{transform:rotate(360deg)}}
+.mv5 .mvmq .t{animation:mvmq 38s linear infinite}
+@keyframes mvmq{to{transform:translateX(-50%)}}
+}
+</style>
+<script>
+(function(){
+var root=document;if(!document.querySelector('.hero'))return;
+var red=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var h1=root.querySelector('.hero h1');if(h1&&!red)h1.classList.add('mvh');
+/* seal */
+var hb=root.querySelector('.hero.hb');
+if(hb){var s=document.createElement('div');s.className='mvseal';s.setAttribute('aria-hidden','true');
+s.innerHTML='<svg viewBox="0 0 128 128"><defs><path id="mvsp" d="M64,64 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0"/></defs><text><textPath href="#mvsp">FOUNDING 500 · 20% OFF · FREE DELIVERY ON 2+ · </textPath></text></svg><b>20%</b>';
+(window.innerWidth<860?hb.querySelector('.hbimg'):hb).appendChild(s);}
+/* marquee */
+var anchor=root.querySelector('.offer');
+if(anchor){var m=document.createElement('div');m.className='mvmq';m.setAttribute('aria-hidden','true');
+var w=['All dose.','No drama.','Two a day.','180mg on the front.','Finish your first jar.','Not for you? Refunded.'];var h='';for(var k=0;k<2;k++)w.forEach(function(x){h+='<span>'+x+'</span><span><i>✦</i></span>'.replace('<span><i>','<i style="padding:0 6px">').replace('</i></span>','</i>')});
+m.innerHTML='<div class="t">'+h+'</div>';anchor.parentNode.insertBefore(m,anchor);}
+/* strike the excuses */
+(function(){var xs=[].slice.call(document.querySelectorAll('.mv5 .ex'));if(!xs.length)return;
+if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){xs.forEach(function(e){e.classList.add('in')});return}
+var o=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');o.unobserve(x.target)}})},{threshold:.6});xs.forEach(function(e){o.observe(e)})})();
+/* stamp the claims */
+(function(){var g=document.querySelector('.mv5 .stamped');if(!g)return;if(!('IntersectionObserver' in window)){g.classList.add('in');return}
+var o=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){g.classList.add('in');o.disconnect()}})},{threshold:.35});o.observe(g)})();
+/* reveal on scroll */
+var sel='.mv5 section:not(.hero) h2,.mv5 section:not(.hero) .kick,.band2 .wrap>div,.qgrid>*,.wgrid>div,.mvclub,.ritbox,.ngrid>div,.fc,.ingrid .photo,.ic2,.cgrid>div,.mgrid figure,.tbox,.oc,.qc,.faq details,.close .box';
+var els=[].slice.call(document.querySelectorAll(sel));
+if(!red&&'IntersectionObserver' in window){
+ els.forEach(function(e){var sib=e.parentNode?[].slice.call(e.parentNode.children).indexOf(e):0;e.style.setProperty('--d',Math.min(sib,6)*0.08+'s');e.classList.add('mvr')});
+ var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+ els.forEach(function(e){io.observe(e)});
+}
+/* count-up numbers */
+var nums=[].slice.call(document.querySelectorAll('.nums .ngrid b'));
+if(!red&&nums.length&&'IntersectionObserver' in window){
+ var io2=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;io2.unobserve(x.target);var b=x.target,t=null;
+  for(var c=b.firstChild;c;c=c.nextSibling){if(c.nodeType===3&&/\d/.test(c.textContent)){t=c;break}}if(!t)return;
+  var end=parseInt(t.textContent,10),st=null;function step(ts){if(!st)st=ts;var p=Math.min((ts-st)/1100,1);t.textContent=String(Math.round(end*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(step)}t.textContent='0';requestAnimationFrame(step)})},{threshold:.4});
+ nums.forEach(function(n){io2.observe(n)});
+}
+})();
+</script>
+{%- endunless -%}
+
+{% schema %}
+{
+  "name": "Mëva product preview",
+  "settings": [
+    { "type": "text", "id": "brand_name", "label": "Brand name", "default": "Mëva" },
+    { "type": "checkbox", "id": "waitlist_mode", "label": "Waitlist mode (No Drama Club, no checkout)", "default": true },
+    { "type": "text", "id": "product_handle", "label": "Product handle", "default": "meva-magnesium-gummies" },
+    { "type": "number", "id": "jar_count", "label": "Days per jar (60 gummies at 2 a day)", "default": 30 },
+    { "type": "text", "id": "guarantee_days", "label": "Guarantee days", "default": "30" },
+    { "type": "text", "id": "single_delivery", "label": "Delivery price for 1 jar", "default": "£4.99" },
+    { "type": "text", "id": "dose_text", "label": "Dose text", "default": "Adults: chew two gummies a day. Do not exceed the stated dose. Not recommended during pregnancy or breastfeeding unless advised by a healthcare professional." },
+    { "type": "textarea", "id": "ingredients", "label": "Ingredients", "default": "Glucose syrup, sugar, magnesium citrate, water, pectin (gelling agent), citric acid (acid), trisodium citrate (acidity regulator), spirulina, anthocyanins (colour), coconut oil, natural flavouring, carnauba wax (glazing agent). Made without the 14 major allergens." },
+    { "type": "text", "id": "contact_email", "label": "Contact email", "default": "info@trymeva.co" },
+    { "type": "image_picker", "id": "hero_banner", "label": "Hero banner (wide, text sits on the left)" },
+    { "type": "image_picker", "id": "hero_banner_mobile", "label": "Hero banner on mobile (tall)" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "image_picker", "id": "jar_image", "label": "Jar image" },
+    { "type": "image_picker", "id": "macro_image", "label": "Gummies close-up" },
+    { "type": "image_picker", "id": "moment1_image", "label": "Moment 1 (breakfast)" },
+    { "type": "image_picker", "id": "moment2_image", "label": "Moment 2 (treat)" },
+    { "type": "image_picker", "id": "moment3_image", "label": "Moment 3 (friends)" },
+    { "type": "image_picker", "id": "closing_image", "label": "Closing image" },
+    { "type": "image_picker", "id": "smile_image", "label": "Closing section photo (smile)" },
+    { "type": "image_picker", "id": "club_image", "label": "No Drama Club photo (Launching soon)" },
+    { "type": "image_picker", "id": "rit_image", "label": "How to take it photo" },
+    { "type": "image_picker", "id": "spot1_image", "label": "Spotted photo 1" },
+    { "type": "image_picker", "id": "spot2_image", "label": "Spotted photo 2" },
+    { "type": "image_picker", "id": "spot3_image", "label": "Spotted photo 3" },
+    { "type": "image_picker", "id": "spot4_image", "label": "Spotted photo 4" },
+    { "type": "image_picker", "id": "desk_image", "label": "Desk / everyday image" },
+    { "type": "image_picker", "id": "bag_image", "label": "Bag image" }
+  ],
+  "presets": [{ "name": "Mëva product preview" }]
+}
+{% endschema %}

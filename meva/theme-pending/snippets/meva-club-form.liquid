@@ -1,0 +1,87 @@
+{%- comment -%}
+  Mëva No Drama Club waitlist form. Creates a Shopify customer tagged waitlist,founding-500 (+ answer + reserved pack).
+  Usage: {% render 'meva-club-form', fid: 'club' %}
+{%- endcomment -%}
+{%- liquid
+  assign fid = fid | default: 'club'
+  assign form_id = fid | append: '-form'
+-%}
+<div class="mvclub" id="{{ fid }}">
+{%- form 'customer', id: form_id -%}
+  {%- if form.posted_successfully? -%}
+    <div class="ok">
+      <p class="k">You&#39;re in</p>
+      <h3>Welcome to the No Drama Club.</h3>
+      <p>You&#39;re one of the Founding 500: 20% off your first order, free UK delivery on 2+ jars, and our no-drama guarantee on your first jar. We&#39;ll email you the moment Mëva launches. No spam. No drama.</p>
+    </div>
+    <script>try{window.Shopify&&Shopify.analytics&&Shopify.analytics.publish('meva_lead',{source:'{{ fid }}'})}catch(e){}</script>
+  {%- else -%}
+    <p class="k">The No Drama Club · Founding 500</p>
+    <h3>Be first. Pay less. No drama.</h3>
+    <ul>
+      <li>20% off your first order</li>
+      <li>Free UK delivery on 2+ jars</li>
+      <li>Finish your first jar. Not for you? We&#39;ll refund it.</li>
+    </ul>
+    <input type="hidden" name="contact[tags]" value="waitlist,founding-500" data-club-tags>
+    <input type="hidden" name="contact[accepts_marketing]" value="true">
+    <label class="f"><span>Your email</span><input type="email" name="contact[email]" required autocomplete="email" placeholder="you@example.com"></label>
+    <label class="f"><span>What&#39;s draining you most right now? (optional)</span>
+      <select data-club-q>
+        <option value="">Choose one</option>
+        <option value="q-3pm">The 3pm slump</option>
+        <option value="q-load">Carrying everyone</option>
+        <option value="q-focus">Losing my focus</option>
+        <option value="q-me">Not feeling like me</option>
+        <option value="q-other">Something else</option>
+      </select>
+    </label>
+    <label class="f mvother" hidden><span>Tell us, babe. What&#39;s draining you?</span>
+      <input type="text" maxlength="200" data-club-other placeholder="In your own words" autocomplete="off">
+    </label>
+    <input type="hidden" name="contact[note]" value="" data-club-note>
+    {%- if form.errors -%}<p class="err">{{ form.errors | default_errors }}</p>{%- endif -%}
+    <button class="btn" type="submit">Join the No Drama Club</button>
+    <p class="fine">By joining, you agree to get emails from Mëva about the launch. Unsubscribe any time. <a href="{{ routes.root_url }}policies/privacy-policy">Privacy policy</a>.</p>
+  {%- endif -%}
+{%- endform -%}
+</div>
+<style>
+.mvclub{background:#fff;border:1.5px solid rgba(0,0,0,.08);border-radius:22px;padding:26px 24px;max-width:560px;scroll-margin-top:110px}
+.mvclub .k{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--berry,#a3285f);margin:0 0 8px}
+.mvclub h3{font-family:var(--display,'Inter Tight',Arial,sans-serif);font-weight:900;font-size:clamp(24px,3vw,30px);line-height:1.08;letter-spacing:-.02em;margin:0 0 12px}
+.mvclub ul{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:6px}
+.mvclub li{position:relative;padding-left:26px;font-weight:600}
+.mvclub li:before{content:"";position:absolute;left:0;top:5px;width:16px;height:16px;border-radius:50%;background:var(--plum,#5c1638)}
+.mvclub li:after{content:"";position:absolute;left:5px;top:8px;width:6px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.mvclub .f{display:grid;gap:6px;margin:0 0 12px;font-size:14px;font-weight:700}
+.mvclub input[type=email],.mvclub select{width:100%;min-height:52px;border:1.5px solid rgba(0,0,0,.18);border-radius:14px;padding:0 16px;font:inherit;font-size:16px;font-weight:500;background:#fff;color:inherit;box-sizing:border-box}
+.mvclub input[type=email]:focus,.mvclub select:focus{outline:3px solid rgba(163,40,95,.25);border-color:var(--berry,#a3285f)}
+.mvclub .btn{width:100%;margin-top:4px}
+.mvclub .fine{font-size:13px;color:rgba(0,0,0,.6);margin:12px 0 0}
+.mvclub .fine a{color:inherit}
+.mvclub .err{color:#a3001b;font-weight:700;font-size:14px}
+.mvclub .ok p{margin:0}
+.mvclub input[type=text]{width:100%;min-height:52px;border:1.5px solid rgba(0,0,0,.18);border-radius:14px;padding:0 16px;font:inherit;font-size:16px;font-weight:500;background:#fff;color:inherit;box-sizing:border-box}
+.mvclub input[type=text]:focus{outline:3px solid rgba(163,40,95,.25);border-color:var(--berry,#a3285f)}
+.mvclub .mvother[hidden]{display:none}
+</style>
+<script>
+(function(){
+  document.querySelectorAll('.mvclub form').forEach(function(f){
+    if(f.dataset.bound)return;f.dataset.bound='1';
+    var qs=f.querySelector('[data-club-q]'),ow=f.querySelector('.mvother'),oi=f.querySelector('[data-club-other]');
+    if(qs&&ow){qs.addEventListener('change',function(){var on=qs.value==='q-other';ow.hidden=!on;if(on&&oi)oi.focus();});}
+    f.addEventListener('submit',function(){
+      var t=f.querySelector('[data-club-tags]');if(!t)return;
+      var v=['waitlist','founding-500'];
+      var q=f.querySelector('[data-club-q]');if(q&&q.value)v.push(q.value);
+      var r=new URLSearchParams(location.search).get('reserve');
+      if(r)v.push('reserve-'+r.replace(/[^0-9a-z]/gi,'').slice(0,4));
+      var nt=f.querySelector('[data-club-note]');
+      if(nt&&q&&q.value==='q-other'&&oi&&oi.value.trim())nt.value='Draining me most: '+oi.value.trim().slice(0,200);
+      t.value=v.join(',');
+    });
+  });
+})();
+</script>
