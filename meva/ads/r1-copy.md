@@ -84,7 +84,7 @@
 
    Join the No Drama Club for free. Nothing to pay today.
 
-2. 3 jars for the price of 2, with free UK delivery. That's 90 days of magnesium from 56p a day.
+2. 3 jars for the price of 2, with free UK delivery. That's 90 days of magnesium from £0.56 a day.
 
    Two ripe red berry gummies, 180mg magnesium. Magnesium contributes to the reduction of tiredness and fatigue.
 
