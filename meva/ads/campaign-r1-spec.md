@@ -110,3 +110,12 @@ These are approved for now. Swap them for real product photography when the offi
 ### To launch
 1. Rename the campaign with the launch date.
 2. Enable the campaign, the 3 ad sets and the 15 ads, only on Sara's explicit go-ahead.
+
+## LIVE (13 Nov 2026, late evening): Sara approved "شغلها هلأ" ("switch it on now") with £25/day split equally
+- **Ad set budgets:** £8.33/day each (833 pence × 3 = £24.99/day).
+- **Status:** the campaign, all 3 ad sets and all 15 ads are ENABLED.
+- **Campaign name:** "MEVA | Waitlist R1 | UK W45+ | 2026-11-13".
+- **Review plan:**
+  - Meta ad review usually takes from a few hours up to 24h.
+  - Judge after ≥1,000 impressions per ad.
+  - First proper read at day 5–7.
