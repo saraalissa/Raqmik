@@ -8,7 +8,7 @@
 - Instagram: @trymeva.co (business account, linked to the page)
 
 ## Campaign
-- Name: "MEVA | Waitlist R1 | UK W45+"
+- Name: "MEVA | Waitlist R1 | UK W45+ | <launch date YYYY-MM-DD>" (date = the day Sara switches it on; set before first publish because utm_campaign takes the name at publish)
 - Objective: OUTCOME_LEADS
 - Budget: campaign level (CBO), £25/day
 - Status: PAUSED
