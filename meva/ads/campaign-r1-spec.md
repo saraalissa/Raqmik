@@ -38,7 +38,7 @@
 - She approves the campaign build.
 
 ## No Advantage+ anything (Sara, 13 Nov)
-- **Budget:** no Advantage campaign budget (CBO). Use ad set budgets (ABO), £8/day each × 3 = £24/day.
+- **Budget:** no Advantage campaign budget (CBO). Use ad set budgets (ABO), £10/day each × 3 = £30/day.
 - **Audience:** Advantage+ audience off. Original audience options only (GB, women, 45–65+).
 - **Placements:** manual, not Advantage+ placements:
   - Facebook Feed
