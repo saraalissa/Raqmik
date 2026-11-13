@@ -3,6 +3,12 @@
 Last updated: 13 Nov 2026, end of session.
 Read this first. It replaces the memory of the previous session. Everything here is on branch `meva-email-voice`.
 
+## PRODUCT HOLD (set by Sara 13 Nov, still active until she lifts it)
+Meta rejected all 3 catalog variants ("medical equipment" auto-classification) and she requested a review. Any product edit cancels the review.
+DO NOT edit the product: title, description, variant prices, price-list prices, media, tags, metafields. Do not publish anything that includes a product-field change. If a task needs a product edit, stop and ask her.
+Allowed: theme/section work (layout and copy only) on the unpublished theme.
+IMPORTANT FACT: the 3-jar GBP price was ALREADY changed £49.99 → £49.98 in price list `27644526651` at about 15:28 UTC on 13 Nov, BEFORE she sent the hold. She has been told. Do not change it back (that would be another edit) unless she says so. Product `updatedAt` was 2026-11-13T06:09:31Z and variant records were last updated 7 Nov; the price-list change did not move those timestamps.
+
 ## Start here (in this order)
 1. Check the Shopify connector works: `{themes(first:5){nodes{id name role}}}`. It was down (502) for the last part of the previous session, which is why work is pending. If it is still down, tell Sara to reconnect Shopify under Claude settings → Connectors.
 2. Check whether Sara published the stats-section change (next section) and sync the other theme copy.
