@@ -231,3 +231,15 @@ No product edits. The product hold still applies.
 | 13 Nov 2026 | Proposed: eyebrow "Magnesium berry gummies" + A/B headline test | Guide §7; the product type is not clear in the first second | Needs enough traffic before judging |
 | 13 Nov 2026 | Proposed: replace the vs table with "Why Mëva" | Guide §14; hormone wording | — |
 | Pending | 180mg elemental, sugar, GMP, Reserve, 20%, guarantee, subscription | See ب | — |
+
+## Update (13 Nov, evening): items confirmed from the Nutribl certificate of conformity
+
+Source: `CoC-PL-541-27627-226103050`, attached to Nutribl's email of 6 Nov in Gmail.
+
+- **Item 1, dose: confirmed.** "Magnesium (Magnesium citrate) 90 mg per gummy, 24% NRV". That is elemental magnesium. 2 gummies = 180mg = 48% NRV, so the site's figures are correct.
+- **Item 3, origin and GMP: confirmed.**
+  - Country of manufacture: Spain. Country of packing: United Kingdom.
+  - "Manufactured under Good Manufacturing Practice by an approved manufacturing partner", audited under Nutribl's BRCGS-certificated supplier approval system.
+  - The site now says this accurately.
+- **Allergens:** "None of the 14 major allergens are used as ingredients". Vegan: yes.
+- **Item 2, sugar: still open.** The certificate has no nutrition panel. Ask Nutribl for sugar and kcal per 2 gummies. Unit weight is 3g.
