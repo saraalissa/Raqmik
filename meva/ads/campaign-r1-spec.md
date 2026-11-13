@@ -66,3 +66,14 @@ These are approved for now. Swap them for real product photography when the offi
 | B1 | AI-generated (tired woman) | Replace the jar in shot |
 | A1, A3, B3, C3, C5 | Existing jar render or cut-out | Replace |
 | A5, C1 | Sara's / site product images | Keep unless the label changes |
+
+## Build status (13 Nov)
+- **Campaign** 120247371770060424, PAUSED.
+- **Ad sets**, all PAUSED, £10/day each:
+  - A 120247371770800424
+  - B 120247371772150424
+  - C 120247371772570424
+- **Promoted object:** `{"custom_conversion_id":"1385882766748326"}`. Passing the pixel_id together with it was rejected as an invalid combination.
+- **Ads:** not created yet. Meta returned "Facebook Page is Missing": the Windsor token has no access to Page 61596592942162. Sara needs to reconnect Windsor and select the MEVA Page and @trymeva.co.
+- **Ad payloads:** asset_feed_spec with 3 bodies and 3 titles, built in the scratchpad.
+- **Tracking:** `utm_campaign` is static (`meva_waitlist_r1`), so the campaign name, with its date, can be changed at launch.
