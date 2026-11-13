@@ -545,6 +545,7 @@ body{background:#fbf7f4;font-family:'Inter',system-ui,Arial,sans-serif}
 -%}
 <style>#header-group{position:sticky;top:calc(-1 * var(--mv-annh,38px));z-index:40}</style>
 <script>(function(){function m(){var a=document.querySelector('.mv5-head .ann');if(a)document.documentElement.style.setProperty('--mv-annh',a.offsetHeight+'px');}m();window.addEventListener('load',m);window.addEventListener('resize',m);})();</script>
+{% render 'meva-bf' %}
 <div class="mv5 mv5-head">
   <div class="ann" role="region" aria-label="Offers">{%- assign ann_items = section.settings.announcement | split: '|' -%}<div class="mq">{%- for g in (1..2) -%}<div class="grp"{% if g == 2 %} aria-hidden="true"{% endif %}>{%- for it in ann_items -%}<span class="it">{{ it | strip }}</span>{%- endfor -%}{%- for it in ann_items -%}<span class="it">{{ it | strip }}</span>{%- endfor -%}</div>{%- endfor -%}</div></div>
   <header class="hdr"><div class="wrap">

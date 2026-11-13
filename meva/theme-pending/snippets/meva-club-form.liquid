@@ -78,8 +78,12 @@
       var q=f.querySelector('[data-club-q]');if(q&&q.value)v.push(q.value);
       var r=new URLSearchParams(location.search).get('reserve');
       if(r)v.push('reserve-'+r.replace(/[^0-9a-z]/gi,'').slice(0,4));
+      if(window.MV_BF)v.push('bf-founding');
       var nt=f.querySelector('[data-club-note]');
-      if(nt&&q&&q.value==='q-other'&&oi&&oi.value.trim())nt.value='Draining me most: '+oi.value.trim().slice(0,200);
+      if(nt){var parts=[],pk=r?parseInt(r,10):0;
+        if(pk>=1&&pk<=3)parts.push('Reserved pack: '+pk+(pk===1?' jar':' jars'));
+        if(q&&q.value==='q-other'&&oi&&oi.value.trim())parts.push('Draining me most: '+oi.value.trim().slice(0,200));
+        nt.value=parts.join(' | ');}
       t.value=v.join(',');
     });
   });

@@ -1,0 +1,21 @@
+{%- comment -%}
+  Black Friday reservation window: 27 Nov 2026 00:01 to 30 Nov 2026 23:59 UK time (GMT = UTC in November).
+  Inside the window: adds class "mv-bf" to <html>, swaps the announcement bar and the pop-up headline.
+  Outside the window nothing changes. Preview only: add ?bf=1 on an unpublished-theme preview to see it early.
+{%- endcomment -%}
+<script>
+(function(){
+  var n=Date.now(),on=n>=Date.UTC(2026,10,27,0,1,0)&&n<=Date.UTC(2026,10,30,23,59,59);
+  try{var live=!window.Shopify||!Shopify.theme||Shopify.theme.role==='main';
+    if(!live){var q=new URLSearchParams(location.search).get('bf');if(q==='1'){sessionStorage.setItem('mv_bf_test','1')}else if(q==='0'){sessionStorage.removeItem('mv_bf_test')}
+      if(sessionStorage.getItem('mv_bf_test')==='1')on=true;}}catch(e){}
+  window.MV_BF=on;if(!on)return;
+  document.documentElement.classList.add('mv-bf');
+  function run(){
+    document.querySelectorAll('.mv5-head .ann .it').forEach(function(e){e.textContent='Black Friday: 3 jars for the price of 2 \u2014 reserve by Monday for first-batch shipping priority.';});
+    var h=document.querySelector('#mvpop .mvclub h3');if(h&&!document.querySelector('#mvpop .mvclub .ok'))h.textContent='Black Friday: 3 jars for the price of 2.';
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}else{run();}
+})();
+</script>
+<style>.mv5 .bfonly{display:none!important}.mv-bf .mv5 .bfonly{display:block!important}.mv-bf .mv5 span.bfonly{display:inline-flex!important}</style>

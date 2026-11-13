@@ -436,9 +436,10 @@
         <div class="packs2">
           <label class="pk2 pbx"><input type="radio" name="id" value="{{ v1.id }}" data-price="{{ v1.price | money }}" data-note="1 jar · + {{ section.settings.single_delivery }} delivery" {% if sel == v1.id %}checked{% endif %} data-avail="{{ v1.available }}" data-pack="1"><span class="pbx-th"><img src="{{ 'packjar1.png' | file_url }}" alt="" width="120" height="84" loading="eager"></span><span class="pbx-t"><b>1 jar</b><span class="pbx-sup">{{ n | times: 1 }} days &middot; {{ n | times: 2 }} gummies</span><span class="pbx-del">+ {{ section.settings.single_delivery }} delivery</span></span><span class="pbx-p"><b>{{ v1.price | money }}</b><small>{{ pd1 | money }} a day</small></span></label>
           <label class="pk2 pbx"><span class="pbx-badge">Free delivery</span><input type="radio" name="id" value="{{ v2.id }}" data-price="{{ v2.price | money }}" data-note="2 jars · free delivery" {% if sel == v2.id %}checked{% endif %} data-avail="{{ v2.available }}" data-pack="2"><span class="pbx-th"><img src="{{ 'packjar2.png' | file_url }}" alt="" width="120" height="84" loading="eager"></span><span class="pbx-t"><b>2 jars</b><span class="pbx-save">Save {{ save2 }}%</span><span class="pbx-sup">{{ n | times: 2 }} days &middot; {{ n | times: 4 }} gummies</span><span class="pbx-del free">Free UK delivery</span></span><span class="pbx-p"><b>{{ v2.price | money }}</b><s>{{ v1.price | times: 2 | money }}</s><small>{{ pd2 | money }} a day</small></span></label>
-          <label class="pk2 pbx best"><span class="pbx-badge hot">Best value</span><input type="radio" name="id" value="{{ v3.id }}" data-price="{{ v3.price | money }}" data-note="3 jars · free delivery" {% if sel == v3.id %}checked{% endif %} data-avail="{{ v3.available }}" data-pack="3"><span class="pbx-th"><img src="{{ 'packjar3.png' | file_url }}" alt="" width="120" height="84" loading="eager"></span><span class="pbx-t"><b>3 jars</b><span class="pbx-save">Save {{ save3 }}%</span><span class="pbx-sup">{{ n | times: 3 }} days &middot; {{ n | times: 6 }} gummies</span><span class="pbx-del free">Free UK delivery</span></span><span class="pbx-p"><b>{{ v3.price | money }}</b><s>{{ v1.price | times: 3 | money }}</s><small>{{ pd3 | money }} a day</small></span></label>
+          <label class="pk2 pbx best"><span class="pbx-badge hot">Best value</span><input type="radio" name="id" value="{{ v3.id }}" data-price="{{ v3.price | money }}" data-note="3 jars · free delivery" {% if sel == v3.id %}checked{% endif %} data-avail="{{ v3.available }}" data-pack="3"><span class="pbx-th"><img src="{{ 'packjar3.png' | file_url }}" alt="" width="120" height="84" loading="eager"></span><span class="pbx-t"><b>3 jars</b><span class="pbx-save">Save {{ save3 }}%</span><span class="bfonly bftag">3 for the price of 2</span><span class="pbx-sup">{{ n | times: 3 }} days &middot; {{ n | times: 6 }} gummies</span><span class="pbx-del free">Free UK delivery</span></span><span class="pbx-p"><b>{{ v3.price | money }}</b><s>{{ v1.price | times: 3 | money }}</s><small>{{ pd3 | money }} a day</small></span></label>
         </div>
       </fieldset>
+      <div class="bfonly bfmod"><p>3 jars for the price of 2 single jars. Reserve by Monday 30 November and your order ships in the first December batch. Nothing to pay today.</p><small>One best price applies &mdash; offers don&#39;t stack.</small></div>
       <input type="hidden" name="quantity" value="1">
       <button class="btn add" type="submit" id="mv-add">{% if wl %}Reserve mine{% else %}Add to basket{% endif %}</button>
       {%- if wl -%}<p class="ntp">Nothing to pay today</p>{%- endif -%}
@@ -616,6 +617,7 @@
   <section class="faq pfaq" id="faq"><div class="wrap">
     <div class="side"><p class="kick">Good questions</p><h2>Asked and answered.</h2><p>Still wondering? Email <a href="mailto:{{ section.settings.contact_email }}">{{ section.settings.contact_email }}</a>. A real person replies.</p></div>
     <div>
+      <details class="bfonly"><summary>What does first-batch shipping priority mean?</summary><p>Everyone who reserves is a Founding 500 member. If you reserve between 27 and 30 November, your order is packed and shipped in the first batch when M&euml;va launches in December &mdash; earliest reservations first. Reserving is free and there&#39;s nothing to pay today.</p></details>
       <details><summary>What&#39;s in each jar?</summary><p>{{ n | times: 2 }} ripe red berry gummies with 90mg magnesium each. One jar lasts {{ n }} days at two gummies a day.</p></details>
       <details><summary>How many gummies do I take?</summary><p>{{ section.settings.dose_text }} Do not exceed the recommended daily intake.</p></details>
       <details><summary>When should I take them?</summary><p>Any time that suits you. Most women keep the jar by the kettle and take two with breakfast, so it sticks.</p></details>
@@ -891,6 +893,12 @@ el.querySelectorAll('b[data-to]').forEach(function(b){var to=+b.dataset.to,s=b.d
 io.observe(el);})();
 </script>
 <noscript><style>.mv5 .pstat>div{opacity:1!important;transform:none!important}</style></noscript>
+<style>
+.mv5 .bfmod{background:#fff3c4;border:1.5px solid #ffd84d;border-radius:18px;padding:16px 18px;margin:12px 0 14px}
+.mv5 .bfmod p{margin:0;font-size:15px;line-height:1.5;font-weight:700;color:#3d0f27}
+.mv5 .bfmod small{display:block;margin-top:8px;font-size:12.5px;color:rgba(61,15,39,.7)}
+.mv5 .bftag{align-items:center;background:#ffd84d;color:#3d0f27;font-weight:800;font-size:11.5px;letter-spacing:.02em;padding:4px 9px;border-radius:999px;white-space:nowrap}
+</style>
   <div class="sbar"><div><b id="mv-sbp">{% if wl %}2 jars{% else %}{{ v2.price | money }}{% endif %}</b><small id="mv-sbt">{% if wl %}Nothing to pay today{% else %}2 jars · free delivery{% endif %}</small></div>{% if wl %}<a class="btn" href="#club">Reserve mine</a>{% else %}<button class="btn" type="submit" form="mv-buy">Add to basket</button>{% endif %}</div>
 {%- endunless -%}
 

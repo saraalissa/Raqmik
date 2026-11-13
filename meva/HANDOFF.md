@@ -81,12 +81,15 @@ The source line is mandatory. Figures verified against NDNS 2019–2023 Table 5.
 7. Possible: yellow Founding box also removed outside waitlist mode (ask her).
 8. Black Friday upgrade (see section above).
 
-## Black Friday task (not started)
-Full brief and build notes: `black-friday-brief.md`. Window: 27 Nov 2026 00:01 to 30 Nov 2026 23:59 UK time.
-Two questions were put to Sara and were unanswered when the session ended:
-1. The brief says "your 3rd jar is on us… after Monday the third jar is full price", but the 3-jar pack is £49.99 before, during and after, and prices must not change. That deadline claim is untrue and is fake urgency. Recommended: lead with the real new benefit (free UK delivery on any pack, incl. 1 jar) and tie the deadline to that only.
-2. "Discounts never stack" means the Founding 20% only helps 1-jar buyers, while the live site says "20% off your first order" next to pack prices. If she confirms no stacking, the Founding copy and the FOUNDING20 discount need changing before launch.
-Tracking required by the brief: tags `waitlist, founding-500, bf-founding` inside the window (no `bf-founding` outside), and "Reserved pack: N jars" in the customer note. Prove it with a real sign-up; hCaptcha blocks headless browsers.
+## Black Friday offer: BUILT on the unpublished theme, awaiting Sara's approval (13 Nov)
+Final brief (v3, hers): no price expiry; the only time-limited thing is first-batch shipping priority for reservations made 27 Nov 2026 00:01 to 30 Nov 2026 23:59 UK time. Delivery policy unchanged (1 jar pays delivery). Offers don't stack.
+- LIVE data change done: 3-jar pack £49.99 → £49.98 in price list `27644526651` (so "3 jars for the price of 2 single jars" is literally true). Verified on home, product page and why-meva; no "£49.99" left.
+- Built on "Copy of Mëva - Draft (Claude)" `145862000699` (unpublished at the time): `snippets/meva-bf.liquid` (date gate in JS, UTC = UK time in November; adds class `mv-bf` to <html>, swaps ticker and pop-up headline), rendered from `sections/meva-header.liquid`; product page has the `.bfonly` module under the pack selector, the "3 for the price of 2" tag on the 3-jar card and one FAQ item; `snippets/meva-club-form.liquid` adds tag `bf-founding` in the window and writes "Reserved pack: N jars" to the note (always, when a pack was chosen).
+- Preview before the dates: add `&bf=1` to an unpublished-theme preview URL (ignored on the live theme; `&bf=0` clears it).
+- Verified with a simulated clock: off at 26 Nov 23:59, on at 27 Nov 00:01 and 30 Nov 23:59, off at 1 Dec 00:00. Form payload inside the window with pack 3: tags `waitlist,founding-500,reserve-3,bf-founding`, note `Reserved pack: 3 jars`. Outside: no `bf-founding`.
+- NOT done: a real saved sign-up. hCaptcha blocks automated browsers, so Sara must do one from her phone on the `&bf=1&reserve=3` preview link, then check the customer in Shopify.
+- Note: pop-up sign-ups carry no pack unless the visitor came through a Reserve button (`?reserve=N`).
+- Source files: `theme-pending/` (sections + snippets). After she publishes, sync the other theme copy.
 
 ## Other files in this folder
 - `black-friday-brief.md`: Black Friday brief (verbatim), open questions, build notes.
