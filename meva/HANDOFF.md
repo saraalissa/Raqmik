@@ -81,7 +81,10 @@ The source line is mandatory. Figures verified against NDNS 2019–2023 Table 5.
 7. Possible: yellow Founding box also removed outside waitlist mode (ask her).
 8. Black Friday upgrade (see section above).
 
-## Black Friday offer: BUILT on the unpublished theme, awaiting Sara's approval (13 Nov)
+## Black Friday offer: LIVE (published by Sara 13 Nov 15:41 UTC), hidden until 27 Nov
+Both theme copies now carry the same files (synced after she published). Real sign-ups verified in Shopify: new customer saved with tags `waitlist, founding-500, reserve-3` and note `Reserved pack: 3 jars` (outside the window, so correctly no `bf-founding`); an earlier preview sign-up with `&bf=1` saved `bf-founding`. Known limit: when an existing email signs up again Shopify adds tags but does NOT overwrite the note, so treat the `reserve-N` tag as the source of truth for the pack. Two test customers of Sara's exist (one carries `bf-founding`); ask her before deleting.
+
+(Build details below.)
 Final brief (v3, hers): no price expiry; the only time-limited thing is first-batch shipping priority for reservations made 27 Nov 2026 00:01 to 30 Nov 2026 23:59 UK time. Delivery policy unchanged (1 jar pays delivery). Offers don't stack.
 - LIVE data change done: 3-jar pack £49.99 → £49.98 in price list `27644526651` (so "3 jars for the price of 2 single jars" is literally true). Verified on home, product page and why-meva; no "£49.99" left.
 - Built on "Copy of Mëva - Draft (Claude)" `145862000699` (unpublished at the time): `snippets/meva-bf.liquid` (date gate in JS, UTC = UK time in November; adds class `mv-bf` to <html>, swaps ticker and pop-up headline), rendered from `sections/meva-header.liquid`; product page has the `.bfonly` module under the pack selector, the "3 for the price of 2" tag on the 3-jar card and one FAQ item; `snippets/meva-club-form.liquid` adds tag `bf-founding` in the window and writes "Reserved pack: N jars" to the note (always, when a pack was chosen).
