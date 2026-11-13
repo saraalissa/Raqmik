@@ -36,3 +36,22 @@
 ## Before going live
 - Sara publishes the theme.
 - She approves the campaign build.
+
+## No Advantage+ anything (Sara, 13 Nov)
+- **Budget:** no Advantage campaign budget (CBO). Use ad set budgets (ABO), £8/day each × 3 = £24/day.
+- **Audience:** Advantage+ audience off. Original audience options only (GB, women, 45–65+).
+- **Placements:** manual, not Advantage+ placements:
+  - Facebook Feed
+  - Instagram Feed
+  - Instagram Stories
+  - Facebook Stories
+  - Instagram Reels
+  - Facebook Reels
+- **Creative:** every Advantage+ creative enhancement OPT_OUT via `degrees_of_freedom_spec` on each ad. That covers:
+  - text improvements
+  - image touch-ups, image brightness and contrast, image templates and expansion
+  - music
+  - 3D animation
+  - adding site links and catalogue items
+  - comments
+- **Targeting expansion:** off. No detailed-targeting expansion and no lookalike expansion.
