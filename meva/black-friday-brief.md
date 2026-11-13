@@ -1,4 +1,51 @@
-# Mëva Black Friday reservation upgrade — brief (received 13 Nov 2026, NOT built yet)
+# Mëva Black Friday reservation offer — brief v2 (received 13 Nov 2026, NOT built)
+
+Status: not started. Shopify connector was down (502) in the session that received this. The brief says "if anything is unclear or a step fails, STOP and tell me", so nothing was built. Three points were raised with Sara and need her answer first (see "Open points").
+
+## Owner's brief v2 (verbatim, supersedes v1 below)
+
+TASK: Add a Black Friday reservation offer to the MEVA product page.
+Work ONLY on a duplicated theme. Send me the preview link when done. Publish NOTHING.
+
+THE OFFER (explain it to yourself exactly like this):
+"Buy 2 jars, the 3rd is on us." The customer reserves 3 jars and pays the 2-jar value: £49.99 total — this is the SAME price as the existing 3-jar pack. Do NOT change any price. Only the framing changes.
+Plus: free UK delivery on her first order, whichever pack she picks.
+It is a reservation only — nothing to pay today.
+
+WHEN: The offer shows only between 27 Nov 2026 00:01 and 30 Nov 2026 23:59 UK time. Before and after those dates, the site looks exactly as it does now. Use a simple date check; do not build a scheduling system.
+
+MAKE THESE EDITS, ALL OF THEM, NOTHING ELSE:
+1. Announcement bar, only during the window: "Black Friday: buy 2 jars, the 3rd is on us — reserve by Monday."
+2. On /products/meva-magnesium-gummies, under the pack selector, add one slim module, only during the window: "Black Friday reservation: pick the 3-jar pack and your 3rd jar is on us. Free UK delivery on your first order. Nothing to pay today."
+3. In the pack selector, during the window only, the 3-jar option gets a small tag: "3rd jar on us". Prices and all other labels stay identical.
+4. Add ONE FAQ item, only during the window: Q: "How does the Black Friday offer work?" A: "Reserve the 3-jar pack during Black Friday and your 3rd jar is on us — you pay £49.99. You also get free UK delivery on your first order. Nothing to pay today; we email you when Mëva launches."
+5. Pop-up headline, during the window only: "Black Friday: your 3rd jar is on us." (Body of the pop-up unchanged.)
+6. Tagging: sign-ups during the window must save the tags waitlist, founding-500 AND bf-founding, with the chosen pack in the customer note, same as the existing sign-up flow already does for the other tags.
+7. Discount rule to state in the module (small line under it): "One best price applies — offers don't stack." Do NOT create any discount code for this. The Founding 500 20% and this offer never combine; the customer simply gets the better single price.
+
+HARD RULES:
+- No price changes anywhere. No checkout — it stays closed, "Nothing to pay today" stays true everywhere.
+- No health claims in anything you add. Use the copy above word for word.
+- Banned words: "you should", "don't forget to", "ladies", "warrior", "journey", "anti-ageing", "hormone balance", "miracle", "game-changer", "menopause relief", and anything about sleep.
+- Do not touch any other page, the food-gap section, or the stat strip.
+- If anything is unclear or a step fails, STOP and tell me — do not invent a workaround.
+
+WHEN DONE, REPORT BACK:
+- The preview link.
+- A test sign-up done inside the window dates showing the customer saved with tags waitlist + founding-500 + bf-founding and the pack in the note.
+- Confirmation that with a date outside the window, none of the BF elements appear.
+
+## Open points raised with Sara on v2 (awaiting her answer)
+
+1. **Free delivery on any pack contradicts her rule from the same day**: "the 1-jar pack always pays delivery". Which one stands? If 1 jar pays delivery, the module/FAQ line must read "Free UK delivery on 2+ jars" (which is already true for everyone).
+2. **"Buy 2 jars, the 3rd is on us" vs the 2-jar pack at £39.98.** On the same selector, 2 jars cost £39.98 and 3 cost £49.99, so the third jar costs £10.01. "2-jar value £49.99" only holds against two single jars (2 × £24.99). And the £49.99 price is the same before, during and after the window, so "reserve by Monday" presents an everyday price as a deadline offer (fake urgency; CAP Code risk; against the brand's own no-fake-scarcity rule). Honest alternatives that cost nothing: "3 jars for the price of 2 single jars" without a deadline on the price, or a real time-limited extra (founders' prize draw, first-dispatch priority).
+3. **Pack in the note.** The current flow saves the pack as a tag (`reserve-N`), not in the note. The build will add "Reserved pack: N jars" to the note; say so in the report.
+
+Also note for the build: hCaptcha blocks headless browsers, so the "test sign-up inside the window" must be done from a real browser (Sara's phone) using a preview override, or by temporarily widening the window on the unpublished theme. Shopify shows 0 customers, so the sign-up flow itself has never been proven.
+
+---
+
+# (superseded) Brief v1
 
 Status: not started. The Shopify connector was down in the session that received this, so nothing was built, uploaded or tested.
 Three points below need the owner's answer before the copy goes live (see "Open questions").
