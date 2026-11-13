@@ -74,6 +74,9 @@ The source line is mandatory. Figures verified against NDNS 2019–2023 Table 5.
 6. Later: business address, VAT/NETP, GDPR rep, reviews and tracking after first sales.
 7. Possible: yellow Founding box also removed outside waitlist mode (ask her).
 
+## Next task after the pending upload
+`black-friday-brief.md`: Black Friday reservation upgrade. Not built. Read the open questions in it and get Sara's answers before writing the copy.
+
 ## Other files in this folder
 - `cro-audit-2026-11-13.md`: full CRO audit.
 - `muse-social-prompt.md`, `meva-email-programme.md`, policy `.txt` files, `TODO-legal-details.md`.
