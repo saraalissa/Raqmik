@@ -9,6 +9,8 @@ DO NOT edit the product: title, description, variant prices, price-list prices, 
 Allowed: theme/section work (layout and copy only) on the unpublished theme.
 IMPORTANT FACT: the 3-jar GBP price was ALREADY changed £49.99 → £49.98 in price list `27644526651` at about 15:28 UTC on 13 Nov, BEFORE she sent the hold. She has been told. Do not change it back (that would be another edit) unless she says so. Product `updatedAt` was 2026-11-13T06:09:31Z and variant records were last updated 7 Nov; the price-list change did not move those timestamps.
 
+UPDATE (later on 13 Nov): Muse checked Commerce Manager. The review was submitted at about 16:07 UTC, AFTER the price change, and was decided within minutes: all 3 variants "permanently rejected: Medical equipment" under Meta's Medical and Healthcare Products commerce policy. So the price change did not cancel anything and there is no open review left to protect. Sara has NOT yet said the hold is lifted; keep it until she does. This rejection concerns the catalog/Shop only, not website ads.
+
 ## Start here (in this order)
 1. Check the Shopify connector works: `{themes(first:5){nodes{id name role}}}`. It was down (502) for the last part of the previous session, which is why work is pending. If it is still down, tell Sara to reconnect Shopify under Claude settings → Connectors.
 2. Check whether Sara published the stats-section change (next section) and sync the other theme copy.
