@@ -49,7 +49,7 @@ Magnesium contributes to the reduction of tiredness and fatigue.
 Join the No Drama Club for free. It costs nothing, and the first 500 get 20% off a single jar.
 
 ## Set 2: same note ("the actual dose. on the front."), 5 new photos
-Photos: 2.1 bathroom shelf · 2.2 tote bag on desk · 2.3 kitchen windowsill · 2.4 held outdoors · 2.5 desk top-down.
+Photos: 2.1 bathroom shelf · 2.2 hand lifting jar out of tote bag · 2.3 kitchen windowsill · 2.4 held outdoors · 2.5 desk top-down.
 All five use the 1.1 text and headline, so the only thing that changes is the photo.
 
 ## Set 3: A5_whole-routine + C3_meva-maths
