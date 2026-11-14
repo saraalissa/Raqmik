@@ -69,7 +69,7 @@ html.mvpop-lock,html.mvpop-lock body{overflow:hidden}
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!p.hidden)close()});
   var f=p.querySelector('form');if(f)f.addEventListener('submit',function(){st.joined=1;save(st)});
   // Just joined through the pop-up: show the thank-you
-  if(p.querySelector('.mvclub .ok')){st.joined=1;save(st);open();return;}
+  if(p.querySelector('.mvclub .ok')){st.joined=1;save(st);var nb=p.querySelector('.mvpop-no');if(nb)nb.textContent='Back to the site';open();return;}
   // Joined through another form on the page: never show
   if(document.querySelector('.mvclub .ok')){st.joined=1;save(st);return;}
   if(st.joined)return;
