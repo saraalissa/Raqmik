@@ -5,10 +5,13 @@
 {%- endcomment -%}
 <script>
 (function(){
-  var n=Date.now(),on=n>=Date.UTC(2026,10,27,0,1,0)&&n<=Date.UTC(2026,10,30,23,59,59);
+  var n=Date.now(),on=n>=Date.UTC(2026,10,27,0,1,0)&&n<=Date.UTC(2026,10,30,23,59,59),soon=n<Date.UTC(2026,10,27,0,1,0);
   try{var live=!window.Shopify||!Shopify.theme||Shopify.theme.role==='main';
     if(!live){var q=new URLSearchParams(location.search).get('bf');if(q==='1'){sessionStorage.setItem('mv_bf_test','1')}else if(q==='0'){sessionStorage.removeItem('mv_bf_test')}
-      if(sessionStorage.getItem('mv_bf_test')==='1')on=true;}}catch(e){}
+      if(sessionStorage.getItem('mv_bf_test')==='1'){on=true;soon=false;}}}catch(e){}
+  if(soon&&!on){document.documentElement.classList.add('mv-bf-soon');
+    var sr=function(){document.querySelectorAll('.mv5-head .ann .grp').forEach(function(g){var its=g.querySelectorAll('.it');if(!its.length||g.dataset.bf)return;g.dataset.bf=1;[its[0],its[Math.floor(its.length/2)]].forEach(function(x){var t=document.createElement('span');t.className='it';t.textContent='Black Friday \u00b7 27\u201330 Nov: first-batch shipping priority on 3 jars';x.parentNode.insertBefore(t,x);});});};
+    if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',sr);}else{sr();}}
   window.MV_BF=on;if(!on)return;
   document.documentElement.classList.add('mv-bf');
   function run(){
@@ -18,4 +21,8 @@
   if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}else{run();}
 })();
 </script>
-<style>.mv5 .bfonly{display:none!important}.mv-bf .mv5 .bfonly{display:block!important}.mv-bf .mv5 span.bfonly{display:inline-flex!important}</style>
+<style>.bfhero{display:none}.mv-bf-soon .bfhero.bfsoon,.mv-bf .bfhero.bfon{display:flex}
+.bfhero{align-items:center;gap:10px;flex-wrap:wrap;background:#3d0f27;color:#fff;border-radius:16px;padding:12px 16px;margin:0 0 14px;font-size:15px;line-height:1.3;text-decoration:none}
+.bfhero b{background:#ffd84d;color:#3d0f27;border-radius:999px;padding:4px 10px;font-weight:900;font-size:13px;letter-spacing:.02em;white-space:nowrap}
+.bfhero span{flex:1;min-width:200px}.bfhero i{font-style:normal;color:#ffd84d;font-weight:800;white-space:nowrap}
+.mv5 .bfonly{display:none!important}.mv-bf .mv5 .bfonly{display:block!important}.mv-bf .mv5 span.bfonly{display:inline-flex!important}</style>

@@ -254,6 +254,7 @@
   {%- assign hb = section.settings.hero_banner -%}
   {%- assign hbm = section.settings.hero_banner_mobile -%}<section class="hero{% if hb != blank %} hb{% endif %}{% if hbm != blank %} hbm{% endif %}">{%- if hb != blank -%}<div class="hbimg"><picture>{%- if hbm != blank -%}<source media="(max-width: 860px)" srcset="{{ hbm | image_url: width: 600 }} 600w, {{ hbm | image_url: width: 941 }} 941w" sizes="100vw">{%- endif -%}{{ hb | image_url: width: 2000 | image_tag: alt: hb.alt, loading: 'eager', fetchpriority: 'high', sizes: '100vw', widths: '800, 1200, 1600, 2000' }}</picture></div>{%- endif -%}<div class="wrap">
     <div class="txt">
+      <a class="bfhero bfsoon" href="/products/meva-magnesium-gummies?reserve=3#club"><b>BLACK FRIDAY &middot; 27&ndash;30 NOV</b><span>Reserve 3 jars that weekend for first-batch shipping priority. Nothing to pay today.</span><i>Reserve &rarr;</i></a><a class="bfhero bfon" href="/products/meva-magnesium-gummies?reserve=3#club"><b>BLACK FRIDAY IS ON</b><span>3 jars for the price of 2, plus first-batch shipping priority. Ends Monday 30 Nov.</span><i>Reserve 3 &rarr;</i></a>
       <p class="kick">For the women who hold everyone together</p>
       <h1>Tired of being tired? <em>Same, babe.</em></h1>
       <p class="lead">You look after everyone. So who&#39;s looking after you? {{ brand }} is two berry gummies with 180mg magnesium, the real dose on the front, and no wellness hype. All dose. No drama.</p>
