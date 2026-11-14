@@ -5,6 +5,7 @@
   - 1 | Same photo, new note: 120247382708770424, £25/day
   - 2 | Same note, new photos: 120247382710400424, £10/day
   - 3 | A5 + Meva maths: 120247382711740424, £8/day
+- **Attribution:** 7-day click on all 3 ad sets (Sara approved 14 Nov)
 - **Tracking:** utm_campaign=meva_waitlist_r2 (R1 is meva_waitlist_r1)
 - **Creative:** every Advantage+ creative feature OPT_OUT, 4:5 feed + 9:16 story/reels
 
