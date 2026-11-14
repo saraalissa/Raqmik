@@ -27,28 +27,32 @@ Rules for this voice: warm, cheeky, always on her side. "Girl" and "Babe" where 
 
 Trigger: customer created with tag `waitlist`. Exit: launch day (they move to Flow 2).
 
-### Email 1. Immediately
-Subject: You're in, babe.
-Preview: 20% off, free delivery on 2+ jars, and a promise we'll keep.
+### Email 1. Immediately (UPDATED 14 Nov 2026: current offer and guarantee wording)
+**Setup:** Shopify Email automation "Welcome new subscribers". Trigger: customer subscribes to email marketing.
 
-Hi gorgeous,
+**Subject:** You're in. Welcome to the No Drama Club.
+**Preview:** Your Founding 500 perks, and what happens next.
 
-You just joined the No Drama Club. Good call. Here's what that gets you:
+Hi there,
 
-- 20% off your first order at launch
-- Free UK delivery on 2+ jars
-- Finish your first jar. Not for you? We'll refund it. No awkward questions. (First order only, one per household. Full terms: trymeva.co/pages/refunds)
+You're in. Welcome to the No Drama Club.
 
-And here's what you won't get from us: miracle words, scare stories, or a new "breakthrough" every Tuesday.
+You're one of the Founding 500, so here's what's saved for you:
 
-We make one thing. Two berry gummies with 180mg magnesium, the real dose printed on the front. Magnesium contributes to the reduction of tiredness and fatigue. That's the claim, word for word, because it's the one the law allows and the one we'll stand behind.
+- **20% off a single jar** on your first order. Your code arrives by email the day we launch.
+- **Free UK delivery** on 2 or more jars.
+- **Our 30-day satisfaction guarantee.** Not for you? We'll refund your first jar. You don't need to finish it or send it back. (First order, one per household. Full terms: trymeva.co/pages/refunds)
 
-We'll email you the day we launch. Until then, a few short notes from us. Hit reply any time. A real person reads them (hi, it's us).
+Black Friday heads-up: reserve 3 jars between 27 and 30 November and your order ships in the first batch.
+
+What Mëva is, in one breath: two ripe red berry gummies a day, 180mg magnesium, printed on the front. Magnesium contributes to the reduction of tiredness and fatigue.
+
+Nothing to pay today. We'll email you the moment we launch, and a couple of short notes before then. Hit reply any time. A real person reads them.
 
 All dose. No drama.
 Mëva
 
-CTA: Show me the jar → /products/meva-magnesium-gummies
+**CTA:** Have a look at the jar → https://trymeva.co/products/meva-magnesium-gummies?utm_source=email&utm_medium=welcome&utm_campaign=welcome_1
 
 ### Email 2. Day 2
 Subject: What's in the jar (and what isn't)
