@@ -96,6 +96,7 @@
       if(nt){var parts=[],pk=r?parseInt(r,10):0;
         if(pk>=1&&pk<=3)parts.push('Reserved pack: '+pk+(pk===1?' jar':' jars'));
         if(q&&q.value==='q-other'&&oi&&oi.value.trim())parts.push('Draining me most: '+oi.value.trim().slice(0,200));
+        else if(q&&q.value&&q.value!=='q-other'&&q.selectedIndex>0)parts.push('Draining me most: '+q.options[q.selectedIndex].text);
         if(Object.keys(utm).length)parts.push('Ad: '+UP.filter(function(k){return utm[k]}).map(function(k){return k.replace('utm_','')+'='+utm[k]}).join(', '));
         nt.value=parts.join(' | ');}
       t.value=v.join(',');
