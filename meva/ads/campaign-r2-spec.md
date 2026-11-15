@@ -41,3 +41,4 @@ R1 stays as it is (Sara will pause some R1 ads herself). Suggested: pause R1 A4,
 - Campaign, ad sets 1, 2, 4 and all ads ENABLED.
 - The original ad set 3 (120247382711740424) was ARCHIVED (by someone in Ads Manager), so it can't be re-enabled. It was duplicated as "3 | A5 + Meva maths | GB W45-65 (v2)" 120247386018890424 (£8/day, 7-day click) with new ads 3.1 120247386021430424 and 3.2 120247386022300424. Both ENABLED.
 - R2 total: £53/day. R1 still on at £25/day until Sara pauses ads (A4, A5, C3 still ACTIVE in R1).
+- 15 Nov: R1 A4, A5, C3 PAUSED at Sara's request (duplicated in R2). R1 still has 7 active ads: A1, A2, B1, B2, B3, B5, C1.
