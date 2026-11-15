@@ -241,6 +241,15 @@
 .mv5 .hero.hb .txt{padding-block:clamp(40px,5vw,72px)}
 @media (max-width:860px){.mv5 .hero.hb .hbimg{position:relative;aspect-ratio:4/3}.mv5 .hero.hb .hbimg img{object-position:78% center}.mv5 .hero.hb .wrap{min-height:0;grid-template-columns:1fr}.mv5 .hero.hb .txt{padding-block:28px 40px}}
 .mv5 .buy .mvclub{margin-top:6px}
+.mv5 #mv-stage .slide.dose img{object-position:50% 100%}
+.mv5 .mvjoined{order:-9;display:grid;gap:4px;background:#e9f7ec;border:1.5px solid #2f8f4e;color:#14532d;border-radius:16px;padding:14px 16px 14px 48px;margin:0 0 14px;position:relative;font-size:15px;line-height:1.35}
+.mv5 .mvjoined[hidden]{display:none}
+.mv5 .mvjoined:before{content:"";position:absolute;left:14px;top:14px;width:22px;height:22px;border-radius:50%;background:#2f8f4e}
+.mv5 .mvjoined:after{content:"";position:absolute;left:22px;top:18px;width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.mv5 .mvjoined b{font-size:16px}
+.mv5 .btn.done,.mv5 .btn.done:hover{background:#2f8f4e!important;border-color:#2f8f4e!important;color:#fff!important;cursor:default;opacity:1}
+.mv5 .qj{margin:4px 0 16px}
+html.mv-joined .mv5 .qj{display:none}
 .mv5 #mv-stage .arrows{inset:50% 8px auto 8px;transform:translateY(-50%);justify-content:space-between;pointer-events:none}
 .mv5 #mv-stage .arrows button{pointer-events:auto;width:34px;height:34px;font-size:15px;background:rgba(255,255,255,.82);backdrop-filter:blur(4px)}
 .mv5 #mv-thumbs{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px) / 6);overflow-x:auto;scrollbar-width:none}
@@ -376,17 +385,24 @@
           endif
         -%}
         <div class="slide"{% if forloop.first %} data-on{% endif %}>{{ m | image_url: width: 1254 | image_tag: alt: m.alt, loading: ld, sizes: '(max-width: 900px) 100vw, 55vw', widths: '600, 900, 1254' }}</div>
+        {%- if forloop.first %}
+        <div class="slide dose"><img src="{{ 'meva-ad-A4-feed.jpg' | file_img_url: '1080x' }}" alt="A hand holding a jar of Mëva with the dose circled in red: 180mg magnesium, 2 a day" loading="lazy" width="1080" height="1350"></div>
+        {%- endif -%}
         {%- endif -%}{%- endfor -%}
         <div class="arrows"><button type="button" data-mv-prev aria-label="Previous photo">‹</button><button type="button" data-mv-next aria-label="Next photo">›</button></div>
       </div>
       <div class="thumbs" id="mv-thumbs">
         {%- for m in p.media -%}{%- if m.media_type == 'image' -%}
         <button type="button" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}" aria-label="Photo {{ forloop.index }}">{{ m | image_url: width: 200 | image_tag: alt: '' }}</button>
+        {%- if forloop.first %}
+        <button type="button" aria-pressed="false" aria-label="The dose on the front"><img src="{{ 'meva-ad-A4-feed.jpg' | file_img_url: '200x' }}" alt="" loading="lazy" width="200" height="250"></button>
+        {%- endif -%}
         {%- endif -%}{%- endfor -%}
       </div>
       {%- else -%}
       <div class="stage" id="mv-stage">
         <div class="slide" data-on>{%- if img_jar != blank -%}{{ img_jar | image_url: width: 1200 | image_tag: alt: img_jar.alt, loading: 'eager', fetchpriority: 'high', sizes: '(max-width: 900px) 100vw, 55vw', widths: '600, 900, 1200' }}{%- endif -%}</div>
+        <div class="slide dose"><img src="{{ 'meva-ad-A4-feed.jpg' | file_img_url: '1080x' }}" alt="A hand holding a jar of Mëva with the dose circled in red: 180mg magnesium, 2 a day" loading="lazy" width="1080" height="1350"></div>
         <div class="slide card"><h3>What&#39;s in every gummy</h3><ul><li class="ck">180mg magnesium a day (citrate)</li><li class="ck">Ripe red berry</li><li class="ck">Plant pectin, no gelatine</li><li class="ck">Colour from spirulina and anthocyanins</li><li class="ck">None of the 14 major allergens</li></ul></div>
         <div class="slide">{%- if section.settings.hero_image != blank -%}{{ section.settings.hero_image | image_url: width: 1200 | image_tag: alt: section.settings.hero_image.alt, loading: 'lazy' }}{%- endif -%}</div>
         <div class="slide card y"><h3>Your first {{ n }} days</h3><div class="days"><div><b>Day 1</b><span>Jar goes by the kettle</span></div><div><b>Day 7</b><span>Two gummies are part of your morning</span></div><div><b>Day {{ n }}</b><span>Notice how your days feel</span></div></div><p style="font-weight:600;font-size:14px">A routine, not a promise of results. Magnesium contributes to the reduction of tiredness and fatigue.</p></div>
@@ -396,6 +412,7 @@
       </div>
       <div class="thumbs" id="mv-thumbs">
         <button type="button" aria-pressed="true" aria-label="Jar">{%- if img_jar != blank -%}{{ img_jar | image_url: width: 200 | image_tag: alt: '' }}{%- endif -%}</button>
+        <button type="button" aria-pressed="false" aria-label="The dose on the front"><img src="{{ 'meva-ad-A4-feed.jpg' | file_img_url: '200x' }}" alt="" loading="lazy" width="200" height="250"></button>
         <button type="button" aria-pressed="false">Inside</button>
         <button type="button" aria-pressed="false" aria-label="Lifestyle">{%- if section.settings.hero_image != blank -%}{{ section.settings.hero_image | image_url: width: 200 | image_tag: alt: '' }}{%- endif -%}</button>
         <button type="button" aria-pressed="false">{{ n }} days</button>
@@ -406,12 +423,14 @@
     </div>
 
     <div class="buy" id="buy-top">
+      <div class="mvjoined" id="mv-joined" hidden role="status"><b>You&#39;re in. Welcome to the No Drama Club.</b><span>Your Founding 500 perks are saved. Check your inbox for our welcome email.</span></div>
       <a class="bfhero bfsoon" href="/products/meva-magnesium-gummies?reserve=3#club"><span class="bft">Black<br>Friday</span><span class="bfm"><em>27&ndash;30 Nov &middot; UK</em><strong>3 jars for the price of 2</strong><small>Reserve that weekend, ship first. Nothing to pay today.</small></span><span class="bfj"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"></span><span class="bfc">Starts in <b data-bfc>&hellip;</b></span></a><a class="bfhero bfon" href="/products/meva-magnesium-gummies?reserve=3#club"><span class="bft">Black<br>Friday</span><span class="bfm"><em>It&#39;s on &middot; ends Mon 30 Nov</em><strong>3 jars for the price of 2</strong><small>+ first-batch shipping priority. Nothing to pay today.</small></span><span class="bfj"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"></span><span class="bfc">Ends in <b data-bfc>&hellip;</b></span></a>
       <p class="eyebrow">Magnesium berry gummies</p>
       <div class="bdg"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-14 14-14 0 9-6 14-14 14z"/><path d="M5 19l8-8"/></svg>Vegan</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Gelatine-free</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg>Every ingredient listed</span></div>
       <h1>{{ p.title }}</h1>
       {%- if p.metafields.reviews.rating_count.value > 0 -%}<div class="jdgm-widget jdgm-preview-badge" data-id="{{ p.id }}">{{ p.metafields.judgeme.badge }}</div>{%- endif -%}
       <p class="sub">Two ripe red berry gummies a day. 180mg magnesium (48% of your daily reference intake), printed right on the front. One jar lasts 30 days.</p>
+      {%- if wl -%}<div class="qj">{% render 'meva-club-form', fid: 'quick', compact: true %}</div>{%- endif -%}
       <ul class="cks">
         <li class="ck">Contributes to the reduction of tiredness and fatigue</li>
         <li class="ck">Contributes to normal psychological function</li>
@@ -952,6 +971,15 @@ io.observe(el);})();
     stage.querySelector('[data-mv-prev]').addEventListener('click', function () { go(cur - 1); });
     stage.querySelector('[data-mv-next]').addEventListener('click', function () { go(cur + 1); });
   }
+  var JOINED = /(^|[?&])customer_posted=true/.test(location.search);
+  if (JOINED) {
+    var jb = document.getElementById('mv-joined'); if (jb) jb.hidden = false;
+    document.documentElement.classList.add('mv-joined');
+    document.querySelectorAll('.mv5 a.btn, .mv5 .sbar a.btn').forEach(function (a) {
+      var h = a.getAttribute('href') || '';
+      if (/#club|#buy-top|reserve=/.test(h)) { a.textContent = 'You\u2019re in \u2713'; a.setAttribute('aria-disabled', 'true'); a.classList.add('done'); a.addEventListener('click', function (e) { e.preventDefault(); }); }
+    });
+  }
   var form = document.getElementById('mv-buy');
   if (!form) return;
   var WL = {{ wl | json }};
@@ -962,7 +990,8 @@ io.observe(el);})();
     var btn = document.getElementById('mv-add');
     var ok = WL || r.getAttribute('data-avail') === 'true';
     btn.disabled = !ok;
-    btn.textContent = ok ? (WL ? 'Reserve mine' : 'Add to basket · ' + r.getAttribute('data-price')) : 'Sold out';
+    btn.textContent = ok ? (WL ? (JOINED ? 'You\u2019re in \u2713' : 'Reserve mine') : 'Add to basket · ' + r.getAttribute('data-price')) : 'Sold out';
+    if (WL && JOINED) { btn.disabled = true; btn.classList.add('done'); }
     var sb = document.querySelector('.mv5 .sbar button.btn'); if (sb) { sb.disabled = !ok; sb.textContent = ok ? 'Add to basket' : 'Sold out'; }
     document.getElementById('mv-sbp').textContent = WL ? r.getAttribute('data-note').split(' · ')[0] : r.getAttribute('data-price');
     document.getElementById('mv-sbt').textContent = WL ? 'Nothing to pay today' : r.getAttribute('data-note');

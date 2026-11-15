@@ -6,9 +6,21 @@
   assign fid = fid | default: 'club'
   assign form_id = fid | append: '-form'
 -%}
-<div class="mvclub" id="{{ fid }}">
+<div class="mvclub{% if compact %} cmp{% endif %}" id="{{ fid }}">
 {%- form 'customer', id: form_id -%}
-  {%- if form.posted_successfully? -%}
+  {%- if compact -%}
+    {%- if form.posted_successfully? -%}
+    <p class="qok"><b>You&#39;re in.</b> Welcome to the No Drama Club.</p>
+    {%- else -%}
+    <p class="qk"><b>Join free:</b> 20% off a single jar when we launch. Nothing to pay today.</p>
+    <input type="hidden" name="contact[tags]" value="waitlist,founding-500" data-club-tags>
+    <input type="hidden" name="contact[accepts_marketing]" value="true">
+    <input type="hidden" name="contact[note]" value="" data-club-note>
+    <div class="qrow"><label class="qlab"><span class="qsr">Your email</span><input type="email" name="contact[email]" required autocomplete="email" placeholder="Your email"></label><button class="btn" type="submit">Join free</button></div>
+    {%- if form.errors -%}<p class="err">{{ form.errors | default_errors }}</p>{%- endif -%}
+    <p class="fine">Launch emails from Mëva. Unsubscribe any time. <a href="{{ routes.root_url }}policies/privacy-policy">Privacy</a>.</p>
+    {%- endif -%}
+  {%- elsif form.posted_successfully? -%}
     <div class="ok">
       <p class="k">You&#39;re in</p>
       <h3>Welcome to the No Drama Club.</h3>
@@ -65,6 +77,15 @@
 .mvclub input[type=text]{width:100%;min-height:52px;border:1.5px solid rgba(0,0,0,.18);border-radius:14px;padding:0 16px;font:inherit;font-size:16px;font-weight:500;background:#fff;color:inherit;box-sizing:border-box}
 .mvclub input[type=text]:focus{outline:3px solid rgba(163,40,95,.25);border-color:var(--berry,#a3285f)}
 .mvclub .mvother[hidden]{display:none}
+.mvclub.cmp{padding:16px;border-radius:18px;background:#fff7f2;border-color:rgba(163,40,95,.18)}
+.mvclub.cmp .qk{margin:0 0 10px;font-size:15px;line-height:1.35}
+.mvclub.cmp .qrow{display:flex;gap:8px}
+.mvclub.cmp .qlab{flex:1;min-width:0;display:block}
+.mvclub.cmp .qsr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.mvclub.cmp input[type=email]{min-height:50px}
+.mvclub.cmp .btn{width:auto;margin:0;white-space:nowrap;min-height:50px;padding-inline:18px}
+.mvclub.cmp .fine{margin-top:8px;font-size:12px}
+.mvclub.cmp .qok{margin:0;font-size:15px}
 </style>
 <script>
 (function(){
