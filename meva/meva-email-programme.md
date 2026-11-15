@@ -184,3 +184,38 @@ CTA: Restock in one click → product page (2 jars preselected)
 | Newsletter open rate | 35%+ |
 | Refill email: reorder rate | 25%+ |
 | Unsubscribe per send | under 0.5% |
+
+### Pack-choice email (15 Nov 2026) — to waitlist subscribers with no reserve-N tag
+**Audience:** Shopify segment "Waitlist · no pack chosen" (customer_tags CONTAINS 'waitlist' AND NOT CONTAINS reserve-1/2/3).
+**Mechanism:** each button opens the product page with ?reserve=N; she re-enters her email and Shopify adds the reserve-N tag to her existing customer record.
+
+**Subject:** Quick one: which pack should we save for you?
+**Preview:** One tap. Still nothing to pay today.
+
+Hi there,
+
+Thanks again for joining the No Drama Club. One quick question so we can plan our first batch properly:
+
+**Which pack should we save for you?**
+
+[Button] 1 jar · £24.99 (30 days)
+→ https://trymeva.co/products/meva-magnesium-gummies?reserve=1&utm_source=email&utm_medium=pack_ask&utm_campaign=pack_choice#club
+
+[Button] 2 jars · £39.98 · free UK delivery (60 days)
+→ https://trymeva.co/products/meva-magnesium-gummies?reserve=2&utm_source=email&utm_medium=pack_ask&utm_campaign=pack_choice#club
+
+[Button] 3 jars · £49.98 · best value, from £0.56 a day (90 days)
+→ https://trymeva.co/products/meva-magnesium-gummies?reserve=3&utm_source=email&utm_medium=pack_ask&utm_campaign=pack_choice#club
+
+Tap one, pop your email in again, and it's saved. That's it.
+
+A few things worth knowing:
+- Nothing to pay today. We'll email you when we launch, and you decide then.
+- Your Founding 500 perk still stands: 20% off a single jar on your first order. (Multipacks already have their own lower price, and offers don't stack.)
+- Black Friday heads-up: reserve 3 jars between 27 and 30 November and your order ships in the first batch.
+- Not for you? We'll refund your first jar. You don't need to finish it or send it back.
+
+Not sure yet? No problem at all. You're still on the list.
+
+All dose. No drama.
+Mëva
