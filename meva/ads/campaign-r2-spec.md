@@ -25,3 +25,14 @@
 | 3.2_C3_meva-maths | 120247382741690424 |
 
 R1 stays as it is (Sara will pause some R1 ads herself). Suggested: pause R1 A4, A5, C3 because they duplicate R2.
+
+## Ad set 4 (added 15 Nov): R1 ads that had spent £0
+- Ad set: 4 | R1 unspent ads | GB W45-65 — 120247385149040424, £10/day, 7-day click, PAUSED
+- Ads (same creative and copy as R1, utm_campaign=meva_waitlist_r2):
+  - 4.A3_simplified 120247385157290424
+  - 4.B4_todo-4sec 120247385159110424
+  - 4.C2_breakup 120247385159800424
+  - 4.C4_receipt 120247385161520424
+  - 4.C5_founding-member 120247385163320424
+- Originals in R1 (A3, B4, C2, C4, C5) PAUSED on 15 Nov. They had £0 spend, so nothing changed in R1 delivery.
+- R2 total when switched on: £53/day (25 + 10 + 8 + 10).
