@@ -242,18 +242,18 @@ Each angle maps to a gap and a pillar. All must pass §7.
 ## 9. VISUAL DIRECTION (brief for the designer)
 
 - **Feel:** kitchen table, daylight, real hands, real food — not lab coats, not hospital blue, not gold-and-black "premium".
-- **Colour — "the cinnamon pantry"** (applied to the store theme Nov 15, 2026). Inspired by cinnamon and what it pairs with: vanilla (the product's flavour), clove, the bark itself and the green leaf of the cinnamon tree. Avoid the red/urgent palettes of discount funnels.
+- **Colour — "Cinnamon Fire"** (v2, applied Nov 15, 2026; replaces the muted "cinnamon pantry" palette the founder rejected as dull). Sharp, high-contrast and memorable: espresso black + fiery cinnamon orange + saffron yellow on cream. Layout style: colour-blocked sections and hard-shadow ("neo-brutalist") cards.
 
-  | Name | Hex | Inspired by | Use | Contrast |
-  |---|---|---|---|---|
-  | Vanilla Cream | `#FBF6EC` | vanilla custard | main background | — |
-  | Vanilla Bean | `#F1E4CF` | vanilla pod, toasted milk | alternate section background | — |
-  | Clove | `#2E1C14` | whole clove | text, headlines | 15.1:1 on Vanilla Cream |
-  | Cinnamon Bark | `#8E4220` | Ceylon bark | buttons, guarantee block, primary brand colour | 6.6:1 on cream; white text on it 7.1:1 |
-  | Cinnamon Leaf | `#4F6B42` | leaf of *Cinnamomum verum* | accent: eyebrows, checks, step numbers, "Ceylon" highlights | 5.6:1 on cream, 4.8:1 on Vanilla Bean |
-  | Ceylon Quill | `#D4A26A` | the pale rolled quill | decorative only (illustration, packaging, ad backgrounds) — never for text on light | 7.1:1 when used on Clove |
+  | Name | Hex | Use | Contrast |
+  |---|---|---|---|
+  | Espresso | `#1C0F09` | text; dark hero/spec/final sections | 17.4:1 on Cream |
+  | Cinnamon Fire | `#C93F0B` | buttons, the orange section, big numbers, ✓ marks | white text 5.0:1; 4.6:1 on Cream |
+  | Saffron | `#FFC21A` | marquee, dose badge, highlight marker, guarantee block, "us" column | Espresso on it 11.6:1 — never use Saffron as text on light |
+  | Cream | `#FFF5E6` | main background | — |
+  | Peach | `#FFE6C7` | alternate sections, FAQ | — |
 
-  Theme mapping: surface = Vanilla Cream, surface_2 = Vanilla Bean, on_surface = Clove, interactive = Cinnamon Bark, accent = Cinnamon Leaf.
+  Theme mapping: surface = Cream, surface_2 = Peach, on_surface = Espresso, interactive = Cinnamon Fire, accent = Saffron. Headline font: Poppins Bold.
+
 - **Type:** a warm serif for headlines (store uses Playfair Display), a clean sans for body (DM Sans). Big, readable sizes for a 50+ reader.
 - **Packaging cues:** the real milligrams large on the front; a QR "See this batch's lab report"; species name *Cinnamomum verum* on the front.
 - **Never:** stock "doctor" photos, fake review widgets, countdown timers, competitor photos (including the CJ listing images — they appear to be another brand's product shots).
