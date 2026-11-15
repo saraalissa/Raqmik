@@ -62,6 +62,39 @@ Each gap names the evidence from the brief and what it lets us own.
 
 ## 3. POSITIONING
 
+### v2 — ACTIVE (Nov 15, 2026, after founder feedback: "v1 is weak")
+
+v1 below led with *honesty and calm*. That is a proof layer, not a reason to buy. v2 leads with the **desire** (steady blood sugar, steady energy, fewer cravings) and a **villain** the buyer already owns: the cinnamon in their own kitchen. Honesty stays as the proof that makes the claim believable.
+
+**Big idea: "Your spice rack can't do this."**
+The buyer has heard cinnamon is good for blood sugar and has probably tried sprinkling it. We explain why that didn't do much (wrong cinnamon, tiny dry dose) and present the upgrade: a concentrated true-Ceylon extract in MCT oil, one softgel a day.
+
+```
+For adults 45+ who want to keep their blood sugar in a healthy range and stop
+riding the after-meal energy roller-coaster,
+[BRAND] is the high-potency Ceylon cinnamon softgel
+that supports healthy blood sugar, steady all-day energy and fewer sugar cravings*
+in one softgel a day.
+Unlike kitchen cinnamon (usually Cassia, high in coumarin, a tiny dry dose)
+and plain powder capsules,
+each softgel is a 12:1 true Ceylon extract (≈7,200mg bark) carried in MCT oil —
+with the real numbers on the label and a 90-day "feel the difference or it's free" guarantee.
+```
+
+**Message hierarchy (what the site and ads say, in order)**
+1. Desire: steady blood sugar + steady energy + fewer cravings.*
+2. Villain: your spice rack (Cassia, coumarin, tiny dose).
+3. Mechanism: two compounds — MHCP (supports cells' response to insulin*) and cinnamaldehyde (antioxidant, circulation*).
+4. Proof: 600mg 12:1 = 7,200mg, MCT oil, true Ceylon; comparison table vs spice jar and powder capsules.
+5. Risk reversal: 90-day guarantee + bundles.
+
+**Hero line:** "Your spice rack can't do this." · **Close:** "Your spice rack had its chance."
+**Why it beats the field:** Metabolae sells fear (lab crises, fake nurses); Clarova/Resilia sell attack ("they're scams"). v2 sells a *better upgrade of something the buyer already believes in* — playful, confident, no fear, no fake personas, and it does not depend on naming competitors.
+
+Site structure mirrors the category leader's PDP anatomy (brief §9): marquee → hero with dose badge → 2 reasons kitchen cinnamon falls short → 2-compound mechanism → comparison table → spec numbers → first-90-days timeline → bundle offer → guarantee → FAQ → final CTA + FDA disclaimer. Not copied: their text, review counts, personas, disease claims.
+
+### v1 — superseded (kept for the honesty/proof layer)
+
 ### Positioning statement
 ```
 For adults 50+ who keep an eye on their blood sugar, and the family members who
