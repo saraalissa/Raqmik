@@ -43,3 +43,4 @@ R1 stays as it is (Sara will pause some R1 ads herself). Suggested: pause R1 A4,
 - R2 total: £53/day. R1 still on at £25/day until Sara pauses ads (A4, A5, C3 still ACTIVE in R1).
 - 15 Nov: R1 A4, A5, C3 PAUSED at Sara's request (duplicated in R2). R1 still has 7 active ads: A1, A2, B1, B2, B3, B5, C1.
 - 15 Nov: Sara paused R1 A1 (£7.53, 0 link clicks). R1 active now: A2, B1, B2, B3, B5, C1.
+- 15 Nov: R1 ad sets B (Tiredness) and C (Offer) PAUSED at Sara's request (0 sign-ups). R1 now runs ad set A only (A2), £8.33/day.
