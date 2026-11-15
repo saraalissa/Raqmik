@@ -131,3 +131,13 @@ n/v = not publicly verifiable from the pages fetched. Berberine-first brands whe
 
 ---
 *End of brief. Companion research files (not in this repo): 2026-11-14-metabolae-full-competitor-report-v2.md, 2026-11-14-metabolae-ads-analysis.md, 2026-11-14-metabolae-image-ads-hooks.md (originally in ~/workspace/product-research/).*
+
+---
+
+## 11. BUILD LOG
+
+- 2026-11-15 — Founder chose to open a NEW Shopify store and build a site in the style of metabolae.com (long-form single-product DTC). This implies Camp A spec (600mg 12:1 extract ≈ 7,200mg bark, MCT oil softgel, 30/pouch); the store presents it with the honest-label answers from §8.
+- Shopify PreviewStore created (US, USD). It is unclaimed until the founder saves it to a Shopify account from the preview/save link.
+- Product: "Ceylon Cinnamon Softgels with MCT Oil", option "Bundle": 1 Pouch $39.99 (compare $59.99) · Buy 2 Get 1 (3 pouches) $79.98 · Buy 3 Get 2 (5 pouches) $119.97. PLACEHOLDER prices from §9 benchmarks — confirm after unit economics.
+- Homepage sections: hero → Cassia vs Ceylon → structure/function benefits → label transparency → how to take → 90-day guarantee → FAQ → final CTA + FDA disclaimer. Items needing supplier confirmation are visibly marked "[CONFIRM WITH SUPPLIER]" on the page.
+- Still TBD: brand name/logo, product photography, supplier, legal review of copy, guarantee terms.
