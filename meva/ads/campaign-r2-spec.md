@@ -1,4 +1,4 @@
-# Meta campaign R2: circled dose (built 14 Nov 2026, PAUSED)
+# Meta campaign R2: circled dose (built 14 Nov 2026, LIVE 15 Nov 2026)
 
 - **Campaign:** 120247382706230424 "MEVA | Waitlist R2 | Circled dose | UK W45+ | 2026-11-14", OUTCOME_LEADS, ABO
 - **Ad sets** (custom conversion 1385882766748326, GB women 45–65, manual placements, Advantage+ audience off):
@@ -36,3 +36,8 @@ R1 stays as it is (Sara will pause some R1 ads herself). Suggested: pause R1 A4,
   - 4.C5_founding-member 120247385163320424
 - Originals in R1 (A3, B4, C2, C4, C5) PAUSED on 15 Nov. They had £0 spend, so nothing changed in R1 delivery.
 - R2 total when switched on: £53/day (25 + 10 + 8 + 10).
+
+## LIVE (15 Nov 2026): Sara said "يلا شغل"
+- Campaign, ad sets 1, 2, 4 and all ads ENABLED.
+- The original ad set 3 (120247382711740424) was ARCHIVED (by someone in Ads Manager), so it can't be re-enabled. It was duplicated as "3 | A5 + Meva maths | GB W45-65 (v2)" 120247386018890424 (£8/day, 7-day click) with new ads 3.1 120247386021430424 and 3.2 120247386022300424. Both ENABLED.
+- R2 total: £53/day. R1 still on at £25/day until Sara pauses ads (A4, A5, C3 still ACTIVE in R1).
