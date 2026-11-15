@@ -1,7 +1,7 @@
 # CLAUDE CODE — MASTER CONTEXT BRIEF
 ## Project: US Ceylon Cinnamon Supplement Brand (Pre-Launch)
 
-> Working rule for this folder: everything for the cinnamon store lives under `ceylon-cinnamon/`. It is separate from Raqmik (the root `index.html`) and from the founder's other brands.
+> Working rule for this folder: everything for the cinnamon store lives under `ceylon-cinnamon/` (brief: CLAUDE.md, positioning: BRAND-MAP.md, research files: research/). It is separate from Raqmik (the root `index.html`) and from the founder's other brands.
 > Companion research files referenced at the end (`~/workspace/product-research/…`) are NOT in this repo; only this brief is.
 
 Anything marked [TBD] is undecided — never invent values for TBD items; ask or use a clearly-labelled placeholder. Never fabricate doses, reviews, statistics, traffic figures or claims.
