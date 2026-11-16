@@ -1,0 +1,172 @@
+{%- comment -%}
+  Mëva advertorial for the emotional ads (R3 angles N "Not feeling like me" and L "Carrying everyone").
+  ?a=l swaps the headline and opening line to match the L ads; default matches the N ads.
+  Psychological arc: recognition (hyper-specific moments) → name the pattern (role engulfment, so it stops feeling like a flaw)
+  → normalise → why big gestures fail → one tiny daily act tied to the kettle (if-then plan) → permission → micro-commitment.
+  The product is the small act, never the cure. One action only: join the free waitlist. No prices or cart links.
+{%- endcomment -%}
+{%- assign brand = section.settings.brand_name -%}
+<style>
+body:has(.lpx) .hnav,body:has(.lpx) .mnav,body:has(.lpx) .mv5-head .ann,body:has(.lpx) .ftr .nletter{display:none!important}
+@media (max-width:600px){.mv5 .lpx-hero{padding-top:16px}.mv5 .lpx .dek{margin-bottom:12px}}
+.mv5 .lpx-ad{background:var(--plum);color:#f3dbe7;text-align:center;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:8px 16px}
+.mv5 .lpx .wrap{max-width:680px}
+.mv5 .lpx-hero{padding-block:clamp(22px,4vw,48px) 8px}
+.mv5 .lpx-hero h1{font-size:clamp(32px,5vw,52px);line-height:1.03;letter-spacing:-.03em;margin:10px 0 0}
+.mv5 .lpx .dek{font-size:18px;line-height:1.6;color:#5a3e4d;margin:14px 0 6px}
+.mv5 .lpx .by{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--muted);margin:12px 0 16px}
+.mv5 .lpx .by .av{width:34px;height:34px;border-radius:50%;background:var(--plum);color:var(--butter);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:900}
+.mv5 .lpx .soon{font-size:13.5px;font-weight:700;color:var(--plum);margin:0 0 8px}
+.mv5 .lpx .trustl{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;font-weight:700;color:var(--plum);margin:10px 0 0}
+.mv5 .lpx .trustl span{display:inline-flex;gap:6px;align-items:center}
+.mv5 .lpx .trustl span:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--berry)}
+.mv5 .lpx .mvclub{max-width:none}
+.mv5 .lpx-body{padding-block:clamp(20px,3vw,40px) clamp(40px,6vw,72px)}
+.mv5 .lpx-body .photo{aspect-ratio:16/10;margin:8px 0 26px}
+.mv5 .lpx-body .photo img{width:100%;height:100%;object-fit:cover;display:block}
+.mv5 .lpx-body h2{font-size:clamp(24px,3.2vw,32px);line-height:1.12;margin:42px 0 14px}
+.mv5 .lpx-body p{font-size:17.5px;line-height:1.75;color:#5a3e4d;margin:0 0 16px}
+.mv5 .lpx-body p b{color:var(--plum)}
+.mv5 .moments{list-style:none;margin:0 0 18px;padding:0;display:grid;gap:10px}
+.mv5 .moments li{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:14px 16px 14px 46px;position:relative;font-size:16.5px;line-height:1.5;color:var(--plum);font-weight:600}
+.mv5 .moments li:before{content:"";position:absolute;left:16px;top:17px;width:18px;height:18px;border-radius:5px;border:2px solid var(--berry)}
+.mv5 .pull{font-family:var(--display);font-weight:800;font-size:clamp(23px,3.2vw,31px);letter-spacing:-.03em;line-height:1.22;color:var(--berry);border-left:4px solid var(--butter);padding-left:18px;margin:28px 0}
+.mv5 .roles{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 18px}
+.mv5 .roles span{background:var(--lilac);color:var(--plum);border-radius:999px;padding:7px 13px;font-weight:700;font-size:14px}
+.mv5 .roles span.me{background:transparent;border:1.5px dashed var(--berry);color:var(--berry)}
+.mv5 .src{font-size:12.5px!important;color:var(--muted)!important;line-height:1.5!important}
+.mv5 ol.steps3{list-style:none;padding:0;margin:0 0 16px;counter-reset:s;display:grid;gap:12px}
+.mv5 ol.steps3 li{counter-increment:s;display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:start;font-size:16.5px;color:#5a3e4d;line-height:1.55}
+.mv5 ol.steps3 li:before{content:counter(s);width:38px;height:38px;border-radius:50%;background:var(--lilac);color:var(--berry);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:17px}
+.mv5 ol.steps3 b{color:var(--plum)}
+.mv5 .lpx ul.cl{list-style:none;padding:0;margin:0 0 16px;display:grid;gap:8px;font-weight:600;font-size:16px;color:var(--plum)}
+.mv5 .slip{background:#fffdf6;border:2px solid var(--plum);border-radius:8px;box-shadow:6px 7px 0 var(--butter);padding:clamp(22px,4vw,32px);margin:30px 0 10px;position:relative}
+.mv5 .slip .t{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--berry);margin:0 0 12px}
+.mv5 .slip p{font-family:var(--display);font-weight:700;font-size:clamp(19px,2.6vw,23px)!important;line-height:1.35!important;color:var(--plum)!important;margin:0 0 12px!important}
+.mv5 .slip .sig{display:flex;justify-content:space-between;gap:12px;align-items:end;border-top:1.5px dashed rgba(92,22,56,.4);padding-top:14px;margin-top:6px;font-size:13px;color:var(--muted)}
+.mv5 .slip .btn{min-height:50px;padding:0 20px}
+.mv5 .lpx-end{background:var(--cream);padding-block:clamp(36px,5vw,64px);scroll-margin-top:20px}
+.mv5 .lpx-end .wrap{display:grid;gap:18px}
+.mv5 .lpx-end .mvclub{background:#fff}
+.mv5 .faq{display:grid;gap:8px;margin-top:6px}
+.mv5 .faq details{background:#fff;border-radius:16px;padding:14px 16px;border:1.5px solid var(--line)}
+.mv5 .faq summary{font-weight:800;color:var(--plum);cursor:pointer;font-size:16px}
+.mv5 .faq p{margin:8px 0 0;color:#5a3e4d;font-size:15.5px;line-height:1.6}
+.mv5 .fp{font-size:12.5px;color:var(--muted);line-height:1.5;margin:6px 0 0}
+.mv5 .lpx-sb{display:none}
+@media (max-width:900px){
+  .mv5 .lpx-sb{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:25;background:#fff;border-top:1.5px solid var(--line);align-items:center;justify-content:space-between;gap:12px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));transform:translateY(110%);transition:transform .25s}
+  .mv5 .lpx-sb.on{transform:none}
+  .mv5 .lpx-sb b{display:block;font-family:var(--display);font-weight:900;color:var(--plum);font-size:15px;line-height:1.15}
+  .mv5 .lpx-sb small{display:block;font-size:12px;color:var(--muted)}
+  .mv5 .lpx-sb .btn{min-height:48px;padding:0 20px;white-space:nowrap}
+  .mv5 .lpx{padding-bottom:76px}
+}
+</style>
+<script>window.MV_LP=((new URLSearchParams(location.search).get('a')||'').toLowerCase()==='l')?'story-l':'story-n'</script>
+<div class="mv5">
+<div class="lpx-ad">Advertisement · from {{ brand }}</div>
+<div class="lpx">
+  <header class="lpx-hero"><div class="wrap">
+    <p class="kick" data-v="kick">Midlife · The quiet bit</p>
+    <h1 data-v="h1">Nobody warns us about this bit</h1>
+    <p class="dek" data-v="dek">Not the tiredness. The quieter thing. Running everyone&#39;s day so smoothly that, somewhere along the way, we stopped being in it.</p>
+    <script>
+    (function(){var a=(new URLSearchParams(location.search).get('a')||'').toLowerCase();if(a!=='l')return;
+      var t={kick:'Midlife · The load',h1:'The job nobody applied for',dek:'The kids. The job. Mum. The dog. Every WhatsApp group going. Somebody carries all of it, and it&#39;s usually us. So who carries the one carrying everyone?'};
+      for(var k in t){var el=document.querySelector('[data-v="'+k+'"]');if(el)el.innerHTML=t[k]}})();
+    </script>
+    <div class="by"><span class="av">{{ brand | slice: 0 }}</span><span>The {{ brand }} team · 4 min read</span></div>
+    <p class="soon">Short on time? Save your place now and read later.</p>
+    {% render 'meva-club-form', fid: 'lpa-top', compact: true %}
+    <div class="trustl"><span>Nothing to pay today</span><span>30-day first-jar guarantee</span><span>UK-authorised claims only</span></div>
+  </div></header>
+
+  <article class="lpx-body"><div class="wrap">
+    {%- if section.settings.hero_image != blank -%}<div class="photo">{{ section.settings.hero_image | image_url: width: 1100 | image_tag: alt: section.settings.hero_image.alt, loading: 'lazy' }}</div>{%- endif -%}
+
+    <p>It rarely arrives as one big moment. It shows up in small, oddly specific ones. <b>See if any of these sound familiar:</b></p>
+    <ul class="moments">
+      <li>Setting reminders for everyone, and snoozing the one that just says &ldquo;me&rdquo;.</li>
+      <li>Being &ldquo;Mum&rdquo;, &ldquo;love&rdquo; and &ldquo;the one who sorts it&rdquo; all day, and mostly hearing your actual name at the GP&#39;s.</li>
+      <li>Someone asks what you fancy for tea, and you genuinely don&#39;t know any more.</li>
+      <li>Remembering every birthday in the family, and nearly forgetting your own.</li>
+    </ul>
+    <p>If even one of those landed, you&#39;re in good company. &ldquo;Not feeling like me&rdquo; is one of the most common answers women give when they join our waitlist.</p>
+    <p class="pull">It isn&#39;t a flaw. It&#39;s what happens when you&#39;ve been everyone&#39;s safe place for years.</p>
+
+    <h2>There&#39;s actually a name for it</h2>
+    <p>Researchers who study people caring for their families describe something called <b>role engulfment</b>: the roles slowly take up all the room that used to be yours.</p>
+    <div class="roles"><span>Mum</span><span>Daughter</span><span>Manager</span><span>Taxi</span><span>Chef</span><span>Diary keeper</span><span class="me">Me?</span></div>
+    <p>Each role is real, and most of them are loved. Together, they can leave very little space for the person underneath. <b>Naming it matters.</b> Once something has a name, it stops feeling like a personal failing and starts looking like what it is: a pattern. And patterns can change, slowly.</p>
+    <p class="src">Skaff, M.M. &amp; Pearlin, L.I. (1992). Caregiving: role engulfment and the loss of self. The Gerontologist, 32(5).</p>
+
+    <h2>Why the big gestures never stick</h2>
+    <p>The usual advice is a spa weekend, a girls&#39; trip, a whole day off. Lovely. Almost never booked. And when it is, Monday arrives and everything goes back the way it was.</p>
+    <p>What tends to last is the opposite: <b>one small thing, done for yourself, every single day, tied to something you already do.</b> Behaviour scientists call it an if-then plan. &ldquo;When I put the kettle on, I do the thing that&#39;s mine.&rdquo; Small enough that there&#39;s never a reason to skip it.</p>
+    <p class="pull">It&#39;s small. That&#39;s the point.</p>
+
+    <h2>Ours takes four seconds and lives by the kettle</h2>
+    {%- if section.settings.take_image != blank -%}<div class="photo">{{ section.settings.take_image | image_url: width: 1100 | image_tag: alt: section.settings.take_image.alt, loading: 'lazy' }}</div>{%- endif -%}
+    <p>We won&#39;t pretend a gummy can give anyone their name back. It can&#39;t. What it can be is <b>a daily moment that belongs to you</b>, before the school run, before the inbox, before anyone needs anything.</p>
+    <p>{{ brand }} is two soft gummies that taste like ripe red berries, with <b>180mg magnesium a day, printed on the front.</b> Vegan and gelatine-free. And magnesium is one of the few nutrients with authorised claims:</p>
+    <ul class="cl">
+      <li class="ck">Magnesium contributes to normal psychological function</li>
+      <li class="ck">Magnesium contributes to the reduction of tiredness and fatigue</li>
+    </ul>
+    <p>That&#39;s what we say, word for word. Nothing more.</p>
+    <ol class="steps3">
+      <li><span><b>Put the jar by the kettle.</b> Where you&#39;ll see it before anyone else needs you.</span></li>
+      <li><span><b>Kettle on, two gummies.</b> Four seconds that are just yours.</span></li>
+      <li><span><b>Keep it up for 30 days.</b> One jar. Then notice how your days feel.</span></li>
+    </ol>
+
+    <div class="slip">
+      <p class="t">A permission slip · in case nobody&#39;s handed you one lately</p>
+      <p>You&#39;re allowed to come first for four seconds a day.</p>
+      <p>You&#39;re allowed to want things that aren&#39;t for anyone else.</p>
+      <p>You&#39;re allowed to still be you, even on the hard days.</p>
+      <div class="sig"><span>Signed: ______________ (you)</span><a class="btn" href="#join">Sign it →</a></div>
+    </div>
+  </div></article>
+
+  <section class="lpx-end" id="join"><div class="wrap">
+    <div>
+      <p class="kick">{{ brand }} launches soon</p>
+      <h2 style="font-size:clamp(28px,4vw,40px);margin:8px 0 8px">Sign it by joining. It&#39;s free.</h2>
+      <p style="color:#5a3e4d;font-size:16.5px;line-height:1.6;margin:0">Join the No Drama Club and we&#39;ll email you the moment we launch. The first 500 members get 20% off a single jar. No card, nothing to pay today.</p>
+    </div>
+    {% render 'meva-club-form', fid: 'lpa-end' %}
+    <div class="faq">
+      <details><summary>Do I pay anything now?</summary><p>No. Joining is free and there&#39;s no card to enter. You decide whether to buy when we launch.</p></details>
+      <details><summary>What if it isn&#39;t for me?</summary><p>If you buy and it isn&#39;t for you, email us within 30 days of your first order arriving and we&#39;ll refund your first jar. <a href="{{ routes.root_url }}pages/refunds">Full terms</a>.</p></details>
+      <details><summary>Is this a treatment for how I feel?</summary><p>No. {{ brand }} is a food supplement, not a treatment. If you&#39;ve been feeling low for a while, please talk to your GP. You deserve proper support.</p></details>
+      <details><summary>Can I take it with medication?</summary><p>If you take medication, are pregnant or breastfeeding, please speak to your GP or pharmacist first.</p></details>
+    </div>
+    <p class="fp">This page is an advertisement from {{ brand }}. Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle. Do not exceed the recommended daily dose.</p>
+  </div></section>
+</div>
+<div class="lpx-sb" id="lpx-sb"><div><b>Four seconds that are yours</b><small>Join free · nothing to pay today</small></div><a class="btn" href="#join">Join free →</a></div>
+</div>
+<script>
+(function(){
+  var sb=document.getElementById('lpx-sb'),top=document.getElementById('lpa-top'),end=document.getElementById('join');
+  if(!sb||!top||!('IntersectionObserver' in window))return;
+  var seenTop=true,seenEnd=false;
+  function upd(){sb.classList.toggle('on',!seenTop&&!seenEnd)}
+  new IntersectionObserver(function(e){e.forEach(function(x){seenTop=x.isIntersecting});upd()}).observe(top);
+  new IntersectionObserver(function(e){e.forEach(function(x){seenEnd=x.isIntersecting});upd()}).observe(end);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Mëva advertorial LP",
+  "settings": [
+    { "type": "text", "id": "brand_name", "label": "Brand name", "default": "Mëva" },
+    { "type": "image_picker", "id": "hero_image", "label": "Top image" },
+    { "type": "image_picker", "id": "take_image", "label": "Kettle / taking image" }
+  ],
+  "presets": [{ "name": "Mëva advertorial LP" }]
+}
+{% endschema %}

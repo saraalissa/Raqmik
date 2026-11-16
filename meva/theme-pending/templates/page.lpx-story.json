@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "lpx": {
+      "type": "meva-lpx-story",
+      "settings": {
+        "brand_name": "Mëva",
+        "hero_image": "shopify://shop_images/m9-hero.jpg",
+        "take_image": "shopify://shop_images/m9-hand.jpg"
+      }
+    }
+  },
+  "order": ["lpx"]
+}

@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "lpx": {
+      "type": "meva-lpx-label",
+      "settings": {
+        "brand_name": "Mëva",
+        "label_image": "shopify://shop_images/m9-macro.jpg"
+      }
+    }
+  },
+  "order": ["lpx"]
+}

@@ -1,0 +1,182 @@
+{%- comment -%}
+  Mëva listicle landing page for the "honest label" ads (R3 angle H).
+  One action only: join the free waitlist. No prices, packs or cart links. Header nav and pop-up hidden.
+  Psychology: blame removed from the reader ("it isn't you"), autonomy (a check she can run on any jar, ours included),
+  authority from UK rules (not from us), a recap she can act on now, then the reveal.
+{%- endcomment -%}
+{%- assign brand = section.settings.brand_name -%}
+<style>
+body:has(.lpx) .hnav,body:has(.lpx) .mnav,body:has(.lpx) .mv5-head .ann,body:has(.lpx) .ftr .nletter{display:none!important}
+@media (max-width:600px){.mv5 .lpx-hero{padding-top:16px}.mv5 .lpx .dek{margin-bottom:12px}}
+.mv5 .lpx-ad{background:var(--plum);color:#f3dbe7;text-align:center;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:8px 16px}
+.mv5 .lpx .wrap{max-width:680px}
+.mv5 .lpx-hero{padding-block:clamp(22px,4vw,48px) 8px}
+.mv5 .lpx-hero h1{font-size:clamp(31px,4.8vw,50px);line-height:1.04;letter-spacing:-.03em;margin:10px 0 0}
+.mv5 .lpx-hero h1 em{font-style:normal;color:var(--berry)}
+.mv5 .lpx .dek{font-size:17.5px;line-height:1.6;color:#5a3e4d;margin:14px 0 16px}
+.mv5 .lpx .dek b{color:var(--plum)}
+.mv5 .lpx .trustl{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;font-weight:700;color:var(--plum);margin:10px 0 0}
+.mv5 .lpx .trustl span{display:inline-flex;gap:6px;align-items:center}
+.mv5 .lpx .trustl span:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--berry)}
+.mv5 .lpx .mvclub{max-width:none}
+.mv5 .lpx-body{padding-block:clamp(26px,4vw,48px) clamp(40px,6vw,72px)}
+.mv5 .lpx-it{display:grid;gap:12px;padding-block:28px;border-top:1.5px solid var(--line)}
+.mv5 .lpx-it .n{display:flex;gap:14px;align-items:baseline}
+.mv5 .lpx-it .n b{flex:0 0 auto;font-family:var(--display);font-weight:900;font-size:44px;line-height:.9;color:var(--berry);letter-spacing:-.04em}
+.mv5 .lpx-it h2{font-size:clamp(22px,3vw,28px);line-height:1.15;margin:0}
+.mv5 .lpx-it p{font-size:17px;line-height:1.7;color:#5a3e4d;margin:0}
+.mv5 .lpx-it p b{color:var(--plum)}
+.mv5 .lbl{background:#fffdf8;border:1.5px dashed rgba(92,22,56,.35);border-radius:18px;padding:16px 18px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14.5px;color:#3b2230;display:grid;gap:6px}
+.mv5 .lbl .r{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dotted rgba(0,0,0,.2);padding-bottom:6px}
+.mv5 .lbl .r:last-of-type{border-bottom:0;padding-bottom:0}
+.mv5 .lbl .q{color:var(--berry);font-weight:800}
+.mv5 .lbl small{font-family:inherit;font-size:11.5px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.mv5 .ours{display:flex;gap:10px;align-items:flex-start;background:var(--lilac);border-radius:16px;padding:12px 14px;font-weight:700;color:var(--plum);font-size:15.5px;line-height:1.45}
+.mv5 .ours i{font-style:normal;flex:0 0 auto;background:var(--plum);color:#fff;border-radius:999px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;margin-top:1px}
+.mv5 .lpx ul.cl{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-weight:600;font-size:15.5px;color:var(--plum)}
+.mv5 .lpx .shot{border-radius:22px;overflow:hidden;background:var(--lilac)}
+.mv5 .lpx .shot img{display:block;width:100%;height:auto}
+.mv5 .recap{background:var(--cream);border-radius:26px;padding:clamp(22px,4vw,34px);display:grid;gap:14px;margin-top:8px}
+.mv5 .recap h2{font-size:clamp(24px,3.2vw,32px);margin:0}
+.mv5 .recap ol{margin:0;padding:0;list-style:none;counter-reset:r;display:grid;gap:10px}
+.mv5 .recap li{counter-increment:r;display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;font-weight:600;color:var(--plum);font-size:16px;line-height:1.45}
+.mv5 .recap li:before{content:counter(r);width:30px;height:30px;border-radius:50%;background:#fff;color:var(--berry);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:900}
+.mv5 .recap p{margin:0;color:#5a3e4d;font-size:16px;line-height:1.6}
+.mv5 .reveal{display:grid;gap:16px;margin-top:40px}
+.mv5 .reveal h2{font-size:clamp(26px,3.6vw,36px);margin:0}
+.mv5 .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.mv5 .facts div{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:14px}
+.mv5 .facts b{display:block;font-family:var(--display);font-weight:900;font-size:26px;color:var(--berry);letter-spacing:-.03em;line-height:1}
+.mv5 .facts span{display:block;font-size:13.5px;font-weight:600;color:var(--plum);margin-top:6px;line-height:1.35}
+.mv5 .lpx-end{background:var(--cream);padding-block:clamp(36px,5vw,64px);scroll-margin-top:20px}
+.mv5 .lpx-end .wrap{display:grid;gap:18px}
+.mv5 .lpx-end .mvclub{background:#fff}
+.mv5 .faq{display:grid;gap:8px;margin-top:6px}
+.mv5 .faq details{background:#fff;border-radius:16px;padding:14px 16px;border:1.5px solid var(--line)}
+.mv5 .faq summary{font-weight:800;color:var(--plum);cursor:pointer;font-size:16px}
+.mv5 .faq p{margin:8px 0 0;color:#5a3e4d;font-size:15.5px;line-height:1.6}
+.mv5 .fp{font-size:12.5px;color:var(--muted);line-height:1.5;margin:6px 0 0}
+.mv5 .lpx-sb{display:none}
+@media (max-width:900px){
+  .mv5 .lpx-sb{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:25;background:#fff;border-top:1.5px solid var(--line);align-items:center;justify-content:space-between;gap:12px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));transform:translateY(110%);transition:transform .25s}
+  .mv5 .lpx-sb.on{transform:none}
+  .mv5 .lpx-sb b{display:block;font-family:var(--display);font-weight:900;color:var(--plum);font-size:15px;line-height:1.15}
+  .mv5 .lpx-sb small{display:block;font-size:12px;color:var(--muted)}
+  .mv5 .lpx-sb .btn{min-height:48px;padding:0 20px;white-space:nowrap}
+  .mv5 .lpx{padding-bottom:76px}
+}
+@media (max-width:420px){.mv5 .facts b{font-size:22px}}
+</style>
+<script>window.MV_LP='label'</script>
+<div class="mv5">
+<div class="lpx-ad">Advertisement · from {{ brand }}</div>
+<div class="lpx">
+  <header class="lpx-hero"><div class="wrap">
+    <p class="kick">Supplement labels · 3 min read</p>
+    <h1>5 things your magnesium label should tell you <em>in 3 seconds</em></h1>
+    <p class="dek">If you&#39;ve ever stood in the vitamin aisle squinting at the small print, <b>it isn&#39;t you.</b> A label&#39;s whole job is to be read. Here&#39;s what to look for, so you can check any jar in your cupboard. Ours included.</p>
+    {% render 'meva-club-form', fid: 'lpl-top', compact: true %}
+    <div class="trustl"><span>Nothing to pay today</span><span>30-day first-jar guarantee</span><span>UK-authorised claims only</span></div>
+  </div></header>
+
+  <section class="lpx-body"><div class="wrap">
+
+    <article class="lpx-it">
+      <div class="n"><b>1</b><h2>How much magnesium is actually in it</h2></div>
+      <p>Some labels give the weight of the whole compound, like &ldquo;magnesium citrate&rdquo;. That isn&#39;t the same as the magnesium inside it. <b>The number that matters is the magnesium itself</b>, and a good label prints it plainly.</p>
+      <div class="lbl"><small>Example label · for illustration</small><div class="r"><span>Magnesium citrate</span><span>500mg</span></div><div class="r"><span>of which magnesium</span><span class="q">? mg</span></div></div>
+      <p>If the second line is missing, you can&#39;t tell what you&#39;re getting.</p>
+      <div class="ours"><i>Ours</i><span>90mg magnesium per gummy. Printed on the front.</span></div>
+    </article>
+
+    <article class="lpx-it">
+      <div class="n"><b>2</b><h2>The dose per day, not per piece</h2></div>
+      <p>A big number on the front can be for three or four gummies. <b>Look for &ldquo;per daily serving&rdquo; and how many that is.</b> Then you know exactly what one day looks like.</p>
+      <div class="ours"><i>Ours</i><span>2 gummies a day = 180mg. That&#39;s the whole daily serving.</span></div>
+    </article>
+
+    <article class="lpx-it">
+      <div class="n"><b>3</b><h2>The % NRV</h2></div>
+      <p>NRV is the nutrient reference value: the daily amount set for adults (375mg for magnesium). The percentage tells you how a dose compares. <b>More isn&#39;t automatically better.</b> You also get magnesium from food like leafy greens, nuts and wholegrains.</p>
+      <div class="ours"><i>Ours</i><span>48% NRV a day. On purpose, alongside a normal diet.</span></div>
+    </article>
+
+    <article class="lpx-it">
+      <div class="n"><b>4</b><h2>Which form of magnesium it is</h2></div>
+      <p>Magnesium comes in different forms: citrate, glycinate, oxide and more. <b>A label should name it</b>, so you can look it up or ask your pharmacist before you buy.</p>
+      <div class="ours"><i>Ours</i><span>Magnesium citrate. Named on the jar.</span></div>
+    </article>
+
+    <article class="lpx-it">
+      <div class="n"><b>5</b><h2>Only the claims it&#39;s allowed to make</h2></div>
+      <p>In the UK, food supplements can only make health claims that have been scientifically assessed and authorised. <b>If a label promises to fix, cure or &ldquo;balance&rdquo; something, that isn&#39;t an authorised claim.</b> It&#39;s marketing. For magnesium, the authorised list includes:</p>
+      <ul class="cl">
+        <li class="ck">Magnesium contributes to the reduction of tiredness and fatigue</li>
+        <li class="ck">Magnesium contributes to normal psychological function</li>
+        <li class="ck">Magnesium contributes to normal functioning of the nervous system</li>
+        <li class="ck">Magnesium contributes to normal muscle function</li>
+        <li class="ck">Magnesium contributes to the maintenance of normal bones</li>
+      </ul>
+      <div class="ours"><i>Ours</i><span>Those five lines are everything we say. Word for word.</span></div>
+    </article>
+
+    <div class="recap">
+      <h2>Your 3-second check</h2>
+      <ol><li>Magnesium itself, in mg</li><li>Per day, and how many pieces</li><li>% NRV</li><li>The form, named</li><li>Authorised claims only</li></ol>
+      <p>Try it on a jar in your cupboard tonight. If it passes all five, brilliant. Keep it.</p>
+    </div>
+
+    <div class="reveal">
+      <p class="kick">If it doesn&#39;t</p>
+      <h2>We made {{ brand }} to pass all five. On the front.</h2>
+      {%- if section.settings.label_image != blank -%}<div class="shot">{{ section.settings.label_image | image_url: width: 1100 | image_tag: alt: section.settings.label_image.alt, loading: 'lazy' }}</div>{%- endif -%}
+      <div class="facts">
+        <div><b>180mg</b><span>magnesium a day, in 2 gummies</span></div>
+        <div><b>48%</b><span>NRV, alongside a normal diet</span></div>
+        <div><b>Citrate</b><span>the form, named on the jar</span></div>
+        <div><b>5</b><span>authorised claims. Nothing else.</span></div>
+      </div>
+      <p style="font-size:16.5px;line-height:1.7;color:#5a3e4d;margin:0">And because the best supplement is the one you actually take: <b style="color:var(--plum)">soft gummies that taste like ripe red berries.</b> Vegan, gelatine-free, 60 in a jar.</p>
+    </div>
+
+  </div></section>
+
+  <section class="lpx-end" id="join"><div class="wrap">
+    <div>
+      <p class="kick">{{ brand }} launches soon</p>
+      <h2 style="font-size:clamp(28px,4vw,40px);margin:8px 0 8px">Save your place. It&#39;s free.</h2>
+      <p style="color:#5a3e4d;font-size:16.5px;line-height:1.6;margin:0">Join the No Drama Club and we&#39;ll email you the moment we launch. The first 500 members get 20% off a single jar. No card, nothing to pay today.</p>
+    </div>
+    {% render 'meva-club-form', fid: 'lpl-end' %}
+    <div class="faq">
+      <details><summary>Do I pay anything now?</summary><p>No. Joining is free and there&#39;s no card to enter. You decide whether to buy when we launch.</p></details>
+      <details><summary>What if it isn&#39;t for me?</summary><p>If you buy and it isn&#39;t for you, email us within 30 days of your first order arriving and we&#39;ll refund your first jar. <a href="{{ routes.root_url }}pages/refunds">Full terms</a>.</p></details>
+      <details><summary>What does it taste like?</summary><p>Ripe red berries. Soft and chewy, never chalky.</p></details>
+      <details><summary>Can I take it with medication?</summary><p>If you take medication, are pregnant or breastfeeding, please speak to your GP or pharmacist first.</p></details>
+    </div>
+    <p class="fp">This page is an advertisement from {{ brand }}. Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle. Do not exceed the recommended daily dose.</p>
+  </div></section>
+</div>
+<div class="lpx-sb" id="lpx-sb"><div><b>180mg. On the front.</b><small>Join free · nothing to pay today</small></div><a class="btn" href="#join">Join free →</a></div>
+</div>
+<script>
+(function(){
+  var sb=document.getElementById('lpx-sb'),top=document.getElementById('lpl-top'),end=document.getElementById('join');
+  if(!sb||!('IntersectionObserver' in window))return;
+  var seenTop=true,seenEnd=false;
+  function upd(){sb.classList.toggle('on',!seenTop&&!seenEnd)}
+  new IntersectionObserver(function(e){e.forEach(function(x){if(x.target===top)seenTop=x.isIntersecting;else seenEnd=x.isIntersecting});upd()}).observe(top);
+  new IntersectionObserver(function(e){e.forEach(function(x){seenEnd=x.isIntersecting});upd()}).observe(end);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Mëva listicle: label",
+  "settings": [
+    { "type": "text", "id": "brand_name", "label": "Brand name", "default": "Mëva" },
+    { "type": "image_picker", "id": "label_image", "label": "Label / jar image" }
+  ],
+  "presets": [{ "name": "Mëva listicle: label" }]
+}
+{% endschema %}
