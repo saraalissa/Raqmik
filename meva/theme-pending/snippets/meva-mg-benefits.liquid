@@ -3,11 +3,13 @@
   and what 30 days looks like. Authorised wording is always shown verbatim; the everyday line sets context, never a new promise.
   Usage: {% render 'meva-mg-benefits', lead: 'text' %}
 {%- endcomment -%}
-<section class="mgb">
+{%- assign part = part | default: 'all' -%}
+<section class="mgb{% if part == 'claims' %} mgb--claims{% endif %}">
   <p class="kick">The magnesium bit</p>
   <h2>So what does 180mg a day actually do?</h2>
   {%- if lead != blank -%}<p class="mgb-lead">{{ lead }}</p>{%- endif -%}
 
+  {%- if part == 'all' -%}
   <div class="mgb-gap">
     <div><b>83%</b><span>The average UK woman gets about 83% of her recommended magnesium from food.</span></div>
     <div><b>15%</b><span>of women aged 19 to 64 don&#39;t reach even the minimum from food.</span></div>
@@ -15,6 +17,7 @@
   </div>
   <p class="mgb-src">Source: National Diet and Nutrition Survey 2019&ndash;2023, OHID &amp; Food Standards Agency (2025).</p>
 
+  {%- endif -%}
   <h3>Where it shows up in your day</h3>
   <div class="mgb-list">
     <div class="it"><i>3pm</i><div><b>For the afternoons that run on empty</b><p>Magnesium contributes to the reduction of tiredness and fatigue.</p></div></div>
@@ -25,15 +28,18 @@
   </div>
   <p class="mgb-note">The bold lines are where those moments happen. The sentence under each one is the authorised claim, word for word.</p>
 
+  {%- if part == 'all' -%}
   <h3>Picture 30 days from now</h3>
   <ol class="mgb-days">
     <li><b>Day 1</b><span>The jar goes by the kettle. Two gummies, four seconds, done before anyone asks for anything.</span></li>
     <li><b>Day 7</b><span>You stop thinking about it. Kettle on, gummies, the way you&#39;d brush your teeth.</span></li>
     <li><b>Day 30</b><span>A jar you actually finished. 30 mornings that started with something for you, and 5,400mg of magnesium you didn&#39;t have to think about.</span></li>
   </ol>
+  {%- endif -%}
 </section>
 <style>
 .mv5 .mgb{display:grid;gap:14px;margin-top:44px}
+.mv5 .mgb--claims{margin-top:0}
 .mv5 .mgb h2{font-size:clamp(26px,3.6vw,36px);line-height:1.1;margin:0}
 .mv5 .mgb h3{font-size:clamp(20px,2.6vw,24px);margin:18px 0 0;color:var(--plum)}
 .mv5 .mgb-lead{font-size:17.5px;line-height:1.7;color:#5a3e4d;margin:0}
