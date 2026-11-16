@@ -45,3 +45,8 @@ R1 stays as it is (Sara will pause some R1 ads herself). Suggested: pause R1 A4,
 - 15 Nov: Sara paused R1 A1 (£7.53, 0 link clicks). R1 active now: A2, B1, B2, B3, B5, C1.
 - 15 Nov: R1 ad sets B (Tiredness) and C (Offer) PAUSED at Sara's request (0 sign-ups). R1 now runs ad set A only (A2), £8.33/day.
 - 15 Nov (evening): paused R2 1.2_magnifying-glass (£24.01, 18 link clicks, 0 sign-ups) and 4.A3_simplified (£10.01, 0 sign-ups) at Sara's request. Note: R1 A4 found ACTIVE again (re-enabled outside this session); left as-is pending Sara.
+
+## 16 Nov: budget change (Sara approved)
+- Ad set 2 | Same note, new photos (120247382710400424): £10 → £12/day (+20%, per the ads skill scaling rule). CPL at the time £8.77 (2 leads / £17.54).
+- Next step allowed: +20% again on or after 21 Nov if CPL stays ≤ £15.
+- Ad set 1 (£41.82, 30 clicks, 0 leads): review once spend passes £45 (3× £15 target). Still 0 leads → pause the concept.
