@@ -428,7 +428,7 @@ html.mv-joined .mv5 .qj{display:none}
       <p class="eyebrow">Magnesium berry gummies</p>
       <div class="bdg"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-14 14-14 0 9-6 14-14 14z"/><path d="M5 19l8-8"/></svg>Vegan</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Gelatine-free</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg>Every ingredient listed</span></div>
       <h1>{{ p.title }}</h1>
-      {%- if p.metafields.reviews.rating_count.value > 0 -%}<div class="jdgm-widget jdgm-preview-badge" data-id="{{ p.id }}">{{ p.metafields.judgeme.badge }}</div>{%- endif -%}
+      <div class="jdgm-widget jdgm-preview-badge" data-id="{{ p.id }}">{{ p.metafields.judgeme.badge }}</div>
       <p class="sub">Two ripe red berry gummies a day. 180mg magnesium (48% of your daily reference intake), printed right on the front. One jar lasts 30 days.</p>
       {%- if wl -%}<div class="qj">{% render 'meva-club-form', fid: 'quick', compact: true %}</div>{%- endif -%}
       <ul class="cks">
@@ -628,12 +628,7 @@ html.mv-joined .mv5 .qj{display:none}
     </div>
   </div></section>
 
-{%- if p.metafields.reviews.rating_count.value > 0 -%}
-  <section class="previews" id="reviews"><div class="wrap">
-    <div class="rh"><p class="kick">Real reviews only</p><h2>What women actually say.</h2><p>Every review here is from a verified customer. We never edit, hide or pay for them.</p></div>
-    <div class="rbox"><div id="judgeme_product_reviews" class="jdgm-widget jdgm-review-widget jdgm-outside-widget" data-id="{{ p.id }}">{{ p.metafields.judgeme.widget }}</div></div>
-  </div></section>
-{%- endif -%}
+
 
   <section class="faq pfaq" id="faq"><div class="wrap">
     <div class="side"><p class="kick">Good questions</p><h2>Asked and answered.</h2><p>Still wondering? Email <a href="mailto:{{ section.settings.contact_email }}">{{ section.settings.contact_email }}</a>. A real person replies.</p></div>
@@ -655,6 +650,15 @@ html.mv-joined .mv5 .qj{display:none}
       <details><summary>How fast is delivery?</summary><p>Royal Mail Tracked, usually 2 to 3 working days. Free on 2 or more jars, {{ section.settings.single_delivery }} for one jar.</p></details>
       <details><summary>What if it isn&#39;t for me?</summary><p>Email us within {{ section.settings.guarantee_days }} days of your first order arriving and we&#39;ll refund the jar you opened. You don&#39;t need to finish it or send it back. Bought 2 or 3 jars? Post the unopened ones back and we&#39;ll refund those too. One guarantee per customer and household. <a href="{{ routes.root_url }}pages/refunds">Full terms</a>.</p></details>
     </div>
+  </div></section>
+
+  <section class="previews" id="reviews"><div class="wrap">
+    {%- if p.metafields.reviews.rating_count.value > 0 -%}
+    <div class="rh"><p class="kick">Real reviews only</p><h2>What women actually say.</h2><p>Every review here is from a verified customer. We never edit, hide or pay for them.</p></div>
+    {%- else -%}
+    <div class="rh"><p class="kick">Reviews</p><h2>No reviews yet. That&#39;s honest.</h2><p>We&#39;re brand new. Reviews will appear here from verified customers only, and we&#39;ll never edit, hide or pay for them.</p></div>
+    {%- endif -%}
+    <div class="rbox"><div id="judgeme_product_reviews" class="jdgm-widget jdgm-review-widget jdgm-outside-widget" data-id="{{ p.id }}">{{ p.metafields.judgeme.widget }}</div></div>
   </div></section>
 
 
@@ -950,6 +954,7 @@ io.observe(el);})();
     <div class="txt"><h2>Go on. Do one thing for you.</h2><p>Two berry gummies a day. All dose. No drama. Backed by our {{ section.settings.guarantee_days }}-day guarantee.</p><a class="btn" href="{{ cta_url }}">{{ cta_txt }}</a></div>
     <div class="cimg"><div class="photo mvsmile">{%- if section.settings.smile_image != blank -%}{{ section.settings.smile_image | image_url: width: 1400 | image_tag: alt: section.settings.smile_image.alt, loading: 'lazy' }}{%- elsif section.settings.jar_image != blank -%}{{ section.settings.jar_image | image_url: width: 1100 | image_tag: alt: section.settings.jar_image.alt, loading: 'lazy' }}{%- endif -%}</div><ul class="cfeat"><li class="ck">UK-authorised claims only</li><li class="ck">Two gummies a day, no water</li><li class="ck">Vegan and gelatine-free</li><li class="ck">Free UK delivery on 2+ jars</li><li class="ck">{{ section.settings.guarantee_days }}-day guarantee</li></ul></div>
   </div></div></section>
+
 {%- endunless -%}
 </div>
 

@@ -1,0 +1,153 @@
+{%- comment -%} Mëva cart page. Shared tokens and .btn/.ck styles come from sections/meva-header.liquid. {%- endcomment -%}
+{%- liquid
+  assign p = all_products[section.settings.product_handle]
+  assign v1 = p.variants.first
+  assign v2 = p.variants.first
+  assign v3 = p.variants.first
+  for v in p.variants
+    if v.title contains '3'
+      assign v3 = v
+    elsif v.title contains '2'
+      assign v2 = v
+    else
+      assign v1 = v
+    endif
+  endfor
+  assign threshold = 3998
+  assign remaining = threshold | minus: cart.total_price
+  assign pct = cart.total_price | times: 100 | divided_by: threshold
+  if pct > 100
+    assign pct = 100
+  endif
+  assign single_line = 0
+  assign single_qty = 0
+  for item in cart.items
+    if item.variant_id == v1.id
+      assign single_line = forloop.index
+      assign single_qty = item.quantity
+    endif
+  endfor
+  assign up = v2
+  if single_qty >= 3
+    assign up = v3
+  endif
+  assign up_save = v1.price | times: single_qty | minus: up.price
+  if single_qty == 1
+    assign up_save = v1.price | times: 2 | minus: v2.price
+  endif
+-%}
+<style>
+.mv5 .ct{padding-block:clamp(28px,4vw,56px) clamp(56px,7vw,96px)}
+.mv5 .ct .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(24px,4vw,48px);align-items:start}
+.mv5 .ct h1{font-size:clamp(34px,4.4vw,48px);display:flex;align-items:center;gap:12px}
+.mv5 .ct h1 .cnt{font-family:var(--body);font-size:15px;font-weight:700;background:var(--lilac);color:var(--berry);border-radius:999px;padding:4px 12px;letter-spacing:0}
+.mv5 .fd{background:var(--cream);border-radius:20px;padding:16px 18px;margin:20px 0 6px;display:flex;flex-direction:column;gap:10px;font-weight:600;font-size:15px}
+.mv5 .fd .bar{height:8px;border-radius:999px;background:#fff;overflow:hidden}
+.mv5 .fd .bar i{display:block;height:100%;background:var(--berry);border-radius:999px}
+.mv5 .fd.ok{background:var(--lilac);color:var(--plum)}
+.mv5 .lines{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column}
+.mv5 .ln2{display:grid;grid-template-columns:96px 1fr auto;gap:16px;align-items:center;padding:18px 0;border-bottom:1.5px solid var(--line)}
+.mv5 .ln2 .im{width:96px;height:96px;border-radius:18px;overflow:hidden;background:var(--lilac)}
+.mv5 .ln2 .im img{width:100%;height:100%;object-fit:cover}
+.mv5 .ln2 .nm{display:flex;flex-direction:column;gap:4px;min-width:0}
+.mv5 .ln2 .nm a{font-weight:800;color:var(--plum);text-decoration:none;font-size:16px}
+.mv5 .ln2 .nm span{color:var(--muted);font-size:14px}
+.mv5 .qty{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:999px;margin-top:6px;align-self:flex-start;background:#fff}
+.mv5 .qty a{width:38px;height:38px;display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--plum);font-weight:800;font-size:18px}
+.mv5 .qty b{min-width:26px;text-align:center;font-size:15px}
+.mv5 .ln2 .pr{text-align:right;display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.mv5 .ln2 .pr b{font-family:var(--display);font-weight:800;font-size:20px;color:var(--plum)}
+.mv5 .ln2 .pr a{font-size:13px;color:var(--muted)}
+.mv5 .upg{margin-top:18px;border:2px dashed var(--berry);border-radius:20px;padding:16px 18px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#fffafd}
+.mv5 .upg p{font-weight:600;font-size:15px;max-width:42ch}
+.mv5 .upg p b{color:var(--berry)}
+.mv5 .upg .btn{min-height:46px;padding:0 20px;font-size:15px}
+.mv5 .sum{background:#fff;border-radius:28px;padding:clamp(20px,3vw,30px);display:flex;flex-direction:column;gap:14px;position:sticky;top:96px;box-shadow:0 14px 40px rgba(61,15,39,.08)}
+.mv5 .sum h2{font-size:24px}
+.mv5 .row{display:flex;justify-content:space-between;gap:12px;font-size:15px}
+.mv5 .row.tot{font-size:18px;font-weight:800;color:var(--plum);border-top:1.5px solid var(--line);padding-top:14px}
+.mv5 .sum .note{font-size:13px;color:var(--muted)}
+.mv5 .sum .btn{width:100%;min-height:60px;font-size:17px}
+.mv5 .sum ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:600}
+.mv5 .empty{grid-column:1/-1;text-align:center;display:flex;flex-direction:column;gap:16px;align-items:center;padding-block:40px}
+.mv5 .empty p{color:var(--muted)}
+@media (max-width:860px){.mv5 .ct .wrap{grid-template-columns:1fr}.mv5 .sum{position:static}.mv5 .ln2{grid-template-columns:76px 1fr auto}.mv5 .ln2 .im{width:76px;height:76px}}
+</style>
+
+<div class="mv5"><section class="ct"><div class="wrap">
+{%- if cart.item_count == 0 -%}
+  <div class="empty">
+    <h1>Your basket is empty</h1>
+    <p>Two berry gummies a day, with only the claims UK law allows.</p>
+    <a class="btn" href="{{ p.url }}">Shop {{ section.settings.brand_name }}</a>
+  </div>
+{%- else -%}
+  <div>
+    <h1>Your basket <span class="cnt">{{ cart.item_count }}</span></h1>
+    {% render 'meva-ship-bar', context: 'page' %}
+    <ul class="lines">
+      {%- for item in cart.items -%}
+      <li class="ln2">
+        <div class="im">{%- if item.image -%}{{ item.image | image_url: width: 200 | image_tag: alt: item.product.title }}{%- endif -%}</div>
+        <div class="nm">
+          <a href="{{ item.url }}">{{ item.product.title }}</a>
+          {%- unless item.product.has_only_default_variant -%}<span>{{ item.variant.title }}</span>{%- endunless -%}
+          <span>{{ item.final_price | money }} each</span>
+          <div class="qty" aria-label="Quantity">
+            <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity={{ item.quantity | minus: 1 }}" aria-label="Remove one">−</a>
+            <b>{{ item.quantity }}</b>
+            <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity={{ item.quantity | plus: 1 }}" aria-label="Add one">+</a>
+          </div>
+        </div>
+        <div class="pr"><b>{{ item.final_line_price | money }}</b><a href="{{ item.url_to_remove }}">Remove</a></div>
+      </li>
+      {%- endfor -%}
+    </ul>
+    {%- if single_line > 0 and single_qty < 4 and up_save > 0 -%}
+      <div class="upg">
+        <p>Switch to the <b>{{ up.title }}</b> pack for {{ up.price | money }}. You save <b>{{ up_save | money }}</b> and get free UK delivery.</p>
+        <button class="btn" type="button" data-line="{{ single_line }}" data-to="{{ up.id }}" id="mv-upg">Switch</button>
+      </div>
+    {%- endif -%}
+  </div>
+  <form class="sum" action="{{ routes.cart_url }}" method="post">
+    <h2>Summary</h2>
+    <div class="row"><span>Subtotal</span><span>{{ cart.total_price | money }}</span></div>
+    <div class="row"><span>UK delivery</span><span>{%- if cart.total_price >= threshold -%}Free{%- else -%}{{ section.settings.single_delivery }}{%- endif -%}</span></div>
+    <div class="row tot"><span>Total</span><span>{%- if cart.total_price >= threshold -%}{{ cart.total_price | money }}{%- else -%}{{ cart.total_price | money }} + delivery{%- endif -%}</span></div>
+    <p class="note">Prices include VAT. Delivery is confirmed at checkout.</p>
+    <button class="btn" type="submit" name="checkout">Go to secure checkout</button>
+    <ul>
+      <li class="ck">{{ section.settings.guarantee_days }}-day guarantee on your first order</li>
+      <li class="ck">Tracked Royal Mail delivery, 2 to 3 working days</li>
+      <li class="ck">One-off purchase. No subscription</li>
+    </ul>
+  </form>
+{%- endif -%}
+</div></section></div>
+
+<script>
+(function(){
+  var b=document.getElementById('mv-upg'); if(!b) return;
+  b.addEventListener('click',function(){
+    b.disabled=true; b.textContent='Switching…';
+    var line=parseInt(b.getAttribute('data-line'),10), to=parseInt(b.getAttribute('data-to'),10);
+    fetch('/cart/change.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({line:line,quantity:0})})
+      .then(function(){return fetch('/cart/add.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:to,quantity:1})});})
+      .then(function(){window.location.reload();})
+      .catch(function(){b.disabled=false;b.textContent='Switch';});
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Mëva cart",
+  "settings": [
+    { "type": "text", "id": "brand_name", "label": "Brand name", "default": "Mëva" },
+    { "type": "text", "id": "product_handle", "label": "Product handle", "default": "meva-magnesium-gummies" },
+    { "type": "text", "id": "single_delivery", "label": "Delivery price for 1 jar", "default": "£4.99" },
+    { "type": "text", "id": "guarantee_days", "label": "Guarantee days", "default": "30" }
+  ]
+}
+{% endschema %}

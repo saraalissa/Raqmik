@@ -1,0 +1,33 @@
+{%- comment -%}
+  Free UK delivery progress bar (threshold £39.98). Rendered in the cart drawer and on the cart page.
+  The drawer is re-rendered by the theme after every cart change, so the bar always reflects the current total.
+  Usage: {% render 'meva-ship-bar', context: 'drawer' %}
+{%- endcomment -%}
+{%- liquid
+  assign threshold = 3998
+  assign remaining = threshold | minus: cart.total_price
+  assign pct = cart.total_price | times: 100 | divided_by: threshold
+  if pct > 100
+    assign pct = 100
+  endif
+-%}
+{%- if cart.item_count > 0 -%}
+<div class="mvsb mvsb--{{ context | default: 'page' }}{% if remaining <= 0 %} is-free{% endif %}" role="status" aria-live="polite">
+  {%- if remaining <= 0 -%}
+    <p class="mvsb-t"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free UK delivery unlocked</p>
+  {%- else -%}
+    <p class="mvsb-t">You&#39;re <b>{{ remaining | money }}</b> away from free UK delivery</p>
+  {%- endif -%}
+  <span class="mvsb-bar" aria-hidden="true"><i style="width:{{ pct }}%"></i></span>
+</div>
+<style>
+.mvsb{background:#F8EFE6;color:#3d0f27;border-radius:16px;padding:12px 14px;display:grid;gap:8px;font-family:inherit}
+.mvsb--drawer{margin:0 var(--cart-drawer-padding,16px) 14px}
+.mvsb--page{margin:20px 0 6px}
+.mvsb-t{margin:0;font-size:14px;font-weight:600;line-height:1.35;display:flex;gap:6px;align-items:center}
+.mvsb-t b{color:#8e2a5a;font-weight:800}
+.mvsb-bar{display:block;height:8px;border-radius:999px;background:#fff;overflow:hidden}
+.mvsb-bar i{display:block;height:100%;background:#8e2a5a;border-radius:999px;transition:width .3s}
+.mvsb.is-free .mvsb-t{color:#8e2a5a;font-weight:800}
+</style>
+{%- endif -%}
