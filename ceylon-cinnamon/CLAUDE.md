@@ -143,3 +143,4 @@ n/v = not publicly verifiable from the pages fetched. Berberine-first brands whe
 - Still TBD: brand name/logo, product photography, supplier, legal review of copy, guarantee terms.
 - 2026-11-16 — Brand map published as a 12-board Figma file: https://www.figma.com/design/HiIoEZgHLfbbCY5UCz1F2K (mirrors BRAND-MAP.md v2).
 - 2026-11-16 — Added Arabic page "منهجية KK — عربي" (15 boards) to the Figma brand map, following the KK Method workshop structure: overview, golden circle, purpose, mission/vision, values, personality, positioning map, personas Carol + Jess, needs/pains, desired customer quotes, ad angles, visual mood, moodboard placeholders.
+- 2026-11-16 — Arabic page extended to 19 boards: added Persona Mapping for Carol and Jess (thinks/says/feels/does + how she lives), visual idea + how we express it, logo directions (spiral mark, seal, dose bar) with identity elements and extras.
