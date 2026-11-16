@@ -41,7 +41,7 @@ You're one of the Founding 500, so here's what's saved for you:
 
 - **20% off a single jar** on your first order. Your code arrives by email the day we launch.
 - **Free UK delivery** on 2 or more jars.
-- **Our 30-day satisfaction guarantee.** Not for you? We'll refund your first jar. You don't need to finish it or send it back. (First order, one per household. Full terms: trymeva.co/pages/refunds)
+- **Our first-jar guarantee.** Finish your first jar. Not for you? We'll refund it. No need to send it back. (Claim within 45 days of delivery.) (First order, one per household. Full terms: trymeva.co/pages/refunds)
 
 Black Friday heads-up: reserve 3 jars between 27 and 30 November and your order ships in the first batch.
 
@@ -213,7 +213,7 @@ A few things worth knowing:
 - Nothing to pay today. We'll email you when we launch, and you decide then.
 - Your Founding 500 perk still stands: 20% off a single jar on your first order. (Multipacks already have their own lower price, and offers don't stack.)
 - Black Friday heads-up: reserve 3 jars between 27 and 30 November and your order ships in the first batch.
-- Not for you? We'll refund your first jar. You don't need to finish it or send it back.
+- Finish your first jar. Not for you? We'll refund it.
 
 Not sure yet? No problem at all. You're still on the list.
 

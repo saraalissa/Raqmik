@@ -129,7 +129,7 @@ body:has(.lpx) .hnav{display:none!important}
 </style>
 {%- capture img_hero -%}{%- if section.settings.hero_image != blank -%}{{ section.settings.hero_image | image_url: width: 1200 | image_tag: alt: section.settings.hero_image.alt, loading: 'eager', fetchpriority: 'high', sizes: '(max-width: 860px) 100vw, 50vw' }}{%- endif -%}{%- endcapture -%}
 <div class="mv5 lpx">
-  <a class="lpx-top" href="{{ cta_url }}">{%- if wl -%}Launching soon <span>·</span> <b>Founding 500: 20% off</b>{%- else -%}Free UK delivery on 2+ jars <span>·</span> <b>{{ g }}-day guarantee</b>{%- endif -%}</a>
+  <a class="lpx-top" href="{{ cta_url }}">{%- if wl -%}Launching soon <span>·</span> <b>Founding 500: 20% off</b>{%- else -%}Free UK delivery on 2+ jars <span>·</span> <b>First-jar guarantee</b>{%- endif -%}</a>
 
   <section class="lpx-hero"><div class="wrap">
     <div>
@@ -187,7 +187,7 @@ body:has(.lpx) .hnav{display:none!important}
 
     <article class="rx"><div class="rx-pic">{%- if section.settings.r7_image != blank -%}{{ section.settings.r7_image | image_url: width: 1000 | image_tag: loading: 'lazy', alt: section.settings.r7_image.alt }}{%- endif -%}<span class="rx-num">7</span></div>
       <div><p class="kick">Zero risk</p><h2>Not for you? We&#39;ll refund it. No drama.</h2>
-      <p><b>Not for you? Email us within {{ g }} days of your first order arriving and we&#39;ll refund the jar you opened.</b> You don&#39;t need to finish it or post it back. First order only, one per household. <a href="{{ routes.root_url }}pages/refunds">Full terms</a>.</p></div></article>
+      <p><b>Finish your first jar. Not for you? Email us within 45 days of delivery and we&#39;ll refund it.</b> First order only, one per household. <a href="{{ routes.root_url }}pages/refunds">Full terms</a>.</p></div></article>
 
     <aside class="lpx-nope"><p class="kick">Things we&#39;ll never say to you</p><h2>We&#39;re your honest friend, not your hype girl.</h2>
       <ul><li><s>Miracle in a jar</s></li><li><s>Melt away the years</s></li><li><s>Fix your whole life by Friday</s></li><li><s>Results guaranteed overnight</s></li></ul>
@@ -225,7 +225,7 @@ body:has(.lpx) .hnav{display:none!important}
           <p class="ppr">{{ vv.price | money }}</p>
           <div class="pmeta"><div><span>Per jar</span><b>{{ per | money }}</b></div><div><span>Per day</span><b>{{ pday | money }}</b></div></div>
           {%- if k == 1 -%}<p class="psave none">Single jar price</p>{%- elsif k == 2 -%}<p class="psave">You save {{ save2 }}%</p>{%- else -%}<p class="psave">You save {{ save3 }}%</p>{%- endif -%}
-          <ul><li>{% if k == 1 %}Delivery {{ section.settings.single_delivery }}{% else %}Free UK delivery{% endif %}</li><li>{{ g }}-day guarantee</li></ul>
+          <ul><li>{% if k == 1 %}Delivery {{ section.settings.single_delivery }}{% else %}Free UK delivery{% endif %}</li><li>First-jar guarantee</li></ul>
           {%- if wl -%}<a class="btn{% if k == 1 %} o{% endif %}" href="?reserve={{ k }}#club">Reserve {{ k }} {{ jt }}</a>{%- else -%}<a class="btn{% if k == 1 %} o{% endif %}" href="{{ routes.root_url }}cart/{{ vv.id }}:1">Choose {{ k }} {{ jt }}</a>{%- endif -%}
         </div>
       {%- endfor -%}
@@ -236,7 +236,7 @@ body:has(.lpx) .hnav{display:none!important}
   <section class="lpx-club"><div class="wrap">{% render 'meva-club-form', fid: 'club' %}</div></section>
   {%- endif -%}
 
-  <div class="lpx-sbar"><div>{%- if wl -%}<b>Founding 500 · 20% off</b><small>Launching soon · Nothing to pay today</small>{%- else -%}<b>3 jars · {{ v3.price | money }}</b><small>Free UK delivery · {{ g }}-day guarantee</small>{%- endif -%}</div><a class="btn" href="{{ cta_url }}">{%- if wl -%}Join the club{%- else -%}Pick my pack{%- endif -%}</a></div>
+  <div class="lpx-sbar"><div>{%- if wl -%}<b>Founding 500 · 20% off</b><small>Launching soon · Nothing to pay today</small>{%- else -%}<b>3 jars · {{ v3.price | money }}</b><small>Free UK delivery · First-jar guarantee</small>{%- endif -%}</div><a class="btn" href="{{ cta_url }}">{%- if wl -%}Join the club{%- else -%}Pick my pack{%- endif -%}</a></div>
 </div>
 
 {% schema %}
