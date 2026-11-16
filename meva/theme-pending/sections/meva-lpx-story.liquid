@@ -109,17 +109,10 @@ body:has(.lpx) .hnav,body:has(.lpx) .mnav,body:has(.lpx) .mv5-head .ann,body:has
     <h2>Ours takes four seconds and lives by the kettle</h2>
     {%- if section.settings.take_image != blank -%}<div class="photo">{{ section.settings.take_image | image_url: width: 1100 | image_tag: alt: section.settings.take_image.alt, loading: 'lazy' }}</div>{%- endif -%}
     <p>We won&#39;t pretend a gummy can give anyone their name back. It can&#39;t. What it can be is <b>a daily moment that belongs to you</b>, before the school run, before the inbox, before anyone needs anything.</p>
-    <p>{{ brand }} is two soft gummies that taste like ripe red berries, with <b>180mg magnesium a day, printed on the front.</b> Vegan and gelatine-free. And magnesium is one of the few nutrients with authorised claims:</p>
-    <ul class="cl">
-      <li class="ck">Magnesium contributes to normal psychological function</li>
-      <li class="ck">Magnesium contributes to the reduction of tiredness and fatigue</li>
-    </ul>
-    <p>That&#39;s what we say, word for word. Nothing more.</p>
-    <ol class="steps3">
-      <li><span><b>Put the jar by the kettle.</b> Where you&#39;ll see it before anyone else needs you.</span></li>
-      <li><span><b>Kettle on, two gummies.</b> Four seconds that are just yours.</span></li>
-      <li><span><b>Keep it up for 30 days.</b> One jar. Then notice how your days feel.</span></li>
-    </ol>
+    <p>{{ brand }} is two soft gummies that taste like ripe red berries, with <b>180mg magnesium a day, printed on the front.</b> Vegan and gelatine-free.</p>
+    <p>A gummy can&#39;t take anything off your list. Here&#39;s what the magnesium in it does do.</p>
+    {% render 'meva-mg-benefits' %}
+
 
     <div class="slip">
       <p class="t">A permission slip · in case nobody&#39;s handed you one lately</p>

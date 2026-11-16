@@ -1,0 +1,59 @@
+{%- comment -%}
+  What magnesium does, made concrete: why she needs it (NDNS), the five authorised claims mapped to moments in her day,
+  and what 30 days looks like. Authorised wording is always shown verbatim; the everyday line sets context, never a new promise.
+  Usage: {% render 'meva-mg-benefits', lead: 'text' %}
+{%- endcomment -%}
+<section class="mgb">
+  <p class="kick">The magnesium bit</p>
+  <h2>So what does 180mg a day actually do?</h2>
+  {%- if lead != blank -%}<p class="mgb-lead">{{ lead }}</p>{%- endif -%}
+
+  <div class="mgb-gap">
+    <div><b>83%</b><span>The average UK woman gets about 83% of her recommended magnesium from food.</span></div>
+    <div><b>15%</b><span>of women aged 19 to 64 don&#39;t reach even the minimum from food.</span></div>
+    <div class="us"><b>+180mg</b><span>Two gummies add 48% of the daily reference intake. The gap, covered.</span></div>
+  </div>
+  <p class="mgb-src">Source: National Diet and Nutrition Survey 2019&ndash;2023, OHID &amp; Food Standards Agency (2025).</p>
+
+  <h3>Where it shows up in your day</h3>
+  <div class="mgb-list">
+    <div class="it"><i>3pm</i><div><b>For the afternoons that run on empty</b><p>Magnesium contributes to the reduction of tiredness and fatigue.</p></div></div>
+    <div class="it"><i>Head</i><div><b>For the mind holding everyone&#39;s diary</b><p>Magnesium contributes to normal psychological function.</p></div></div>
+    <div class="it"><i>Nerves</i><div><b>For the days when everything&#39;s at full volume</b><p>Magnesium contributes to normal functioning of the nervous system.</p></div></div>
+    <div class="it"><i>Body</i><div><b>For the stairs, the shopping, the walk you finally fit in</b><p>Magnesium contributes to normal muscle function.</p></div></div>
+    <div class="it"><i>Later</i><div><b>For the decades ahead, not just this week</b><p>Magnesium contributes to the maintenance of normal bones.</p></div></div>
+  </div>
+  <p class="mgb-note">The bold lines are where those moments happen. The sentence under each one is the authorised claim, word for word.</p>
+
+  <h3>Picture 30 days from now</h3>
+  <ol class="mgb-days">
+    <li><b>Day 1</b><span>The jar goes by the kettle. Two gummies, four seconds, done before anyone asks for anything.</span></li>
+    <li><b>Day 7</b><span>You stop thinking about it. Kettle on, gummies, the way you&#39;d brush your teeth.</span></li>
+    <li><b>Day 30</b><span>A jar you actually finished. 30 mornings that started with something for you, and 5,400mg of magnesium you didn&#39;t have to think about.</span></li>
+  </ol>
+</section>
+<style>
+.mv5 .mgb{display:grid;gap:14px;margin-top:44px}
+.mv5 .mgb h2{font-size:clamp(26px,3.6vw,36px);line-height:1.1;margin:0}
+.mv5 .mgb h3{font-size:clamp(20px,2.6vw,24px);margin:18px 0 0;color:var(--plum)}
+.mv5 .mgb-lead{font-size:17.5px;line-height:1.7;color:#5a3e4d;margin:0}
+.mv5 .mgb-gap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.mv5 .mgb-gap div{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:14px 12px}
+.mv5 .mgb-gap div.us{background:var(--plum);border-color:var(--plum)}
+.mv5 .mgb-gap b{display:block;font-family:var(--display);font-weight:900;font-size:28px;letter-spacing:-.03em;color:var(--berry);line-height:1}
+.mv5 .mgb-gap .us b{color:var(--butter)}
+.mv5 .mgb-gap span{display:block;font-size:13px;line-height:1.4;font-weight:600;color:var(--plum);margin-top:8px}
+.mv5 .mgb-gap .us span{color:#fff}
+.mv5 .mgb-src,.mv5 .mgb-note{font-size:12.5px!important;color:var(--muted)!important;line-height:1.5!important;margin:0!important}
+.mv5 .mgb-list{display:grid;gap:8px}
+.mv5 .mgb-list .it{display:grid;grid-template-columns:62px 1fr;gap:12px;align-items:start;background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:14px}
+.mv5 .mgb-list i{font-style:normal;background:var(--lilac);color:var(--berry);border-radius:12px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:9px 4px}
+.mv5 .mgb-list b{display:block;color:var(--plum);font-size:16.5px;line-height:1.3}
+.mv5 .mgb-list p{margin:4px 0 0!important;font-size:14.5px!important;line-height:1.5!important;color:#5a3e4d!important}
+.mv5 .mgb-days{list-style:none;margin:0;padding:0;display:grid;gap:0;border-left:3px solid var(--butter);margin-left:8px}
+.mv5 .mgb-days li{position:relative;padding:0 0 18px 22px}
+.mv5 .mgb-days li:before{content:"";position:absolute;left:-9px;top:3px;width:15px;height:15px;border-radius:50%;background:var(--berry);box-shadow:0 0 0 3px #fff}
+.mv5 .mgb-days b{display:block;font-family:var(--display);font-weight:900;color:var(--berry);font-size:17px}
+.mv5 .mgb-days span{display:block;font-size:16px;line-height:1.6;color:#5a3e4d}
+@media (max-width:420px){.mv5 .mgb-gap{grid-template-columns:1fr 1fr}.mv5 .mgb-gap .us{grid-column:1/-1}}
+</style>
