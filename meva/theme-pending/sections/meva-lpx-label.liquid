@@ -42,6 +42,10 @@ body:has(.lpx) .hnav,body:has(.lpx) .mnav,body:has(.lpx) .mv5-head .ann,body:has
 .mv5 .recap li{counter-increment:r;display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;font-weight:600;color:var(--plum);font-size:16px;line-height:1.45}
 .mv5 .recap li:before{content:counter(r);width:30px;height:30px;border-radius:50%;background:#fff;color:var(--berry);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:900}
 .mv5 .recap p{margin:0;color:#5a3e4d;font-size:16px;line-height:1.6}
+.mv5 .blf{display:grid;gap:10px;margin-top:40px;padding-top:28px;border-top:1.5px solid var(--line)}
+.mv5 .blf h2{font-size:clamp(22px,3vw,28px);line-height:1.15;margin:14px 0 0}
+.mv5 .blf p{font-size:17px;line-height:1.7;color:#5a3e4d;margin:0}
+.mv5 .blf p b{color:var(--plum)}
 .mv5 .reveal{display:grid;gap:16px;margin-top:40px}
 .mv5 .reveal h2{font-size:clamp(26px,3.6vw,36px);margin:0}
 .mv5 .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
@@ -73,7 +77,8 @@ body:has(.lpx) .hnav,body:has(.lpx) .mnav,body:has(.lpx) .mv5-head .ann,body:has
 <div class="lpx">
   <header class="lpx-hero"><div class="wrap">
     <p class="kick">Supplement labels · 3 min read</p>
-    <h1>5 things your magnesium label should tell you <em>in 3 seconds</em></h1>
+    <h1 data-v="h1">5 things your magnesium label should tell you <em>in 3 seconds</em></h1>
+    <script>(function(){if((new URLSearchParams(location.search).get('a')||'').toLowerCase()!=='b')return;var h=document.querySelector('[data-v="h1"]');if(h)h.innerHTML='The number on the front of your magnesium jar <em>might not be the dose</em>';})();</script>
     <p class="dek">If you&#39;ve ever stood in the vitamin aisle squinting at the small print, <b>it isn&#39;t you.</b> A label&#39;s whole job is to be read. Here&#39;s what to look for, so you can check any jar in your cupboard. Ours included.</p>
     {% render 'meva-club-form', fid: 'lpl-top', compact: true %}
     <div class="trustl"><span>Nothing to pay today</span><span>30-day first-jar guarantee</span><span>UK-authorised claims only</span></div>
@@ -126,6 +131,15 @@ body:has(.lpx) .hnav,body:has(.lpx) .mnav,body:has(.lpx) .mv5-head .ann,body:has
       <p>Try it on a jar in your cupboard tonight. If it passes all five, brilliant. Keep it.</p>
     </div>
 
+    <section class="blf">
+      <p class="kick">Two more things people believe</p>
+      <h2>&ldquo;Gummies are just sweets.&rdquo;</h2>
+      <p>Fair question. A {{ brand }} gummy is a food supplement with <b>90mg magnesium in every one</b>, made in Spain to GMP standards. It does contain some sugar, like most gummies, and the full nutrition table is printed on the jar so you can see exactly how much. What makes it different from sweets is the label: the dose, the form and the daily amount, all on the front.</p>
+      <h2>&ldquo;The big capsules from the chemist are the proper kind.&rdquo;</h2>
+      <p>Capsules work for lots of people. But a supplement only does anything if you actually take it. If a tub of big capsules has ever ended up at the back of your cupboard, you know how that goes. <b>Two gummies, chewed with your morning tea, no water needed</b>, is a routine that survives a busy week.</p>
+      <h2>So why citrate, and why 180mg?</h2>
+      <p>Citrate is a common, well-understood form of magnesium, and we name it on the jar so you can check it for yourself. 180mg a day is 48% of the reference intake: chosen to sit alongside a normal diet, which already gives most women some of what they need.</p>
+    </section>
     {% render 'meva-mg-benefits', lead: 'A clear label tells you how much. Here&#39;s why the amount matters, and what it does once it&#39;s in your day.' %}
 
     <div class="reveal">
