@@ -1,6 +1,6 @@
 # Meta campaign R4: winners + competitor gaps (17 Nov 2026)
 
-Sara approved: 9 ads, £20/day CBO, first-jar guarantee wording.
+Sara approved: 9 ads, £20/day CBO, first-jar guarantee wording. LIVE (all ENABLED) 17 Nov 2026.
 
 - **Campaign:** 120247411109620424 "MEVA | Waitlist R4 | Winners + gaps | CBO | UK W45+ | 2026-11-17", OUTCOME_LEADS, CBO £20/day, LOWEST_COST_WITHOUT_CAP
 - **Ad sets** (custom conversion 1385882766748326, GB women 45–65, manual placements, 7-day click, no Advantage+):
