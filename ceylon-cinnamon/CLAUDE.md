@@ -175,3 +175,7 @@ n/v = not publicly verifiable from the pages fetched. Berberine-first brands whe
   - Home: marquee, hero, bf, stats, reasons, spot, origin, myths, caregiver, habit, receipts, founder, quiz, final
   - Product: main, badges, label, compare, mechanism, day, timeline, perday, guarantee, official, faq
   - Removed recipes section (both pages) and offer section; no photo used on both pages; powder photos replaced.
+- Nov 17 (DRAFT): founder: "no piles of meaningless photos, smooth flow". Pages now read as numbered chapters.
+  - Home: hero → BF → stats → 01 problem → 02 myths → 03 the test → 04 origin → 05 who it's for → 06 routine → 07 our rules → 08 founder → 09 your pick (quiz) → final
+  - Product: buy → what's inside → 01 the math → 02 side by side → 03 how it works → 04 what to expect → 05 your day → 06 cost → guarantee → official → FAQ
+  - Photos only where they explain something; story sections alternate image side and background; scroll reveal on section heads.
