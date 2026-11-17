@@ -1,0 +1,26 @@
+{{ 'cn.css' | asset_url | stylesheet_tag }}
+<section class="cn cn-sec {{ section.settings.style }}">
+  <div class="cn-wrap">
+    <div class="cn-letter">
+      {% if section.settings.eyebrow != blank %}<span class="cn-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2 class="cn-h2">{{ section.settings.heading }}</h2>
+      <div class="cn-letter__body cn-rte">{{ section.settings.text }}</div>
+      <p class="cn-letter__sign">{{ section.settings.signature }}</p>
+      {% if section.settings.ps != blank %}<p class="cn-letter__ps">{{ section.settings.ps }}</p>{% endif %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CN · Founder letter",
+  "settings": [
+    { "type": "select", "id": "style", "label": "Background", "default": "", "options": [{ "value": "", "label": "White" }, { "value": "cn-sand", "label": "Sand" }] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Why we made this" },
+    { "type": "richtext", "id": "text", "label": "Letter" },
+    { "type": "text", "id": "signature", "label": "Signature" },
+    { "type": "text", "id": "ps", "label": "P.S." }
+  ],
+  "presets": [{ "name": "CN · Founder letter" }]
+}
+{% endschema %}

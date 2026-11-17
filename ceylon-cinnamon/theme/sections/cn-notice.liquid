@@ -1,0 +1,20 @@
+{{ 'cn.css' | asset_url | stylesheet_tag }}
+<section class="cn cn-notice-sec">
+  <div class="cn-wrap">
+    <div class="cn-notice">
+      <span class="cn-notice__icon" aria-hidden="true">{{ section.settings.icon }}</span>
+      <div><h2 class="cn-h3">{{ section.settings.heading }}</h2><p>{{ section.settings.text }}</p></div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CN · Notice",
+  "settings": [
+    { "type": "text", "id": "icon", "label": "Icon", "default": "🛡️" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Notice" },
+    { "type": "textarea", "id": "text", "label": "Text" }
+  ],
+  "presets": [{ "name": "CN · Notice" }]
+}
+{% endschema %}

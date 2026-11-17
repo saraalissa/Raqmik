@@ -1,0 +1,22 @@
+{{ 'cn.css' | asset_url | stylesheet_tag }}
+<section class="cn cn-stats-sec {{ section.settings.style }}">
+  <div class="cn-wrap">
+    {% if section.settings.heading != blank %}<h2 class="cn-h2 cn-stats__title">{{ section.settings.heading }}</h2>{% endif %}
+    <ul class="cn-stats" role="list">
+      {%- for block in section.blocks -%}
+        <li class="cn-stat" {{ block.shopify_attributes }}><b>{{ block.settings.big }}</b><span>{{ block.settings.label }}</span></li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CN · Big numbers",
+  "settings": [
+    { "type": "select", "id": "style", "label": "Background", "default": "cn-fire", "options": [{ "value": "cn-fire", "label": "Cinnamon" }, { "value": "cn-dark", "label": "Dark" }, { "value": "cn-sand", "label": "Sand" }] },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading" }
+  ],
+  "blocks": [{ "type": "stat", "name": "Number", "settings": [{ "type": "text", "id": "big", "label": "Big number", "default": "1" }, { "type": "text", "id": "label", "label": "Label", "default": "softgel a day" }] }],
+  "presets": [{ "name": "CN · Big numbers" }]
+}
+{% endschema %}

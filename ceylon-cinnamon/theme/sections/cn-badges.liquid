@@ -1,0 +1,30 @@
+{{ 'cn.css' | asset_url | stylesheet_tag }}
+<section class="cn cn-badges-sec {{ section.settings.style }}">
+  <div class="cn-wrap">
+    {% if section.settings.heading != blank %}<h2 class="cn-badges__title">{{ section.settings.heading }}</h2>{% endif %}
+    <ul class="cn-badges" role="list">
+      {%- for block in section.blocks -%}
+        <li class="cn-badgeitem" {{ block.shopify_attributes }}>
+          <span class="cn-badgeitem__icon" aria-hidden="true">{{ block.settings.icon }}</span>
+          <b>{{ block.settings.title }}</b>
+          <span>{{ block.settings.text }}</span>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CN · Quality badges",
+  "settings": [
+    { "type": "select", "id": "style", "label": "Background", "default": "", "options": [{ "value": "", "label": "White" }, { "value": "cn-sand", "label": "Sand" }] },
+    { "type": "text", "id": "heading", "label": "Heading" }
+  ],
+  "blocks": [{ "type": "badge", "name": "Badge", "settings": [
+    { "type": "text", "id": "icon", "label": "Icon (emoji or symbol)", "default": "✓" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Badge" },
+    { "type": "text", "id": "text", "label": "Small text" }
+  ] }],
+  "presets": [{ "name": "CN · Quality badges" }]
+}
+{% endschema %}

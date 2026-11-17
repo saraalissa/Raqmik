@@ -1,0 +1,34 @@
+{{ 'cn.css' | asset_url | stylesheet_tag }}
+<section class="cn cn-sec {{ section.settings.style }}">
+  <div class="cn-wrap">
+    <div class="cn-center">
+      {% if section.settings.eyebrow != blank %}<span class="cn-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2 class="cn-h2">{{ section.settings.heading }}</h2>
+      {% if section.settings.subheading != blank %}<p class="cn-lead">{{ section.settings.subheading }}</p>{% endif %}
+    </div>
+    <div class="cn-grid cn-grid--3">
+      {%- for block in section.blocks -%}
+        <details class="cn-myth" {{ block.shopify_attributes }}>
+          <summary><span class="cn-myth__tag">{{ section.settings.myth_label }}</span><span class="cn-myth__q">{{ block.settings.myth }}</span><span class="cn-myth__tap">{{ section.settings.tap_label }}</span></summary>
+          <div class="cn-myth__fact"><span class="cn-myth__tag cn-myth__tag--fact">{{ section.settings.fact_label }}</span><p>{{ block.settings.fact }}</p></div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CN · Myth vs fact",
+  "settings": [
+    { "type": "select", "id": "style", "label": "Background", "default": "cn-dark", "options": [{ "value": "", "label": "White" }, { "value": "cn-sand", "label": "Sand" }, { "value": "cn-dark", "label": "Dark" }] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Cinnamon myths, busted" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" },
+    { "type": "text", "id": "myth_label", "label": "Myth label", "default": "Myth" },
+    { "type": "text", "id": "fact_label", "label": "Fact label", "default": "Fact" },
+    { "type": "text", "id": "tap_label", "label": "Tap label", "default": "Tap for the truth" }
+  ],
+  "blocks": [{ "type": "myth", "name": "Myth", "settings": [{ "type": "text", "id": "myth", "label": "Myth", "default": "Myth" }, { "type": "textarea", "id": "fact", "label": "Fact" }] }],
+  "presets": [{ "name": "CN · Myth vs fact" }]
+}
+{% endschema %}

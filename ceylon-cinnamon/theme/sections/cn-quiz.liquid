@@ -1,0 +1,75 @@
+{{ 'cn.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign p = section.settings.product | default: product | default: collections.all.products.first
+  assign sid = section.id
+-%}
+<section class="cn cn-sec {{ section.settings.style }}">
+  <div class="cn-wrap">
+    <div class="cn-quiz">
+      <div class="cn-center">
+        {% if section.settings.eyebrow != blank %}<span class="cn-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+        <h2 class="cn-h2">{{ section.settings.heading }}</h2>
+        {% if section.settings.subheading != blank %}<p class="cn-lead">{{ section.settings.subheading }}</p>{% endif %}
+      </div>
+      <fieldset class="cn-quiz__q">
+        <legend><span class="cn-quiz__num">1</span>{{ section.settings.q1 }}</legend>
+        <div class="cn-quiz__opts">
+          <input type="radio" name="who-{{ sid }}" id="who-a-{{ sid }}" checked><label for="who-a-{{ sid }}">{{ section.settings.q1_a }}</label>
+          <input type="radio" name="who-{{ sid }}" id="who-b-{{ sid }}" class="cn-quiz__gift"><label for="who-b-{{ sid }}">{{ section.settings.q1_b }}</label>
+          <input type="radio" name="who-{{ sid }}" id="who-c-{{ sid }}"><label for="who-c-{{ sid }}">{{ section.settings.q1_c }}</label>
+        </div>
+      </fieldset>
+      <fieldset class="cn-quiz__q">
+        <legend><span class="cn-quiz__num">2</span>{{ section.settings.q2 }}</legend>
+        <div class="cn-quiz__opts">
+          {%- for v in p.variants limit: 3 -%}
+            {%- case forloop.index -%}{%- when 1 -%}{%- assign lbl = section.settings.q2_a -%}{%- when 2 -%}{%- assign lbl = section.settings.q2_b -%}{%- else -%}{%- assign lbl = section.settings.q2_c -%}{%- endcase -%}
+            <input type="radio" name="len-{{ sid }}" id="len-{{ forloop.index }}-{{ sid }}" class="cn-quiz__len{{ forloop.index }}" {% if forloop.index == 2 %}checked{% endif %}><label for="len-{{ forloop.index }}-{{ sid }}">{{ lbl }}</label>
+          {%- endfor -%}
+        </div>
+      </fieldset>
+      <div class="cn-quiz__results" aria-live="polite">
+        {%- for v in p.variants limit: 3 -%}
+          {%- case forloop.index -%}{%- when 1 -%}{%- assign why = section.settings.r1 -%}{%- when 2 -%}{%- assign why = section.settings.r2 -%}{%- else -%}{%- assign why = section.settings.r3 -%}{%- endcase -%}
+          <div class="cn-quiz__result cn-quiz__result--{{ forloop.index }}">
+            <span class="cn-eyebrow">{{ section.settings.result_label }}</span>
+            <h3 class="cn-h3">{{ v.title }} · {{ v.price | money }}</h3>
+            <p>{{ why }}</p>
+            <p class="cn-quiz__giftnote">{{ section.settings.gift_note }}</p>
+            {%- form 'product', p -%}
+              <input type="hidden" name="id" value="{{ v.id }}">
+              <button type="submit" class="cn-btn cn-btn--block">{{ section.settings.button_label }}</button>
+            {%- endform -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CN · Supply finder quiz",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product" },
+    { "type": "select", "id": "style", "label": "Background", "default": "", "options": [{ "value": "", "label": "White" }, { "value": "cn-sand", "label": "Sand" }] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "30-second quiz" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Which supply is right for you?" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" },
+    { "type": "text", "id": "q1", "label": "Question 1", "default": "Who is it for?" },
+    { "type": "text", "id": "q1_a", "label": "Answer 1A", "default": "Me" },
+    { "type": "text", "id": "q1_b", "label": "Answer 1B (gift)", "default": "Mom or Dad" },
+    { "type": "text", "id": "q1_c", "label": "Answer 1C", "default": "Me and my partner" },
+    { "type": "text", "id": "q2", "label": "Question 2", "default": "How long do you want to give it?" },
+    { "type": "text", "id": "q2_a", "label": "Answer 2A (variant 1)", "default": "Just trying it (30 days)" },
+    { "type": "text", "id": "q2_b", "label": "Answer 2B (variant 2)", "default": "A real habit (90 days)" },
+    { "type": "text", "id": "q2_c", "label": "Answer 2C (variant 3)", "default": "Long term (150 days)" },
+    { "type": "text", "id": "result_label", "label": "Result label", "default": "Your match" },
+    { "type": "textarea", "id": "r1", "label": "Reason for variant 1" },
+    { "type": "textarea", "id": "r2", "label": "Reason for variant 2" },
+    { "type": "textarea", "id": "r3", "label": "Reason for variant 3" },
+    { "type": "text", "id": "gift_note", "label": "Gift note (shows for answer 1B)", "default": "Tip: enter their address at checkout and it ships straight to them." },
+    { "type": "text", "id": "button_label", "label": "Button", "default": "Add my match to cart" }
+  ],
+  "presets": [{ "name": "CN · Supply finder quiz" }]
+}
+{% endschema %}

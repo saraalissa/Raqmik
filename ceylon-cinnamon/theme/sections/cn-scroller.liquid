@@ -1,0 +1,44 @@
+{{ 'cn.css' | asset_url | stylesheet_tag }}
+<section class="cn cn-sec {{ section.settings.style }}">
+  <div class="cn-wrap">
+    <div class="cn-scroller__head">
+      <div>
+        {% if section.settings.eyebrow != blank %}<span class="cn-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+        <h2 class="cn-h2">{{ section.settings.heading }}</h2>
+        {% if section.settings.subheading != blank %}<p class="cn-lead">{{ section.settings.subheading }}</p>{% endif %}
+      </div>
+      <span class="cn-scroller__hint" aria-hidden="true">{{ section.settings.hint }} →</span>
+    </div>
+  </div>
+  <ul class="cn-scroller" role="list">
+    {%- for block in section.blocks -%}
+      <li class="cn-scroller__card" {{ block.shopify_attributes }}>
+        <div class="cn-scroller__img">
+          {%- if block.settings.image -%}{{ block.settings.image | image_url: width: 700 | image_tag: loading: 'lazy', sizes: '(min-width: 900px) 30vw, 78vw' }}{%- else -%}{{ 'image' | placeholder_svg_tag }}{%- endif -%}
+          {% if block.settings.tag != blank %}<span class="cn-sticker">{{ block.settings.tag }}</span>{% endif %}
+        </div>
+        <h3 class="cn-h3">{{ block.settings.title }}</h3>
+        <p>{{ block.settings.text }}</p>
+      </li>
+    {%- endfor -%}
+  </ul>
+</section>
+{% schema %}
+{
+  "name": "CN · Swipe cards",
+  "settings": [
+    { "type": "select", "id": "style", "label": "Background", "default": "", "options": [{ "value": "", "label": "White" }, { "value": "cn-sand", "label": "Sand" }] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Heading" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" },
+    { "type": "text", "id": "hint", "label": "Swipe hint", "default": "Swipe" }
+  ],
+  "blocks": [{ "type": "card", "name": "Card", "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "tag", "label": "Sticker" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Title" },
+    { "type": "textarea", "id": "text", "label": "Text" }
+  ] }],
+  "presets": [{ "name": "CN · Swipe cards" }]
+}
+{% endschema %}

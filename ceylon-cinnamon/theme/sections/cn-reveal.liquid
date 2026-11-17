@@ -1,0 +1,45 @@
+{{ 'cn.css' | asset_url | stylesheet_tag }}
+<section class="cn cn-sec {{ section.settings.style }}">
+  <div class="cn-wrap">
+    <div class="cn-center">
+      {% if section.settings.eyebrow != blank %}<span class="cn-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2 class="cn-h2">{{ section.settings.heading }}</h2>
+      {% if section.settings.subheading != blank %}<p class="cn-lead">{{ section.settings.subheading }}</p>{% endif %}
+    </div>
+    <div class="cn-reveal">
+      {%- for block in section.blocks -%}
+        <details class="cn-reveal__card" {{ block.shopify_attributes }}>
+          <summary>
+            <span class="cn-reveal__img">{%- if block.settings.image -%}{{ block.settings.image | image_url: width: 700 | image_tag: loading: 'lazy', sizes: '(min-width: 760px) 40vw, 90vw' }}{%- else -%}{{ 'image' | placeholder_svg_tag }}{%- endif -%}</span>
+            <span class="cn-reveal__label">{{ block.settings.label }}</span>
+            <span class="cn-reveal__tap">{{ section.settings.tap_label }}</span>
+          </summary>
+          <div class="cn-reveal__answer {% if block.settings.is_good %}is-good{% else %}is-bad{% endif %}">
+            <b>{{ block.settings.answer_title }}</b>
+            <p>{{ block.settings.answer_text }}</p>
+          </div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CN · Spot the difference",
+  "settings": [
+    { "type": "select", "id": "style", "label": "Background", "default": "", "options": [{ "value": "", "label": "White" }, { "value": "cn-sand", "label": "Sand" }] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Can you spot the real Ceylon?" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" },
+    { "type": "text", "id": "tap_label", "label": "Tap label", "default": "Tap to reveal" }
+  ],
+  "blocks": [{ "type": "option", "name": "Option", "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "label", "label": "Label", "default": "A" },
+    { "type": "checkbox", "id": "is_good", "label": "This is the right answer", "default": false },
+    { "type": "text", "id": "answer_title", "label": "Answer title" },
+    { "type": "textarea", "id": "answer_text", "label": "Answer text" }
+  ] }],
+  "presets": [{ "name": "CN · Spot the difference" }]
+}
+{% endschema %}

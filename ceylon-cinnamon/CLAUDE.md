@@ -148,3 +148,9 @@ n/v = not publicly verifiable from the pages fetched. Berberine-first brands whe
 - 2026-11-17 — Added rotating announcement bar (cn-announce, in header group), custom footer (cn-footer, replaces Horizon footer group), cn-story image sections, and 6 Higgsfield images (cn-*.png in store Files) for Cassia vs Ceylon, sprinkle, Sri Lanka harvest, dinner habit, daughter call, softgels macro. Theme copy remains the source of truth; repo mirror in theme/ covers the first build only.
 - 2026-11-17 — Store renamed by founder to **Cinnora** (cinnora.myshopify.com, same store 3hgcy2-vs). The custom theme "Ceylon — Custom Build (Claude)" is now the live (MAIN) theme. Brand name = Cinnora (trademark/USPTO check still recommended).
 - 2026-11-17 — v2 theme "Cinnora — v2 more sections (Claude)" (unpublished copy of live): new sections cn-stats, cn-reveal (spot the Ceylon), cn-myths, cn-scroller (day + recipes), cn-perday, cn-founder; 8 more Higgsfield images (cn-cassia-single, cn-ceylon-single, cn-day-*, cn-recipe-*). Founder letter has [Founder name] / [support email] placeholders.
+
+## Build log — v2 theme (Nov 17, 2026)
+- Unpublished theme "Cinnora — v2 more sections (Claude)" (156624126021). Not live until the founder says "publish".
+- Added sections: cn-stats, cn-reveal, cn-myths, cn-scroller, cn-perday, cn-founder, plus competitor-inspired cn-badges (quality badges), cn-quiz (2-question supply finder, CSS only), cn-notice (official-store-only notice).
+- Mobile overflow fix on the product page (grid children min-width:0, scrollable thumbs).
+- Open: founder name + support email in cn-founder; [CONFIRM WITH SUPPLIER] badges (third-party testing, Made in USA); delete 2 stray product images.
