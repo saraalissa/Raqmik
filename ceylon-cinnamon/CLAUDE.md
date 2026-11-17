@@ -180,3 +180,4 @@ n/v = not publicly verifiable from the pages fetched. Berberine-first brands whe
   - Product: buy → what's inside → 01 the math → 02 side by side → 03 how it works → 04 what to expect → 05 your day → 06 cost → guarantee → official → FAQ
   - Photos only where they explain something; story sections alternate image side and background; scroll reveal on section heads.
 - Nov 17: founder published the storyline draft. LIVE = 156625403973, DRAFT = 156626911301 (copy of live + Black Friday photo restored). Stale theme 156626223173 renamed "DELETE ME — old".
+- Nov 17: main menu = Home · Shop (product page) · Contact (Catalog removed). 404 button points to the product (DRAFT). Checkout branding API is denied for this app: founder sets it in Settings > Checkout > Customize. Policy drafts in policies-draft.md (refund, shipping, contact): awaiting founder answers.
