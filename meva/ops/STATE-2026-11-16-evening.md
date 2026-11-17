@@ -12,3 +12,8 @@
 - Creative style Sara approves: bold studio portraits, woman ~50, flat pink backdrop, jar to camera. Candid lifestyle rejected (note: data shows lifestyle "note" photos 2.1/2.2 did convert).
 - Funnel: ad destination default = product page. One educational LP for cold traffic at scaling time; listicle/advertorial long-form phase 2.
 - Cookie banner text and FB cover: Sara's pending calls.
+
+## Roles (Sara, 17 Nov)
+- Claude = owner of marketing skills: ads, creative, landing pages, funnel, copy, theme. "We stay on our plan."
+- Muse = paperwork (FBO/VAT/suppliers), pulling info, competitor research and analysis, searches. Muse's notes on marketing/funnel are input, not decisions.
+- R4 stays as built: G ad set → listicle, W ad set → product page. Read on 20 Nov.
