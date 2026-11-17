@@ -154,3 +154,12 @@ n/v = not publicly verifiable from the pages fetched. Berberine-first brands whe
 - Added sections: cn-stats, cn-reveal, cn-myths, cn-scroller, cn-perday, cn-founder, plus competitor-inspired cn-badges (quality badges), cn-quiz (2-question supply finder, CSS only), cn-notice (official-store-only notice).
 - Mobile overflow fix on the product page (grid children min-width:0, scrollable thumbs).
 - Open: founder name + support email in cn-founder; [CONFIRM WITH SUPPLIER] badges (third-party testing, Made in USA); delete 2 stray product images.
+
+## Black Friday 2026 (set up Nov 17)
+- Automatic discounts (Shopify admin > Discounts), Nov 27 00:00 ET → Nov 30 23:59 ET:
+  - "Black Friday 25% off (1 & 3 pouches)": $29.99 / $59.99
+  - "Black Friday 30% off (5 pouches)": $83.98 ($16.80/pouch)
+  - "Black Friday free shipping": all orders, combines with the product discounts
+- Theme "Cinnora — Black Friday (Claude)" (156625403973, unpublished, copy of live v2): new section cn-bf (countdown; before start = teaser + reminder email signup tagged black-friday; live = deal cards with add to cart; after end = hidden automatically). Also: Black Friday note in buybox (only shows while live), Black Friday announcement (replaced the third message), cn-announce max_blocks 4, removed "official" notice from homepage (Shopify limit of 25 sections).
+- After Nov 30: remove the Black Friday announcement message, and delete the 3 discounts if not needed.
+- Open: unit cost per pouch not known (margin check); compare-at prices ($59.99 etc.) are not real past prices: FTC risk, recommend removing.
