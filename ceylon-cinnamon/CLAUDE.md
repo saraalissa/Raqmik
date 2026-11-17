@@ -171,3 +171,7 @@ n/v = not publicly verifiable from the pages fetched. Berberine-first brands whe
 - Photos (Nov 17): 20 new Higgsfield photos (Files: cn-ph-*.png). Section photo slot: snippet cn-secimg (settings sec_image/sec_sticker) on badges, bf, compare, faq, final, founder, guarantee, label, myths, offer, perday, quiz; card images on mechanism, timeline, receipts.
 - Nov 17: founder published the DRAFT. Now: "Cinnora — LIVE" (156625403973) and "Cinnora — DRAFT" (156626223173, fresh copy of live). Renamed for founder to delete: "DELETE ME — old v2", "DELETE ME — Horizon", "DELETE ME — old build".
 - Nov 17 (later): founder deleted the 3 extra themes and published the copy. Now LIVE = 156626223173, DRAFT = 156625403973. Verified identical (534 files, same checksum).
+- Nov 17 (DRAFT 156625403973): founder rule: no section repeated between homepage and product page; product is a softgel supplement, never imply powder/recipes.
+  - Home: marquee, hero, bf, stats, reasons, spot, origin, myths, caregiver, habit, receipts, founder, quiz, final
+  - Product: main, badges, label, compare, mechanism, day, timeline, perday, guarantee, official, faq
+  - Removed recipes section (both pages) and offer section; no photo used on both pages; powder photos replaced.
