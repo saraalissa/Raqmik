@@ -50,3 +50,11 @@ R1 stays as it is (Sara will pause some R1 ads herself). Suggested: pause R1 A4,
 - Ad set 2 | Same note, new photos (120247382710400424): £10 → £12/day (+20%, per the ads skill scaling rule). CPL at the time £8.77 (2 leads / £17.54).
 - Next step allowed: +20% again on or after 21 Nov if CPL stays ≤ £15.
 - Ad set 1 (£41.82, 30 clicks, 0 leads): review once spend passes £45 (3× £15 target). Still 0 leads → pause the concept.
+
+## 17 Nov: scale 1.4 the skill way (Sara approved)
+- 1.4_no-hunting: 5 leads, ~£5 per lead. Sara asked to scale now. No duplication (would restart learning).
+- Ad set 1 (120247382708770424): £25 → £30/day (+20%). Next +20% on/after 22 Nov if CPL ≤ £15 (→ £36), then 27 Nov (→ £43).
+- Ad set 4 (120247385149040424) PAUSED: £25.60 per lead (>1.5× £15 target) and contains 4.C2 "you don't even have to finish it", which contradicts the new first-jar guarantee.
+- Ad set "5 | Scale 1.4 no-hunting" (120247411304970424) created then left PAUSED and empty; not used.
+- 28 Nov: 1.4 reaches 14 days → graduate into a scaling CBO.
+- Daily spend now ≈ £100 (R2 £50, R3 £30, R4 £20).
