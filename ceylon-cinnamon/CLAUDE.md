@@ -191,3 +191,4 @@ n/v = not publicly verifiable from the pages fetched. Berberine-first brands whe
 - Offer = Metabolae's exactly "until further notice": 1 pouch $42.84 (cmp $59.99) · Buy 2 Get 1 $85.70 (cmp $179.97) · Buy 3 Get 2 $128.56 (cmp $299.95). Black Friday automatic discounts (25%/30% + free shipping) still scheduled on top.
 - DRAFT: founder letter in "we" voice + info@cinnora.co; per-day and BF prices now round instead of truncating.
 - Product media: 10 carousel slides uploaded and placed first, then pouch-on-table. Old pouch, MCT "powder" softgel image and 2 stray images (NurtureNova, mushroom) still at the end, awaiting founder OK to delete.
+- Nov 17: removed 4 old images from the product (old pouch, MCT powder softgel, NurtureNova, mushroom); files remain in Settings > Files. Gallery = 10 slides + pouch on table.
