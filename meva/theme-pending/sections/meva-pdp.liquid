@@ -256,7 +256,8 @@ html.mv-joined .mv5 .qj{display:none}
 .mv5 #mv-thumbs::-webkit-scrollbar{display:none}
 .mv5 #mv-stage .slide img{width:100%;height:100%;object-fit:cover}
 @media (max-width:860px){.mv5 .mvinner .qgrid,.mv5 .mvwont .wgrid,.mv5 .mvclubsec .wrap{grid-template-columns:1fr}}
-.mv5 .jact{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--berry,#8e2a5a);margin-top:2px}.mv5 .jfeat{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:22px 0 0}.mv5 .jfeat span{background:#fff;border:1px solid rgba(61,15,39,.14);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:600;color:#3d0f27}</style>
+.mv5 .jact{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--berry,#8e2a5a);margin-top:2px}.mv5 .jfeat{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:22px 0 0}.mv5 .jfeat span{background:#fff;border:1px solid rgba(61,15,39,.14);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:600;color:#3d0f27}@keyframes mvflash{0%{box-shadow:0 0 0 0 rgba(142,42,90,.55)}100%{box-shadow:0 0 0 18px rgba(142,42,90,0)}}.mv5 .mvclub form.mv-flash,.mvclub form.mv-flash{animation:mvflash 1.1s ease-out 2;border-radius:22px}
+</style>
 <div class="mv5">
 {%- unless is_product -%}
 <!-- ================= HOMEPAGE ================= -->
@@ -267,7 +268,7 @@ html.mv-joined .mv5 .qj{display:none}
       <h1>Tired of being tired? <em>Same, babe.</em></h1>
       <p class="lead">You look after everyone. So who&#39;s looking after you? {{ brand }} is two berry gummies with 180mg magnesium, the real dose on the front, and no wellness hype. All dose. No drama.</p>
       <ul class="cks">
-        <li class="ck">Magnesium contributes to the reduction of tiredness and fatigue</li>
+        <li class="ck">Magnesium contributes to a reduction of tiredness and fatigue</li>
         <li class="ck">180mg magnesium a day, printed on the front · vegan</li>
         <li class="ck">Finish your first jar. Not for you? We&#39;ll refund it.</li>
       </ul>
@@ -293,7 +294,7 @@ html.mv-joined .mv5 .qj{display:none}
 
   {%- if wl -%}
   <section class="mvclubsec"><div class="wrap">
-    <div class="ctxt"><p class="kick">Launching soon</p><h2>Join the No Drama Club.</h2><p>Get in early, girl. The first 500 get 20% off a single jar on their first order (multipacks already have their own lower price; offers don&#39;t stack), free UK delivery on 2+ jars and our no-drama guarantee on their first jar. Nothing to pay today. We&#39;ll email you the second we launch.</p><p class="sm">Magnesium contributes to the reduction of tiredness and fatigue.</p>{%- if section.settings.club_image != blank -%}<div class="photo clubpic">{{ section.settings.club_image | image_url: width: 1200 | image_tag: alt: section.settings.club_image.alt, loading: 'lazy', widths: '600, 900, 1200', sizes: '(max-width: 860px) 100vw, 50vw' }}</div>{%- endif -%}</div>
+    <div class="ctxt"><p class="kick">Launching soon</p><h2>Join the No Drama Club.</h2><p>Get in early, girl. The first 500 get 20% off a single jar on their first order (multipacks already have their own lower price; offers don&#39;t stack), free UK delivery on 2+ jars and our no-drama guarantee on their first jar. Nothing to pay today. We&#39;ll email you the second we launch.</p><p class="sm">Magnesium contributes to a reduction of tiredness and fatigue.</p>{%- if section.settings.club_image != blank -%}<div class="photo clubpic">{{ section.settings.club_image | image_url: width: 1200 | image_tag: alt: section.settings.club_image.alt, loading: 'lazy', widths: '600, 900, 1200', sizes: '(max-width: 860px) 100vw, 50vw' }}</div>{%- endif -%}</div>
     {% render 'meva-club-form', fid: 'club' %}
   </div></section>
   {%- endif -%}
@@ -301,7 +302,7 @@ html.mv-joined .mv5 .qj{display:none}
     <div class="wcol"><p class="kick">The honest bit</p><h2>What&#39;s in the jar. And what isn&#39;t.</h2></div>
     <div class="wgrid">
       <div><b>What&#39;s in it</b><p>180mg magnesium (citrate) in two berry gummies. 60 gummies, 30 days. Vegan.</p></div>
-      <div><b>What it does</b><p>Magnesium contributes to the reduction of tiredness and fatigue, and to normal psychological function.</p></div>
+      <div><b>What it does</b><p>Magnesium contributes to a reduction of tiredness and fatigue, and to normal psychological function.</p></div>
       <div class="no"><b>What it won&#39;t do</b><p>Fix your inbox, your teenager or your boss. Sorry, babe. We&#39;d tell you if it could.</p></div>
     </div>
   </div></section>
@@ -324,7 +325,7 @@ html.mv-joined .mv5 .qj{display:none}
   </div></section>
   <section class="claims" id="inside-claims"><div class="wrap">
     <div class="head"><div><p class="kick">The legal bit (stay with us)</p><h2 style="margin-top:10px">Five claims. <em style="font-style:normal;color:var(--berry,#8e2a5a)">No bluffing.</em></h2></div><p>These are the UK-authorised claims for magnesium, copied word for word. Babe, if we can&#39;t prove it, we won&#39;t say it.</p></div>
-    <div class="cgrid stamped"><div><span class="no">No. 1</span><p>Magnesium contributes to <strong>the reduction of tiredness and fatigue</strong>.</p><svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="stp0" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs><circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.5"/><text><textPath href="#stp0">UK APPROVED · WORD FOR WORD · </textPath></text><text x="60" y="66" text-anchor="middle" class="ok">OK</text></svg></div><div><span class="no">No. 2</span><p>Magnesium contributes to <strong>normal psychological function</strong>.</p><svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="stp1" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs><circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.5"/><text><textPath href="#stp1">UK APPROVED · WORD FOR WORD · </textPath></text><text x="60" y="66" text-anchor="middle" class="ok">OK</text></svg></div><div><span class="no">No. 3</span><p>Magnesium contributes to <strong>the normal functioning of the nervous system</strong>.</p><svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="stp2" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs><circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.5"/><text><textPath href="#stp2">UK APPROVED · WORD FOR WORD · </textPath></text><text x="60" y="66" text-anchor="middle" class="ok">OK</text></svg></div><div><span class="no">No. 4</span><p>Magnesium contributes to <strong>normal muscle function</strong>.</p><svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="stp3" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs><circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.5"/><text><textPath href="#stp3">UK APPROVED · WORD FOR WORD · </textPath></text><text x="60" y="66" text-anchor="middle" class="ok">OK</text></svg></div><div><span class="no">No. 5</span><p>Magnesium contributes to <strong>the maintenance of normal bones</strong>.</p><svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="stp4" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs><circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.5"/><text><textPath href="#stp4">UK APPROVED · WORD FOR WORD · </textPath></text><text x="60" y="66" text-anchor="middle" class="ok">OK</text></svg></div></div>
+    <div class="cgrid stamped"><div><span class="no">No. 1</span><p>Magnesium contributes to <strong>a reduction of tiredness and fatigue</strong>.</p><svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="stp0" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs><circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.5"/><text><textPath href="#stp0">UK APPROVED · WORD FOR WORD · </textPath></text><text x="60" y="66" text-anchor="middle" class="ok">OK</text></svg></div><div><span class="no">No. 2</span><p>Magnesium contributes to <strong>normal psychological function</strong>.</p><svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="stp1" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs><circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.5"/><text><textPath href="#stp1">UK APPROVED · WORD FOR WORD · </textPath></text><text x="60" y="66" text-anchor="middle" class="ok">OK</text></svg></div><div><span class="no">No. 3</span><p>Magnesium contributes to <strong>the normal functioning of the nervous system</strong>.</p><svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="stp2" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs><circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.5"/><text><textPath href="#stp2">UK APPROVED · WORD FOR WORD · </textPath></text><text x="60" y="66" text-anchor="middle" class="ok">OK</text></svg></div><div><span class="no">No. 4</span><p>Magnesium contributes to <strong>normal muscle function</strong>.</p><svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="stp3" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs><circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.5"/><text><textPath href="#stp3">UK APPROVED · WORD FOR WORD · </textPath></text><text x="60" y="66" text-anchor="middle" class="ok">OK</text></svg></div><div><span class="no">No. 5</span><p>Magnesium contributes to <strong>the maintenance of normal bones</strong>.</p><svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="stp4" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs><circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.5"/><text><textPath href="#stp4">UK APPROVED · WORD FOR WORD · </textPath></text><text x="60" y="66" text-anchor="middle" class="ok">OK</text></svg></div></div>
   </div></section>
 
   <section class="mom"><div class="wrap">
@@ -405,7 +406,7 @@ html.mv-joined .mv5 .qj{display:none}
         <div class="slide dose"><img src="{{ 'meva-ad-A4-feed.jpg' | file_img_url: '1080x' }}" alt="A hand holding a jar of Mëva with the dose circled in red: 180mg magnesium, 2 a day" loading="lazy" width="1080" height="1350"></div>
         <div class="slide card"><h3>What&#39;s in every gummy</h3><ul><li class="ck">180mg magnesium a day (citrate)</li><li class="ck">Ripe red berry</li><li class="ck">Plant pectin, no gelatine</li><li class="ck">Colour from spirulina and anthocyanins</li><li class="ck">None of the 14 major allergens</li></ul></div>
         <div class="slide">{%- if section.settings.hero_image != blank -%}{{ section.settings.hero_image | image_url: width: 1200 | image_tag: alt: section.settings.hero_image.alt, loading: 'lazy' }}{%- endif -%}</div>
-        <div class="slide card y"><h3>Your first {{ n }} days</h3><div class="days"><div><b>Day 1</b><span>Jar goes by the kettle</span></div><div><b>Day 7</b><span>Two gummies are part of your morning</span></div><div><b>Day {{ n }}</b><span>Notice how your days feel</span></div></div><p style="font-weight:600;font-size:14px">A routine, not a promise of results. Magnesium contributes to the reduction of tiredness and fatigue.</p></div>
+        <div class="slide card y"><h3>Your first {{ n }} days</h3><div class="days"><div><b>Day 1</b><span>Jar goes by the kettle</span></div><div><b>Day 7</b><span>Two gummies are part of your morning</span></div><div><b>Day {{ n }}</b><span>Notice how your days feel</span></div></div><p style="font-weight:600;font-size:14px">A routine, not a promise of results. Magnesium contributes to a reduction of tiredness and fatigue.</p></div>
         <div class="slide">{%- if section.settings.macro_image != blank -%}{{ section.settings.macro_image | image_url: width: 1200 | image_tag: alt: section.settings.macro_image.alt, loading: 'lazy' }}{%- endif -%}</div>
         <div class="slide">{%- if section.settings.moment2_image != blank -%}{{ section.settings.moment2_image | image_url: width: 1200 | image_tag: alt: section.settings.moment2_image.alt, loading: 'lazy' }}{%- endif -%}</div>
         <div class="arrows"><button type="button" data-mv-prev aria-label="Previous photo">‹</button><button type="button" data-mv-next aria-label="Next photo">›</button></div>
@@ -432,7 +433,7 @@ html.mv-joined .mv5 .qj{display:none}
       <p class="sub">Two ripe red berry gummies a day. 180mg magnesium (48% of your daily reference intake), printed right on the front. One jar lasts 30 days.</p>
       {%- if wl -%}<div class="qj">{% render 'meva-club-form', fid: 'quick', compact: true %}</div>{%- endif -%}
       <ul class="cks">
-        <li class="ck">Contributes to the reduction of tiredness and fatigue</li>
+        <li class="ck">Contributes to a reduction of tiredness and fatigue</li>
         <li class="ck">Contributes to normal psychological function</li>
         <li class="ck">Contributes to normal muscle function</li>
         <li class="ck">180mg magnesium a day · vegan · gelatine-free</li>
@@ -473,7 +474,7 @@ html.mv-joined .mv5 .qj{display:none}
       </div>
       <div class="acc2">
         <details open><summary>About the product</summary><div class="in"><p>{{ brand }} is a ripe red berry gummy for the women who hold everyone together. Each gummy holds 90mg of magnesium, the mineral behind five UK-authorised health claims. What it won&#39;t do: fix your inbox, your teenager or your boss. Sorry, babe. We only say what we can prove.</p><p>Two gummies a day, chewed straight from the jar.</p></div></details>
-        <details><summary>What magnesium does</summary><div class="in"><ul class="cl"><li class="ck">Contributes to the reduction of tiredness and fatigue</li><li class="ck">Contributes to normal psychological function</li><li class="ck">Contributes to normal functioning of the nervous system</li><li class="ck">Contributes to normal muscle function</li><li class="ck">Contributes to the maintenance of normal bones</li></ul></div></details>
+        <details><summary>What magnesium does</summary><div class="in"><ul class="cl"><li class="ck">Contributes to a reduction of tiredness and fatigue</li><li class="ck">Contributes to normal psychological function</li><li class="ck">Contributes to normal functioning of the nervous system</li><li class="ck">Contributes to normal muscle function</li><li class="ck">Contributes to the maintenance of normal bones</li></ul></div></details>
         <details><summary>Ingredients &amp; allergens</summary><div class="in"><p>{{ section.settings.ingredients }}</p><p>Vegan and gelatine-free. Made without the 14 major allergens.</p></div></details>
         <details><summary>Nutrition information</summary><div class="in"><table class="nt"><thead><tr><th scope="col">Per daily dose (2 gummies)</th><th scope="col">Amount</th><th scope="col">%NRV*</th></tr></thead><tbody><tr><th scope="row">Magnesium</th><td>180mg</td><td>48%</td></tr></tbody></table><p class="fine">*NRV = Nutrient Reference Value.</p></div></details>
         <details><summary>How to take &amp; storage</summary><div class="in"><p>{{ section.settings.dose_text }}</p><p>Store in a cool, dry place out of direct sunlight and keep the lid closed. Keep out of reach of young children. Do not exceed the recommended daily intake. Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle.</p></div></details>
@@ -560,7 +561,7 @@ html.mv-joined .mv5 .qj{display:none}
   </div></section>
 
   <section class="pmonth"><div class="wrap">
-    <div class="mh"><p class="kick">Your first jar, honestly</p><h2>Give your body 30 days of what it needs.</h2><p><b>Magnesium contributes to the reduction of tiredness and fatigue.</b> Your job is simple: two gummies, every day, for a full jar. Here&#39;s how that month goes.</p></div>
+    <div class="mh"><p class="kick">Your first jar, honestly</p><h2>Give your body 30 days of what it needs.</h2><p><b>Magnesium contributes to a reduction of tiredness and fatigue.</b> Your job is simple: two gummies, every day, for a full jar. Here&#39;s how that month goes.</p></div>
     <ol class="tl">
       <li><div class="ph"><img src="{{ 'meva-day1.jpg' | file_img_url: '800x' }}" alt="Two Mëva gummies in a palm next to the jar and a mug of tea" loading="lazy" width="800" height="600"></div><span class="day">Day 1</span><b>Your first two.</b><p>180mg of magnesium, done before the kettle boils. One thing today that&#39;s just for you.</p></li>
       <li><div class="ph">{%- if section.settings.bag_image != blank -%}{{ section.settings.bag_image | image_url: width: 700 | image_tag: alt: section.settings.bag_image.alt, loading: 'lazy', sizes: '(max-width: 860px) 80vw, 25vw' }}{%- endif -%}</div><span class="day">Day 7</span><b>It&#39;s a habit now.</b><p>Same time every morning. The jar lives in your bag on busy days.</p></li>
@@ -574,7 +575,7 @@ html.mv-joined .mv5 .qj{display:none}
     <h2>It&#39;s not just you. It&#39;s the food.</h2>
     <p>In the UK&#39;s own national diet survey, 15% of women aged 19&ndash;64 don&#39;t reach even the minimum magnesium intake from food alone. Busy days, skipped lunches, one more coffee instead of a meal &mdash; it adds up quietly.</p>
     <p>M&euml;va adds 180mg of magnesium a day &mdash; 48% of your daily reference intake &mdash; in two berry gummies. The real dose, printed on the front.</p>
-    <p class="claim">Magnesium contributes to the reduction of tiredness and fatigue.</p>
+    <p class="claim">Magnesium contributes to a reduction of tiredness and fatigue.</p>
     <div class="octa"><a class="btn" href="#buy-top">Reserve mine</a><span>Nothing to pay today · Finish your first jar. Not for you? We&#39;ll refund it.</span></div>
     <p class="src">Source: National Diet and Nutrition Survey 2019&ndash;2023, Office for Health Improvement and Disparities &amp; Food Standards Agency (2025). Women aged 19&ndash;64 with magnesium intakes from food below the Lower Reference Nutrient Intake.</p>
   </div></section>
@@ -989,7 +990,24 @@ io.observe(el);})();
   var form = document.getElementById('mv-buy');
   if (!form) return;
   var WL = {{ wl | json }};
-  if (WL) form.addEventListener('submit', function (e) { e.preventDefault(); var r = form.querySelector('input[name=id]:checked'); var pk = r ? r.getAttribute('data-pack') : '2'; window.location.href = window.location.pathname + '?reserve=' + pk + '#club'; });
+  function mvGoClub(pk) {
+    var club = document.getElementById('club');
+    var cf = club && club.querySelector('form');
+    if (!cf) { window.location.href = window.location.pathname + '?reserve=' + pk + '#club'; return; }
+    var pkf = cf.querySelector('[data-club-pack]');
+    if (pkf) { pkf.hidden = false; var ri = pkf.querySelector('input[value="' + pk + '"]'); if (ri) ri.checked = true; }
+    var h3 = cf.querySelector('h3'); if (h3) h3.textContent = 'Save your pack. Pay nothing today.';
+    try { var u = new URL(location.href); u.searchParams.set('reserve', pk); u.hash = 'club'; history.replaceState(null, '', u.toString()); } catch (err) {}
+    club.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    var em = cf.querySelector('input[type=email]');
+    if (em) setTimeout(function () { em.focus({ preventScroll: true }); }, 650);
+    cf.classList.remove('mv-flash'); void cf.offsetWidth; cf.classList.add('mv-flash');
+  }
+  if (WL) form.addEventListener('submit', function (e) { e.preventDefault(); var r = form.querySelector('input[name=id]:checked'); mvGoClub(r ? r.getAttribute('data-pack') : '2'); });
+  if (WL && !JOINED) document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="reserve="]'); if (!a) return;
+    try { var u = new URL(a.href, location.href); if (u.pathname !== location.pathname) return; e.preventDefault(); mvGoClub((u.searchParams.get('reserve') || '2').replace(/[^0-9]/g, '') || '2'); } catch (err) {}
+  });
   function upd() {
     var r = form.querySelector('input[name=id]:checked');
     if (!r) return;
@@ -1134,3 +1152,4 @@ if(!red&&nums.length&&'IntersectionObserver' in window){
   "presets": [{ "name": "Mëva product page" }]
 }
 {% endschema %}
+
