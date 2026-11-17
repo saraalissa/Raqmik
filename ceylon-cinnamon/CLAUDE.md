@@ -202,3 +202,4 @@ n/v = not publicly verifiable from the pages fetched. Berberine-first brands whe
 - Nov 17 (DRAFT 156631302213): removed "You may also like" (product-list) from cart template. Product page and cart drawer have none.
 - Nov 17 (DRAFT 156631302213): favicon = cinnora-favicon.png (cinnamon spiral only, transparent, 512px; logo/fav.html + fav.js).
 - Nov 17: founder supplied her own dinner-couple photo (photos/cn-dinner-couple.png): replaced cn-pdp-05 at gallery position 6. Note: pouch in it reads "300 SOFTGELS" + "LAB TESTED" (site says 30; testing unverified).
+- Nov 17: founder supplied a walking-woman photo: rebuilt "Why people take it" (photos/why.html -> cn-why-people.png, founder photo left + benefits panel right, typo "Noţ" fixed) and swapped it into gallery position 7.
