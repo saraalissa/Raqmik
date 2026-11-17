@@ -16,9 +16,12 @@ Sara approved: 9 ads, £20/day CBO, first-jar guarantee wording. LIVE (all ENABL
 | W4_kettle-across | H1 photo, new note | Readable from across the kitchen | PDP | 120247411171960424 |
 | G1_real-number | 1,800mg? vs 180mg | The real number, on the front | label ?a=b | 120247411176510424 |
 | G2_one-form | one form vs blend | One form. Named on the jar | label ?a=b | 120247411181430424 |
-| G3_gummy-vs-capsule | no water | No water needed. Just chew | label | 120247411184850424 |
+| G3_gummy-vs-capsule | PAUSED 17 Nov: photo showed sugar-coated gummy (wrong product) | — | label | 120247411184850424 |
+| G3b_gummy-vs-capsule | same, glossy gummies photo | No water needed. Just chew | label | 120247411234140424 |
 | G5_five-claims | five claims word for word | Five claims. Word for word | label | 120247411187880424 |
 | G6_same-number | same number everywhere | 180mg. Everywhere. Always | label ?a=b | 120247411193130424 |
 
 Not launched (staged replacements): W from concept list (doormat, torch), G4 (the one you won't skip), G7 guarantee, G8 Founding 500, G9 3pm confession, G10 83p a day.
 Rules: judge each ad set at £45 spend (3× £15). Zero leads at £45 → pause. Next check: 20 Nov.
+
+Rule (Sara, 17 Nov): Mëva gummies are GLOSSY (oil-coated), never sugar-coated. Never use sugar-dusted gummy imagery (e.g. src/meva6-hand.jpg).
