@@ -1,0 +1,22 @@
+{{ 'cn.css' | asset_url | stylesheet_tag }}
+<section class="cn cn-sec {{ section.settings.style }}">
+  <div class="cn-wrap">
+    <div class="cn-center"><h2 class="cn-h2">{{ section.settings.heading }}</h2></div>
+    <div class="cn-faq">
+      {%- for block in section.blocks -%}
+        <details {{ block.shopify_attributes }}><summary>{{ block.settings.q }}</summary><div class="cn-faq__a">{{ block.settings.a }}</div></details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CN · FAQ",
+  "settings": [
+    { "type": "select", "id": "style", "label": "Background", "default": "cn-sand", "options": [{ "value": "", "label": "White" }, { "value": "cn-sand", "label": "Sand" }] },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Questions" }
+  ],
+  "blocks": [{ "type": "qa", "name": "Question", "settings": [{ "type": "text", "id": "q", "label": "Question", "default": "Question" }, { "type": "richtext", "id": "a", "label": "Answer", "default": "<p>Answer</p>" }] }],
+  "presets": [{ "name": "CN · FAQ" }]
+}
+{% endschema %}

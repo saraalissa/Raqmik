@@ -1,0 +1,18 @@
+{{ 'cn.css' | asset_url | stylesheet_tag }}
+<div class="cn cn-marquee" role="region" aria-label="{{ section.settings.label | escape }}">
+  <div class="cn-marquee__track">
+    {%- for i in (1..2) -%}
+      {%- for block in section.blocks -%}
+        <span {% if i == 2 %}aria-hidden="true"{% endif %} {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+      {%- endfor -%}
+    {%- endfor -%}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "CN · Marquee",
+  "settings": [{ "type": "text", "id": "label", "label": "Accessible label", "default": "Highlights" }],
+  "blocks": [{ "type": "item", "name": "Item", "settings": [{ "type": "text", "id": "text", "label": "Text", "default": "True Ceylon cinnamon only" }] }],
+  "presets": [{ "name": "CN · Marquee" }]
+}
+{% endschema %}

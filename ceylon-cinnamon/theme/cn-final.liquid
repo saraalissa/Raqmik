@@ -1,0 +1,22 @@
+{{ 'cn.css' | asset_url | stylesheet_tag }}
+<section class="cn cn-sec cn-dark">
+  <div class="cn-wrap" style="text-align:center">
+    <h2 class="cn-h2" style="max-width:800px;margin-inline:auto">{{ section.settings.heading }}</h2>
+    {% if section.settings.text != blank %}<p class="cn-lead" style="max-width:640px;margin-inline:auto">{{ section.settings.text }}</p>{% endif %}
+    <div style="margin-top:26px"><a class="cn-btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label }}</a></div>
+    <p class="cn-disclaimer">{{ section.settings.disclaimer }}</p>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CN · Final CTA",
+  "settings": [
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Your spice rack had its <mark>chance.</mark>" },
+    { "type": "textarea", "id": "text", "label": "Text" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop now" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "textarea", "id": "disclaimer", "label": "Disclaimer", "default": "*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease." }
+  ],
+  "presets": [{ "name": "CN · Final CTA" }]
+}
+{% endschema %}

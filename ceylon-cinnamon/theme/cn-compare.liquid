@@ -1,0 +1,45 @@
+{{ 'cn.css' | asset_url | stylesheet_tag }}
+{%- capture yes -%}<span class="cn-yes" aria-hidden="true">✓</span><span class="visually-hidden">Yes</span>{%- endcapture -%}
+{%- capture no -%}<span class="cn-no" aria-hidden="true">✕</span><span class="visually-hidden">No</span>{%- endcapture -%}
+<section class="cn cn-sec {{ section.settings.style }}">
+  <div class="cn-wrap" style="max-width:900px">
+    <div class="cn-center">
+      {% if section.settings.eyebrow != blank %}<span class="cn-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2 class="cn-h2">{{ section.settings.heading }}</h2>
+    </div>
+    <table class="cn-table">
+      <thead><tr><th scope="col"><span class="visually-hidden">Feature</span></th><th scope="col">{{ section.settings.col_a }}</th><th scope="col">{{ section.settings.col_b }}</th><th scope="col" class="cn-us">{{ section.settings.col_us }}</th></tr></thead>
+      <tbody>
+        {%- for block in section.blocks -%}
+          <tr {{ block.shopify_attributes }}>
+            <th scope="row">{{ block.settings.label }}</th>
+            {%- for k in (1..3) -%}
+              {%- case k -%}{%- when 1 -%}{%- assign v = block.settings.a -%}{%- when 2 -%}{%- assign v = block.settings.b -%}{%- else -%}{%- assign v = block.settings.us -%}{%- endcase -%}
+              <td {% if k == 3 %}class="cn-us-cell"{% endif %}>{%- if v == 'yes' -%}{{ yes }}{%- elsif v == 'no' -%}{{ no }}{%- else -%}<span class="cn-note">{{ v }}</span>{%- endif -%}</td>
+            {%- endfor -%}
+          </tr>
+        {%- endfor -%}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CN · Comparison",
+  "settings": [
+    { "type": "select", "id": "style", "label": "Background", "default": "", "options": [{ "value": "", "label": "White" }, { "value": "cn-sand", "label": "Sand" }] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "How we stack up" },
+    { "type": "text", "id": "col_a", "label": "Column A", "default": "Spice-jar cinnamon" },
+    { "type": "text", "id": "col_b", "label": "Column B", "default": "Powder capsules" },
+    { "type": "text", "id": "col_us", "label": "Our column", "default": "Ours" }
+  ],
+  "blocks": [{ "type": "row", "name": "Row", "settings": [
+    { "type": "text", "id": "label", "label": "Feature", "default": "Feature" },
+    { "type": "text", "id": "a", "label": "Column A (yes / no / text)", "default": "no" },
+    { "type": "text", "id": "b", "label": "Column B (yes / no / text)", "default": "no" },
+    { "type": "text", "id": "us", "label": "Our column (yes / no / text)", "default": "yes" }
+  ] }],
+  "presets": [{ "name": "CN · Comparison" }]
+}
+{% endschema %}

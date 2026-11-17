@@ -1,0 +1,48 @@
+{{ 'cn.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign p = section.settings.product | default: collections.all.products.first
+  assign img = section.settings.image | default: p.featured_image
+  assign url = p.url | default: routes.all_products_collection_url
+-%}
+<section class="cn cn-sand">
+  <div class="cn-wrap cn-hero">
+    <div>
+      {% if section.settings.eyebrow != blank %}<span class="cn-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+      <h1 class="cn-h1">{{ section.settings.heading }}</h1>
+      <p class="cn-lead">{{ section.settings.subheading }}</p>
+      <ul class="cn-chips">
+        {%- for block in section.blocks -%}<li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>{%- endfor -%}
+      </ul>
+      <a class="cn-btn" href="{{ url }}">{{ section.settings.button_label }}</a>
+      <div class="cn-trust">{{ section.settings.trust }}</div>
+    </div>
+    <div class="cn-hero__media">
+      {%- if img -%}
+        {{ img | image_url: width: 1200 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 900px) 50vw, 100vw', alt: img.alt }}
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag }}
+      {%- endif -%}
+      {% if section.settings.badge_number != blank %}
+        <div class="cn-badge" aria-hidden="true"><b>{{ section.settings.badge_number }}</b><small>{{ section.settings.badge_label }}</small></div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CN · Hero",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product" },
+    { "type": "image_picker", "id": "image", "label": "Image (defaults to product image)" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "True Ceylon cinnamon" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Your spice rack <mark>can't</mark> do this." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop now" },
+    { "type": "inline_richtext", "id": "trust", "label": "Trust line" },
+    { "type": "text", "id": "badge_number", "label": "Badge number", "default": "7,200mg" },
+    { "type": "text", "id": "badge_label", "label": "Badge label", "default": "Ceylon bark equivalent" }
+  ],
+  "blocks": [{ "type": "chip", "name": "Benefit chip", "settings": [{ "type": "text", "id": "text", "label": "Text", "default": "Benefit" }] }],
+  "presets": [{ "name": "CN · Hero" }]
+}
+{% endschema %}

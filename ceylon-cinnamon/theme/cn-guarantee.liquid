@@ -1,0 +1,27 @@
+{{ 'cn.css' | asset_url | stylesheet_tag }}
+<section class="cn cn-sec">
+  <div class="cn-wrap">
+    <div class="cn-guarantee">
+      <div class="cn-seal" aria-hidden="true"><b>{{ section.settings.days }}</b><span>{{ section.settings.seal_label }}</span></div>
+      <div>
+        <h2 class="cn-h2">{{ section.settings.heading }}</h2>
+        <p class="cn-lead">{{ section.settings.text }}</p>
+        {% if section.settings.button_label != blank %}<div style="margin-top:22px"><a class="cn-btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label }}</a></div>{% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CN · Guarantee",
+  "settings": [
+    { "type": "text", "id": "days", "label": "Days", "default": "90" },
+    { "type": "text", "id": "seal_label", "label": "Seal label", "default": "DAY PROMISE" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Feel the difference in 90 days, or it's free." },
+    { "type": "textarea", "id": "text", "label": "Text" },
+    { "type": "text", "id": "button_label", "label": "Button label" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "presets": [{ "name": "CN · Guarantee" }]
+}
+{% endschema %}

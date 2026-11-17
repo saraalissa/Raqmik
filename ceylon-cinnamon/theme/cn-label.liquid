@@ -1,0 +1,42 @@
+{{ 'cn.css' | asset_url | stylesheet_tag }}
+<section class="cn cn-sec {{ section.settings.style }}">
+  <div class="cn-wrap">
+    <div class="cn-center">
+      {% if section.settings.eyebrow != blank %}<span class="cn-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2 class="cn-h2">{{ section.settings.heading }}</h2>
+      {% if section.settings.subheading != blank %}<p class="cn-lead">{{ section.settings.subheading }}</p>{% endif %}
+    </div>
+    <div class="cn-math" role="group" aria-label="{{ section.settings.math_label | escape }}">
+      <div class="cn-math__box"><b>{{ section.settings.n1 }}</b><span>{{ section.settings.l1 }}</span></div>
+      <div class="cn-math__op" aria-hidden="true">×</div>
+      <div class="cn-math__box"><b>{{ section.settings.n2 }}</b><span>{{ section.settings.l2 }}</span></div>
+      <div class="cn-math__op" aria-hidden="true">=</div>
+      <div class="cn-math__box" style="border-color:var(--cn-cinnamon)"><b>{{ section.settings.n3 }}</b><span>{{ section.settings.l3 }}</span></div>
+    </div>
+    <div class="cn-grid cn-grid--{{ section.blocks.size | at_most: 4 | at_least: 1 }}">
+      {%- for block in section.blocks -%}
+        <div class="cn-card" {{ block.shopify_attributes }}><h3 class="cn-h3">{{ block.settings.title }}</h3><p>{{ block.settings.text }}</p></div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CN · Label explainer",
+  "settings": [
+    { "type": "select", "id": "style", "label": "Background", "default": "cn-sand", "options": [{ "value": "", "label": "White" }, { "value": "cn-sand", "label": "Sand" }] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "What 7,200mg actually means" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" },
+    { "type": "text", "id": "math_label", "label": "Accessible label", "default": "600mg of 12 to 1 extract equals about 7,200mg of bark" },
+    { "type": "text", "id": "n1", "label": "Number 1", "default": "600mg" },
+    { "type": "text", "id": "l1", "label": "Label 1", "default": "extract in each softgel" },
+    { "type": "text", "id": "n2", "label": "Number 2", "default": "12:1" },
+    { "type": "text", "id": "l2", "label": "Label 2", "default": "concentration ratio" },
+    { "type": "text", "id": "n3", "label": "Result", "default": "7,200mg" },
+    { "type": "text", "id": "l3", "label": "Result label", "default": "of dried Ceylon bark" }
+  ],
+  "blocks": [{ "type": "card", "name": "Card", "settings": [{ "type": "text", "id": "title", "label": "Title" }, { "type": "textarea", "id": "text", "label": "Text" }] }],
+  "presets": [{ "name": "CN · Label explainer" }]
+}
+{% endschema %}
