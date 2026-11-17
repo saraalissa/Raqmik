@@ -209,3 +209,4 @@ n/v = not publicly verifiable from the pages fetched. Berberine-first brands whe
 - Nov 17: founder removed 3- and 5-pouch packshots from the gallery; all 3 variants now use cn-pack-1 (cart shows 1-pouch image for bundles). Gallery = 12 images.
 - Nov 17: dinner photo reframed to 1:1 with headline "The two-second dinner habit." (gpt_image recompose; outpaint attempt zoomed out too far, discarded). File cn-dinner-couple-sq2.png at gallery position 6.
 - Nov 17: "Why people take it" back to the original split layout (cream panel, dots, FDA line) with founder walking photo cropped so she fills the left panel like the old model: photos/why.html -> cn-why-people-v3.png at gallery position 7 (park full-bleed version detached).
+- Nov 17: founder removed cn-pdp-01 ("True Ceylon. One softgel a day." kitchen woman) from the gallery. Gallery = 11.
