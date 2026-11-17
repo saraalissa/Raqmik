@@ -58,3 +58,5 @@ R1 stays as it is (Sara will pause some R1 ads herself). Suggested: pause R1 A4,
 - Ad set "5 | Scale 1.4 no-hunting" (120247411304970424) created then left PAUSED and empty; not used.
 - 28 Nov: 1.4 reaches 14 days → graduate into a scaling CBO.
 - Daily spend now ≈ £100 (R2 £50, R3 £30, R4 £20).
+- 17 Nov (Sara approved budget cut): ad set 3 | A5 + Meva maths v2 (120247386018890424) PAUSED: £23.02, 1 lead (£23/lead).
+- Daily spend now ≈ £82: R2 set 1 £30 + set 2 £12; R3 N £10 + H £10; R4 £20.

@@ -31,3 +31,6 @@ Sara said "شغل الحملة لحالك" (launch it yourself) before going to 
 - **R1:** campaign 120247371770060424 PAUSED on 16 Nov, as planned when R3 starts.
 - **Spend now:** R2 ~£43/day + R3 £30/day = ~£73/day. Account cap £500/month (resets on the 1st).
 - **Read on day 3–5.** Judge on cost per sign-up (Shopify tags ad-*, plus Meta's waitlist_sign_up). Sara's rule: flag at £20 spend with cost per sign-up above £6.
+
+## 17 Nov: budget cut (Sara approved)
+- Ad set L | Carrying everyone (120247400222480424) PAUSED: £15.82 spend, 0 leads.
