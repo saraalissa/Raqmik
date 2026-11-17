@@ -57,7 +57,7 @@
    "settings": {
     "product": "ceylon-cinnamon-softgels-with-mct-oil",
     "eyebrow": "True Ceylon cinnamon · Sri Lanka",
-    "heading": "Your spice rack <mark>can't</mark> do this.",
+    "heading": "Your spice rack <em>can't</em> do this.",
     "subheading": "One softgel a day of concentrated true Ceylon cinnamon in MCT oil, to support healthy blood sugar and steady, all-day energy.*",
     "button_label": "Get my Ceylon cinnamon",
     "trust": "<strong>90-day guarantee</strong> · Real milligrams on the label · Free US shipping over $60",
@@ -103,7 +103,7 @@
     "style": "",
     "columns": "2",
     "eyebrow": "The problem",
-    "heading": "Why the cinnamon in your kitchen <mark>won't cut it</mark>",
+    "heading": "Why the cinnamon in your kitchen <em>won't cut it</em>",
     "subheading": "You have probably heard cinnamon helps. Here is why sprinkling it rarely does much."
    },
    "blocks": {
@@ -210,7 +210,7 @@
     "style": "",
     "columns": "2",
     "eyebrow": "How it works",
-    "heading": "Two compounds. <mark>One daily job.</mark>",
+    "heading": "Two compounds. <em>One daily job.</em>",
     "subheading": "Ceylon cinnamon is more than flavor. Two of its natural compounds are the reason people take it every day."
    },
    "blocks": {
@@ -243,7 +243,7 @@
    "settings": {
     "style": "cn-sand",
     "eyebrow": "No fine print",
-    "heading": "What <mark>7,200mg</mark> actually means",
+    "heading": "What <em>7,200mg</em> actually means",
     "subheading": "Other brands put \"7,200mg\" on the front and leave you guessing. Here is the math, out loud."
    },
    "blocks": {
@@ -281,7 +281,7 @@
     "style": "cn-dark",
     "columns": "3",
     "eyebrow": "Receipts, not personas",
-    "heading": "No fake nurses. No recycled reviews. <mark>No scare letters.</mark>",
+    "heading": "No fake nurses. No recycled reviews. <em>No scare letters.</em>",
     "subheading": "A lot of cinnamon ads try to scare you into buying. We'd rather show you everything and let you decide."
    },
    "blocks": {
@@ -322,7 +322,7 @@
     "style": "",
     "columns": "2",
     "eyebrow": "Buying for someone you love?",
-    "heading": "For the daughter who <mark>worries about Dad's numbers</mark>",
+    "heading": "For the daughter who <em>worries about Dad's numbers</em>",
     "subheading": "Plenty of our customers buy for a parent. We made that easy.",
     "button_label": "Send a supply to Mom or Dad",
     "button_link": "/products/ceylon-cinnamon-softgels-with-mct-oil"
@@ -354,7 +354,7 @@
     "style": "cn-sand",
     "columns": "4",
     "eyebrow": "What to expect",
-    "heading": "Your first <mark>90 days</mark>"
+    "heading": "Your first <em>90 days</em>"
    },
    "blocks": {
     "b1": {
@@ -414,7 +414,7 @@
    "settings": {
     "days": "90",
     "seal_label": "DAY PROMISE",
-    "heading": "Feel the difference in 90 days, <mark>or it's free.</mark>",
+    "heading": "Feel the difference in 90 days, <em>or it's free.</em>",
     "text": "Take it every day for up to 90 days. If you're not happy, email us and we'll refund your order. Even if the pouch is empty. No hoops, no hard feelings.",
     "button_label": "Start risk-free",
     "button_link": "/products/ceylon-cinnamon-softgels-with-mct-oil"
@@ -490,7 +490,7 @@
   "final": {
    "type": "cn-final",
    "settings": {
-    "heading": "Your spice rack had its <mark>chance.</mark>",
+    "heading": "Your spice rack had its <em>chance.</em>",
     "text": "True Ceylon cinnamon, real numbers on the label, and 90 days to decide.",
     "button_label": "Get my Ceylon cinnamon",
     "button_link": "/products/ceylon-cinnamon-softgels-with-mct-oil",

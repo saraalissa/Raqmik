@@ -24,8 +24,8 @@
 .cn-h3{font-size:22px;font-weight:700;margin-bottom:8px}
 .cn-lead{font-size:19px;color:var(--cn-muted);margin-top:14px}
 .cn-dark .cn-lead{color:#E7DBCD}
-.cn mark{background:linear-gradient(transparent 55%,var(--cn-butter) 55%);color:inherit;padding:0 .08em}
-.cn-dark mark{background:var(--cn-butter);color:var(--cn-ink);border-radius:4px;padding:0 .12em}
+.cn h1 em,.cn h2 em{font-style:normal;background:linear-gradient(transparent 55%,var(--cn-butter) 55%);color:inherit;padding:0 .08em}
+.cn-dark h1 em,.cn-dark h2 em{background:var(--cn-butter);color:var(--cn-ink);border-radius:4px;padding:0 .12em}
 .cn-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 30px;border-radius:999px;background:var(--cn-cinnamon);color:var(--cn-on-cinnamon)!important;font-weight:700;font-size:17px;text-decoration:none;border:0;cursor:pointer;transition:transform .15s ease,background .15s ease;width:auto}
 .cn-btn:hover{background:var(--cn-cinnamon-dark);transform:translateY(-1px)}
 .cn-btn:active{transform:scale(.98)}
