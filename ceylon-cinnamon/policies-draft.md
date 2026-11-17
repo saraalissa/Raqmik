@@ -6,7 +6,7 @@ Shown as links at the bottom of checkout. The founder must confirm every [CONFIR
 
 **90-day money-back guarantee**
 
-Take Cinnora every day for up to 90 days. If you're not happy for any reason, email us at [CONFIRM: support email] within 90 days of delivery and we'll refund the product price of your order. You don't need to send the pouches back. [CONFIRM: no-return refund, or must customers return the pouch?]
+Take Cinnora every day for up to 90 days. If you're not happy for any reason, email us at info@cinnora.co within 90 days of delivery and we'll refund the product price of your order. You don't need to send the pouches back. [CONFIRM: no-return refund, or must customers return the pouch?]
 
 - One refund per customer/household. [CONFIRM]
 - Shipping costs are not refunded. [CONFIRM]
@@ -25,6 +25,6 @@ Take Cinnora every day for up to 90 days. If you're not happy for any reason, em
 ## Contact information (required by Shopify)
 
 - Trade name: Cinnora
-- Email: [CONFIRM: support email]
+- Email: info@cinnora.co
 - Phone: [CONFIRM or leave out]
 - Business address: [CONFIRM: physical or registered agent address]
