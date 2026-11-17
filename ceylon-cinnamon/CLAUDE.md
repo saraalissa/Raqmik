@@ -163,3 +163,9 @@ n/v = not publicly verifiable from the pages fetched. Berberine-first brands whe
 - Theme "Cinnora — Black Friday (Claude)" (156625403973, unpublished, copy of live v2): new section cn-bf (countdown; before start = teaser + reminder email signup tagged black-friday; live = deal cards with add to cart; after end = hidden automatically). Also: Black Friday note in buybox (only shows while live), Black Friday announcement (replaced the third message), cn-announce max_blocks 4, removed "official" notice from homepage (Shopify limit of 25 sections).
 - After Nov 30: remove the Black Friday announcement message, and delete the 3 discounts if not needed.
 - Open: unit cost per pouch not known (margin check); compare-at prices ($59.99 etc.) are not real past prices: FTC risk, recommend removing.
+
+## Theme workflow (founder's rule, Nov 17)
+- Only 2 themes: LIVE + "Cinnora — DRAFT (Claude)". All work goes to the draft; the founder publishes the draft.
+- After a publish, the old live becomes unpublished: rename it to DRAFT and re-apply the changes from the last round to it (theme_bash only works on unpublished themes). Never duplicate again.
+- Themes to remove (founder does it; theme deletion is blocked for Claude): "Horizon", "Ceylon — Custom Build (Claude)".
+- Photos (Nov 17): 20 new Higgsfield photos (Files: cn-ph-*.png). Section photo slot: snippet cn-secimg (settings sec_image/sec_sticker) on badges, bf, compare, faq, final, founder, guarantee, label, myths, offer, perday, quiz; card images on mechanism, timeline, receipts.
