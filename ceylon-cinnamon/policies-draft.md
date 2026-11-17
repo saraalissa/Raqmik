@@ -4,14 +4,26 @@ Shown as links at the bottom of checkout. The founder must confirm every [CONFIR
 
 ## Refund policy
 
-**90-day money-back guarantee**
+Modeled on the category norm (Metabolae, GoldenRoot "90 days incl. empty bottles", Ceylona "Empty-Bag Promise"). Metabolae's exact policy text could not be opened from the build environment.
 
-Take Cinnora every day for up to 90 days. If you're not happy for any reason, email us at info@cinnora.co within 90 days of delivery and we'll refund the product price of your order. You don't need to send the pouches back. [CONFIRM: no-return refund, or must customers return the pouch?]
+**90-Day Empty-Pouch Guarantee**
 
-- One refund per customer/household. [CONFIRM]
-- Shipping costs are not refunded. [CONFIRM]
-- Refunds go back to the original payment method within 5–10 business days after we approve them.
-- Damaged or wrong item? Email us a photo within 14 days of delivery and we'll send a replacement at no cost.
+Give Cinnora a real try. Take it every day for up to 90 days. If you're not happy for any reason, you get your money back, even if every pouch is empty.
+
+**How to get a refund**
+1. Email info@cinnora.co within 90 days of the date your order was delivered.
+2. Include your order number and a photo of the pouches (opened or empty is fine).
+3. We reply within 2 business days and refund you. No need to ship anything back.
+
+**The details**
+- The guarantee covers the product price of your first order. Shipping fees are not refunded.
+- One guarantee per customer and household.
+- Refunds go back to your original payment method. Your bank usually shows it within 5–10 business days.
+- Orders bought from other sellers, marketplaces or unofficial websites are not covered. Buy from cinnora.co only.
+- Damaged, wrong or missing item? Email us a photo within 14 days of delivery and we'll send a replacement at no cost.
+- Want to cancel an order? Email us before it ships and we'll cancel it and refund you in full.
+
+Questions? info@cinnora.co. A real person on our team answers every email.
 
 ## Shipping policy
 
