@@ -206,3 +206,4 @@ n/v = not publicly verifiable from the pages fetched. Berberine-first brands whe
 - Nov 17: "Why people take it" now full-bleed real park: founder photo outpainted to 1:1 (Higgsfield outpaint), frosted text panel added (gpt_image edit). File cn-why-people-park.png at gallery position 7; cn-woman-walk-square.png kept in Files.
 - Nov 17: founder supplied new guarantee photo (photos/cn-guarantee-sofa.png): replaced cn-pdp-10 at gallery position 11. Pouch shows "300 SOFTGELS" + "LAB FREE" (misprint).
 - Nov 17: founder photos (dinner couple, guarantee sofa) label-fixed via gpt_image edit: pouch now "30 SOFTGELS", badges GMO FREE + GLUTEN FREE only. Files cn-dinner-couple-v2.png / cn-guarantee-sofa-v2.png at gallery positions 6 and 11; originals detached.
+- Nov 17: founder removed 3- and 5-pouch packshots from the gallery; all 3 variants now use cn-pack-1 (cart shows 1-pouch image for bundles). Gallery = 12 images.
