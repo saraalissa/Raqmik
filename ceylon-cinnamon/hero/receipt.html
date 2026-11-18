@@ -1,0 +1,49 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+#s{width:1440px;height:1440px;position:relative;overflow:hidden;font-family:'Inter',sans-serif;color:#1E1410;background:radial-gradient(circle at 70% 55%,#FFFBF4,#EFDFC8 75%)}
+.h{position:absolute;left:70px;top:70px;font-family:'Inter Display';font-weight:900;font-size:96px;letter-spacing:-4px;line-height:.98}
+.h b{color:#A8441C}
+.pouch{position:absolute;left:760px;top:360px;width:720px;mix-blend-mode:multiply;transform:rotate(6deg)}
+.rc{position:absolute;left:90px;top:330px;width:640px;background:#fff;transform:rotate(-3deg);box-shadow:0 30px 60px rgba(60,30,10,.22);padding:44px 44px 70px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:27px;line-height:1.55;color:#1E1410}
+.rc:before,.rc:after{content:"";position:absolute;left:0;right:0;height:18px;background:linear-gradient(-45deg,transparent 12px,#fff 0) 0 0/24px 18px repeat-x,linear-gradient(45deg,transparent 12px,#fff 0) 0 0/24px 18px repeat-x}
+.rc:before{top:-17px;transform:rotate(180deg)}
+.rc:after{bottom:-17px}
+.c{text-align:center}
+.brand{font-family:'Inter Display';font-weight:900;font-size:52px;letter-spacing:-1px;line-height:1}
+.sm{font-size:22px;font-weight:600;color:#6B5444;margin-top:6px}
+.hr{border-top:3px dashed #1E1410;margin:18px 0}
+.row{display:flex;white-space:nowrap}
+.row .d{flex:1;overflow:hidden;color:#B8A796}
+.row .d:after{content:"........................................................"}
+.ok{color:#2E7D4F;font-size:34px;font-weight:900;margin-left:6px}
+.zero{color:#A8441C;font-size:32px;font-weight:900;margin-left:6px}
+.tot{font-size:30px;font-weight:800}
+.bc{display:flex;gap:4px;height:70px;justify-content:center;margin-top:18px}
+.bc i{display:block;background:#1E1410}
+.stamp{position:absolute;left:520px;top:1120px;width:250px;height:250px;border-radius:50%;border:6px solid #A8441C;color:#A8441C;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-14deg);font-weight:900;text-align:center;background:rgba(255,250,240,.55);font-family:'Inter Display'}
+.stamp .a{font-size:26px;letter-spacing:3px}.stamp .b{font-size:58px;line-height:1;letter-spacing:-1px}
+</style></head><body><div id="s">
+<div class="h">Why trust us?<br><b>Read the receipt.</b></div>
+<img class="pouch" src="pouch-v2.png">
+<div class="rc">
+ <div class="c brand">CINNORA</div>
+ <div class="c sm">THE HONEST RECEIPT · 1 POUCH</div>
+ <div class="hr"></div>
+ <div class="row"><span>1 SOFTGEL A DAY</span><span class="d"></span><span class="ok">✓</span></div>
+ <div class="row"><span>TRUE CEYLON</span><span class="d"></span><span class="ok">✓</span></div>
+ <div class="row"><span>600MG EXTRACT 12:1</span><span class="d"></span><span class="ok">✓</span></div>
+ <div class="row"><span>IN MCT OIL</span><span class="d"></span><span class="ok">✓</span></div>
+ <div class="row"><span>90-DAY MONEY-BACK</span><span class="d"></span><span class="ok">✓</span></div>
+ <div class="hr"></div>
+ <div class="row"><span>CASSIA</span><span class="d"></span><span class="zero">0</span></div>
+ <div class="row"><span>ADDED SUGAR</span><span class="d"></span><span class="zero">0</span></div>
+ <div class="row"><span>ARTIFICIAL FLAVORS</span><span class="d"></span><span class="zero">0</span></div>
+ <div class="row"><span>FAKE REVIEWS</span><span class="d"></span><span class="zero">0</span></div>
+ <div class="hr"></div>
+ <div class="row tot"><span>HIDDEN FINE PRINT</span><span class="d"></span><span>NONE</span></div>
+ <div class="bc" id="bc"></div>
+</div>
+<div class="stamp"><div class="a">NOTHING</div><div class="b">HIDDEN</div></div>
+</div><script>
+const w=[3,1,2,1,4,1,1,3,2,1,3,1,2,4,1,2,1,3,1,2,2,1,4,1,2,3,1,1,2,4,1,3];document.getElementById('bc').innerHTML=w.map(x=>`<i style="width:${x*3}px"></i>`).join('');
+</script></body></html>
