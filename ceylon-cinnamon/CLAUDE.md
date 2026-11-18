@@ -269,3 +269,4 @@ n/v = not publicly verifiable from the pages fetched. Berberine-first brands whe
 - Nov 18: founder: pouch must face the camera straight. Seedream front-on marble (2007bf95 Files cn-hero-front-b.png, used; 4c773c94 cn-hero-front-a.png). hero/hero8.html -> cn-hero-real-v8.png (same text as v7). Not uploaded yet.
 - Nov 18: founder: messy-kitchen before/after "really bad", wants simple and pretty. v3: same 45 y/o woman on plain cream wall, oatmeal sweater (Seedream e56e9816 tired -> 2d336f29 smiling; Files cn-ba3-before/after.png). hero/ba3.html -> cn-before-after-v3.png: two portraits, BEFORE/AFTER pills, 3 short lines each, FDA/results vary/models shown. Not uploaded yet.
 - Nov 18: hero v8 (marble, front-facing) is now gallery #1 (MediaImage 33984485130309); v5 detached.
+- Nov 18: before/after v3 live at gallery position 9 (MediaImage 33984492142661); old cn-before-after-health detached (file kept).
