@@ -68,7 +68,7 @@
         <li>Contributes to normal muscle function</li>
         <li>180mg magnesium a day, printed on the front</li>
       </ul>
-      <div class="mx-prog"><div class="mx-track"><span style="width:{{ fbar }}%"></span></div><b>{{ fpct }}% reserved</b></div>
+      {%- if fpct >= 30 -%}<div class="mx-prog"><div class="mx-track"><span style="width:{{ fbar }}%"></span></div><b>{{ fpct }}% reserved</b></div>{%- else -%}<div class="mx-prog mx-cnt"><i class="mx-live" aria-hidden="true"></i><span><b>{{ fc }} women</b> have already saved a founding spot</span></div>{%- endif -%}
       <div class="mx-pricerow"><b>{{ v2.price | money }}</b><s>{{ was2 | money }}</s><span class="mx-pill">Black Friday · 3 for 2</span></div>
       <p class="mx-divider"><span>Founding 500 · first batch</span></p>
 
@@ -296,6 +296,9 @@
 .mx-prog{display:flex;align-items:center;gap:12px;border-radius:10px;box-shadow:0 2px 14px rgba(0,0,0,.08);padding:14px;margin:14px 0}
 .mx-track{flex:1;height:8px;border-radius:9px;background:#f1e3e8;overflow:hidden}.mx-track span{display:block;height:100%;background:var(--a);border-radius:9px}
 .mx-prog b{font-size:13px;color:var(--a);font-weight:600;white-space:nowrap}
+.mx-cnt{font-size:14px;color:var(--ink)}.mx-cnt b{font-size:14px}
+.mx-live{flex:none;width:10px;height:10px;border-radius:50%;background:#2fb36b;box-shadow:0 0 0 0 rgba(47,179,107,.5);animation:mxlive 1.8s infinite}
+@keyframes mxlive{70%{box-shadow:0 0 0 8px rgba(47,179,107,0)}100%{box-shadow:0 0 0 0 rgba(47,179,107,0)}}
 .mx-pricerow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .mx-pricerow b{color:var(--a);font-size:19px;font-weight:600;font-family:Poppins}.mx-pricerow s{color:#555;font-size:14px}
 .mx-pill{background:var(--a);color:#fff;font-size:11px;font-weight:600;padding:4px 9px;border-radius:4px}
