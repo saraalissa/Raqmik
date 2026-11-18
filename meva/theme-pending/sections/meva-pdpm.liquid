@@ -149,7 +149,7 @@
         assign bt = 'Tiredness & Fatigue|Psychological Function|Nervous System|Muscle Function|Normal Bones' | split: '|'
         assign bs = 'For the afternoons that run on empty|For the mind holding everyone&#39;s diary|For the days at full volume|For the stairs, the shopping, the walk|For the decades ahead' | split: '|'
         assign bc = 'Magnesium contributes to a reduction of tiredness and fatigue.|Magnesium contributes to normal psychological function.|Magnesium contributes to the normal functioning of the nervous system.|Magnesium contributes to normal muscle function.|Magnesium contributes to the maintenance of normal bones.' | split: '|'
-        assign bi = 'meva-g3-02.jpg|meva-studio-2.jpg|meva-g3-03.jpg|meva-day1.jpg|meva-studio-4.jpg' | split: '|'
+        assign bi = 'meva-ben-1.jpg|meva-ben-2.jpg|meva-ben-3.jpg|meva-ben-4.jpg|meva-ben-5.jpg' | split: '|'
       -%}
       {%- for t in bt -%}
       <details class="mx-b"><summary><img src="{{ bi[forloop.index0] | file_img_url: '240x' }}" alt="" loading="lazy" width="80" height="80"><span><b>{{ t }}</b><small>{{ bs[forloop.index0] }}</small></span><i>+</i></summary><p>{{ bc[forloop.index0] }}</p></details>
