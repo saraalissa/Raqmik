@@ -1,0 +1,33 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+#s{width:1440px;height:1440px;position:relative;overflow:hidden;font-family:'Inter',sans-serif;color:#1E1410;background:url(ratio-b.png) center/cover}
+.k{position:absolute;left:64px;top:64px;background:#1E1410;color:#F6C945;font-weight:900;font-size:25px;letter-spacing:4px;padding:11px 22px;border-radius:999px}
+.h{position:absolute;left:58px;top:126px;font-family:'Inter Display';font-weight:900;font-size:116px;letter-spacing:-4.5px;line-height:.95}
+.h b{color:#A8441C;display:block}
+.call{position:absolute}
+.call .n{font-family:'Inter Display';font-weight:900;font-size:76px;letter-spacing:-2.5px;line-height:1}
+.call .t{font-weight:700;font-size:30px;color:#4A3426;margin-top:4px;line-height:1.2}
+.pill{position:absolute;left:560px;top:470px;background:#A8441C;color:#fff;border-radius:999px;padding:12px 26px;font-weight:900;font-size:30px;transform:rotate(8deg);box-shadow:0 10px 24px rgba(168,68,28,.35);white-space:nowrap}
+.pill span{color:#F6C945}
+.bot{position:absolute;left:50%;bottom:110px;transform:translateX(-50%);background:#1E1410;color:#fff;border-radius:999px;padding:22px 44px;font-weight:800;font-size:40px;white-space:nowrap;box-shadow:0 14px 34px rgba(0,0,0,.3)}
+.bot b{color:#F6C945}
+svg{position:absolute;inset:0}
+</style></head><body><div id="s">
+<svg id="g" viewBox="0 0 1440 1440"></svg>
+<div class="k">THE 12:1 MATH</div>
+<div class="h">12 parts bark.<b>1 softgel.</b></div>
+<div class="call" style="left:64px;top:452px"><div class="n">7,200mg</div><div class="t">of true Ceylon bark</div></div>
+<div class="call" style="left:1010px;top:612px"><div class="n" style="color:#A8441C">600mg</div><div class="t">of extract,<br>in MCT oil</div></div>
+<div class="pill">concentrated <span>12:1</span></div>
+<div class="bot">That's why <b>1 a day</b> is all it takes.</div>
+<script>
+// cinnamon "grains" flowing from the quills into the softgel, shrinking as they condense
+const g=document.getElementById('g');let s='';
+const P0=[420,640],P1=[700,430],P2=[905,800];const N=22;
+for(let i=0;i<N;i++){const t=i/(N-1),u=1-t;
+const x=u*u*P0[0]+2*u*t*P1[0]+t*t*P2[0],y=u*u*P0[1]+2*u*t*P1[1]+t*t*P2[1];
+const r=17-12*t;s+=`<circle cx="${x}" cy="${y}" r="${r}" fill="#A8441C" opacity="${0.35+0.6*t}"/>`;}
+s+=`<path d="M880 770 L912 812 L940 768" fill="none" stroke="#A8441C" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>`;
+g.innerHTML=s;
+</script>
+</div></body></html>
