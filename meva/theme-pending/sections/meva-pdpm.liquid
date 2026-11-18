@@ -91,7 +91,7 @@
       </div>
 
       <p class="mx-say">Meet the No Drama Club:</p>
-      <div class="mx-vids">{%- for i in (1..4) -%}<figure><img src="{{ 'meva-w45-' | append: i | append: '.jpg' | file_img_url: '400x' }}" alt="Woman in her forties in an everyday moment" loading="lazy" width="400" height="500"></figure>{%- endfor -%}</div>
+      <div class="mx-vwrap"><div class="mx-vids">{%- for i in (1..4) -%}<figure><img src="{{ 'meva-w45-' | append: i | append: '.jpg' | file_img_url: '400x' }}" alt="Woman in her forties in an everyday moment" loading="lazy" width="400" height="500"></figure>{%- endfor -%}</div><button type="button" class="mx-va p" data-vp aria-label="Previous photo">‹</button><button type="button" class="mx-va n" data-vn aria-label="Next photo">›</button></div>
     </div>
   </div></section>
 
@@ -333,7 +333,12 @@
 .mx-acc summary::-webkit-details-marker,.mx-faq summary::-webkit-details-marker,.mx-b summary::-webkit-details-marker{display:none}
 .mx-acc p,.mx-acc ul{margin:0;padding:0 16px 14px;font-size:13.5px;line-height:1.55}.mx-cl{padding-left:32px!important}
 .mx-say{text-align:center;font-family:Poppins;font-weight:600;color:var(--ink);margin:20px 0 10px}
-.mx-vids{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;margin:0 -14px;padding:0 14px}
+.mx-vwrap{position:relative}
+.mx-vids{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;margin:0 -14px;padding:0 14px;scroll-padding:0 14px}
+.mx-vids::-webkit-scrollbar{display:none}
+.mx-vids figure{scroll-snap-align:start}
+.mx-va{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.92);box-shadow:0 2px 10px rgba(0,0,0,.18);color:var(--a);font-size:22px;line-height:1;cursor:pointer;display:grid;place-items:center}
+.mx-va.p{left:-6px}.mx-va.n{right:-6px}.mx-va[disabled]{opacity:0;pointer-events:none}
 .mx-vids figure{flex:0 0 46%;margin:0;border-radius:8px;overflow:hidden;aspect-ratio:4/5;background:#f7d6e0}
 .mx-vids img{width:100%;height:100%;object-fit:cover}
 /* sections */
@@ -496,6 +501,12 @@ html.mx-lock{overflow:hidden}
     function to(k){k=Math.max(0,Math.min(n-1,k));c.scrollTo({left:items[k].offsetLeft-c.offsetLeft-16,behavior:'smooth'});}
     nav.querySelector('[data-p]').addEventListener('click',function(){to(idx()-1);});nav.querySelector('[data-n]').addEventListener('click',function(){to(idx()+1);});
     c.addEventListener('scroll',mark,{passive:true});mark();});
+  /* club photos arrows */
+  R.querySelectorAll('.mx-vwrap').forEach(function(w){var v=w.querySelector('.mx-vids'),pb=w.querySelector('[data-vp]'),nb=w.querySelector('[data-vn]');
+    function st(){var f=v.querySelector('figure');return f?f.offsetWidth+10:200;}
+    function upd(){pb.disabled=v.scrollLeft<=4;nb.disabled=v.scrollLeft+v.clientWidth>=v.scrollWidth-4;}
+    pb.addEventListener('click',function(){v.scrollBy({left:-st(),behavior:'smooth'});});nb.addEventListener('click',function(){v.scrollBy({left:st(),behavior:'smooth'});});
+    v.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();});
   /* countdown */
   var cd=document.querySelector('[data-mx-cd]');if(cd){var T=new Date(cd.getAttribute('data-mx-cd')).getTime(),b=cd.querySelectorAll('b');
     function tick(){var d=Math.max(0,T-Date.now()),s=Math.floor(d/1000),v=[Math.floor(s/86400),Math.floor(s%86400/3600),Math.floor(s%3600/60),s%60];b.forEach(function(e,i){e.textContent=String(v[i]).padStart(2,'0');});}
