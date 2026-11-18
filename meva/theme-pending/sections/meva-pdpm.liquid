@@ -532,8 +532,8 @@ html.mx-lock{overflow:hidden}
   if(sh.querySelector('.mvclub .ok')||sh.querySelector('.mvclub .err'))open();
   /* sticky */
   var sk=document.getElementById('mx-sticky'),atc=R.querySelector('.mx-atc');
-  function sb(){sk.classList.toggle('on',atc.getBoundingClientRect().bottom<0);}
-  window.addEventListener('scroll',sb,{passive:true});sb();
+  function sb(){var r=atc.getBoundingClientRect(),sh=document.getElementById('mx-sheet');sk.classList.toggle('on',(r.bottom<0||r.top>innerHeight-40)&&!(sh&&!sh.hidden));}
+  window.addEventListener('scroll',sb,{passive:true});window.addEventListener('resize',sb);setTimeout(sb,300);sb();
 })();
 </script>
 {% schema %}
