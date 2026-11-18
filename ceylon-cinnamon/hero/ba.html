@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+#s{width:1440px;height:1440px;position:relative;overflow:hidden;font-family:'Inter',sans-serif;color:#1E1410;background:#F7F0E6}
+.ph{position:absolute;top:0;width:720px;height:900px;background-size:auto 1180px;background-repeat:no-repeat}
+.b{left:0;background-image:url(ba-before.png);background-position:48% 62%;filter:saturate(.75)}
+.a{left:720px;background-image:url(ba-after.png);background-position:42% 70%}
+.tag{position:absolute;top:40px;border-radius:999px;padding:12px 26px;font-weight:900;font-size:28px;letter-spacing:4px}
+.tb{left:40px;background:rgba(30,20,16,.75);color:#fff}
+.ta{left:760px;background:#A8441C;color:#fff}
+.mid{position:absolute;left:672px;top:402px;width:96px;height:96px;border-radius:50%;background:#F7F0E6;display:grid;place-items:center;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.mid svg{width:46px;height:46px;fill:none;stroke:#A8441C;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.cols{position:absolute;left:0;right:0;top:900px;bottom:90px;display:grid;grid-template-columns:1fr 1fr}
+.col{padding:40px 56px}
+.col.r{background:#fff}
+.col h3{font-weight:900;font-size:26px;letter-spacing:4px;color:#8A7260}
+.col.r h3{color:#A8441C}
+.li{display:flex;align-items:center;gap:18px;font-weight:800;font-size:36px;letter-spacing:-.5px;margin-top:22px}
+.x,.c{flex:0 0 46px;height:46px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:26px}
+.x{background:#E4D6C4;color:#8A7260}
+.c{background:#A8441C;color:#fff}
+.col:not(.r) .li{color:#6B5444}
+.foot{position:absolute;left:0;right:0;bottom:0;height:90px;background:#1E1410;color:rgba(255,255,255,.75);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:600}
+</style></head><body><div id="s">
+<div class="ph b"></div><div class="ph a"></div>
+<div class="tag tb">BEFORE</div><div class="tag ta">AFTER</div>
+<div class="mid"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<div class="cols">
+ <div class="col"><h3>BEFORE</h3>
+  <div class="li"><span class="x">✕</span>Heavy after meals</div>
+  <div class="li"><span class="x">✕</span>The 3pm slump</div>
+  <div class="li"><span class="x">✕</span>Reaching for sweets</div></div>
+ <div class="col r"><h3>AFTER, WITH 1 A DAY</h3>
+  <div class="li"><span class="c">✓</span>Lighter after meals*</div>
+  <div class="li"><span class="c">✓</span>Steadier energy*</div>
+  <div class="li"><span class="c">✓</span>Healthy blood sugar support*</div></div>
+</div>
+<div class="foot">*Not evaluated by the FDA. Not intended to diagnose, treat, cure or prevent any disease. Individual results vary. Models shown.</div>
+</div></body></html>
