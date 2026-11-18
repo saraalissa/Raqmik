@@ -12,11 +12,11 @@
     {%- if form.posted_successfully? -%}
     <p class="qok"><b>You&#39;re in.</b> Welcome to the No Drama Club.</p>
     {%- else -%}
-    <p class="qk"><b>Join free:</b> 20% off a single jar when we launch. Nothing to pay today.</p>
+    <p class="qk"><b>Founding 500:</b> 20% off a single jar when we launch. Nothing to pay today.</p>
     <input type="hidden" name="contact[tags]" value="waitlist,founding-500" data-club-tags>
     <input type="hidden" name="contact[accepts_marketing]" value="true">
     <input type="hidden" name="contact[note]" value="" data-club-note>
-    <div class="qrow"><label class="qlab"><span class="qsr">Your email</span><input type="email" name="contact[email]" required autocomplete="email" placeholder="Your email"></label><button class="btn" type="submit">Join free</button></div>
+    <div class="qrow"><label class="qlab"><span class="qsr">Your email</span><input type="email" name="contact[email]" required autocomplete="email" placeholder="Your email"></label><button class="btn" type="submit">Save my spot</button></div>
     {%- if form.errors -%}<p class="err">{{ form.errors | default_errors }}</p>{%- endif -%}
     <p class="fine">Launch emails from Mëva. Unsubscribe any time. <a href="{{ routes.root_url }}policies/privacy-policy">Privacy</a>.</p>
     {%- endif -%}
@@ -52,7 +52,7 @@
         endif
       endfor
     -%}
-    <fieldset class="mvpk" data-club-pack hidden><legend>Your pack</legend>
+    <fieldset class="mvpk" data-club-pack><legend>Which pack are you eyeing? (optional)</legend>
       <label><input type="radio" name="mvpk-{{ fid }}" value="1"><span><b>1 jar</b><small>{{ pv1.price | money }}</small></span></label>
       <label><input type="radio" name="mvpk-{{ fid }}" value="2"><span><b>2 jars</b><small>{{ pv2.price | money }} · free delivery</small></span></label>
       <label><input type="radio" name="mvpk-{{ fid }}" value="3"><span><b>3 jars</b><small>{{ pv3.price | money }} · best value</small></span></label>
@@ -73,7 +73,7 @@
     </label>
     <input type="hidden" name="contact[note]" value="" data-club-note>
     {%- if form.errors -%}<p class="err">{{ form.errors | default_errors }}</p>{%- endif -%}
-    <button class="btn" type="submit">Join the No Drama Club</button>
+    <button class="btn" type="submit">Save my spot</button>
     <p class="fine">By joining, you agree to get emails from Mëva about the launch. Unsubscribe any time. <a href="{{ routes.root_url }}policies/privacy-policy">Privacy policy</a>.</p>
   {%- endif -%}
 {%- endform -%}
