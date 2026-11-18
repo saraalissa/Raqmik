@@ -1,0 +1,35 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Caveat;src:url(caveat.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+#s{width:1440px;height:1440px;position:relative;overflow:hidden;font-family:'Inter',sans-serif;color:#1E1410;background:#F7F0E6}
+.k{position:absolute;left:90px;top:80px;color:#A8441C;font-weight:900;font-size:26px;letter-spacing:6px}
+.h{position:absolute;left:86px;top:124px;font-family:'Inter Display';font-weight:900;font-size:96px;letter-spacing:-4px;line-height:.97}
+.h b{color:#A8441C}
+.grid{position:absolute;left:90px;top:420px;display:grid;grid-template-columns:repeat(15,72px);row-gap:30px;column-gap:10px}
+.g{width:72px;height:40px;border-radius:20px;position:relative}
+.g.on{background:linear-gradient(160deg,#7A3A1C,#3E1A0A);box-shadow:inset 0 3px 4px rgba(255,200,150,.35),0 3px 6px rgba(60,20,0,.25)}
+.g.on:after{content:"";position:absolute;left:12px;top:7px;width:24px;height:8px;border-radius:6px;background:rgba(255,230,200,.45)}
+.g.off{border:3px dashed #C9B49B}
+.lbl{position:absolute;font-weight:800;font-size:22px;color:#8A7260;letter-spacing:2px}
+.ring{position:absolute;left:1210px;top:742px;width:128px;height:96px;border:6px solid #A8441C;border-radius:50%;transform:rotate(-8deg)}
+.note{text-align:right;position:absolute;left:560px;top:900px;width:760px;white-space:nowrap;font-family:Caveat;font-size:64px;color:#A8441C;line-height:1.05;transform:rotate(-3deg)}
+svg.ar{position:absolute;inset:0}
+.bot{position:absolute;left:0;right:0;bottom:0;height:250px;background:#1E1410;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 90px}
+.bot .t{font-family:'Inter Display';font-weight:900;font-size:50px;letter-spacing:-1.5px;line-height:1.05}
+.bot .t b{color:#F6C945}
+.bot .s{font-weight:700;font-size:27px;color:rgba(255,255,255,.75);line-height:1.6;text-align:right}
+.bot .s small{display:block;font-size:20px;color:rgba(255,255,255,.5);font-weight:600}
+</style></head><body><div id="s">
+<div class="k">OUR PROMISE TO YOU</div>
+<div class="h">90 days to decide.<br><b>One softgel at a time.</b></div>
+<div class="grid" id="g"></div>
+<div class="lbl" style="left:90px;top:384px">DAY 1</div>
+<div class="lbl" style="left:1280px;top:922px;display:none">DAY 90</div>
+<div class="ring"></div>
+<svg class="ar" viewBox="0 0 1440 1440"><path d="M1340 930 C 1370 900, 1330 880, 1290 850" fill="none" stroke="#A8441C" stroke-width="4" stroke-linecap="round"/><path d="M1290 868 L1286 846 L1308 848" fill="none" stroke="#A8441C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<div class="note">Day 90 and not for you?<br>Full refund. Even if empty.</div>
+<div class="bot"><div class="t">Love it,<br>or <b>it's on us.</b></div>
+<div class="s">Email info@cinnora.co + a photo of your pouch.<br>Nothing to send back.<small>First order only. Shipping not refunded.</small></div></div>
+</div><script>
+let h='';for(let i=1;i<=90;i++)h+=`<div class="g ${i<=58?'on':'off'}"></div>`;document.getElementById('g').innerHTML=h;
+</script></body></html>
