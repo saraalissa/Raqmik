@@ -40,8 +40,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+<style>#header-group .ann,.mv5-head .ann{display:none!important}</style>
 <div class="mx">
-  <div class="mx-cd"><div><b>Black Friday</b><span>3 jars for the price of 2 · reserve now</span></div><div class="mx-timer" data-mx-cd="2026-11-27T00:00:00Z"><span><b>00</b>Days</span><span><b>00</b>Hrs</span><span><b>00</b>Min</span><span><b>00</b>Secs</span></div></div>
+  <div class="mx-cd" id="mx-cd"><div><b>Black Friday</b><span>3 jars for the price of 2 · reserve now</span></div><div class="mx-timer" data-mx-cd="2026-11-27T00:00:00Z"><span><b>00</b>Days</span><span><b>00</b>Hrs</span><span><b>00</b>Min</span><span><b>00</b>Secs</span></div></div>
   <div class="mx-marq" aria-hidden="true"><div>{%- for i in (1..2) -%}<span>✓ First-jar guarantee</span><span>✓ Free UK delivery on 2+ jars</span><span>✓ Vegan &amp; gelatine-free</span><span>✓ 180mg on the front</span><span>✓ No subscription</span>{%- endfor -%}</div></div>
 
   {%- comment -%} MAIN {%- endcomment -%}
@@ -251,6 +252,8 @@
 .mx .mx-w.n{max-width:640px}
 .mx em{font-style:normal;color:var(--a)}
 /* countdown + marquee */
+.mx-cd-top{font-family:'Plus Jakarta Sans',sans-serif;position:relative;z-index:70;background:#8e2a5a!important;color:#fff}
+.mx-cd b{font-family:Poppins,sans-serif}
 .mx-cd{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--a2);color:#fff;padding:8px 14px}
 .mx-cd b{display:block;font-family:Poppins;font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.6px}
 .mx-cd span{font-size:11.5px;opacity:.9}
@@ -426,6 +429,7 @@ html.mx-lock{overflow:hidden}
 <script>
 (function(){
   var R=document.querySelector('.mx');if(!R)return;
+  var CD=document.getElementById('mx-cd');if(CD){CD.classList.add('mx-cd-top');document.body.insertBefore(CD,document.body.firstChild);}
   var P={1:['{{ v1.price | money }}',''],2:['{{ v2.price | money }}','{{ was2 | money }}'],3:['{{ v3.price | money }}','{{ was3 | money }}']};
   function pack(){var r=R.querySelector('input[name=mx-pack]:checked');return r?r.value:'2';}
   R.querySelectorAll('input[name=mx-pack]').forEach(function(r){r.addEventListener('change',function(){var x=P[r.value];R.querySelectorAll('[data-mx-price]').forEach(function(e){e.textContent=x[0];});R.querySelectorAll('[data-mx-was]').forEach(function(e){e.textContent=x[1];});});});
@@ -446,7 +450,7 @@ html.mx-lock{overflow:hidden}
     nav.querySelector('[data-p]').addEventListener('click',function(){to(idx()-1);});nav.querySelector('[data-n]').addEventListener('click',function(){to(idx()+1);});
     c.addEventListener('scroll',mark,{passive:true});mark();});
   /* countdown */
-  var cd=R.querySelector('[data-mx-cd]');if(cd){var T=new Date(cd.getAttribute('data-mx-cd')).getTime(),b=cd.querySelectorAll('b');
+  var cd=document.querySelector('[data-mx-cd]');if(cd){var T=new Date(cd.getAttribute('data-mx-cd')).getTime(),b=cd.querySelectorAll('b');
     function tick(){var d=Math.max(0,T-Date.now()),s=Math.floor(d/1000),v=[Math.floor(s/86400),Math.floor(s%86400/3600),Math.floor(s%3600/60),s%60];b.forEach(function(e,i){e.textContent=String(v[i]).padStart(2,'0');});}
     tick();setInterval(tick,1000);}
   /* reserve sheet */
