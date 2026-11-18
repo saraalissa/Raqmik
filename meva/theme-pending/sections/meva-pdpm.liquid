@@ -63,7 +63,7 @@
       <div class="mm-price"><b>From {{ pj3 | money }}</b><span>a jar</span><em>Black Friday: 3 jars for the price of 2</em></div>
 
 {%- assign fc = section.settings.founding_count | default: 0 -%}{%- assign ft = section.settings.founding_total | default: 500 -%}{%- assign fpct = fc | times: 100 | divided_by: ft -%}{%- if fpct < 3 -%}{%- assign fpct = 3 -%}{%- endif -%}
-      <div class="mm-bar"><div class="mm-barl"><b>{{ fc }} of {{ ft }}</b> Founding spots taken</div><div class="mm-track"><span style="width:{{ fpct }}%"></span></div></div>
+      <div class="mm-bar"><div class="mm-barl"><b>{{ fpct }}% reserved</b> · {{ fc }} of {{ ft }} Founding spots</div><div class="mm-track"><span style="width:{{ fpct }}%"></span></div></div>
       <p class="mm-lab">Choose your pack</p>
       <div class="mm-packs" role="radiogroup" aria-label="Choose your pack">
         <label class="mm-pk"><input type="radio" name="mm-pack" value="1"><span class="mm-pkimg"><img src="{{ 'packjar1.png' | file_url }}" alt="" width="120" height="84" loading="lazy"></span><span class="mm-pkt"><b>1 jar</b><small>30 days · + {{ del1 }} delivery</small></span><span class="mm-pkp"><b>{{ v1.price | money }}</b><small>{{ pd1 | money }} a day</small></span></label>
@@ -418,7 +418,7 @@
 {
   "name": "Mëva product (long-form)",
   "settings": [
-    { "type": "number", "id": "founding_count", "label": "Founding spots taken (update daily)", "default": 24 },
+    { "type": "number", "id": "founding_count", "label": "Founding spots reserved (real number, update daily)", "default": 24 },
     { "type": "number", "id": "founding_total", "label": "Founding spots total", "default": 500 },
     { "type": "text", "id": "single_delivery", "label": "Delivery price for 1 jar", "default": "£4.99" },
     { "type": "text", "id": "dose_text", "label": "Dose text", "default": "Adults: chew two gummies a day. Do not exceed the stated dose. Not recommended during pregnancy or breastfeeding unless advised by a healthcare professional." },
