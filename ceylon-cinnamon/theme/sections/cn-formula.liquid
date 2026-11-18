@@ -1,0 +1,45 @@
+{{ 'cn.css' | asset_url | stylesheet_tag }}
+<section class="cn cn-sec cn-formula {{ section.settings.style }}">
+  <div class="cn-wrap">
+    <div class="cn-center">
+      {% if section.settings.eyebrow != blank %}<span class="cn-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2 class="cn-h2">{{ section.settings.heading }}</h2>
+      {% if section.settings.subheading != blank %}<p class="cn-lead">{{ section.settings.subheading }}</p>{% endif %}
+    </div>
+    <ol class="cn-formula__list">
+      {%- for b in section.blocks -%}
+      <li class="cn-formula__item" {{ b.shopify_attributes }}>
+        <figure class="cn-formula__img">
+          {%- if b.settings.image != blank -%}{{ b.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '400, 600, 900', sizes: '(min-width: 900px) 40vw, 90vw', alt: b.settings.title }}{%- endif -%}
+          <span class="cn-formula__num">{{ forloop.index | prepend: '0' }}</span>
+          {%- if b.settings.tag != blank -%}<span class="cn-formula__tag">{{ b.settings.tag }}</span>{%- endif -%}
+        </figure>
+        <div class="cn-formula__body">
+          <h3 class="cn-formula__title">{{ b.settings.title }}</h3>
+          <div class="cn-formula__text">{{ b.settings.text }}</div>
+        </div>
+      </li>
+      {%- endfor -%}
+    </ol>
+    {% if section.settings.footnote != blank %}<p class="cn-formula__foot">{{ section.settings.footnote }}</p>{% endif %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CN · Why the formula works",
+  "settings": [
+    { "type": "select", "id": "style", "label": "Background", "default": "", "options": [{ "value": "", "label": "White" }, { "value": "cn-sand", "label": "Sand" }] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Inside every softgel" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Four things that make <em>one softgel</em> enough" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" },
+    { "type": "text", "id": "footnote", "label": "Footnote" }
+  ],
+  "blocks": [{ "type": "point", "name": "Point", "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "tag", "label": "Image tag" },
+    { "type": "text", "id": "title", "label": "Title" },
+    { "type": "richtext", "id": "text", "label": "Text" }
+  ] }],
+  "presets": [{ "name": "CN · Why the formula works" }]
+}
+{% endschema %}

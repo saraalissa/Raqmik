@@ -1,0 +1,10 @@
+{"type":"cn-formula","settings":{"style":"cn-sand",
+ "eyebrow":"Inside every softgel",
+ "heading":"Four things that make <em>one softgel</em> enough",
+ "footnote":"*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease."},
+ "blocks":{
+  "f1":{"type":"point","settings":{"tag":"Cinnamomum verum","title":"Real Ceylon, never Cassia","text":"<p>Only true Ceylon bark from Sri Lanka goes in. It's the cinnamon that's naturally very low in coumarin, which matters when you take it every day.</p>"}},
+  "f2":{"type":"point","settings":{"tag":"600mg · 12:1","title":"A real amount in one softgel","text":"<p>A sprinkle of kitchen cinnamon is a tiny dose. Each softgel holds 600mg of 12:1 extract, made from about 7,200mg of bark. One a day, no handfuls of capsules.</p>"}},
+  "f3":{"type":"point","settings":{"tag":"MCT oil","title":"Carried in MCT oil","text":"<p>Cinnamon's key compounds are oil-loving, so we suspend the extract in MCT oil from coconut. Smooth to swallow, no cinnamon taste.*</p>"}},
+  "f4":{"type":"point","settings":{"tag":"Read the label","title":"Nothing hidden on the label","text":"<p>Non-GMO, gluten-free, 30 softgels per pouch. The real milligrams are printed on the front, and the 90-day guarantee covers you if it's not for you.</p>"}}},
+ "block_order":["f1","f2","f3","f4"]}
