@@ -22,3 +22,8 @@
 - soul_2 accepts ONE reference image: use the real jar (media 32c23d56-d26d-4e03-b5d4-e8b77bb7008f) whenever the jar appears; describe the glossy gummies in the prompt.
 - Still check label text and gummy gloss at full size before showing Sara.
 - Soul 2.0 cannot draw the jar correctly. Proven workflow (18 Nov): 1) make the scene/woman in soul_2; 2) swap in the real jar with gpt_image_2_6 using [scene, product master 46327c51-a76d-4514-8f9e-5758422e4649] as references, keeping the woman and pose identical.
+
+## Shopify themes workflow (18 Nov)
+- LIVE: "Mëva - Draft 18 Nov v2 (Claude)" id 146111332411. Writes to live are blocked.
+- DRAFT for edits: "Mëva - DRAFT (for edits)" id 146111430715 — an exact copy of live. Make all changes here, show Sara, she publishes. After she publishes, duplicate the new live as the next DRAFT so live and draft stay identical.
+- Theme deletion is blocked for Claude; Sara removes old themes in admin.
