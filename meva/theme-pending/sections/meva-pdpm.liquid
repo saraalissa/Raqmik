@@ -33,6 +33,8 @@
 -%}
 <div class="mv5 mm">
 
+  <div class="mm-gift"><span class="mm-gtag">Free</span><p><b>The Label Cheat Sheet</b> with every Founding order: how to read any supplement label in 30 seconds.</p></div>
+
   {%- comment -%} 1. Gallery {%- endcomment -%}
   <section class="mm-top"><div class="mm-w">
     <div class="mm-gal">
@@ -60,6 +62,8 @@
       </ul>
       <div class="mm-price"><b>From {{ pj3 | money }}</b><span>a jar</span><em>Black Friday: 3 jars for the price of 2</em></div>
 
+{%- assign fc = section.settings.founding_count | default: 0 -%}{%- assign ft = section.settings.founding_total | default: 500 -%}{%- assign fpct = fc | times: 100 | divided_by: ft -%}{%- if fpct < 3 -%}{%- assign fpct = 3 -%}{%- endif -%}
+      <div class="mm-bar"><div class="mm-barl"><b>{{ fc }} of {{ ft }}</b> Founding spots taken</div><div class="mm-track"><span style="width:{{ fpct }}%"></span></div></div>
       <p class="mm-lab">Choose your pack</p>
       <div class="mm-packs" role="radiogroup" aria-label="Choose your pack">
         <label class="mm-pk"><input type="radio" name="mm-pack" value="1"><span class="mm-pkimg"><img src="{{ 'packjar1.png' | file_url }}" alt="" width="120" height="84" loading="lazy"></span><span class="mm-pkt"><b>1 jar</b><small>30 days · + {{ del1 }} delivery</small></span><span class="mm-pkp"><b>{{ v1.price | money }}</b><small>{{ pd1 | money }} a day</small></span></label>
@@ -70,6 +74,7 @@
       <p class="mm-under">Founding 500: 20% off a single jar on your first order. Offers don&#39;t stack.</p>
 
       <div class="mm-gbar"><span class="mm-seal">1st<br>jar</span><p><b>First-jar guarantee.</b> Finish your first jar. Not for you? We&#39;ll refund it.</p></div>
+      <div class="mm-batch"><b>Heads up: the first batch is small.</b> Founding members get first dibs when we launch in January. Nothing to pay until then.</div>
 
       <div class="mm-acc">
         <details open><summary>What it does</summary><ul class="mm-cl">
@@ -114,6 +119,16 @@
     </div>
   </div></section>
 
+  <section class="mm-sec mm-voices"><div class="mm-w">
+    <p class="mm-k">In their words</p><h2>Why women are joining</h2>
+    <p class="mm-lead">Real answers from the waitlist form: &ldquo;What&#39;s draining you most right now?&rdquo;</p>
+    <div class="mm-qgrid">
+      <blockquote>&ldquo;Not feeling like me.&rdquo;<span>The most common answer so far</span></blockquote>
+      <blockquote>&ldquo;Carrying everyone.&rdquo;<span>Also on the list</span></blockquote>
+    </div>
+    <p class="mm-src">Answers are optional and shared anonymously. These are not product reviews.</p>
+  </div></section>
+
   {%- comment -%} 6. Why this gummy works {%- endcomment -%}
   <section class="mm-sec mm-why"><div class="mm-w">
     <h2>Why this gummy makes sense</h2>
@@ -143,14 +158,19 @@
     <button type="button" class="mm-cta light" data-mm-reserve>Reserve mine</button>
   </div></section>
 
+  <section class="mm-sec mm-bens"><div class="mm-w">
+    <h2>Five benefits. Word for word.</h2><p class="mm-lead">The UK-authorised claims for magnesium. If we can&#39;t prove it, we don&#39;t say it.</p>
+    <div class="mm-blist"><div class="mm-ben"><img src="{{ 'meva-g3-02.jpg' | file_img_url: '240x' }}" alt="" loading="lazy" width="120" height="120"><div><b>Tiredness and fatigue</b><span>Magnesium contributes to a reduction of tiredness and fatigue.</span></div></div><div class="mm-ben"><img src="{{ 'meva-studio-2.jpg' | file_img_url: '240x' }}" alt="" loading="lazy" width="120" height="120"><div><b>Psychological function</b><span>Magnesium contributes to normal psychological function.</span></div></div><div class="mm-ben"><img src="{{ 'meva-g3-03.jpg' | file_img_url: '240x' }}" alt="" loading="lazy" width="120" height="120"><div><b>Nervous system</b><span>Magnesium contributes to the normal functioning of the nervous system.</span></div></div><div class="mm-ben"><img src="{{ 'meva-day1.jpg' | file_img_url: '240x' }}" alt="" loading="lazy" width="120" height="120"><div><b>Muscle function</b><span>Magnesium contributes to normal muscle function.</span></div></div><div class="mm-ben"><img src="{{ 'meva-g3-05.jpg' | file_img_url: '240x' }}" alt="" loading="lazy" width="120" height="120"><div><b>Bones</b><span>Magnesium contributes to the maintenance of normal bones.</span></div></div></div>
+  </div></section>
+
   {%- comment -%} 9. First 30 days (routine, not results) {%- endcomment -%}
   <section class="mm-sec mm-time"><div class="mm-w">
-    <h2>Your first jar, day by day</h2><p class="mm-lead">A routine, not a promise of results.</p>
+    <h2>Your first 90 days with Mëva</h2><p class="mm-lead">A routine, not a promise of results.</p>
     <ol>
-      <li><b>Day 1</b><span>The jar goes by the kettle. Two gummies, four seconds, done before anyone asks for anything.</span></li>
-      <li><b>Day 7</b><span>You stop thinking about it. Kettle on, gummies, the way you&#39;d brush your teeth.</span></li>
-      <li><b>Day 14</b><span>Halfway. 28 gummies in. The jar lives in your bag on busy days.</span></li>
-      <li><b>Day 30</b><span>A jar you actually finished. Honest check-in: keep going, or we refund your first jar.</span></li>
+      <li><b>Week 1&ndash;2 &middot; Easy start</b><span>The jar goes by the kettle. Two gummies, four seconds, done before anyone asks for anything. By day 7 you stop thinking about it.</span></li>
+      <li><b>Week 3&ndash;4 &middot; Your routine</b><span>It&#39;s just what you do now. The jar lives in your bag on busy days. Day 30: a jar you actually finished. Honest check-in: keep going, or we refund your first jar.</span></li>
+      <li><b>Jar 2 &middot; Days 31&ndash;60</b><span>Consistency is the whole point of a daily supplement. Same two gummies, same four seconds.</span></li>
+      <li><b>Jar 3 &middot; Days 61&ndash;90</b><span>Three months of 180mg a day, every day. That&#39;s why the 3-jar pack is our best price.</span></li>
     </ol>
   </div></section>
 
@@ -186,6 +206,12 @@
     <h2>Finish your first jar. Not for you? We&#39;ll refund it.</h2>
     <p class="mm-lead">Claim within 45 days of delivery. First order only, one per household. <a href="{{ routes.root_url }}pages/refunds">Full terms</a>.</p>
     <button type="button" class="mm-cta" data-mm-reserve>Reserve mine</button>
+  </div></section>
+
+  <section class="mm-sec mm-invite"><div class="mm-w">
+    <p class="mm-stars" aria-hidden="true">☆☆☆☆☆</p>
+    <h2>Be one of the first to review Mëva</h2>
+    <p class="mm-lead">Founding members get their jars first. Your honest review, good or bad, goes up exactly as you write it.</p>
   </div></section>
 
   {%- comment -%} 13. Club form {%- endcomment -%}
@@ -345,6 +371,23 @@
 .mm .mm-sbar .mm-cta{width:auto;margin:0;padding:14px 22px;font-size:15.5px}
 @keyframes mmflash{0%{box-shadow:0 0 0 0 rgba(142,42,90,.55)}100%{box-shadow:0 0 0 18px rgba(142,42,90,0)}}
 .mm .mvclub.mm-flash{animation:mmflash 1.1s ease-out 2}
+
+.mm .mm-gift{display:flex;align-items:center;gap:10px;justify-content:center;background:var(--mm-butter);color:var(--mm-plum);padding:9px 16px;font-size:13px;line-height:1.35}
+.mm .mm-gift p{margin:0}.mm .mm-gtag{background:var(--mm-plum);color:#fff;font-weight:900;font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:999px}
+.mm .mm-bar{margin:0 0 16px}.mm .mm-barl{font-size:13.5px;margin-bottom:6px}.mm .mm-barl b{color:var(--mm-berry)}
+.mm .mm-track{height:9px;border-radius:999px;background:#f0dfe6;overflow:hidden}.mm .mm-track span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--mm-berry),#d04f8b)}
+.mm .mm-batch{background:#fff4f6;border:1.5px solid #f1c6d4;border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.45;margin:0 0 16px}
+.mm .mm-voices{background:#fff}
+.mm .mm-qgrid{display:grid;gap:12px;max-width:640px;margin:22px auto 0}
+@media (min-width:700px){.mm .mm-qgrid{grid-template-columns:1fr 1fr}}
+.mm .mm-qgrid blockquote{margin:0;background:var(--mm-pink);border-radius:20px;padding:22px 18px;font-family:var(--display,'Inter Tight');font-weight:900;font-size:24px;letter-spacing:-.03em;line-height:1.1}
+.mm .mm-qgrid span{display:block;font-family:inherit;font-weight:600;font-size:13px;letter-spacing:0;margin-top:8px;color:#6b4a5b}
+.mm .mm-blist{display:grid;gap:10px;max-width:640px;margin:22px auto 0}
+.mm .mm-ben{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:center;background:#fff;border-radius:18px;padding:12px;box-shadow:0 8px 20px rgba(61,15,39,.06)}
+.mm .mm-ben img{width:72px;height:72px;border-radius:14px;object-fit:cover}
+.mm .mm-ben b{display:block;font-size:16px}.mm .mm-ben span{font-size:13.5px;line-height:1.45;color:#5a3e4d}
+.mm .mm-invite{background:var(--mm-pink);text-align:center}
+.mm .mm-stars{font-size:34px;letter-spacing:6px;color:var(--mm-berry);margin:0 0 8px}
 </style>
 <script>
 (function(){
@@ -375,6 +418,8 @@
 {
   "name": "Mëva product (long-form)",
   "settings": [
+    { "type": "number", "id": "founding_count", "label": "Founding spots taken (update daily)", "default": 24 },
+    { "type": "number", "id": "founding_total", "label": "Founding spots total", "default": 500 },
     { "type": "text", "id": "single_delivery", "label": "Delivery price for 1 jar", "default": "£4.99" },
     { "type": "text", "id": "dose_text", "label": "Dose text", "default": "Adults: chew two gummies a day. Do not exceed the stated dose. Not recommended during pregnancy or breastfeeding unless advised by a healthcare professional." },
     { "type": "textarea", "id": "ingredients", "label": "Ingredients", "default": "Glucose syrup, sugar, magnesium citrate, water, pectin (gelling agent), citric acid (acid), trisodium citrate (acidity regulator), spirulina, anthocyanins (colour), coconut oil, natural flavouring, carnauba wax (glazing agent). Made without the 14 major allergens." }
