@@ -7,3 +7,8 @@
 - Check every generated image at full size for sugar texture before showing Sara. Reject any with sugar.
 - Never reuse old sugar-coated assets (e.g. meva6-hand.jpg, meva7-macro.jpg, meva7-hand.jpg, early r1 images).
 - Jar: clear glass, SILVER lid, pink-coral label with thin gold borders: "mëva / MAGNESIUM / BERRY GUMMIES / 180mg magnesium · 2 a day / FOOD SUPPLEMENT · 60 GUMMIES".
+
+## Women in imagery — NON-NEGOTIABLE
+- Target is women 45–65, so models must look 45–55 mostly: vibrant, stylish, modern. Mix ages from mid-40s upward.
+- Do NOT default to elderly / fully silver-haired / grandmother-looking women. Grey streaks are fine; "old lady" is not.
+- In every prompt: state an age of 45–52 unless a specific older age is asked for, and describe energetic, fashionable styling.
