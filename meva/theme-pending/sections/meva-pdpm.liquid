@@ -50,7 +50,7 @@
     <div class="mx-gal">
       <div class="mx-stage" id="mx-stage">
         {%- for m in p.media -%}{%- if m.media_type == 'image' -%}
-        <div class="mx-slide">{{ m | image_url: width: 1100 | image_tag: alt: m.alt, loading: 'eager', widths: '550, 800, 1100', sizes: '(max-width: 900px) 100vw, 50vw' }}{%- if forloop.first -%}<span class="mx-free">FREE with every Founding order: <b>The Label Cheat Sheet</b></span><span class="mx-seal90">First<br>jar<br><small>guarantee</small></span>{%- endif -%}</div>
+        <div class="mx-slide">{{ m | image_url: width: 1100 | image_tag: alt: m.alt, loading: 'eager', widths: '550, 800, 1100', sizes: '(max-width: 900px) 100vw, 50vw' }}{%- if forloop.first -%}<span class="mx-free">FREE with every Founding order: <b>The Label Cheat Sheet</b></span>{%- endif -%}</div>
         {%- endif -%}{%- endfor -%}
         <button type="button" class="mx-arr l" data-mx-prev aria-label="Previous photo">‹</button><button type="button" class="mx-arr r" data-mx-next aria-label="Next photo">›</button>
       </div>
