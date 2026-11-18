@@ -108,13 +108,13 @@
   </div></section>
 
   {%- comment -%} WHY IT WORKS (carousel) {%- endcomment -%}
-  <section class="mx-sec"><div class="mx-w n">
+  <section class="mx-sec mx-why"><div class="mx-w">
     <h2 class="mx-h">Why This Magnesium Gummy Actually Works</h2>
     <div class="mx-car" data-mx-car>
-      <article><img src="{{ 'meva-car-w1.jpg' | file_img_url: '900x' }}" alt="Glossy magenta Mëva gummy with blackberries" loading="lazy"><h3>Magnesium Citrate, Named</h3><p>One mineral, one form, the exact amount on the label. 90mg magnesium in every gummy, nothing hidden in a blend.</p></article>
-      <article><img src="{{ 'meva-car-w2.jpg' | file_img_url: '900x' }}" alt="Mëva jar with the dose circled" loading="lazy"><h3>180mg, On the Front</h3><p>Two gummies give 180mg, 48% of your daily reference intake. Printed big, so you can read it from the kettle.</p></article>
-      <article><img src="{{ 'meva-car-w3.jpg' | file_img_url: '900x' }}" alt="Two gummies compared with a handful of tablets" loading="lazy"><h3>A Gummy You Remember</h3><p>No water, no big tablets. Ripe red berry, soft and glossy, chewed in four seconds. The supplement you don&#39;t skip.</p></article>
-      <article><img src="{{ 'meva-car-w4.jpg' | file_img_url: '900x' }}" alt="What&#39;s inside a Mëva gummy" loading="lazy"><h3>Vegan &amp; Gelatine-Free</h3><p>Plant pectin instead of gelatine. Colours from spirulina and anthocyanins. Made without the 14 major allergens.</p></article>
+      <article><img src="{{ 'meva-car-w1.jpg' | file_img_url: '900x' }}" alt="Glossy magenta Mëva gummy with blackberries" loading="lazy"><h3>Magnesium Citrate, Named</h3><p>Many labels hide magnesium inside a &ldquo;blend&rdquo; or print the weight of the whole compound, not the mineral. Ours names one form, magnesium citrate, and gives the real amount: 90mg of magnesium in every gummy. What&#39;s on the front is what&#39;s in the jar.</p></article>
+      <article><img src="{{ 'meva-car-w2.jpg' | file_img_url: '900x' }}" alt="Mëva jar with the dose circled" loading="lazy"><h3>180mg, On the Front</h3><p>Two gummies give 180mg of magnesium, 48% of the daily Nutrient Reference Value. We print it big on the front, not in the small print, because you deserve to know exactly what you&#39;re taking. Magnesium contributes to a reduction of tiredness and fatigue.</p></article>
+      <article><img src="{{ 'meva-car-w3.jpg' | file_img_url: '900x' }}" alt="Two gummies compared with a handful of tablets" loading="lazy"><h3>A Gummy You Remember</h3><p>The best supplement is the one you actually take. No water, no big tablets to swallow, no powder to stir. Two soft, glossy berry gummies with your morning tea, chewed in four seconds. Easy enough to become a habit you keep for months, not days.</p></article>
+      <article><img src="{{ 'meva-car-w4.jpg' | file_img_url: '900x' }}" alt="What&#39;s inside a Mëva gummy" loading="lazy"><h3>Vegan &amp; Gelatine-Free</h3><p>Made with plant pectin instead of gelatine, so every gummy is vegan. Colours come from spirulina and anthocyanins. Made without the 14 major allergens, so there&#39;s nothing hidden in what you take every day.</p></article>
     </div>
     <div class="mx-nav" data-mx-nav><span class="mx-dots"></span><span><button type="button" data-p aria-label="Previous">‹</button><button type="button" data-n aria-label="Next">›</button></span></div>
   </div></section>
@@ -356,6 +356,8 @@
 .mx-car article img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
 .mx-car h3{font-size:16px;font-weight:600;margin:16px 14px 8px}.mx-car p{margin:0 14px 18px;font-size:14px;line-height:1.55;color:#333}
 .mx-car.r article{flex-basis:88%;text-align:left}.mx-car.r i{display:inline-block;margin:14px 14px 0;font-style:normal;background:var(--a);color:#fff;font-size:11px;font-weight:600;padding:4px 9px;border-radius:3px;text-transform:uppercase}
+.mx-why{background:#f5f3f4}.mx-why .mx-car article{box-shadow:0 2px 12px rgba(0,0,0,.05)}
+@media (min-width:900px){.mx-why .mx-h{font-size:34px}.mx-why .mx-car{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;overflow:visible;margin:36px 0 0;padding:0}.mx-why .mx-car article{flex:none}.mx-why .mx-car h3{font-size:18px;margin:22px 18px 12px}.mx-why .mx-car p{font-size:15px;line-height:1.7;margin:0 20px 24px}.mx-why .mx-nav{display:none}}
 .mx-nav{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:16px}
 .mx-dots{display:flex;gap:6px}.mx-dots i{width:7px;height:7px;border-radius:9px;background:#d9d9d9}.mx-dots i.on{width:22px;background:var(--a)}
 .mx-nav button{width:34px;height:34px;border-radius:50%;border:0;background:#efefef;margin:0 6px;font-size:18px;cursor:pointer}
