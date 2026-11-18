@@ -1,0 +1,23 @@
+/* why trust us (append to assets/cn.css) */
+.cn-trust{position:relative;overflow:hidden;background:var(--cn-ink);color:#FBF6EE;padding-block:72px}
+.cn-trust__mark{position:absolute;right:-140px;top:-120px;width:560px;height:560px;color:var(--cn-cinnamon);opacity:.22;pointer-events:none}
+.cn-trust__grid{position:relative;display:grid;gap:36px}
+@media(min-width:900px){.cn-trust__grid{grid-template-columns:5fr 7fr;gap:56px;align-items:center}}
+.cn-trust .cn-eyebrow{color:var(--cn-butter)}
+.cn-trust__h{font-size:clamp(32px,4.6vw,52px);line-height:1.05;font-weight:900;letter-spacing:-.02em;margin:12px 0 14px;color:#fff}
+.cn .cn-trust__h em{font-style:normal;color:var(--cn-butter);background:none;text-decoration:underline wavy var(--cn-cinnamon);text-underline-offset:7px;text-decoration-thickness:3px}
+.cn-trust__lead{color:#D9CBBB;font-size:17px;line-height:1.55;margin:0}
+.cn-trust__nots{margin-top:26px;border-top:1px solid rgba(255,255,255,.14);padding-top:18px}
+.cn-trust__notslabel{display:block;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#B9A897;margin-bottom:10px}
+.cn-trust__nots ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.cn-trust__nots li{font-size:14px;font-weight:600;color:#E8DCCB;padding:6px 12px 6px 30px;border-radius:999px;background:rgba(255,255,255,.06);position:relative;text-decoration:line-through;text-decoration-color:rgba(232,220,203,.55)}
+.cn-trust__nots li::before{content:"✕";position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:11px;color:var(--cn-cinnamon)}
+.cn-trust__cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(min-width:700px){.cn-trust__cards{grid-template-columns:repeat(3,1fr);gap:14px}}
+.cn-trust__card{background:#FFF8EE;color:var(--cn-ink);border-radius:20px;padding:18px 16px 20px;display:flex;flex-direction:column;gap:4px;border-top:5px solid var(--cn-cinnamon)}
+.cn-trust__card:nth-child(3n+2){border-top-color:var(--cn-butter)}
+.cn-trust__card:nth-child(3n){border-top-color:var(--cn-leaf)}
+.cn-trust__big{font-family:"Inter Display",inherit;font-size:30px;font-weight:900;letter-spacing:-.02em;line-height:1;color:var(--cn-cinnamon)}
+.cn-trust__title{font-size:15px;font-weight:800;margin-top:6px}
+.cn-trust__text{font-size:13px;line-height:1.45;color:var(--cn-muted)}
+@media(min-width:700px){.cn-trust__big{font-size:36px}.cn-trust__card{padding:22px 20px 24px}}

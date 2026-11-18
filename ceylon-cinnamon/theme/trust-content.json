@@ -1,0 +1,14 @@
+{"type":"cn-trust","settings":{
+ "eyebrow":"Why trust Cinnora",
+ "heading":"Proof you can <em>check</em>, not promises you can't.",
+ "text":"Every number on this page is on the pouch. If it isn't printed on the label, we don't say it.",
+ "nots_label":"What you won't find here",
+ "nots":"Fake doctors or nurses\nCopy-pasted reviews\nCountdowns that reset\nMiracle cures"},
+ "blocks":{
+  "t1":{"type":"proof","settings":{"big":"100%","title":"True Ceylon","text":"Cinnamomum verum only. No Cassia."}},
+  "t2":{"type":"proof","settings":{"big":"12:1","title":"Concentrated extract","text":"600mg extract from about 7,200mg of bark."}},
+  "t3":{"type":"proof","settings":{"big":"MCT","title":"Carried in MCT oil","text":"A smooth softgel, no cinnamon taste."}},
+  "t4":{"type":"proof","settings":{"big":"1/day","title":"One softgel","text":"With a meal. 30 per pouch."}},
+  "t5":{"type":"proof","settings":{"big":"0","title":"GMOs or gluten","text":"Non-GMO and gluten-free."}},
+  "t6":{"type":"proof","settings":{"big":"90","title":"Day guarantee","text":"Money back, even if the pouch is empty."}}},
+ "block_order":["t1","t2","t3","t4","t5","t6"]}
