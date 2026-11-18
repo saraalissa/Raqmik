@@ -1,0 +1,6 @@
+{
+  "sections": {
+    "main": { "type": "meva-adv", "settings": {} }
+  },
+  "order": ["main"]
+}

@@ -1,0 +1,155 @@
+{%- comment -%}
+  Mëva advertorial (listicle, "7 reasons"). Layout mirrors a high-converting US advertorial; content is Mëva's own.
+  Honest rules: clearly labelled as Mëva content, no invented reviews, ratings, customer counts or stock levels,
+  UK-authorised magnesium claims only. CTAs go to the product page and keep the ad's UTM tags.
+{%- endcomment -%}
+{%- liquid
+  assign pr = all_products['meva-magnesium-gummies']
+  assign v1 = pr.variants.first
+  assign v3 = pr.variants.first
+  for v in pr.variants
+    if v.title contains '3'
+      assign v3 = v
+    elsif v.title contains '1'
+      assign v1 = v
+    endif
+  endfor
+  assign was3 = v1.price | times: 3
+  assign cta = '/products/meva-magnesium-gummies?reserve=3'
+-%}
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>#header-group .hnav,#header-group .mnav,#header-group .ann,.ftr .nletter{display:none!important}</style>
+
+<article class="av">
+  <div class="av-top">Mëva Journal · <span>Advertorial</span></div>
+  <div class="av-w">
+    <h1>Why Women Over 45 Are Switching to a Magnesium Gummy With the Dose on the Front. Here&#39;s 7 Reasons Why.</h1>
+    <div class="av-by"><span class="av-av">m</span><p>Written by <b>Sara</b>,<br>founder of Mëva</p></div>
+    <blockquote class="av-q">&ldquo;Read this <b>BEFORE</b> you buy another magnesium supplement!&rdquo;</blockquote>
+
+    <div class="av-tbl">
+      <div class="h"><span></span><b class="us"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" width="40" height="60">Mëva</b><b>Magnesium tablets</b><b>Multi-blend gummies</b></div>
+      <div><span>Form</span><i class="us">Berry gummy</i><i>Large tablet</i><i>Gummy</i></div>
+      <div><span>Dose on the front</span><i class="us">Yes, 180mg</i><i>Often on the back</i><i>Rarely</i></div>
+      <div><span>Amount</span><i class="us">2 a day</i><i>1 to 3 tablets</i><i>Varies</i></div>
+      <div><span>Form named</span><i class="us">Citrate</i><i>Often oxide</i><i>Often a blend</i></div>
+      <div><span>Water needed</span><i class="us">No</i><i>Yes</i><i>No</i></div>
+    </div>
+
+    <p class="av-tldr"><b>TLDR: Mëva gives you 180mg of magnesium in two berry gummies, with the dose printed big on the front and only the UK-authorised claims.</b> 👇</p>
+
+    <h2>1. The Dose Is Printed on the Front, Not Hidden on the Back</h2>
+    <img class="av-img" src="{{ 'meva-ad-A4-feed.jpg' | file_img_url: '900x' }}" alt="Jar of Mëva with the dose circled in red: 180mg magnesium, 2 a day" loading="eager">
+    <p>Tired of turning a bottle round and squinting at tiny print, trying to work out how much magnesium you&#39;re actually getting?</p>
+    <p>On a lot of labels, the big number on the front isn&#39;t the magnesium itself. It&#39;s the whole compound. <b>The amount of magnesium is often somewhere on the back, in small type.</b></p>
+    <p>Mëva prints it on the front, big enough to read from the kettle: <b>180mg magnesium · 2 a day.</b> That&#39;s 48% of your daily reference intake, and nothing to decode.</p>
+
+    <h2>2. For the Afternoons That Run on Empty</h2>
+    <img class="av-img" src="{{ 'meva-g3-02.jpg' | file_img_url: '900x' }}" alt="What magnesium does: the authorised claims" loading="lazy">
+    <p>3pm. Kettle on again. The to-do list hasn&#39;t got any shorter, and neither has the queue of people who need something from you.</p>
+    <p>Here&#39;s what UK law allows us to say about magnesium, word for word: <b>magnesium contributes to a reduction of tiredness and fatigue.</b> It also contributes to normal psychological function and to normal muscle function.</p>
+    <p>No miracle language. No promises we can&#39;t back. Just the authorised claims, and two gummies a day.</p>
+    <p class="av-src">source: GB Nutrition and Health Claims Register, authorised claims for magnesium.</p>
+
+    <h2>3. Your Plate Might Not Be Covering It</h2>
+    <img class="av-img" src="{{ 'meva-g3-05.jpg' | file_img_url: '900x' }}" alt="What&#39;s inside a Mëva gummy" loading="lazy">
+    <p>You eat well most days. But busy days, skipped lunches and one more coffee instead of a proper meal add up quietly.</p>
+    <p>The UK&#39;s own national diet survey found that the average woman gets <b>about 83% of her recommended magnesium from food</b>, and <b>15% of women aged 19 to 64 don&#39;t reach even the minimum.</b></p>
+    <p>Two Mëva gummies add 180mg a day. The gap, covered, without overhauling your diet.</p>
+    <p class="av-src">source: National Diet and Nutrition Survey 2019&ndash;2023, OHID &amp; Food Standards Agency, 2025.</p>
+
+    <h2>4. One Form, Named on the Label: Magnesium Citrate</h2>
+    <img class="av-img" src="{{ 'meva-g3-04.jpg' | file_img_url: '900x' }}" alt="Glossy magenta Mëva gummy with blackberries" loading="lazy">
+    <p>Some magnesium products mix three or four forms into one big total, so you never know how much of each you&#39;re getting.</p>
+    <p>Mëva uses <b>one form, magnesium citrate</b>, with the exact amount on the label: 90mg in every gummy. Nothing hidden in a blend.</p>
+
+    <h2>5. A Supplement You&#39;ll Actually Remember to Take</h2>
+    <img class="av-img" src="{{ 'meva-g3-06b.jpg' | file_img_url: '900x' }}" alt="Two Mëva gummies compared with a handful of tablets" loading="lazy">
+    <p>Be honest: how many half-finished tubs of tablets are in your cupboard right now?</p>
+    <p>A supplement only works if you take it. Mëva is a <b>ripe red berry gummy</b>: soft, glossy, no water, no swallowing. Four seconds by the kettle and you&#39;re done.</p>
+    <p><b>It&#39;s not just the tablets you&#39;re tired of. It&#39;s one more chore.</b></p>
+    <p>Vegan, gelatine-free, made without the 14 major allergens. And yes, it&#39;s a gummy, so it contains sugar: the full ingredients list is on our product page.</p>
+
+    <h2>6. Women Are Already Joining the No Drama Club</h2>
+    <div class="av-grid">{%- for i in (1..4) -%}<img src="{{ 'meva-studio-' | append: i | append: '.jpg' | file_img_url: '400x' }}" alt="" loading="lazy">{%- endfor -%}</div>
+    <p class="av-cap">From our No Drama Club campaign shoot. Pictured: models.</p>
+    <p>We launch in January, and women across the UK are already saving their spot in the Founding 500. When they join, we ask one optional question: <i>&ldquo;What&#39;s draining you most right now?&rdquo;</i></p>
+    <div class="av-rev"><b>The answer we hear most</b><p class="big">&ldquo;Not feeling like me.&rdquo;</p><p>Followed by: <b>&ldquo;Carrying everyone.&rdquo;</b></p><small>Real, anonymous answers from the waitlist form. These are not product reviews: reviews open when the first jars arrive.</small></div>
+
+    <h2>7. Join the Founding 500 and Try It With Our First-Jar Guarantee</h2>
+    <img class="av-img" src="{{ 'meva-studio-3.jpg' | file_img_url: '900x' }}" alt="Woman holding a jar of Mëva and a gummy" loading="lazy">
+    <p>Founding 500 members get <b>20% off a single jar</b> on their first order, <b>free UK delivery on 2+ jars</b>, and first dibs on our small first batch. Nothing to pay today.</p>
+    <p>Give it a proper go: two gummies a day for a full jar.</p>
+    <p><b>Finish your first jar. Not for you? We&#39;ll refund it.</b> Claim within 45 days of delivery. First order only, one per household.</p>
+
+    <div class="av-offer">
+      <span class="av-tab">🖤 BLACK FRIDAY · 27&ndash;30 NOV</span>
+      <img src="{{ 'meva-g3-01.jpg' | file_img_url: '900x' }}" alt="Jar of Mëva magnesium berry gummies" loading="lazy">
+      <p class="av-big"><span>3 JARS</span> FOR THE PRICE OF 2</p>
+      <p class="av-sm">{{ v3.price | money }} for 90 days, instead of {{ was3 | money }} as single jars. Free UK delivery.</p>
+      <a class="av-cta" href="{{ cta }}">RESERVE MINE ➞</a>
+      <p class="av-end">NOTHING TO PAY TODAY</p>
+      <div class="av-row"><span>First batch: <b>small</b></span><i></i><span><b>FREE</b> Label Cheat Sheet</span></div>
+      <p class="av-g">Backed by our first-jar guarantee.</p>
+    </div>
+  </div>
+  <footer class="av-foot">© {{ 'now' | date: '%Y' }} Mëva. This is Mëva&#39;s own content about its product. Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle.</footer>
+  <a class="av-sticky" href="{{ cta }}"><span>Save up to 33%</span><b>Reserve mine ➞</b></a>
+</article>
+
+<style>
+.av{--a:#a8336a;font-family:'Open Sans',sans-serif;color:#121212;background:#fff;padding-bottom:70px}
+.av *{box-sizing:border-box}
+.av-top{background:#2a2a2a;color:#fff;text-align:center;font-weight:700;font-size:14px;padding:9px}
+.av-top span{font-weight:400;opacity:.75;font-size:12px}
+.av-w{max-width:680px;margin:0 auto;padding:0 12px}
+.av h1{font-family:'Open Sans';font-weight:800;font-size:29px;line-height:1.3;letter-spacing:.3px;margin:22px 0 16px;color:#121212}
+.av h2{font-family:'Open Sans';font-weight:700;font-size:24px;line-height:1.33;margin:40px 0 16px;color:#121212;letter-spacing:.2px}
+.av p{font-size:17px;line-height:1.42;margin:0 0 18px;letter-spacing:.3px}
+.av-by{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.av-by p{font-size:14px;margin:0;line-height:1.3}
+.av-av{width:50px;height:50px;border-radius:50%;background:var(--a);color:#fff;display:grid;place-items:center;font-weight:800;font-size:24px}
+.av-q{margin:0 0 20px;background:#f4f4f4;border-left:4px solid var(--a);padding:12px 18px;font-size:16px;line-height:1.35}
+.av-tbl{border-radius:6px;font-size:13px;margin-bottom:18px}
+.av-tbl>div{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;align-items:center;text-align:center}
+.av-tbl>div>*{padding:14px 4px}
+.av-tbl span{text-align:left;font-weight:700;font-size:13px}
+.av-tbl i{font-style:normal;color:#333}
+.av-tbl .us{background:#fbeef3;border-left:3px solid var(--a);border-right:3px solid var(--a);color:#121212}
+.av-tbl .h b{font-size:13.5px;font-weight:700;align-self:end}
+.av-tbl .h b.us{border-top:3px solid var(--a);border-radius:10px 10px 0 0;font-style:italic;color:var(--a)}
+.av-tbl .h img{display:block;width:40px;height:auto;margin:-30px auto 4px}
+.av-tbl>div:last-child .us{border-bottom:3px solid var(--a);border-radius:0 0 10px 10px}
+.av-tldr b{font-size:16px}
+.av-img{display:block;width:100%;height:auto;border-radius:10px;margin:0 0 20px}
+.av-src{font-style:italic;font-size:16px!important;color:#333}
+.av-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;border-radius:10px;overflow:hidden;margin-bottom:6px}
+.av-grid img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.av-cap{font-size:12.5px!important;color:#666;margin-bottom:18px!important}
+.av-rev{border:1px solid #e6e6e6;border-radius:8px;padding:18px;box-shadow:0 2px 10px rgba(0,0,0,.06);margin:0 0 18px}
+.av-rev>b{font-size:15px}.av-rev .big{font-size:24px;font-weight:800;margin:8px 0}.av-rev small{display:block;color:#666;font-size:12.5px;line-height:1.4}
+.av-offer{position:relative;border:1.5px dashed #999;margin:46px 0 20px;text-align:center;padding:0 0 14px}
+.av-tab{position:absolute;top:-22px;left:50%;transform:translateX(-50%);background:var(--a);color:#fff;font-weight:700;font-size:14px;padding:10px 26px;white-space:nowrap}
+.av-offer img{width:100%;display:block}
+.av-big{font-size:30px!important;font-weight:800;line-height:1.25!important;margin:12px 10px 4px!important;letter-spacing:.5px}
+.av-big span{color:#c4151c}
+.av-sm{font-size:15px!important;margin:0 14px 18px!important}
+.av-cta{display:inline-block;background:var(--a);color:#fff;font-weight:700;font-size:20px;padding:20px 48px;border-radius:40px;text-decoration:none;box-shadow:0 8px 18px rgba(0,0,0,.18)}
+.av-end{font-weight:800;font-size:14px!important;letter-spacing:1px;margin:10px 0 14px!important}
+.av-row{display:flex;justify-content:center;align-items:center;gap:20px;background:#fdf1f5;margin:0 12px;padding:10px;font-size:14px}
+.av-row i{width:1px;height:20px;background:#333}
+.av-g{font-size:14.5px!important;margin:12px 0 0!important}
+.av-foot{background:var(--a);color:#fff;text-align:center;font-size:12.5px;line-height:1.5;padding:12px 16px;max-width:680px;margin:0 auto}
+.av-sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;justify-content:space-between;align-items:center;gap:10px;background:#fff;padding:10px 14px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -4px 14px rgba(0,0,0,.1);text-decoration:none;color:#121212}
+.av-sticky span{font-weight:700;font-size:14px}
+.av-sticky b{background:var(--a);color:#fff;padding:12px 18px;border-radius:30px;font-size:15px}
+</style>
+<script>
+(function(){var UP=['utm_source','utm_medium','utm_campaign','utm_term','utm_content','placement'],q=new URLSearchParams(location.search);
+window.MV_LP='advertorial';
+document.querySelectorAll('.av a[href^="/products/"]').forEach(function(a){try{var u=new URL(a.getAttribute('href'),location.origin);UP.forEach(function(k){var v=q.get(k);if(v&&!u.searchParams.get(k))u.searchParams.set(k,v);});if(!u.searchParams.get('utm_content')&&q.get('utm_content'))u.searchParams.set('utm_content',q.get('utm_content'));u.searchParams.set('from','adv');a.href=u.pathname+u.search+'#club';}catch(e){}});})();
+</script>
+{% schema %}
+{ "name": "Mëva advertorial v2", "settings": [] }
+{% endschema %}
