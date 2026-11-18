@@ -374,7 +374,26 @@ html.mv-joined .mv5 .qj{display:none}
   </div></section>
 {%- else -%}
 <!-- ================= PRODUCT PAGE ================= -->
-  <section class="pdp mv-pdp-main"><div class="wrap">
+  <style id="mv-lean">
+/* Lean PDP (18 Nov): fewer screens, email form in the first screen on mobile */
+.mv5 .pban,.mv5 .pfacts,.mv5 .pnotes,.mv5 .plabel,.mv5 .pmonth,.mv5 .pnote{display:none!important}
+@media (max-width:860px){
+  .mv5 .pdp .gal .stage{width:min(100%,max(210px,calc(100svh - 440px)))!important}
+  .mv5 .pdp .gal .thumbs{display:none!important}
+  .mv5 .pdp .buy>.eyebrow{display:none!important}
+  .mv5 .pdp .buy>h1{font-size:30px!important;line-height:1.05!important;margin-top:4px!important}
+  .mv5 .pdp .buy{display:flex;flex-direction:column}
+  .mv5 .pdp .buy>*{order:10}
+  .mv5 .pdp .buy>.mvjoined{order:0}
+  .mv5 .pdp .buy>.eyebrow{order:1}
+  .mv5 .pdp .buy>h1{order:2}
+  .mv5 .pdp .buy>.jdgm-widget{order:3}
+  .mv5 .pdp .buy>.qj{order:4;margin-top:10px}
+  .mv5 .pdp .buy>.sub{order:5}
+  .mv5 .pdp .buy>.bfhero{order:11}
+}
+</style>
+<section class="pdp mv-pdp-main"><div class="wrap">
     <div class="gal">
       {%- if p.media.size > 0 -%}
       <div class="stage" id="mv-stage">
