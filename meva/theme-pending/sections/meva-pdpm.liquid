@@ -42,7 +42,7 @@
 
 <style>#header-group .ann,.mv5-head .ann{display:none!important}</style>
 <div class="mx">
-  <div class="mx-cd" id="mx-cd"><div><b>Black Friday</b><span>3 jars for the price of 2 · reserve now</span></div><div class="mx-timer" data-mx-cd="2026-11-27T00:00:00Z"><span><b>00</b>Days</span><span><b>00</b>Hrs</span><span><b>00</b>Min</span><span><b>00</b>Secs</span></div></div>
+  <div class="mx-cd" id="mx-cd" role="region" aria-label="Black Friday offer"><span class="mx-cd-t"><i>Black Friday</i><em class="mx-cd-s"><span class="mx-l">3 jars for the price of 2</span><span class="mx-sh">3 for 2</span></em></span><span class="mx-timer" data-mx-cd="2026-11-27T00:00:00Z" aria-label="Time left"><span><b>00</b>d</span><span><b>00</b>h</span><span><b>00</b>m</span><span><b>00</b>s</span></span></div>
   <div class="mx-marq" aria-hidden="true"><div>{%- for i in (1..2) -%}<span>✓ First-jar guarantee</span><span>✓ Free UK delivery on 2+ jars</span><span>✓ Vegan &amp; gelatine-free</span><span>✓ 180mg on the front</span><span>✓ No subscription</span>{%- endfor -%}</div></div>
 
   {%- comment -%} MAIN {%- endcomment -%}
@@ -251,12 +251,18 @@
 .mx .mx-w.n{max-width:640px}
 .mx em{font-style:normal;color:var(--a)}
 /* countdown + marquee */
-.mx-cd-top{font-family:'Plus Jakarta Sans',sans-serif;position:relative;z-index:70;background:#8e2a5a!important;color:#fff}
-.mx-cd b{font-family:Poppins,sans-serif}
-.mx-cd{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--a2);color:#fff;padding:8px 14px}
-.mx-cd b{display:block;font-family:Poppins;font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.6px}
-.mx-cd span{font-size:11.5px;opacity:.9}
-.mx-timer{display:flex;gap:6px}.mx-timer span{display:grid;text-align:center;font-size:9px;opacity:1}.mx-timer b{font-size:16px;letter-spacing:0}
+.mx-cd-top{position:relative;z-index:70;flex:none;min-height:38px;width:100%;box-sizing:border-box}
+.mx-cd{display:flex;align-items:center;justify-content:center;gap:14px;height:38px;padding:0 16px;background:#3d0f27!important;color:#fff;font:700 14px/1 'Inter',system-ui,Arial,sans-serif;white-space:nowrap;overflow:hidden}
+.mx-cd .mx-cd-t{display:flex;align-items:center;gap:8px;min-width:0}
+.mx-cd i{font-style:normal;color:#f2c46b;text-transform:uppercase;letter-spacing:.08em;font-size:12.5px}
+.mx-cd em.mx-cd-s{font-style:normal;color:#fff;overflow:hidden;text-overflow:ellipsis}
+.mx-cd em.mx-cd-s::before{content:"\00B7";margin-right:8px;color:rgba(255,255,255,.5)}
+.mx-timer{display:flex;gap:3px;font-variant-numeric:tabular-nums}
+.mx-timer span{display:inline-flex;align-items:baseline;gap:1px;background:rgba(255,255,255,.12);border-radius:5px;padding:4px 6px;font-size:11px;font-weight:600;color:rgba(255,255,255,.75)}
+.mx-timer b{font-size:13.5px;font-weight:700;color:#fff}
+@media (max-width:600px){.mx-cd{font-size:13px;gap:10px;padding:0 12px}.mx-cd i{font-size:11.5px}.mx-timer span{padding:3px 5px}.mx-timer b{font-size:12.5px}}
+.mx-cd .mx-sh{display:none}
+@media (max-width:600px){.mx-cd .mx-l{display:none}.mx-cd .mx-sh{display:inline}}
 .mx-marq{background:#3d0f27;color:#fff;overflow:hidden;white-space:nowrap;font-size:12.5px;font-weight:600;padding:9px 0;margin-bottom:14px}
 .mx-marq>div{display:inline-block;animation:mxm 26s linear infinite}.mx-marq span{margin:0 18px}
 @keyframes mxm{to{transform:translateX(-50%)}}
