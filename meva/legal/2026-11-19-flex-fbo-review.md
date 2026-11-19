@@ -4,20 +4,60 @@
 
 ---
 
-## 0. تنبيه أول: نص العقد لم يصلني
+## 0. المستندات التي راجعتها حرفياً (19 Nov 2026)
 
-عقد Flex بعنوان «Food Business Operator Agreement for Great Britain v2.2، 3 November 2026» **لم يُرفق** بهذه الرسالة.
-وبحثت عنه في بريدك وفي ملفات الجلسة والمشروع ولم أجده. في المراجعة السابقة أيضاً لم أرَ إلا ملخّصك للبنود.
+1. **FBO Agreement UK v2.2, 3 November 2026**: 6 صفحات، قرأته كاملاً.
+2. **Commercial Account Application v1.1, 8 October 2026**: صفحة واحدة، فارغة.
+3. **Invoice FF-2026-1057, 18 Nov 2026**: صفحة واحدة.
+4. **CoC-PL-541-27627-226103050** من Nutribl.
 
-لذلك:
-- كل ما يخص أرقام المواد ونصوصها أدناه مبني على **ملخّصك**. علّمته بـ **[ملخّص سارة – غير متحقق من النص]**.
-- لم أستطع تصحيح أي تلخيص مقابل النص الأصلي. هذه أول خطوة ناقصة.
-- كذلك لم تصلني: Commercial Account Application، الفاتورة FF-2026-1057، جدول الرسوم، عقد Northstar.
-- ما استطعت التحقق منه فعلاً: شهادة المطابقة من Nutribl (أرسلتِها في 18 Nov)، والمصادر الرسمية البريطانية المذكورة أدناه.
+**غير متوفر:**
+- جدول الرسوم (fee schedule) المذكور في المادتين 5 و16.1؛
+- عقد Northstar وشروطه؛
+- فاتورة Nutribl.
 
-**المطلوب منك:** أرسلي ملف PDF العقد وCommercial Account Application. عندها أطابق كل بند وأحدّث الجدول.
+### 0.1 تصحيحات على ملخّصك بعد قراءة النص
 
----
+| ملخّصك | النص الفعلي | الأثر |
+|---|---|---|
+| «Flex تقدّم بيانات التتبع خلال 4 ساعات» (المادة 12) | **العكس:** المادة 12.2 (ص4) تُلزم **Organo** بتقديم بيانات التتبع لـFlex خلال 4 ساعات في حادث سلامة، و24 ساعة لاستفسار سلطة، ويومي عمل في غير ذلك. والمادة 15.2 (ص5) تُلزمك بالرد على السلطة خلال 24 ساعة أو يومي عمل | العبء التشغيلي عليك أنتِ، وأنتِ في الولايات المتحدة. يجب أن تلتزم **Northstar** كتابة بتسليم بيانات الدفعة خلال ساعات، وإلا ستخالفين العقد عند أول حادث |
+| المادة 14.2 فقط تسمح بالحجز | **14.1 (ص4) أوسع أيضاً:** «refuse or withhold any Products… without liability» إذا كانت «sums are unpaid» أو «an Authority enquiry is open» أو «compliance concerns» | الحجز يمكن أن يحدث عبر 14.1 حتى لو حُذفت 14.2. **يجب تعديل المادتين** |
+| المادة 18.2 تستثني «قيمة المخزون» | صحيح، ونصها: «loss of profit, business, goodwill or **stock value**» | حتى لو أخطأت Flex في حجز المخزون، لن تعوّض قيمته |
+| 18.3 «استثناءات للسقف» | الاستثناءات من سقف **Flex**: «fraud, wilful default or gross negligence», والوفاة أو الإصابة بالإهمال، وما لا يجوز قانوناً | الإهمال الجسيم من Flex غير محدود، وهذا جيد لك. لكن الإهمال العادي محدود بالرسوم |
+| — (لم يُذكر) | **18.5:** Flex «does not assume, for the Customer’s benefit, any statutory liability it bears as the named operator» | Flex تتحمل المسؤولية القانونية أمام السلطات، لكنها لا تحميك منها |
+| — (لم يُذكر) | **9.2 (ص3):** يذكر نص المادة 8(1)، ثم: «Under this Agreement that requirement is met only by the FBO’s approved details» | لا يجوز وضع اسم Nutribl كمستورد على نفس العبوة مع Flex. الخياران متعارضان |
+| — (لم يُذكر) | **9.3 (ص3):** تضمنين أن أي فحص مخبري تم «by an accredited laboratory on representative samples»، و**10.1** تطلب «recent certificates of analysis» | عندك **CoC فقط بلا نتائج دفعة**. قد ترفض Flex الملف، أو تطلب فحصاً على حسابك (10.2) بلا سقف |
+| — (لم يُذكر) | **9.4 (ص3):** تضمنين أنك تحملين «all food business registrations… required for its own activities» | **يحتاج تأكيداً:** هل يلزم Organo نفسها تسجيل كمشغّل غذاء في بريطانيا رغم عدم وجود مقر؟ |
+| — (لم يُذكر) | **1.3 (ص1):** التغطية لكل SKU تحتاج «approval of the director… for each matter» | الاعتماد بيد شخص واحد، بلا مهلة زمنية |
+| — (لم يُذكر) | **المادة 3 (ص2):** «Standing» أو «Temporary»، **ولا يوجد بند تجديد أو مدة سنوية في العقد** | السنة وتجديدها مرتبطان بجدول رسوم غير موجود |
+| — (لم يُذكر) | **إقرار التوقيع (ص6):** «Providing false or misleading information may give rise to civil and criminal liability» | إقرار شخصي من الموقّعة على صحة البيانات. لا توقّعي قبل أن تكون كل بيانات المنتج مؤكدة من Nutribl |
+| 13.4 «Flex تقرر توقيت الإبلاغ» | صحيح حرفياً: «The FBO decides the timing of notification, not the Customer. The Customer shall reimburse all resulting costs on demand.» | + 13.3: إبلاغ فوري للسلطة وبدء الاسترجاع إذا رأت Flex خطراً |
+| المادة 19.3 | صحيح: «the Customer shall pay the fees pro rata and its obligations continue in full» | غموض الازدواج مع السنة المدفوعة مؤكد |
+| المادة 1.4 «الملصق قبل الاستيراد» | صحيح: «may be used only on labels it has approved in writing **before import**» + **11.1**: «No Product bearing the FBO’s name… may be imported, placed on the market or listed before…» | الدفعة مستوردة قبل العقد. الحل: الملصق لم يُطبع بعد. نحتاج **إعفاءً مكتوباً** من شرط «before import» لهذه الدفعة |
+
+### 0.2 Commercial Account Application (v1.1)
+- لا يحتوي على شروط إضافية، ولا ضمان شخصي، ولا تجديد. ✅
+- **لكن فيه:**
+  - موافقة على «all relevant financial checks… on the company **and its principal directors**»، أي فحص ائتماني شخصي محتمل عليكِ.
+  - «FLEXFRONTIER LTD reserve the full rights to reject or revoke the application **at any time without any prior notice**». هذا يتعارض مع الدفع المقدّم، والعقد لا يحتوي على استرداد.
+- يطلب رقم VAT وEORI. اكتبي: «UK VAT: applied for 16 Nov 2026 (ref VRS099001416268)»، و«EORI: not applicable».
+
+### 0.3 الفاتورة FF-2026-1057
+- **المستفيد:** Flexfrontier Ltd، حساب Wise (sort code 60-84-64، account 94815226). **يطابق اسم الطرف المتعاقد.** ✅
+- **عنوان الفاتورة:** «Capital Office 124-128 City Road»، وهو مكتب افتراضي معروف. يطابق عنوان الشركة المسجل، لكنه ليس مقر عمل فعلي.
+- **رقم VAT لـFlex:** GB531323628.
+- **وصف «Outside the scope… s.7A»:** صحيح لخدمة B2B لشركة غير مقيمة. ولا يتغيّر بعد تسجيلك كـNETP بلا مقر في بريطانيا. **(احتمال قوي)**
+- **«Launch plan, first year»، تاريخ الاستحقاق 18 Nov:** الفاتورة لا تحدد متى تبدأ السنة.
+- **16.3:** الدفع يجب أن يكون من حساب باسم Organo LLC نفسها، ليس من حسابك الشخصي.
+
+### 0.4 ما يدعم ملخّصك حرفياً
+- **7.4:** «does not test, verify or certify the Products… does not assume responsibility for their safety…».
+- **7.5:** استثناء الدور الجمركي.
+- **10.2، 10.3** (20 يوم عمل، ويشمل تغيير «supplier»).
+- **11.3، 13.2، 15.3، 16.2** («on demand, and in any case within 5 days of notice»).
+- **17.1–17.3** («not subject to any limit of liability»).
+- **19.1** («reputational risk»)، **19.2** (3 أشهر).
+- **المادتان 20، 21، و22.2** («Any change must be in writing and signed by the parties»).
 
 ## 1. الملخص التنفيذي
 
@@ -60,7 +100,7 @@
 | 14 | Northstar: لا يلزم VAT لفتح الحساب، والأسعار £0.99 / £0.35 / £3.75 / £29 | **منقول منك**. لم أرَ الرسالة ولا العقد | — |
 | 15 | Flex: الشركة رقم 17235443، والعنوان 128 City Road | **منقول منك**. لم أتحقق من Companies House | — |
 | 16 | 128 City Road, London EC1V 2NX | **ملاحظة**: هذا عنوان معروف لخدمات المكاتب الافتراضية (registered office services). ليس دليلاً على مشكلة، لكن اسألي أين تُحفظ الملفات فعلياً وأي عنوان سيُطبع على الملصق | معلومة عامة، تحتاج تأكيد |
-| 17 | كل بنود عقد Flex | **ملخّص سارة – غير متحقق من النص** | — |
+| 17 | بنود عقد Flex | **متحقق من النص v2.2** (القسم 0) | العقد، ص1–6 |
 
 ---
 
@@ -157,7 +197,7 @@
 
 ---
 
-## 4. جدول المخاطر (مبني على ملخّصك – غير متحقق من النص)
+## 4. جدول المخاطر (متحقق من نص العقد v2.2)
 
 مرتّب حسب الاحتمال × الأثر.
 
@@ -165,13 +205,15 @@
 |---|---|---|---|---|---|---|
 | 1 | 17.1، 17.3 | تعويض غير محدود لـFlex ووكلائها، يشمل أفعال المصنع والموزعين | متوسط | **عالٍ جداً** | **لا يوجد** | سقف إجمالي موحّد عبر كل البنود (الملحق §4) |
 | 2 | 16.2، 15، 10.2 | رد أي تكلفة خلال 5 أيام من الإشعار، بلا إثبات ولا موافقة مسبقة | **عالٍ** | متوسط | لا يوجد | معقولية + إثبات + موافقة مسبقة + 30 يوماً + اعتراض |
-| 3 | 14.2 | تفويض «غير قابل للإلغاء» لتوجيه Northstar بحجز المخزون بسبب خلاف مالي | متوسط | **عالٍ** (توقف المبيعات) | لا يوجد | حذف الحجز المالي، وإبقاؤه فقط لخطر سلامة فوري أو أمر سلطة |
+| 3 | 14.1 + 14.2 (ص4) | حق «withhold any Products» عند عدم الدفع (14.1) + تفويض «غير قابل للإلغاء» لتوجيه Northstar بالحجز (14.2)، بلا تعويض حتى عن قيمة المخزون (18.2) | متوسط | **عالٍ** (توقف المبيعات) | لا يوجد | حذف الحجز المالي، وإبقاؤه فقط لخطر سلامة فوري أو أمر سلطة |
 | 4 | 10.1 | اشتراطات «قبل أول استيراد»، والدفعة موجودة أصلاً | **عالٍ** | عالٍ (قد تُعتبر الدفعة خارج التغطية) | — | Lot Schedule موقّع يقبل الدفعة 27627-226103050 صراحة |
 | 5 | 1.3، 1.4، 2، 11.3 | لا تغطية قبل اعتماد مكتوب، والدفع مقدماً، ولا استرداد | متوسط | منخفض (£395) | — | استرداد كامل إذا لم يُعتمد خلال 10 أيام عمل |
 | 6 | 19.1، 19.3 | إنهاء فوري لأسباب «سمعة»، وبيع المخزون قد لا يُسمح به، ورسوم نسبية قد تتكرر | منخفض-متوسط | عالٍ | — | تضييق أسباب الإنهاء، ومهلة 90 يوماً للبيع، وعدم ازدواج الرسوم |
 | 7 | 13.4 | Flex تقرر توقيت الإبلاغ، وOrgano تتحمل التكاليف | منخفض | عالٍ | لا يوجد | تشاور مسبق إلا في الطوارئ، وتكاليف داخل السقف |
 | 8 | 18.2 | مسؤولية Flex محدودة بالرسوم (£395 تقريباً) | منخفض | متوسط | £395 | رفع أدنى للسقف (مثلاً الأكبر بين £5,000 والرسوم ×10) أو قبوله مقابل سقفنا |
-| 9 | 12 | 4 ساعات لبيانات التتبع | متوسط | متوسط | — | التزام Northstar كتابة بقدرة التتبع بالدفعة |
+| 9 | 12.2، 15.2 (ص4–5) | **Organo** ملزمة بتسليم بيانات التتبع خلال 4 ساعات، والرد على السلطة خلال 24 ساعة | متوسط | متوسط–عالٍ | — | التزام Northstar كتابة بتقارير الدفعة خلال 2–3 ساعات، وجهة اتصال 24 ساعة |
+| 9b | 9.3، 10.1، 10.2 (ص3) | تضمنين CoA معتمداً، وعندك CoC فقط. وقد تطلب Flex فحصاً على حسابك بلا سقف | **عالٍ** | متوسط (£300–£800 للفحص تقديراً) | لا يوجد | قبول Flex للـCoC للدفعة الحالية، أو فحص واحد بسقف تكلفة متفق عليه |
+| 9c | إقرار التوقيع (ص6) + Application | إقرار بصحة البيانات تحت مسؤولية «civil and criminal»، وفحص مالي للمديرين | منخفض | متوسط | — | لا توقيع قبل اكتمال بيانات Nutribl |
 | 10 | 10.3 | إشعار قبل 20 يوم عمل بأي تغيير، يشمل تغيير المصنع من Nutribl | متوسط | متوسط | — | تعهد من Nutribl بالإخطار المسبق |
 | 11 | 21 | رفض الخدمة لأسباب عقوبات أو تحقق | منخفض | متوسط | — | استرداد كامل إن رُفضت قبل الاعتماد |
 | 12 | 22 | الاتفاق الكامل والاختصاص الحصري لمحاكم England & Wales | — | متوسط | — | ملحق موقّع له أولوية، ومراجعة الـ Account Application |
@@ -195,7 +237,7 @@
 
 ## 6. الملحق التعاقدي (Addendum) – بالإنجليزية، قابل للتوقيع بعد ملء الفراغات
 
-> ملاحظة: أرقام المواد مبنية على ملخّصك. طابقيها مع النص قبل الإرسال.
+> ملاحظة: أرقام المواد متحقق منها مقابل النص v2.2.
 
 ```
 ADDENDUM No. 1 TO THE FOOD BUSINESS OPERATOR AGREEMENT FOR GREAT BRITAIN (v2.2, 3 November 2026)
@@ -220,7 +262,8 @@ each a "Party".
   "Client Liabilities" means all liabilities of the Client to Flex arising under or in connection with the Agreement, whether under any indemnity, reimbursement obligation, cost recovery, fee adjustment, damages or otherwise, including (without limitation) under Articles 10, 13, 15, 16, 17 and 19 of the Agreement.
 
 2. ACCEPTANCE OF THE PRODUCT AND THE EXISTING LOT
-2.1 Flex confirms that the requirements in Article 10.1 of the Agreement that refer to the period "before first import" are satisfied for the Existing Lot by the Client delivering the documents listed in Schedule 2 before the Approval Date, and that the Existing Lot will not be excluded from the services or treated as non-compliant only because it entered Great Britain before this Addendum.
+2.1 Flex confirms that the requirements in Articles 1.4, 10.1 and 11.1 of the Agreement that refer to the period "before import" or "before the first import" are satisfied for the Existing Lot by the Client delivering the documents listed in Schedule 2, and the Label being approved, before any unit of the Existing Lot bearing Flex's name is placed on the market. The Existing Lot will not be excluded from the services or treated as being in breach of the Agreement only because it entered Great Britain before this Addendum.
+2.1A For the Existing Lot, Flex accepts the supplier's Certificate of Conformity CoC-PL-541-27627-226103050 and the supplier's batch release statement in place of a batch certificate of analysis for the purposes of Articles 9.3 and 10.1. Any further laboratory testing requested by Flex under Article 10.2 (other than testing required by an Authority) is limited to one test panel for the Existing Lot, at a cost agreed in advance in writing.
 2.2 Flex will review the Product file within five (5) Business Days of receiving the documents in Schedule 2 and will either (a) approve the Product and label in writing, or (b) identify in writing the specific information or label changes required. The Parties will repeat this process once more for any resubmission.
 2.3 Upon written approval, Flex will confirm in writing the exact name and address to be printed on the Product label and that the Product (including the Existing Lot) is covered by the Agreement from the Approval Date.
 
@@ -246,7 +289,7 @@ each a "Party".
 5.4 All Recoverable Costs count towards the Client Cap.
 
 6. PRODUCT, STOCK AND DOCUMENTS
-6.1 Flex has no right to instruct, and will not instruct, any warehouse, fulfilment provider or carrier (including Northstar or any successor) to hold, retain, withhold or refuse to release the Client's stock for any reason relating to fees, costs, a commercial dispute or alleged non-payment. Article 14.2 is amended accordingly, and any "irrevocable authority" in it is withdrawn.
+6.1 Flex has no right to instruct, and will not instruct, any warehouse, fulfilment provider or carrier (including Northstar or any successor) to hold, retain, withhold or refuse to release the Client's stock for any reason relating to fees, costs, a commercial dispute or alleged non-payment. In Article 14.1 the words "refuse or withhold any Products" apply only in a Safety Emergency or where required by an Authority, and unpaid sums allow Flex only to suspend its services after ten (10) Business Days' written notice. Article 14.2 is amended accordingly, and any "irrevocable authority" in it is withdrawn.
 6.2 Flex may request that specific lots be held only (a) in a Safety Emergency, or (b) where required by a competent authority. Flex will notify the Client in writing at the same time or, if that is impossible, as soon as practicable and in any case within four (4) hours, giving the grounds, the lots concerned and the steps needed to release them. Any such hold ends as soon as the grounds cease. Storage and handling costs of any such hold are Recoverable Costs subject to Clause 5.
 6.3 Flex will not withhold any traceability, recall, regulatory or Product documents from the Client or from any competent authority, and Article 14.3 does not apply to such documents. The Client retains ownership of all documents and data it supplies.
 6.4 Nothing in the Agreement gives Flex any lien, security interest, title or right of retention over the Product or the Client's stock.
@@ -261,13 +304,16 @@ each a "Party".
 8.3 On termination, Flex will within five (5) Business Days provide the Client and any replacement food business operator nominated by the Client with copies of all Product files, traceability records and authority correspondence, and will cooperate in good faith with the transition, including confirming the transfer to the competent authority.
 
 9. INSURANCE
+9.0 In Article 18.2, the exclusion of "stock value" does not apply to loss caused by Flex instructing any person to retain, withhold or refuse to release the Client's stock in breach of this Addendum.
 9.1 Flex confirms it holds professional indemnity insurance of not less than GBP [ ] and will provide a certificate on request.
 9.2 The Client will use reasonable endeavours to hold product liability insurance covering sales of the Product in Great Britain from the date of the first paid sale and will provide a certificate on request.
 
 10. GENERAL
 10.1 Northern Ireland is excluded from the Agreement. The Client will not knowingly supply the Product to consumers in Northern Ireland under Flex's name.
 10.2 Flex's acting as the named food business operator does not make Flex the Client's tax representative, customs importer, or the Client's place of business for VAT purposes.
-10.3 This Addendum may be signed in counterparts and by electronic signature.
+10.3 Flex's right in the Commercial Account Application to reject or revoke the application at any time does not affect the refund rights in Clause 3. Any financial or identity checks under the Commercial Account Application or Article 21 are limited to the Client and its ultimate beneficial owners, carried out with the Client's knowledge, and do not include credit searches against any individual without that individual's separate consent.
+10.4 The time limits in Articles 12.2 and 15.2 run from receipt of a request by email at the Client's 24-hour recall contact, and Flex will copy any such request to the Client's warehouse provider where the Client has asked it to.
+10.5 This Addendum may be signed in counterparts and by electronic signature.
 
 SCHEDULE 1 – PRODUCT
 Product name: Mëva Magnesium Berry Gummies
@@ -307,7 +353,7 @@ Name: Sara Al Issa            Title: Founder           Date: __________
 
 **لا تنازل فيها:**
 1. سقف إجمالي **لكل** مبالغ Organo لـFlex، بأي رقم، مع حذف «unlimited» في 17.3.
-2. حذف حجز المخزون لأسباب مالية (14.2).
+2. حذف حجز المخزون لأسباب مالية **في 14.1 و14.2 معاً**.
 3. قبول مكتوب للدفعة الموجودة 27627-226103050.
 4. لا يوجد ضمان شخصي على سارة، ولا تجديد تلقائي.
 5. عدم حجب وثائق التتبع.
@@ -325,7 +371,7 @@ Name: Sara Al Issa            Title: Founder           Date: __________
 - **البديل 2:** foodbusinessoperator.com. اطلبي نسخة عقدهم قبل أي قرار.
 - **البديل 3:** Taylored (£1,750). أغلى، لكن اطلبي عقده لمقارنة السقف.
 
-**إذا رفضت Flex حذف 14.2:** هذا سبب كافٍ للانسحاب حسب رأيي، لأن حجز المخزون قد يوقف كل المبيعات بسبب خلاف على فاتورة.
+**إذا رفضت Flex تعديل 14.1 و14.2:** هذا سبب كافٍ للانسحاب حسب رأيي، لأن حجز المخزون قد يوقف كل المبيعات بسبب خلاف على فاتورة.
 
 ---
 
@@ -355,6 +401,8 @@ c) Evidence of Flex's food business registration with the London Borough of Isli
 d) A short explanation of the legal basis on which Flex acts as the responsible food business operator for a product marketed under the Mëva brand and imported by a third party.
 e) Confirmation of whether Flex holds professional indemnity insurance, and the limit.
 f) Confirmation that the 48-hour onboarding period is a commitment.
+g) Confirmation that, for our existing lot, the supplier's Certificate of Conformity is acceptable in place of a batch certificate of analysis (Articles 9.3 and 10.1), or, if not, which tests you would require and their likely cost.
+h) The fee schedule referred to in Articles 5 and 16.1, including any renewal fee and any charges for authority enquiries, notifications or recalls.
 
 We are happy to discuss any point by call. We will not sign or pay until the Addendum is agreed.
 
