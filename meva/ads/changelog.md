@@ -15,3 +15,10 @@ Note: these were before the agreed £45 judge-spend rule; Sara chose to act now.
 - Paused G1_real-number (120247411176510424): £5.15, 0 clicks, 0 leads.
 - Paused G2_one-form (120247411181430424): £2.05, 0 clicks, 0 leads.
 R4 CBO budget (£20) now goes to G3b only. Lead data unavailable today (Shopify disconnected) — judged on spend/clicks.
+
+## 2026-11-19 — Sara: total daily budget £50
+- R2 adset 1 (1.1 + 1.4): £30 -> £18
+- R2 adset 2 (2.2 tote): £12 -> £6
+- R3 H (H1 kettle): £10 (unchanged)
+- R4 CBO (G3b): £20 -> £16
+Total live: £50/day. R5 (£15 CBO) created but PAUSED; launching it needs rebalancing to stay at £50.
