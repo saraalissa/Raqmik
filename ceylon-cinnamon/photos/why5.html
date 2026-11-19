@@ -1,0 +1,31 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+#s{width:1440px;height:1440px;position:relative;overflow:hidden;font-family:Inter,sans-serif;background:url(man-park.png) -20px -40px/1720px auto no-repeat;background-color:#2a3a20}
+#s:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,12,6,.55),rgba(20,12,6,.05) 55%),linear-gradient(0deg,rgba(20,12,6,.75),rgba(20,12,6,0) 38%)}
+.time{position:absolute;left:64px;top:60px;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.time .d{font-weight:600;font-size:26px;opacity:.9}
+.time .t{font-family:"Inter Display";font-weight:800;font-size:120px;letter-spacing:-4px;line-height:1}
+.stack{position:absolute;left:48px;top:300px;width:520px;display:flex;flex-direction:column;gap:16px}
+.n{display:flex;gap:18px;align-items:center;background:rgba(250,246,240,.86);backdrop-filter:blur(18px);border-radius:30px;padding:20px 24px;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.app{flex:0 0 64px;height:64px;border-radius:16px;display:grid;place-items:center;font-size:34px}
+.cn{background:#A8441C}
+.cn svg{width:38px;height:38px}
+.row{flex:1;min-width:0}
+.top{display:flex;justify-content:space-between;font-size:20px;font-weight:700;color:#7A6555;letter-spacing:.5px}
+.msg{font-weight:800;font-size:27px;color:#1E1410;margin-top:4px;line-height:1.15}
+.msg sup{color:#A8441C;font-size:.6em}
+.n:nth-child(2){transform:translateX(18px)}.n:nth-child(3){transform:translateX(36px)}.n:nth-child(4){transform:translateX(18px)}
+.h{position:absolute;left:64px;bottom:118px;color:#fff;font-family:"Inter Display";font-weight:900;font-size:96px;letter-spacing:-4px;line-height:.95}
+.h b{color:#F6C945}
+.fda{position:absolute;left:64px;bottom:50px;color:rgba(255,255,255,.75);font-size:18px;font-weight:600}
+</style></head><body><div id="s">
+<div class="time"><div class="d">Thursday, a normal one</div><div class="t">8:02</div></div>
+<div class="stack">
+ <div class="n"><div class="app cn"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M12 12m-1 0a1 1 0 1 0 2 0a3 3 0 1 0-6 0a5 5 0 1 0 10 0a7 7 0 1 0-14 0a9 9 0 1 0 18 0"/></svg></div><div class="row"><div class="top"><span>CINNORA</span><span>8:02 AM</span></div><div class="msg">1 softgel with breakfast.</div></div></div>
+ <div class="n"><div class="app" style="background:#F6C945">☕</div><div class="row"><div class="top"><span>COFFEE WALK</span><span>8:30 AM</span></div><div class="msg">Out the door, feeling good.</div></div></div>
+ <div class="n"><div class="app" style="background:#E7DCCB">🥗</div><div class="row"><div class="top"><span>LUNCH</span><span>1:15 PM</span></div><div class="msg">Lighter after meals<sup>*</sup></div></div></div>
+ <div class="n"><div class="app" style="background:#1E1410;color:#F6C945;font-weight:900;font-size:30px">⚡</div><div class="row"><div class="top"><span>3 PM</span><span>3:00 PM</span></div><div class="msg">No slump. Steady energy<sup>*</sup></div></div></div>
+</div>
+<div class="h">One softgel.<br><b>A steadier day.</b></div>
+<div class="fda">*Supports healthy blood sugar. Not evaluated by the FDA. Not intended to diagnose, treat, cure or prevent any disease. Model shown.</div>
+</div></body></html>
