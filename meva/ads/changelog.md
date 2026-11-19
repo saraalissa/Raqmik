@@ -22,3 +22,8 @@ R4 CBO budget (£20) now goes to G3b only. Lead data unavailable today (Shopify 
 - R3 H (H1 kettle): £10 (unchanged)
 - R4 CBO (G3b): £20 -> £16
 Total live: £50/day. R5 (£15 CBO) created but PAUSED; launching it needs rebalancing to stay at £50.
+
+## 2026-11-19 (evening) — HOLD decision
+- Ads skill review (TCPL £15): 1.4 £82.7 / 4 sign-ups (CPL £20.7, monitor); G3b £45.5 / 2 (£22.7, monitor); 1.1, 2.2, H1 below £45 data gate (wait).
+- 18–19 Nov data contaminated by long PDP; restored 16-Nov PDP on 19 Nov. No changes, no new launches until 21 Nov.
+- Plan 21 Nov: if leads return, launch R5 at £10/day (pause 2.2 £6, R4 £16→£12), total stays £50 — only with Sara's OK.
