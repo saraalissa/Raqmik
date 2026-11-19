@@ -25,5 +25,5 @@
 
 ## Shopify themes workflow (18 Nov)
 - LIVE: "Mëva - LIVE" id 146111430715 (published 19 Nov: product page = 16 Nov version, meva-pdp). Writes to live are blocked.
-- DRAFT for edits: "Mëva - DRAFT (for edits)" id 146150785083 — exact copy of live. Long PDP archive theme: 146111332411 "Mëva - LONG PDP (archive – do not delete)"; long PDP also at ?view=m.
+- DRAFT for edits: "Mëva - DRAFT (for edits)" id 146150785083 — exact copy of live. Long PDP archive theme: 146111332411 "ARCHIVE – Long page 18 Nov – DO NOT TOUCH"; long PDP also at ?view=m.
 - Theme deletion is blocked for Claude; Sara removes old themes in admin.
