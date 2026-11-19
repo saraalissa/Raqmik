@@ -10,3 +10,6 @@ House rule for every skill: no fabricated reviews, counts, urgency, or claims (s
 - https://github.com/coreyhaines31/marketingskills (MIT, 30 skills selected; evals omitted; license copy in THIRD_PARTY_marketingskills_LICENSE.txt)
 - https://github.com/Jakeschincariol/instagram-agent-skill (MIT, all 13 ig-* skills; voice template in ig-shared/; license copy in THIRD_PARTY_instagram-agent-skill_LICENSE.txt)
 - https://github.com/borghei/claude-skills (marketing/brand-strategist; MIT + Commons Clause: free to use, may not be sold as a product; license copy in brand-strategist/LICENSE)
+
+## arabic-reel-captions
+Added 19 Nov 2026 from a zip Sara shared (Google Drive). Fonts: SIL OFL (see fonts/OFL-LICENSES.txt). Matting model: Robust Video Matting (GPL-3.0), downloaded at first use from its GitHub release.
