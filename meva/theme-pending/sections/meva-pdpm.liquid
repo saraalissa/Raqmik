@@ -461,6 +461,10 @@ html.mx-lock{overflow:hidden}
 .mx-90 .mx-90l{text-align:center}
 @media (min-width:900px){.mx-90g{display:grid;grid-template-columns:1fr 1.35fr;gap:64px;align-items:start}.mx-90 .mx-90l{text-align:left;position:sticky;top:110px}.mx-90 .mx-h{text-align:left;font-size:40px}.mx-90 .mx-lead{margin-left:0}.mx-90 .mx-obtn{margin-left:0}.mx-90 .mx-lead{text-align:left}.mx-90 .mx-gl{text-align:center;max-width:340px}.mx-90 .mx-tl{max-width:none;margin:0}.mx-tl>li>b{font-size:17px;padding:12px 18px}.mx-tl ul li{font-size:16px}.mx-ticons span{font-size:17px}}
 @media (prefers-reduced-motion:reduce){.mx-ticons>div{animation:none}}
+
+/* reserve sheet submit button (club form .btn is styled only under .mv5) */
+#mx-sheet form .btn,.mx form .btn[type=submit]{display:flex;align-items:center;justify-content:center;width:100%;min-height:56px;margin:18px 0 8px;border:0;border-radius:999px;background:var(--a);color:#fff;font:600 17px/1 Poppins,sans-serif;letter-spacing:.4px;cursor:pointer;-webkit-appearance:none;appearance:none;box-shadow:0 8px 20px rgba(168,51,106,.28)}
+#mx-sheet form .btn:active{transform:translateY(1px)}
 /* desktop sizing */
 @media (min-width:900px){
 .mx .mx-w.n{max-width:1080px}
