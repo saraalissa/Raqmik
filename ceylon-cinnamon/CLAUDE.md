@@ -306,3 +306,4 @@ n/v = not publicly verifiable from the pages fetched. Berberine-first brands whe
 - Nov 19: founder approved cn-formula section; committed on 156631302213 ("Cinnora — DRAFT"). Founder publishes.
 - Nov 19: gallery slides object-fit cover (was contain): the taller studio pouch image now fills the square like the others (only background is cropped top/bottom). Committed on 156631302213.
 - Nov 19: founder: product must look bigger in the hero. hero/hero9.html -> cn-hero-real-v9.png (same marble photo zoomed 122%, headline moved up, pill row lower). Now gallery #1 (MediaImage 33989706776645); v8 (33984485130309) detached, file kept.
+- Nov 19: cn-trust chips redone (founder disliked the black pills): one-line white strip of 4 number cells (0 gluten / 0 GMOs / 1 a day / 30 per pouch), cinnamon tilted numbers, dashed dividers. Setting format "big|small" per line. Committed on 156631302213.
