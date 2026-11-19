@@ -24,6 +24,6 @@
 - Soul 2.0 cannot draw the jar correctly. Proven workflow (18 Nov): 1) make the scene/woman in soul_2; 2) swap in the real jar with gpt_image_2_6 using [scene, product master 46327c51-a76d-4514-8f9e-5758422e4649] as references, keeping the woman and pose identical.
 
 ## Shopify themes workflow (18 Nov)
-- LIVE: "Mëva - LIVE" id 146111332411. Writes to live are blocked.
+- LIVE: "Mëva - LIVE" id 146111332411. Writes to live are blocked. (Old themes DELETE ME 1–3 were deleted 19 Nov; no rollback theme exists.)
 - DRAFT for edits: "Mëva - DRAFT (for edits)" id 146111430715 — an exact copy of live. Make all changes here, show Sara, she publishes. After she publishes, duplicate the new live as the next DRAFT so live and draft stay identical.
 - Theme deletion is blocked for Claude; Sara removes old themes in admin.
