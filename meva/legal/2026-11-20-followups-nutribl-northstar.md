@@ -24,12 +24,12 @@ Importer and label responsibility
 3b. Alternatively, would Troo Health Care Ltd itself agree to be named on the Mëva label as the responsible food business operator for Great Britain? If yes, please tell us what this involves and costs.
 
 Test documents
-5. Your most recent accredited laboratory reports for PL-541 (any recent batch).
-6. Raw-material certificates (certificates of analysis) for the magnesium citrate and the spirulina used in PL-541.
-7. If no batch results exist for lot 27627-226103050: a quote and timescale for one test panel on this lot covering magnesium content, heavy metals, PAHs and standard microbiology, carried out by a UKAS-accredited laboratory.
+4. Your most recent accredited laboratory reports for PL-541 (any recent batch).
+5. Raw-material certificates (certificates of analysis) for the magnesium citrate and the spirulina used in PL-541.
+6. If no batch results exist for lot 27627-226103050: a quote and timescale for one test panel on this lot covering magnesium content, heavy metals, PAHs and standard microbiology, carried out by a UKAS-accredited laboratory.
 
 Insurance
-8. Our records show that your product liability certificate (Aon / Markel, £5m) expired on 10 August 2026. Could you send the current renewal certificate, and confirm whether it covers products you supply to brand owners such as Organo LLC?
+7. Our records show that your product liability certificate (Aon / Markel, £5m) expired on 10 August 2026. Could you send the current renewal certificate, and confirm whether it covers products you supply to brand owners such as Organo LLC?
 
 Everything else in our 19 November email (full formula, allergen statement, recall contact and change notification) is still open, and we would be grateful for whatever you can send now.
 
