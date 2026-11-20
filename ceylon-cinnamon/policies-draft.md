@@ -34,7 +34,7 @@ We currently ship to addresses in the United States.
 
 Shipping cost
 - Free shipping on orders over $60.
-- Orders under $60: $6.95 flat rate.
+- Orders under $60: $5.00 flat rate.
 - Black Friday (Nov 27–30, 2026): free shipping on every order.
 
 How long it takes
