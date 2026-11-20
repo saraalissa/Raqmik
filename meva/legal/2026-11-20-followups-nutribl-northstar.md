@@ -13,8 +13,8 @@ Dear Alison,
 Following our email of 19 November, our food business operator has now asked for some specific documents before it can approve our label, so I am adding these to our earlier questions. The most urgent points are 1 to 3b.
 
 Order size and price
-1. What is the minimum order quantity for PL-541 under our own label? Is there any set-up, artwork or label-template fee for a first order?
-2. Which price applies at each quantity (for example 24, 50 and 100 jars), including label printing (£0.10) and application (£0.10)? We would like to confirm whether a 100-jar first order is £402 or £416 ex-VAT.
+1. Please confirm in writing that the minimum order for PL-541 is 10 jars, and whether there is any set-up, artwork or label-template fee on a first order.
+2. Please confirm the tier that applies at exactly 100 jars, i.e. whether a 100-jar first order is £402 (Tier 2, £3.82) or £416 (Tier 1, £3.96) ex-VAT including label printing and application.
 
 Manufacturer (our FBO cannot review the label without this)
 3. The legal name and full address of the manufacturing site in Spain.
@@ -52,7 +52,7 @@ Thank you for your detailed reply and for confirming the company details, the 3-
 
 Charges
 1. Which subscription schedule applies to us: the stepped one in your email (3 months free from booking-in, then £10, £22.50 and £35 per week for months 4–6, 7–9 and 10–12, and £50 per week from month 13), the £50 per week in the Pricing Guide, or the £29 per month mentioned earlier? Please confirm the total payable for months 1–12.
-2. Pick and pack £0.99 for the first item and £0.35 per additional item, packaging £0.07–£0.25 per order, Royal Mail Parcel 48hr Tracked £3.75, storage £0.15 per day per pick location, set-up fee waived.
+2. Please confirm that the other charges in your July 2026 Pricing Guide apply to us as written, with the set-up fee and goods-in waived as a Nutribl client.
 
 Northern Ireland
 3. We sell to Great Britain only. Please set a permanent instruction not to dispatch any of our orders to postcodes beginning BT, tell us how it is enforced, and notify us the same day if a BT order ever reaches you.
