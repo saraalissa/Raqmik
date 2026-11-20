@@ -1,0 +1,43 @@
+{
+ "source_store": "Cinnora (3hgcy2-vs.myshopify.com, cinnora.co)",
+ "product": {
+  "handle": "ceylon-cinnamon-softgels-with-mct-oil",
+  "title": "Ceylon Cinnamon 7200mg equivalent with MCT Oil",
+  "status": "ACTIVE", "vendor": "My Store", "productType": "Dietary Supplement",
+  "descriptionHtml": "<p>True Ceylon cinnamon (<em>Cinnamomum verum</em>) extract in MCT oil. One softgel a day.</p><ul>\n<li>600mg Ceylon cinnamon bark extract per softgel (12:1, made from about 7,200mg of dried bark)</li>\n<li>Carried in MCT oil</li>\n<li>30 softgels per pouch (30-day supply)</li>\n<li>Softgel shell contains gelatin (not vegan)</li>\n</ul><p><strong>How to use:</strong> Take one softgel daily with a meal.</p><p><strong>Guarantee:</strong> 90-Day Empty-Pouch Guarantee. Not happy? Email info@cinnora.co for a refund, even if the pouch is empty.</p><p>If you take medication (including for blood sugar or blood thinners), are pregnant or nursing, talk to your doctor before use. For adults 18+.</p><p><small>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</small></p>",
+  "seo": {"title": "Ceylon Cinnamon Softgels with MCT Oil | 7,200mg | Cinnora", "description": "True Ceylon cinnamon (Cinnamomum verum): 600mg 12:1 extract per softgel, about 7,200mg of bark, in MCT oil. One a day. 90-day money-back guarantee."},
+  "option": {"name": "Bundle"},
+  "variants": [
+   {"title": "Buy One (1 pouch)", "sku": "CIN-CEY30-1", "price": "39.99", "compareAtPrice": "59.99", "taxable": true, "inventoryPolicy": "DENY"},
+   {"title": "Buy 2 Get 1 FREE (3 pouches)", "sku": "CIN-CEY30-3", "price": "59.99", "compareAtPrice": "179.97", "taxable": true, "inventoryPolicy": "DENY"},
+   {"title": "Buy 3 Get 2 FREE (5 pouches)", "sku": "CIN-CEY30-5", "price": "89.99", "compareAtPrice": "299.95", "taxable": true, "inventoryPolicy": "DENY"}
+  ],
+  "media_in_order": [
+   ["cn-hero-real-v9.png", "Cinnora Ceylon Cinnamon softgels pouch on marble. Real Ceylon, one a day."],
+   ["cn-benefits-light.png", "What one softgel supports: healthy blood sugar, glucose metabolism, circulation, antioxidant defense, metabolism, everyday wellness"],
+   ["cn-ratio-v2.png", "12 parts bark, 1 softgel: 7,200mg of true Ceylon bark concentrated 12:1 into 600mg of extract in MCT oil. Take 1 a day."],
+   ["cn-label-v2.png", "Supplement Facts explained: 1 softgel, 600mg Ceylon cinnamon extract (Cinnamomum verum, 12:1), MCT oil, gelatin softgel"],
+   ["cn-before-after-soul4.png", "Before: heavy after meals, the 3pm slump, craving sweets. After, with 1 softgel a day: lighter after meals, steadier energy, healthy blood sugar support. Models shown."],
+   ["cn-trust-v5.png", "Why trust Cinnora: true Ceylon, every number shown, 90-day money-back, real reviews only. Gluten-free, non-GMO, no added sugar, no artificial flavors."],
+   ["cn-promise-v4.png", "90-day money-back guarantee: love it, or it's on us. Full refund even if the pouch is empty."],
+   ["cn-why-people-man5.png", "Why people take it: one softgel a day for healthy blood sugar, glucose metabolism, antioxidant support and healthy circulation. Model shown."],
+   ["cn-gift-door.png", "Ships straight to their door: buying for someone you love? Add their address at checkout"],
+   ["cn-pouch-studio-a.png", "Cinnora Ceylon Cinnamon softgels pouch, 30 softgels"]
+  ]
+ },
+ "pages": [
+  {"handle": "contact", "title": "Contact", "templateSuffix": "contact", "published": true},
+  {"handle": "lp-90-day-reading", "title": "The 90-Day Reading", "templateSuffix": "lp-reading", "published": true, "body": "<p>Landing page content is rendered by the theme template.</p>"},
+  {"handle": "7-reasons", "title": "7 reasons to test this cinnamon softgel before any other", "templateSuffix": "listicle", "published": true},
+  {"handle": "7-benefits", "title": "7 things one cinnamon softgel a day is actually for", "templateSuffix": "listicle-benefits", "published": true},
+  {"handle": "pre-ins", "title": "Support Healthy Blood Sugar", "templateSuffix": "pre-ins", "published": true},
+  {"handle": "track-your-order", "title": "Track Your Order", "templateSuffix": null, "published": false, "note": "17TRACK page lives at /apps/17TRACK (app-specific, reinstall app on new store)"},
+  {"handle": "data-sharing-opt-out", "title": "Your Privacy Choices", "note": "Shopify-generated; recreated automatically on the new store"}
+ ],
+ "menus": {
+  "main-menu": [["Home","/"],["Shop","/products/ceylon-cinnamon-softgels-with-mct-oil"],["Contact","/pages/contact"],["Track Your Order","/apps/17TRACK (reinstall 17TRACK first)"]],
+  "footer": [["Search","/search"],["Your Privacy Choices","/pages/data-sharing-opt-out"],["Track Your Order","/apps/17TRACK"]]
+ },
+ "shipping": {"zone": "US only", "standard": {"price": 5.00, "orders": "$0 to $59.99", "note": "Ships in 1-3 business days, delivered in up to 12 business days. Tracked."}, "free": {"price": 0, "orders": "$60+"}},
+ "discounts_black_friday": "Black Friday 25% off (1 & 3 pouches), 30% off (5 pouches), free shipping; scheduled Nov 27 05:00Z to Dec 1 04:59Z"
+}
