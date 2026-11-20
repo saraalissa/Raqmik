@@ -10,7 +10,7 @@ Subject: Re: PL-541 / lot 27627-226103050 – importer details, documents and la
 
 Dear Alison,
 
-Following our email of 19 November, our food business operator has now asked for some specific documents before it can approve our label, so I am adding these to our earlier questions. The most urgent points are 1 to 3b.
+Following our email of 19 November, our food business operator has now asked for some specific documents before it can approve our label, so I am adding these to our earlier questions. The most urgent points are 1 to 3a.
 
 Order size and price
 1. Please confirm in writing that the minimum order for PL-541 is 10 jars, and whether there is any set-up, artwork or label-template fee on a first order.
@@ -19,9 +19,8 @@ Order size and price
 Manufacturer (our FBO cannot review the label without this)
 3. The legal name and full address of the manufacturing site in Spain.
 
-Importer and label responsibility
+Importer (needed by our FBO, Flexfrontier Ltd)
 3a. The legal name of the company that imported lot 27627-226103050 into Great Britain. If that is Troo Health Care Ltd, could you send a short written confirmation that Troo is aware that this stock will be labelled with our appointed food business operator's name and address?
-3b. Alternatively, would Troo Health Care Ltd itself agree to be named on the Mëva label as the responsible food business operator for Great Britain? If yes, please tell us what this involves and costs.
 
 Test documents
 4. Your most recent accredited laboratory reports for PL-541 (any recent batch).
