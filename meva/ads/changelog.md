@@ -33,3 +33,6 @@ Total live: £50/day. R5 (£15 CBO) created but PAUSED; launching it needs rebal
   - 1.4: 5 / £21.29 = £4.26 · G3b: 3 / £15.65 = £5.22 · 2.2: 1 / £8.43 · H3: 1 / £8.48 · 1.1: 0 / £0.43
 - Lifetime (Shopify leads / Meta spend): 1.4 13 / £105 = £8.09 · G3b 8 / £62 = £7.78 · 1.1 3 / £31 = £10.18 · H1 2 / £16 = £8.06 · 2.2 2 / £30 = £14.81 · H3 1 / ~£11.
 - Skill call: HOLD all (none breaches 1.5× TCPL). Winners 1.4 + G3b meet lead/CPL criteria but not the 2-week rule → scale +20% from ~1 Dec. Recommend R5 test at £10/day (total £60) pending Sara's OK. FIX: Meta pixel undercount.
+
+## 2026-11-21 (Sara approved) — scale 1.4
+- R2 ad set 1 (120247382708770424, 1.4 + 1.1): daily budget £18 → £21.60 (+20%). Total ≈ £53.60/day. 2.2 NOT paused (awaiting Sara).
