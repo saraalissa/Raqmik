@@ -27,3 +27,9 @@ Total live: £50/day. R5 (£15 CBO) created but PAUSED; launching it needs rebal
 - Ads skill review (TCPL £15): 1.4 £82.7 / 4 sign-ups (CPL £20.7, monitor); G3b £45.5 / 2 (£22.7, monitor); 1.1, 2.2, H1 below £45 data gate (wait).
 - 18–19 Nov data contaminated by long PDP; restored 16-Nov PDP on 19 Nov. No changes, no new launches until 21 Nov.
 - Plan 21 Nov: if leads return, launch R5 at £10/day (pause 2.2 £6, R4 £16→£12), total stays £50 — only with Sara's OK.
+
+## 2026-11-21 — Shopify-verified CPL (ads skill, TCPL £15)
+- 20 Nov (first clean day on restored 16-Nov PDP): 10 Shopify sign-ups / £55 spend = £5.51 CPL. Meta pixel saw only 2.
+  - 1.4: 5 / £21.29 = £4.26 · G3b: 3 / £15.65 = £5.22 · 2.2: 1 / £8.43 · H3: 1 / £8.48 · 1.1: 0 / £0.43
+- Lifetime (Shopify leads / Meta spend): 1.4 13 / £105 = £8.09 · G3b 8 / £62 = £7.78 · 1.1 3 / £31 = £10.18 · H1 2 / £16 = £8.06 · 2.2 2 / £30 = £14.81 · H3 1 / ~£11.
+- Skill call: HOLD all (none breaches 1.5× TCPL). Winners 1.4 + G3b meet lead/CPL criteria but not the 2-week rule → scale +20% from ~1 Dec. Recommend R5 test at £10/day (total £60) pending Sara's OK. FIX: Meta pixel undercount.
