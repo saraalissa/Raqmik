@@ -59,7 +59,7 @@ Insurance
 Everything else in our 19 November email (full formula, allergen statement, recall contact and change notification) is still open, and we would be grateful for whatever you can send now.
 
 Preparing our first order
-8. Please hold or confirm availability of 200 jars of PL-541 from lot 27627-226103050 (BBE Mar-2028) for our first order, and send a pro-forma invoice for 200 jars including label printing and application, so we can pay as soon as the label is approved.
+8. Please confirm availability of PL-541 from lot 27627-226103050 (BBE Mar-2028) for a first order of 100 jars, and send pro-forma invoices for 50 jars and for 100 jars, including label printing and application, so we can pay as soon as the label is approved. Please also confirm the lead time for repeat orders once our label is on file.
 9. I attach our label artwork (meva-label-artwork). The only missing element is the food business operator's name and address, which our FBO will issue shortly. Could your design team check the rest of the file now against your design article, so that approval only needs that one line to be added?
 10. Once the label is approved and paid, what is the exact timeline to labelled stock transferred to Organo at Northstar?
 
@@ -100,7 +100,7 @@ Terms
 
 Orders and stock
 8. How will our Shopify orders reach you (which app or integration do you use), and what SKU codes should we set up for 1, 2 and 3-jar orders?
-9. We plan a first transfer of about 200 jars. Please confirm stock levels will be reported to us, and whether you can sync stock counts to Shopify.
+9. We plan a first transfer of 50–100 jars, then smaller repeat orders. Please confirm stock levels will be reported to us, and whether you can sync stock counts to Shopify.
 
 We will confirm the account once these points are agreed in writing.
 
