@@ -1,6 +1,6 @@
 # Follow-ups for Muse to send (approved by Sara, 20 Nov 2026)
 
-Instruction to Muse: these two emails REPLACE your unsent drafts (dossier §3.6 Nutribl lab documents and §4.6 Northstar terms). Send both exactly as written, each as a reply in the existing thread. Do not agree to anything in the replies; forward every answer to Sara with the 3-line summary.
+Instruction to Muse: SEND TODAY (Sara, 21 Nov: no delay). These two emails REPLACE your unsent drafts (dossier §3.6 Nutribl lab documents and §4.6 Northstar terms). Send both exactly as written, each as a reply in the existing thread. Do not agree to anything in the replies; forward every answer to Sara with the 3-line summary.
 
 ---
 
@@ -32,7 +32,12 @@ Insurance
 
 Everything else in our 19 November email (full formula, allergen statement, recall contact and change notification) is still open, and we would be grateful for whatever you can send now.
 
-We are not placing an order yet; we will do so once our label has been approved in writing.
+Preparing our first order
+8. Please hold or confirm availability of 200 jars of PL-541 from lot 27627-226103050 (BBE Mar-2028) for our first order, and send a pro-forma invoice for 200 jars including label printing and application, so we can pay as soon as the label is approved.
+9. I attach our label artwork (meva-label-artwork). The only missing element is the food business operator's name and address, which our FBO will issue shortly. Could your design team check the rest of the file now against your design article, so that approval only needs that one line to be added?
+10. Once the label is approved and paid, what is the exact timeline to labelled stock transferred to Organo at Northstar?
+
+We are not placing an order yet; we will pay once our label has been approved in writing.
 
 Kind regards,
 Sara Al Issa
@@ -66,6 +71,10 @@ Terms
 5. Clause 15 (lien and sale after 90 days): we would ask that it applies only to undisputed invoices that are overdue after written notice, and that our stock and lot records are never withheld where a food authority or our food business operator needs them.
 6. Clause 20 (data protection): as you will process our customers' names and addresses, could you sign a short data processing addendum under Article 28 of the UK GDPR? We can send one, or use yours.
 7. Out of working hours: is there a contact for an urgent stock hold or lot report (for example during a product recall)?
+
+Orders and stock
+8. How will our Shopify orders reach you (which app or integration do you use), and what SKU codes should we set up for 1, 2 and 3-jar orders?
+9. We plan a first transfer of about 200 jars. Please confirm stock levels will be reported to us, and whether you can sync stock counts to Shopify.
 
 We will confirm the account once these points are agreed in writing.
 

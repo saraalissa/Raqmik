@@ -1,4 +1,4 @@
-# For Muse: chase to Flex, send Monday 23 Nov 2026 (approved by Sara 21 Nov)
+# For Muse: follow-up to Flex, SEND TODAY 21 Nov 2026 (approved by Sara: no delay)
 
 Send in the existing Flex thread (arturas@flexfrontier.com, cc info@flexfrontier.com). Do not agree anything in replies; forward the answer to Sara the same day.
 
