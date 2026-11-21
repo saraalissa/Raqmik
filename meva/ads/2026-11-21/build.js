@@ -13,8 +13,8 @@ const mark=(cx,cy,rx,ry,ax1,ay1,note,ny)=>`<svg width="1080" height="1350" style
 <path d="M ${cx-22} ${cy+ry+40} L ${cx} ${cy+ry+12} L ${cx+20} ${cy+ry+42}" fill="none" stroke="#e01b24" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
 <div class="hw red" style="position:absolute;left:0;right:0;top:${ny}px;text-align:center;font-size:84px;line-height:1;transform:rotate(-3deg)">${note}</div>`;
 const T={
-N1:()=>`<div class="f"><img class="cover" src="${S}bath.png">${mark(552,916,215,58,520,1150,'no squinting at the back.',1160)}</div>`,
-N2:()=>`<div class="f"><img class="cover" src="${S}car.png">${mark(580,932,190,56,600,1160,'checked it in two seconds.',1170)}</div>`,
+N1:()=>`<div class="f"><img class="cover" src="${S}bath.png">${mark(478,893,190,50,460,1150,'no squinting at the back.',1160)}</div>`,
+N2:()=>`<div class="f"><img class="cover" src="${S}car.png">${mark(580,881,150,42,560,1150,'checked it in two seconds.',1165)}</div>`,
 G4:()=>`<div class="f" style="background:#fff">
 <div style="position:absolute;left:0;top:0;width:540px;height:1350px;background:#eceae6"></div>
 <div style="position:absolute;left:0;width:540px;top:90px;text-align:center;font-size:40px;font-weight:700;color:#8a8580">The usual</div>
