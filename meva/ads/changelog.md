@@ -42,3 +42,6 @@ Total live: £50/day. R5 (£15 CBO) created but PAUSED; launching it needs rebal
 - PAUSED (spent ≥ gate, not profitable): 2.2_tote-bag (£40.33, 2 valid sign-ups), 1.1_circled-dose (£35.46, 3), H3_supermarket (£25.43, 1), G3b_gummy-vs-capsule (£94.61, 8 = £11.83).
 - KEPT: 1.4_no-hunting (10 sign-ups at £5.18 since 20 Nov → qualifies for scaling CBO); H1_kettle (£17.46 < £18 gate, keep running).
 - Pending Sara OK: scaling CBO with 1.4 creative; N1/N2 tests; 1.4 +30% on 23 Nov (1-2 days after the 21 Nov raise).
+- BUILT (all PAUSED, waiting for Sara's go to switch on):
+  - Scaling CBO 120247489906720424 "MEVA | SCALING | CBO | Winners | GB W45-65" £25/day → ad set 120247489907320424 (broad GB women 45-65, custom conversion, 7-day click) → ad 120247489909050424 "1.4_no-hunting | SCALE" (same creative/post 1172257751894199).
+  - Test ad sets in R2 (ABO, duplicated from ad set 1): N1 120247489911500424 (ad 120247489914050424), N2 120247489912090424 (ad 120247489914800424). Budget still the copied £21.60 → set to £10 each at activation (needs Sara's token approval).
