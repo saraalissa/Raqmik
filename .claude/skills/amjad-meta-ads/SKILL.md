@@ -36,3 +36,16 @@ Source: Amjad's training video (flowchart "START HERE: Did the ad spend 2x AOV?"
 - Budget increases and new spend need Sara's OK (Windsor confirmation token). Pauses and decreases follow the rules above.
 - Log every change in `meva/ads/changelog.md`.
 - Creatives: glossy gummies only, real 250ml jar size, women 40-55 natural, GB-authorised claims only.
+
+## The flowchart (flowchart.png in this folder)
+START HERE → **Did the ad spend 2x AOV?**
+- NO → Let the ad spend 2x AOV.
+- YES → **Did it get a sale?**
+  - NO → Turn it off and analyse.
+  - YES → Double the budget (in the video Amjad recommends starting with **+30%**, not more — we use +30%).
+    → **Did the ad get more profitable sales?**
+      - NO → Slow down spend.
+      - YES → Scale budget by 30% daily.
+        → **Did the ad generate at least 10 profitable sales?**
+          - NO → Let it spend until it reaches 10 sales. If not, turn it off or keep it at a low budget based on ROAS.
+          - YES → Duplicate it to the scaling campaign.
