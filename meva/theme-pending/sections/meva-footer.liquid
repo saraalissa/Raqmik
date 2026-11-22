@@ -1,0 +1,64 @@
+{%- comment -%} Mëva v5 footer. Styles live in meva-header. 22 Nov: newsletter form also tags waitlist + founding-500 and records the ad source (UTM) like the club form. {%- endcomment -%}
+{%- liquid
+  assign shop_url = '/products/' | append: section.settings.product_handle
+  assign home = routes.root_url
+  if home == '/'
+    assign home = ''
+  endif
+-%}
+<div class="mv5"><footer class="ftr"><div class="wrap">
+  <div class="nletter" id="newsletter">
+    <div class="nltxt"><b>The No Drama Letter</b><p>Like a voice note from your most honest friend. Useful, occasionally funny. Every other Sunday.</p></div>
+    {%- form 'customer', id: 'nl-form', class: 'nlform' -%}
+      {%- if form.posted_successfully? -%}<p class="nlok">You&#39;re on the list. See you on Sunday.</p>
+      {%- else -%}
+      <input type="hidden" name="contact[tags]" value="newsletter,waitlist,founding-500">
+      <input type="hidden" name="contact[accepts_marketing]" value="true">
+      <input type="hidden" name="contact[note]" value="" data-nl-note>
+      <label class="vh" for="nl-email">Email</label><input id="nl-email" type="email" name="contact[email]" required autocomplete="email" placeholder="Your email">
+      <button type="submit">I&#39;m in</button>
+      <small>Unsubscribe any time. <a href="{{ routes.root_url }}policies/privacy-policy">Privacy policy</a>.</small>
+      {%- endif -%}
+    {%- endform -%}
+    <script>
+    (function(){var f=document.getElementById('nl-form');if(!f)return;var n=f.querySelector('[data-nl-note]');if(!n)return;
+      f.addEventListener('submit',function(){try{var q=new URLSearchParams(location.search),p=[];
+        ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','placement'].forEach(function(k){var v=q.get(k);if(v)p.push(k.replace('utm_','')+'='+v.slice(0,120));});
+        n.value='Footer newsletter'+(p.length?' | Ad: '+p.join(', '):' | page: '+location.pathname);}catch(e){}});})();
+    </script>
+  </div>
+  <style>
+  .mv5 .nletter{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;padding:0 0 36px;margin-bottom:36px;border-bottom:1px solid rgba(255,255,255,.18)}
+  .mv5 .nletter b{font-family:var(--display);font-weight:900;font-size:clamp(24px,3vw,32px);letter-spacing:-.02em}
+  .mv5 .nletter .nltxt p{margin:8px 0 0;opacity:.85;max-width:44ch}
+  .mv5 .nlform{display:flex;flex-wrap:wrap;gap:10px}
+  .mv5 .nlform input[type=email]{flex:1 1 220px;min-height:52px;border-radius:999px;border:0;padding:0 20px;font:inherit;font-size:16px}
+  .mv5 .nlform button{min-height:52px;padding:0 26px;border-radius:999px;border:0;background:#ffd84d;color:#1a1210;font-weight:800;font-size:16px;cursor:pointer}
+  .mv5 .nlform small{flex-basis:100%;opacity:.75}.mv5 .nlform small a{color:inherit}
+  .mv5 .nlok{font-weight:700}
+  .mv5 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  @media (max-width:860px){.mv5 .nletter{grid-template-columns:1fr}}
+  </style>
+  <div class="cols">
+    <div class="brand"><b>{{ section.settings.brand_name | downcase }}</b><p>{{ section.settings.tagline }}</p></div>
+    <div><h4>Shop</h4><ul><li><a href="{{ shop_url }}">Magnesium gummies</a></li><li><a href="{{ home }}/#shop">Multipacks</a></li><li><a href="{{ home }}/#faq">FAQ</a></li></ul></div>
+    <div><h4>Learn</h4><ul><li><a href="{{ routes.root_url }}pages/ingredients">What&#39;s inside</a></li><li><a href="{{ routes.root_url }}pages/why-meva">Why {{ section.settings.brand_name }}</a></li><li><a href="{{ routes.root_url }}pages/our-story">Our story</a></li></ul></div>
+    <div><h4>Help</h4><ul><li><a href="{{ routes.root_url }}pages/delivery">Delivery</a></li><li><a href="{{ routes.root_url }}pages/track-your-order">Track your order</a></li><li><a href="{{ routes.root_url }}pages/refunds">Refunds and guarantee</a></li><li><a href="{{ routes.root_url }}pages/contact">Contact us</a></li><li>{{ section.settings.contact_email }}</li></ul></div>
+    <div><h4>Legal</h4><ul><li><a href="{{ routes.root_url }}pages/privacy-policy">Privacy policy</a></li><li><a href="{{ routes.root_url }}pages/terms-of-service">Terms of service</a></li><li><a href="{{ routes.root_url }}pages/business-information">Business information</a></li></ul></div>
+  </div>
+  <div class="legal"><p>Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle. Do not exceed the recommended daily intake. Keep out of reach of young children.</p><span>&copy; {{ 'now' | date: '%Y' }} {{ section.settings.brand_name }}</span></div>
+  <p class="word" aria-hidden="true">{{ section.settings.brand_name | downcase }}</p>
+</div></footer></div>
+
+{% schema %}
+{
+  "name": "Mëva footer",
+  "enabled_on": { "groups": ["footer"] },
+  "settings": [
+    { "type": "text", "id": "brand_name", "label": "Brand name", "default": "Mëva" },
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "All dose. No drama. Packed in the UK." },
+    { "type": "text", "id": "contact_email", "label": "Contact email", "default": "info@trymeva.co" },
+    { "type": "text", "id": "product_handle", "label": "Product handle", "default": "meva-magnesium-gummies" }
+  ]
+}
+{% endschema %}
