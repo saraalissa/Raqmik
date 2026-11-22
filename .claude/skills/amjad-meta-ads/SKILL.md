@@ -65,8 +65,20 @@ The scenario that happens to 95% of people: day 1–3 ROAS 2.3 → raise 30% →
 
 The 4 questions Amjad asks before any decision (especially in this scenario):
 1. **Is the AOV high enough to scale?** Products at $30–40 AOV usually cannot stay profitable when scaling, because CPA rises with spend. Aim for AOV of at least ~$50–70 (bundles, multi-packs, upsells). Example: AOV $35: $25/day → CPA $17, 2 sales, ROAS 2.2; $50/day → CPA $24, ROAS 1.7; $100/day → CPA $40, ROAS 1.4. The one thing that never changed was the AOV.
-2–4. (not received yet — add when Sara sends the rest of the video)
+   How to raise AOV (use several at once):
+   - **Bundle offer**: sell a set instead of one item (e.g. lip gloss + beauty bag at £59.99 instead of the gloss at £35).
+   - **Quantity break**: buy 2 get 1 free, buy 3 get 2 free, etc. Check the margin still works, since you give product away.
+   - **After-sell** (post-purchase offer on the thank-you page, via an app): a complementary product at a strong discount (e.g. 50% off). A good share of buyers take it.
+   - **Cart upsell**: a complementary item in the cart.
+   Combined, these can lift AOV to ~$70–80+, so ROAS holds when scaling (e.g. 2.4 → 2.1 instead of 2.2 → 1.4). Check the margin video/numbers before launching any offer. Frame it so the customer feels they get the best deal while we get the best AOV.
+2. **Small audience.** Complex; mostly irrelevant in the US under ~$100k/month spend.
+3. **Copied angle.** Copy-pasting a big competitor's angle works at low spend, but when scaling you enter the same auction as them, and they win (higher AOV, after-sells, email flows, repeat buyers). Find your edge: a new angle, or a different segment/problem (e.g. they target women, you target men; they sell "back pain", you sell "neck pain") to open your own auction.
+4. **Weak creative.** At low spend Meta finds the few buyers; at scale a weak ad (copy, angle, creative strategy) stops selling. Fix with more audience research and more angle tests.
+(Transcript received up to here; more may follow.)
 
 ### What this means for Mëva
+- Q1 AOV: we already have a quantity break (1/2/3 jars, "3 for the price of 2 single jars"). Missing: an after-sell on the thank-you page (e.g. add a 2nd jar at a discount, or a subscription) and a cart upsell. Plan these before paid-sales scaling.
+- Q3 angle: our winning angle ("the dose, printed on the front / no hunting for the number") is our own edge, not copied. Keep building on it; don't copy competitors' menopause/sleep angles.
+- Q4 creative: keep testing new hooks on the winning angle (N1/N2) plus new angles.
 - Prices: 1 jar £24.99, 2 jars £39.98, 3 jars £49.98 → AOV is in Amjad's danger zone if most buyers take 1 jar. Before paid-sales scaling: push the 2- and 3-jar packs (default the selector to 2 jars, free delivery from 2, founders' perks on multi-packs) to lift AOV towards £45–50+.
 - Waitlist stage: tests at £10/day are below Amjad's $25–50 start; acceptable because the "AOV" here is the £6 target cost per sign-up, but note it.
