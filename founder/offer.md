@@ -38,5 +38,17 @@ After: did it work · subscription traps (competitors' top brand complaint) · r
 - Time delay: 4 → 5 (clear 30/60-day expectation instead of vague).
 - Effort & sacrifice: 5 → 7 (taste promise, no subscription, free delivery on Starter).
 
-## Re-test (same seed 61477, 20 buyers)
-See section below once the panel finishes.
+## Re-test (same seed 61477, 20 buyers, all 20 answers valid)
+| | v1 pitch | v2 "60-Day Starter" |
+| --- | --- | --- |
+| Buy now | 0 | 0 |
+| Waitlist only | 16 | 19 |
+| No interest | 4 | 1 |
+| Reason: price / trust / quality / values | 9 / 6 / 2 / 3 | 9 / 7 / 4 / 0 |
+| Median "getting expensive" / "too expensive" (per jar) | £22 / £30 | £20 / £25 |
+
+- Moved from no interest to waitlist: P001, P017, P020. The "values" objection (sugar) disappeared as a main reason once sugar grams and a lab test were promised, but it moved into "quality"/"trust".
+- Buy rate did not move. Remaining blockers: price vs Boots/H&B tablets (~£5), no reviews from real buyers, sugar (want grams or sugar-free), "tried magnesium, felt nothing", and pill-preferers wanting a tablet or smaller trial pack.
+- Reading: the offer reduced risk but cannot create trust that only real proof gives. Pre-launch, simulated buyers will not buy an unreviewed brand; treat the waitlist rise as the signal. Price sensitivity fell (£25 PME), so do not raise prices above the ladder.
+- Before launch: publish sugar grams (Nutribl label file), the lab test, and collect the first real reviews from Founding buyers (honest, post-purchase only).
+
