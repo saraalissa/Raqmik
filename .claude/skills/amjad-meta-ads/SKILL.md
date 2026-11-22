@@ -74,7 +74,7 @@ The 4 questions Amjad asks before any decision (especially in this scenario):
 2. **Small audience.** Complex; mostly irrelevant in the US under ~$100k/month spend.
 3. **Copied angle.** Copy-pasting a big competitor's angle works at low spend, but when scaling you enter the same auction as them, and they win (higher AOV, after-sells, email flows, repeat buyers). Find your edge: a new angle, or a different segment/problem (e.g. they target women, you target men; they sell "back pain", you sell "neck pain") to open your own auction.
 4. **Weak creative.** At low spend Meta finds the few buyers; at scale a weak ad (copy, angle, creative strategy) stops selling. Fix with more audience research and more angle tests.
-(Transcript received up to here; more may follow.)
+Amjad's closing point: people test hundreds of creatives a month and blame the team, the agency or "the creative", but when scaling breaks the problem is almost always one of these: **low AOV** or **a copied / weak angle**. Fix the offer (AOV) and find your own edge before making more creatives.
 
 ### What this means for Mëva
 - Q1 AOV: we already have a quantity break (1/2/3 jars, "3 for the price of 2 single jars"). Missing: an after-sell on the thank-you page (e.g. add a 2nd jar at a discount, or a subscription) and a cart upsell. Plan these before paid-sales scaling.
