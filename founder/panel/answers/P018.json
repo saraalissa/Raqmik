@@ -1,0 +1,14 @@
+{
+  "id": "P018",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "I'm careful with money since the energy bills went up, and £24.99 a month for gummies on top of my vitamin D is more than I'd spend on something I'm not sure about. The sugar and glucose syrup also put me off, as I'd rather not take sweets for my health.",
+  "objection": "Gummies with sugar in them don't sound healthy to me, and I can't tell how much sugar is in each one from what I've been shown.",
+  "would_change_my_mind": "Seeing exactly how much sugar is in each gummy, and the 20% founding discount, so a jar comes down to a price I can justify.",
+  "price_too_cheap": 8,
+  "price_cheap": 12,
+  "price_expensive": 18,
+  "price_too_expensive": 22,
+  "choice": "waitlist_only"
+}

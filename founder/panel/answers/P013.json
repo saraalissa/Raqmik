@@ -1,0 +1,14 @@
+{
+  "id": "P013",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "I tried magnesium last year and felt absolutely nothing, so I'm not in a hurry to pay for another one. The guarantee helps, but I'd want to know it does something before I spend the money.",
+  "objection": "I tried magnesium last year and noticed no difference, so why would these be any different? And I don't know if I'd like the taste or texture of a gummy at my age.",
+  "would_change_my_mind": "Real reviews from women my age saying the taste is nice and they noticed a difference after a few weeks.",
+  "price_too_cheap": 8,
+  "price_cheap": 14,
+  "price_expensive": 22,
+  "price_too_expensive": 30,
+  "choice": "waitlist_only"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "P010",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "£24.99 for one jar is nearly five times what Boots charges for magnesium, and this one has sugar and glucose syrup in it. I've never tried magnesium, so I'd want to know it does something before paying that much for a brand I've never heard of.",
+  "objection": "I don't know this brand, and £24.99 for 30 days of gummies is a lot to pay for something I haven't tried, when a Boots tub does the same job for about £5.",
+  "would_change_my_mind": "An independent lab test, or a friend I trust telling me it actually helped her tiredness, plus a price that comes down near the Boots price.",
+  "price_too_cheap": 6,
+  "price_cheap": 9,
+  "price_expensive": 20,
+  "price_too_expensive": 22,
+  "choice": "waitlist_only"
+}

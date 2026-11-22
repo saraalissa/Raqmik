@@ -1,0 +1,14 @@
+{
+  "id": "P011",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "I already take a cheap vitamin D from Boots and I'm on a tight budget, so £24.99 for one month of gummies is a lot to spend on something I'm not sure will help. I'd join the waitlist to see if the 20% off is worth it, but I wouldn't pay full price on a whim.",
+  "objection": "Does it actually do anything for tiredness, or is it just a pricey sugary gummy?",
+  "would_change_my_mind": "A clear, independent answer that magnesium really helps tiredness in women my age, plus a price I can justify against what I already spend.",
+  "price_too_cheap": 8,
+  "price_cheap": 12,
+  "price_expensive": 20,
+  "price_too_expensive": 26,
+  "choice": "waitlist_only"
+}
