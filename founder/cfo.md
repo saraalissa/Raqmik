@@ -20,6 +20,12 @@
 - Not financial, tax or legal advice: an accountant should check VAT, the US LLC structure and UK tax before money moves.
 
 ---
+## Real ad data check (22 Nov, Meta spend via Windsor ÷ Shopify waitlist tags)
+- 14–22 Nov: £690.98 spend, 46 waitlist sign-ups = **£15.02 per sign-up** (includes the days the page was broken).
+- 19–22 Nov: £259.95 / 21 = **£12.38**. 20–22 Nov: £193.70 / 18 = **£10.76**.
+- The model used £6. At £11–15 per sign-up, break-even (≤ £23 per buyer) needs **47–64% of the list to buy**, far above normal. At today's spend, first orders lose money unless the cost per sign-up returns to ~£6 or reorders are strong.
+
+---
 # Unit economics: Mëva Magnesium Berry Gummies (UK DTC) — blended order: 30% 1 jar, 50% 2 jars, 20% 3 jars
 
 Every number below comes from the input file. Nothing is looked up or guessed.
