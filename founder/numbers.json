@@ -1,0 +1,79 @@
+{
+  "business": "Mëva Magnesium Berry Gummies (UK DTC) — blended order: 30% 1 jar, 50% 2 jars, 20% 3 jars",
+  "unit": "order",
+  "price": 32.48,
+  "variable": [
+    {
+      "label": "Product 1.9 jars × £4.16 (Nutribl, incl. label)",
+      "cost": 7.9
+    },
+    {
+      "label": "3PL pick/pack/postage (Northstar, mix-weighted)",
+      "cost": 5.24
+    },
+    {
+      "label": "Card fees 3.5% of £38.98 gross",
+      "cost": 1.36
+    },
+    {
+      "label": "Taste promise + first-jar guarantee (7.5% claim × £20.83 refund)",
+      "cost": 1.56
+    },
+    {
+      "label": "Meta ads per order, blended (ESTIMATE)",
+      "cost": 21.0
+    }
+  ],
+  "fixed_monthly": [
+    {
+      "label": "Shopify",
+      "cost": 25
+    },
+    {
+      "label": "Flex FBO £395/yr",
+      "cost": 32.92
+    },
+    {
+      "label": "Data-protection fees ~£170/yr",
+      "cost": 14.17
+    },
+    {
+      "label": "Northstar subscription, year-1 average (0/£43/£98/£152 by quarter)",
+      "cost": 73
+    },
+    {
+      "label": "Product liability insurance (ESTIMATE, not bought yet)",
+      "cost": 25
+    }
+  ],
+  "startup": [
+    {
+      "label": "First stock 50 jars (ex VAT)",
+      "cost": 208
+    },
+    {
+      "label": "Batch lab test (ESTIMATE, quote pending)",
+      "cost": 350
+    },
+    {
+      "label": "Waitlist ads until launch (ESTIMATE ~£50/day × 30 days)",
+      "cost": 1500
+    }
+  ],
+  "days_per_month": 30,
+  "plan_per_day": 6,
+  "ramp_per_day": [
+    1,
+    1.5,
+    2,
+    2.5,
+    3,
+    3.5,
+    4,
+    4.5,
+    5,
+    5.5,
+    6,
+    6.5
+  ]
+}
