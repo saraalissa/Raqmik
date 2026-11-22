@@ -160,3 +160,30 @@
   });
 })();
 </script>
+<script>
+/* Email typo check (22 Nov 2026): suggests a fix for common domain typos (e.g. gmail.comm -> gmail.com) before any email form on the page is sent. */
+(function(){
+  if(window.mvEmailSuggest)return;
+  var KNOWN=['gmail.com','googlemail.com','hotmail.com','hotmail.co.uk','outlook.com','live.co.uk','live.com','msn.com','yahoo.com','yahoo.co.uk','icloud.com','me.com','aol.com','btinternet.com','sky.com','virginmedia.com','talktalk.net','ntlworld.com','mail.com','protonmail.com'];
+  function lev(a,b){var m=a.length,n=b.length,d=[],i,j;for(i=0;i<=m;i++){d[i]=[i];}for(j=0;j<=n;j++){d[0][j]=j;}
+    for(i=1;i<=m;i++)for(j=1;j<=n;j++){d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));}return d[m][n];}
+  function suggest(v){v=String(v||'').trim().toLowerCase();var at=v.lastIndexOf('@');if(at<1)return null;
+    var user=v.slice(0,at),dom=v.slice(at+1);if(!dom||KNOWN.indexOf(dom)>-1)return null;
+    var best=null,bd=9;KNOWN.forEach(function(k){var x=lev(dom,k);if(x<bd){bd=x;best=k;}});
+    if(best&&bd>0&&bd<=2&&dom.length>=5)return user+'@'+best;return null;}
+  window.mvEmailSuggest=suggest;
+  function box(inp){var b=inp.form.querySelector('.mv-emhint');if(!b){b=document.createElement('p');b.className='mv-emhint';b.setAttribute('role','alert');
+    b.style.cssText='margin:8px 0 0;padding:10px 12px;border-radius:12px;background:#fff4e5;border:1px solid #f0b46b;color:#3d0f27;font-size:14px;line-height:1.4';
+    var row=inp.closest('.qrow')||inp.closest('label')||inp;row.parentNode.insertBefore(b,row.nextSibling);}return b;}
+  function show(inp,s){var b=box(inp);b.innerHTML='';b.appendChild(document.createTextNode('Did you mean '));var st=document.createElement('b');st.textContent=s;b.appendChild(st);b.appendChild(document.createTextNode('? '));
+    var y=document.createElement('button');y.type='button';y.textContent='Yes, fix it';y.style.cssText='margin:6px 8px 0 0;padding:6px 12px;border-radius:999px;border:0;background:#3d0f27;color:#fff;font-weight:700;cursor:pointer';
+    var n=document.createElement('button');n.type='button';n.textContent='No, it’s right';n.style.cssText='margin:6px 0 0;padding:6px 12px;border-radius:999px;border:1px solid #3d0f27;background:#fff;color:#3d0f27;font-weight:700;cursor:pointer';
+    y.onclick=function(){inp.value=s;b.remove();inp.form.dataset.mvEmOk=s;};
+    n.onclick=function(){b.remove();inp.form.dataset.mvEmOk=inp.value.trim().toLowerCase();};
+    b.appendChild(document.createElement('br'));b.appendChild(y);b.appendChild(n);}
+  document.addEventListener('submit',function(e){var f=e.target;if(!f||!f.querySelector)return;var inp=f.querySelector('input[type=email]');if(!inp)return;
+    var v=inp.value.trim().toLowerCase();if(f.dataset.mvEmOk&&f.dataset.mvEmOk===v)return;var s=suggest(v);if(!s)return;
+    e.preventDefault();e.stopImmediatePropagation();show(inp,s);},true);
+  document.addEventListener('focusout',function(e){var inp=e.target;if(!inp||inp.type!=='email'||!inp.form)return;var s=suggest(inp.value);if(s)show(inp,s);},true);
+})();
+</script>
