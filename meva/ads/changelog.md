@@ -50,3 +50,4 @@ Total live: £50/day. R5 (£15 CBO) created but PAUSED; launching it needs rebal
 - 22 Nov (afternoon): found "zombie" ads that took over budget after winners were paused: 1.5_printed-big (inside 1.4's ad set), 2.5_desk (ad set 2), H2_glasses (ad set H), G5/G6 (R4 CBO). PAUSED 1.5 ad, ad set 2, ad set H, G6 ad. R4 CBO £16 → £10 with only G5_five-claims running (got 1 sign-up for ~£0.77 on 22 Nov; tiny sample) as a test until £18 gate.
 - Lesson: when pausing an ad, check the other ACTIVE ads in the same ad set/CBO, or pause the ad set.
 - Spend now ≈ £76.60/day: scaling £25, 1.4 £21.60, N1 £10, N2 £10, G5 (R4) £10.
+- 22 Nov: Sara: keep G5 running 2 days (decide 24 Nov).
