@@ -1,6 +1,6 @@
-Mëva Magnesium Berry Gummies, a new UK brand. Small glossy deep-purple pyramid gummies, berry flavour, made with pectin (vegan). They contain sugar and glucose syrup (not sugar-free).
-Two gummies a day give 180mg magnesium (as magnesium citrate), 48% of your daily reference intake. Magnesium contributes to the reduction of tiredness and fatigue, to normal psychological function and to normal muscle function. One jar = 60 gummies = 30 days.
-Prices: 1 jar £24.99, 2 jars £39.98, 3 jars £49.98. One-off purchase, no subscription. Buy only on trymeva.co, card payment online.
-Delivery in England, Scotland and Wales in 2–3 working days: £4.99, free on orders over £29.
-Guarantee: finish your first jar; if it's not for you, we refund it in full (claim within 45 days of delivery, first order only).
-Not on sale yet: join the free waitlist now. The first 500 ("Founding 500") get 20% off their first order and free delivery on 2+ jars at launch.
+Mëva Magnesium Berry Gummies, a new UK brand for women in midlife. Small glossy deep-purple pyramid gummies, berry flavour, made with pectin (vegan). They contain sugar and glucose syrup (not sugar-free); the grams of sugar per daily serving are printed on the front of the jar and on the website.
+Two gummies a day give 180mg magnesium (as magnesium citrate), 48% of your daily reference intake. Magnesium contributes to the reduction of tiredness and fatigue, to normal psychological function and to normal muscle function. Magnesium works gradually, so the routine is built for 30 to 60 days.
+The 60-Day Starter (2 jars) is £39.98 = £19.99 a jar (67p a day), free UK delivery. Also: 1 jar £24.99 + £4.99 delivery, or 3 jars £49.98 (£16.66 a jar), free delivery. One-off purchase, no subscription, nothing auto-renews. Buy only on trymeva.co, card payment online.
+Included: a 30-day check-in plan (a simple tracker and short emails on day 1, 7, 21 and 30 telling you what to expect and when). Every batch is independently lab-tested and the results are published on the website.
+Taste promise: if you don't like the taste in the first 7 days, tell us and we refund you, no need to send it back. Plus our guarantee: finish your first jar; if it's not for you, we refund it in full (claim within 45 days of delivery, first order only).
+Launch: the first batch is 50 jars. Waitlist members get 20% off any pack for the first 7 days after launch (Starter £31.98). Join the free waitlist now; nothing to pay today.

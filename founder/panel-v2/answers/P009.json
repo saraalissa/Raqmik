@@ -1,0 +1,14 @@
+{
+  "id": "P009",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "£24.99 a jar is about five times what I pay for a tub of magnesium at Boots, and I have never tried magnesium, so I would be paying a lot to find out whether I like it. I might join the free waitlist to look, but I would not commit money this week.",
+  "objection": "Why pay nearly £25 a jar for gummies when a Boots tub is about £5? I cannot tell from here whether the citrate form and the 180mg are worth that gap, and the sugar in a gummy is not something I want to take every day.",
+  "would_change_my_mind": "A clear, checkable reason the citrate gummy is worth around five times a Boots tub, and a price for one jar closer to £10.",
+  "price_too_cheap": 3,
+  "price_cheap": 6,
+  "price_expensive": 12,
+  "price_too_expensive": 18,
+  "choice": "waitlist_only"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "P007",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "Sugar and glucose syrup in a supplement I'd take every day is a hard no for me, and £24.99 for one jar is more than I'd pay without a sale. I'd join the waitlist to see if the 20% off comes up, but I won't pay full price for gummies I've never tried.",
+  "objection": "It's a sugar-laden gummy from a brand I've never heard of, and I'm not convinced the magnesium is worth paying for at that price.",
+  "would_change_my_mind": "A real discount, or a lower sugar count per serving that I can see on the jar, plus the published lab results convincing me it's the real dose.",
+  "price_too_cheap": 8,
+  "price_cheap": 12,
+  "price_expensive": 18,
+  "price_too_expensive": 22,
+  "choice": "waitlist_only"
+}

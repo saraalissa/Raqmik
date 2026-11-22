@@ -1,0 +1,14 @@
+{
+  "id": "P002",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "Two gummies a day with sugar and glucose syrup, from a brand I've never heard of, at £19.99 a jar when I'm used to waiting for Boots 3-for-2. I'd want to see it at a proper discount before I'd even think about paying full whack.",
+  "objection": "Gummies have sugar in them, that's not healthy, and I'd be paying the full price for a sweet with magnesium in it.",
+  "would_change_my_mind": "A sugar-free or much lower-sugar magnesium option at a Boots-style price, or a 3-for-2 type offer.",
+  "price_too_cheap": 8,
+  "price_cheap": 12,
+  "price_expensive": 18,
+  "price_too_expensive": 22,
+  "choice": "waitlist_only"
+}

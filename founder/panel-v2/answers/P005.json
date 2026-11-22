@@ -1,0 +1,14 @@
+{
+  "id": "P005",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "At £24.99 a jar I can get magnesium from Boots for about £5, and I only buy when it's on 3-for-2 or a penny sale. The one-off setup and the 20% waitlist discount make it worth a look, but not at full price yet.",
+  "objection": "Is 180mg in a gummy with sugar and glucose syrup really better than a £5 tablet, and why should I pay five times more for it?",
+  "would_change_my_mind": "A proper discount or a 3-for-2 style offer on the jar, or a clear comparison showing the gummy absorbs better than the Boots tablet.",
+  "price_too_cheap": 6,
+  "price_cheap": 12,
+  "price_expensive": 19,
+  "price_too_expensive": 22,
+  "choice": "waitlist_only"
+}

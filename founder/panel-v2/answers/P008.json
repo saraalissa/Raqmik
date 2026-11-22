@@ -1,0 +1,14 @@
+{
+  "id": "P008",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "I've never bought magnesium and I'm not starting at nearly £20 a jar when Boots does it for about £5. The guarantee is nice, but I'd still be paying a lot to find out if gummies do anything for me, and I'm too busy with work and Mum to babysit a new routine.",
+  "objection": "Why pay almost four times Boots' price for the same mineral, and how do I know a 2-a-day gummy gives me the 180mg it says on the jar?",
+  "would_change_my_mind": "A proper price comparison with Boots or a supermarket magnesium, or a single-jar trial at a price close to that.",
+  "price_too_cheap": 3,
+  "price_cheap": 5,
+  "price_expensive": 12,
+  "price_too_expensive": 18,
+  "choice": "waitlist_only"
+}

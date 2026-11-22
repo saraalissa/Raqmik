@@ -1,0 +1,14 @@
+{
+  "id": "P010",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "Twenty-five pounds for a jar of gummies is five times what I pay for Boots magnesium, and they are full of sugar and glucose syrup. I have never tried magnesium, so I would want to see the lab results before paying that much for something I have only heard about from friends and Instagram.",
+  "objection": "Why should I pay five times the Boots price for gummies with sugar in them, when I have never tried magnesium and cannot tell if it will do anything for me?",
+  "would_change_my_mind": "A much lower price, close to the Boots price, or a free or cheap single jar to try before committing to more.",
+  "price_too_cheap": 4,
+  "price_cheap": 7,
+  "price_expensive": 15,
+  "price_too_expensive": 20,
+  "choice": "waitlist_only"
+}
