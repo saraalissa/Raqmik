@@ -36,3 +36,9 @@ Total live: £50/day. R5 (£15 CBO) created but PAUSED; launching it needs rebal
 
 ## 2026-11-21 (Sara approved) — scale 1.4
 - R2 ad set 1 (120247382708770424, 1.4 + 1.1): daily budget £18 → £21.60 (+20%). Total ≈ £53.60/day. 2.2 NOT paused (awaiting Sara).
+
+## 2026-11-22 — Amjad rules applied (Sara: "احفظها و طبقها")
+- Gate: 3 x £6 = £18 spend + 2-3 days; profitable = sign-up ≤ £6 (Shopify).
+- PAUSED (spent ≥ gate, not profitable): 2.2_tote-bag (£40.33, 2 valid sign-ups), 1.1_circled-dose (£35.46, 3), H3_supermarket (£25.43, 1), G3b_gummy-vs-capsule (£94.61, 8 = £11.83).
+- KEPT: 1.4_no-hunting (10 sign-ups at £5.18 since 20 Nov → qualifies for scaling CBO); H1_kettle (£17.46 < £18 gate, keep running).
+- Pending Sara OK: scaling CBO with 1.4 creative; N1/N2 tests; 1.4 +30% on 23 Nov (1-2 days after the 21 Nov raise).
