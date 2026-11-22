@@ -27,3 +27,6 @@
 - LIVE: "Mëva - LIVE" id 146111430715 (published 19 Nov: product page = 16 Nov version, meva-pdp). Writes to live are blocked.
 - DRAFT for edits: "Mëva - DRAFT (for edits)" id 146150785083 — exact copy of live. Long PDP archive theme: 146111332411 "ARCHIVE – Long page 18 Nov – DO NOT TOUCH"; long PDP also at ?view=m.
 - Theme deletion is blocked for Claude; Sara removes old themes in admin.
+
+## Media buying — Sara's rules (22 Nov)
+- Always follow `meva/ads/MEDIA-BUYING-RULES.md` for every test / scale / kill decision: wait for 2–3× AOV spend and 2–3 days; no sale → off and analyse; sale → +30% (not double); 10 profitable sales → duplicate creative into a CBO scaling campaign (1 broad ad set, winners only) and keep it running in testing too.
