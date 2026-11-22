@@ -45,3 +45,4 @@ Total live: £50/day. R5 (£15 CBO) created but PAUSED; launching it needs rebal
 - BUILT (all PAUSED, waiting for Sara's go to switch on):
   - Scaling CBO 120247489906720424 "MEVA | SCALING | CBO | Winners | GB W45-65" £25/day → ad set 120247489907320424 (broad GB women 45-65, custom conversion, 7-day click) → ad 120247489909050424 "1.4_no-hunting | SCALE" (same creative/post 1172257751894199).
   - Test ad sets in R2 (ABO, duplicated from ad set 1): N1 120247489911500424 (ad 120247489914050424), N2 120247489912090424 (ad 120247489914800424). Budget still the copied £21.60 → set to £10 each at activation (needs Sara's token approval).
+- 22 Nov (Sara: "اي ساوي التلاتة"): ENABLED scaling CBO 120247489906720424 (£25/day, ad 1.4 SCALE); N1 + N2 test ad sets £10/day each, ENABLED. Reminder set 23 Nov 10:13 London: 1.4 test ad set +30% (£21.60 → £28.08). Total now ≈ £76.60/day.
