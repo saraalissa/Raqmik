@@ -5,15 +5,16 @@
   | cost per NEW buyer | waitlist→buyer at £6 per sign-up | contribution per order | year 1 |
   | --- | --- | ---: | ---: |
   | £12 | 50% | +£8.02 | +£8,786 |
+  | £20 | 30% | +£2.42 | +£1,226 |
   | £30 | 20% | −£4.58 | −£8,224 |
   | £40 | 15% | −£11.58 | −£17,674 |
   Break-even: new buyer must cost **≤ £23** → with £6 per sign-up, **at least ~26% of the waitlist must buy** (37% if nobody reorders).
 - **Guarantees are affordable:** taste promise + first-jar refund at a 7.5% claim rate = £1.56 per order (5% → £1.04, 10% → £2.08).
 - **Founding 20% off any pack** cuts the room for ads to ~£10 per order during launch week. Fine for the warm waitlist (no new ad cost), loss-making on cold traffic: keep it for the list only.
-- **Cash.** Startup £2,058 (50 jars £208, lab test ~£350 est., waitlist ads ~£1,500 est.). If cost per buyer stays ~£30, year 1 needs ~£10k more; if the waitlist converts ≥ 30%, it pays back in about 3 months.
+- **Cash.** Startup £2,058 (50 jars £208, lab test ~£350 est., waitlist ads ~£1,500 est.). If cost per buyer stays ~£30, year 1 needs ~£10k more. At 30% list conversion (£20 per buyer) year 1 is just positive (+£1,226) but the startup is not earned back; at 50% (£12) the startup is earned back in month 6 and year 1 makes +£8,786.
 - **Three ways to improve the margin:**
   1. More buyers from the list instead of cold ads (each list buyer costs ~£0 more): the email sequence before launch is the cheapest lever.
-  2. Bigger baskets: moving the mix to 2–3 jars (e.g. 15/55/30) adds ~£3 per order before ads.
+  2. Bigger baskets: moving the mix to 15/55/30 adds only ~£0.85 per order before ads, but it gets more jars per ad pound and more days of use before a reorder.
   3. Reorders: a reminder at day 25 (no subscription). Every 10 points more repeat orders cut the blended ad cost by ~£3.
 - **Board conditions on money:** not yet met. The board wanted proof that cost per buyer < first-order profit; that needs real launch data (first 50 jars = the test).
 - Not financial, tax or legal advice: an accountant should check VAT, the US LLC structure and UK tax before money moves.
