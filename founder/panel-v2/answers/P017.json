@@ -1,0 +1,14 @@
+{
+  "id": "P017",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "It's a brand I've never heard of, with no reviews I can check on Trustpilot or Amazon, and I read every review before I buy. Sugar and glucose syrup in a supplement gummy also puts me off, even with the magnesium.",
+  "objection": "I can't check whether anyone has actually used it or felt any difference, and I can't even buy it yet, so why sign up?",
+  "would_change_my_mind": "Independent reviews from real customers on Trustpilot or Amazon, with a few saying the magnesium helped them sleep or with tiredness.",
+  "price_too_cheap": 8,
+  "price_cheap": 12,
+  "price_expensive": 22,
+  "price_too_expensive": 28,
+  "choice": "waitlist_only"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "P020",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "quality",
+  "reason": "I see sugar and glucose syrup in something sold as a health supplement and my first thought is that gummies with sugar aren't really healthy. Magnesium sounds sensible with everything I'm juggling, but I'd want to see the sugar per serving before I'd trust it.",
+  "objection": "It's sugar and glucose syrup in a supplement, so it's basically a sweet dressed up as health.",
+  "would_change_my_mind": "The sugar per daily serving stated clearly on the front and it being low enough that it doesn't feel like a sweet.",
+  "price_too_cheap": 12,
+  "price_cheap": 18,
+  "price_expensive": 25,
+  "price_too_expensive": 32,
+  "choice": "waitlist_only"
+}

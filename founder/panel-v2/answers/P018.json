@@ -1,0 +1,14 @@
+{
+  "id": "P018",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "quality",
+  "reason": "Gummies with sugar and glucose syrup in them, when I'm trying to be careful about what I put in my body. The magnesium sounds sensible, but I'd rather pay a few quid for a plain tablet from Boots that I know the ingredients of.",
+  "objection": "Sugar and glucose syrup in a supplement I'm meant to take every day. It sounds like a sweet, not a health product, and the 'grams of sugar per serving' on the jar would worry me.",
+  "would_change_my_mind": "A clear, simple explanation of how much sugar is in a serving, set against a tablet or capsule of magnesium at a similar price, plus a jar I could see and feel before paying.",
+  "price_too_cheap": 8,
+  "price_cheap": 12,
+  "price_expensive": 22,
+  "price_too_expensive": 28,
+  "choice": "waitlist_only"
+}

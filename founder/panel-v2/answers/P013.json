@@ -1,0 +1,14 @@
+{
+  "id": "P013",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "I tried magnesium tablets last year for a few weeks and felt nothing, so I'm not convinced gummies with the same amount will do more. It sounds sensible, but I've been let down by this kind of thing before.",
+  "objection": "I've already tried magnesium and felt nothing, and these are sugar and glucose syrup gummies that I'd be taking every day. I don't know if I'd like the taste or texture, and I'm not sure a new brand's claims are worth the money.",
+  "would_change_my_mind": "Seeing clear evidence that this works where the tablets didn't, such as published results I can actually check, and a taste I know I'd enjoy.",
+  "price_too_cheap": 8,
+  "price_cheap": 14,
+  "price_expensive": 22,
+  "price_too_expensive": 30,
+  "choice": "waitlist_only"
+}

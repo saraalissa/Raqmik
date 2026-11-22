@@ -1,0 +1,14 @@
+{
+  "id": "P019",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "Gummies feel like sweets to me, and I'd rather take a tablet if I'm serious about it. The £4.99 delivery on a single jar is what puts me off before I even get to the magnesium.",
+  "objection": "I don't think gummies are a serious supplement, and paying extra delivery on one jar of something I'm not sure about feels like paying to try a sweet.",
+  "would_change_my_mind": "A clear, independent reason to think gummies deliver the same magnesium as a tablet, plus free delivery on a single jar.",
+  "price_too_cheap": 8,
+  "price_cheap": 14,
+  "price_expensive": 22,
+  "price_too_expensive": 28,
+  "choice": "none"
+}
