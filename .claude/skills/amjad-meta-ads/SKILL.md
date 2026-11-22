@@ -49,3 +49,24 @@ START HERE → **Did the ad spend 2x AOV?**
         → **Did the ad generate at least 10 profitable sales?**
           - NO → Let it spend until it reaches 10 sales. If not, turn it off or keep it at a low budget based on ROAS.
           - YES → Duplicate it to the scaling campaign.
+
+## Video 2: why scaling breaks, and the 4 questions (Sara, 22 Nov; transcript partly received)
+Recap of the test rules:
+- Start each test ad set at **$25–50 a day**. Leave it 2–3 days, until it spends 2–3x AOV. Do not touch it.
+- Early kill: only if CPC is far above normal (e.g. usual CPC $1, this test $3) → after about 1.5 days, turn it off if it has no sales.
+- After 2–3 days, review. Not profitable / no sales → turn off and analyse:
+  - low hook rate → fix the hook (stronger first seconds);
+  - high CPC → the angle is probably wrong → new angle, new test.
+- Profitable → +30% (safe way; doubling is possible but riskier). Wait 2 days. Still profitable → +30% again. Results dipped but still profitable → don't raise, wait 2 more days. Not profitable (e.g. ROAS 0.9) → turn the test off. Continue to about day 7, ask again: profitable → +30% and duplicate into the CBO scaling campaign (keep the test running in the ABO testing campaign).
+
+The scenario that happens to 95% of people: day 1–3 ROAS 2.3 → raise 30% → next day ROAS 1.4–1.7 → raise again → ROAS 0.9 → turn off.
+- A ROAS dip the day after a raise is NORMAL. Wait another day before deciding.
+- Why it happens: more budget = Meta shows the ad to more, less-ready people and you enter the auction against big competitors → CPA rises. If AOV stays the same, margin disappears.
+
+The 4 questions Amjad asks before any decision (especially in this scenario):
+1. **Is the AOV high enough to scale?** Products at $30–40 AOV usually cannot stay profitable when scaling, because CPA rises with spend. Aim for AOV of at least ~$50–70 (bundles, multi-packs, upsells). Example: AOV $35: $25/day → CPA $17, 2 sales, ROAS 2.2; $50/day → CPA $24, ROAS 1.7; $100/day → CPA $40, ROAS 1.4. The one thing that never changed was the AOV.
+2–4. (not received yet — add when Sara sends the rest of the video)
+
+### What this means for Mëva
+- Prices: 1 jar £24.99, 2 jars £39.98, 3 jars £49.98 → AOV is in Amjad's danger zone if most buyers take 1 jar. Before paid-sales scaling: push the 2- and 3-jar packs (default the selector to 2 jars, free delivery from 2, founders' perks on multi-packs) to lift AOV towards £45–50+.
+- Waitlist stage: tests at £10/day are below Amjad's $25–50 start; acceptable because the "AOV" here is the £6 target cost per sign-up, but note it.
