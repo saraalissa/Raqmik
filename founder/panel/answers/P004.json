@@ -1,0 +1,14 @@
+{
+  "id": "P004",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "quality",
+  "reason": "I take my magnesium seriously, and gummies look like sweets to me, which is exactly what I don't want for something I'm taking for my health. Sugar and glucose syrup in a daily supplement puts me off, and I'd want to know the texture before spending money on a jar.",
+  "objection": "I don't know if I'd like the taste or texture, and sugar and glucose syrup in something I'd take every day worries me.",
+  "would_change_my_mind": "Hearing from a woman my age, in a similar job, that the gummies taste clean, aren't sticky or overly sweet, and that the magnesium really helped her tiredness.",
+  "price_too_cheap": 10,
+  "price_cheap": 15,
+  "price_expensive": 26,
+  "price_too_expensive": 32,
+  "choice": "waitlist_only"
+}

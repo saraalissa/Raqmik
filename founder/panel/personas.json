@@ -1,0 +1,222 @@
+[
+ {
+  "id": "P001",
+  "name": "Jacqueline Ward",
+  "age": 65,
+  "segment": "Part-time worker or early retiree on a tighter budget",
+  "income": 18000,
+  "behaviour": "Prefers tablets, sceptical of gummies",
+  "behaviour_how": "Thinks gummies are sweets for children and that tablets are the serious option.",
+  "objection": "£4.99 delivery on one jar puts me off",
+  "habit": "you're careful with money since the energy bills went up"
+ },
+ {
+  "id": "P002",
+  "name": "Nicola Evans",
+  "age": 45,
+  "segment": "Working professional in her late 40s or 50s",
+  "income": 43000,
+  "behaviour": "Deal hunter",
+  "behaviour_how": "Waits for Boots 3-for-2 and Holland & Barrett penny sales, rarely pays full price.",
+  "objection": "Gummies have sugar in them, that's not healthy",
+  "habit": "you've been sleeping badly and feel tired by mid-afternoon"
+ },
+ {
+  "id": "P003",
+  "name": "Claire Robinson",
+  "age": 50,
+  "segment": "Working professional in her late 40s or 50s",
+  "income": 53000,
+  "behaviour": "Never tried magnesium",
+  "behaviour_how": "Has heard magnesium mentioned by friends or on Instagram but never bought it.",
+  "objection": "Does it actually do anything for tiredness?",
+  "habit": "you do your weekly shop at Tesco and pick up bits in Boots"
+ },
+ {
+  "id": "P004",
+  "name": "Rachel Cooper",
+  "age": 51,
+  "segment": "Working professional in her late 40s or 50s",
+  "income": 50000,
+  "behaviour": "Prefers tablets, sceptical of gummies",
+  "behaviour_how": "Thinks gummies are sweets for children and that tablets are the serious option.",
+  "objection": "I don't know if I'd like the taste or texture",
+  "habit": "you're juggling work with looking after an elderly parent"
+ },
+ {
+  "id": "P005",
+  "name": "Michelle Green",
+  "age": 52,
+  "segment": "Senior manager or business owner",
+  "income": 98000,
+  "behaviour": "Deal hunter",
+  "behaviour_how": "Waits for Boots 3-for-2 and Holland & Barrett penny sales, rarely pays full price.",
+  "objection": "£24.99 a month is a lot when Boots magnesium is about £5",
+  "habit": "you're juggling work with looking after an elderly parent"
+ },
+ {
+  "id": "P006",
+  "name": "Deborah Hall",
+  "age": 60,
+  "segment": "Working professional in her late 40s or 50s",
+  "income": 30000,
+  "behaviour": "Current supplement taker",
+  "behaviour_how": "Takes a multivitamin or vitamin D from Boots or Holland & Barrett and restocks when it runs out.",
+  "objection": "Gummies have sugar in them, that's not healthy",
+  "habit": "you're juggling work with looking after an elderly parent"
+ },
+ {
+  "id": "P007",
+  "name": "Tracey Wood",
+  "age": 58,
+  "segment": "Senior manager or business owner",
+  "income": 70000,
+  "behaviour": "Deal hunter",
+  "behaviour_how": "Waits for Boots 3-for-2 and Holland & Barrett penny sales, rarely pays full price.",
+  "objection": "Gummies have sugar in them, that's not healthy",
+  "habit": "you do your weekly shop at Tesco and pick up bits in Boots"
+ },
+ {
+  "id": "P008",
+  "name": "Mandy Shaw",
+  "age": 56,
+  "segment": "Senior manager or business owner",
+  "income": 64000,
+  "behaviour": "Never tried magnesium",
+  "behaviour_how": "Has heard magnesium mentioned by friends or on Instagram but never bought it.",
+  "objection": "£24.99 a month is a lot when Boots magnesium is about £5",
+  "habit": "you're juggling work with looking after an elderly parent"
+ },
+ {
+  "id": "P009",
+  "name": "Alison Turner",
+  "age": 53,
+  "segment": "Working professional in her late 40s or 50s",
+  "income": 49000,
+  "behaviour": "Never tried magnesium",
+  "behaviour_how": "Has heard magnesium mentioned by friends or on Instagram but never bought it.",
+  "objection": "£24.99 a month is a lot when Boots magnesium is about £5",
+  "habit": "you do your weekly shop at Tesco and pick up bits in Boots"
+ },
+ {
+  "id": "P010",
+  "name": "Elaine Davies",
+  "age": 65,
+  "segment": "Working professional in her late 40s or 50s",
+  "income": 49000,
+  "behaviour": "Never tried magnesium",
+  "behaviour_how": "Has heard magnesium mentioned by friends or on Instagram but never bought it.",
+  "objection": "£24.99 a month is a lot when Boots magnesium is about £5",
+  "habit": "you go to a Pilates class twice a week"
+ },
+ {
+  "id": "P011",
+  "name": "Lisa Roberts",
+  "age": 50,
+  "segment": "Part-time worker or early retiree on a tighter budget",
+  "income": 24000,
+  "behaviour": "Current supplement taker",
+  "behaviour_how": "Takes a multivitamin or vitamin D from Boots or Holland & Barrett and restocks when it runs out.",
+  "objection": "Does it actually do anything for tiredness?",
+  "habit": "you're juggling work with looking after an elderly parent"
+ },
+ {
+  "id": "P012",
+  "name": "Joanne Walker",
+  "age": 54,
+  "segment": "Part-time worker or early retiree on a tighter budget",
+  "income": 20000,
+  "behaviour": "Tried magnesium before and felt nothing",
+  "behaviour_how": "Took cheap magnesium tablets for a few weeks last year, noticed no difference and stopped.",
+  "objection": "I've never heard of this brand and there are no reviews",
+  "habit": "you're careful with money since the energy bills went up"
+ },
+ {
+  "id": "P013",
+  "name": "Helen Wright",
+  "age": 58,
+  "segment": "Working professional in her late 40s or 50s",
+  "income": 50000,
+  "behaviour": "Tried magnesium before and felt nothing",
+  "behaviour_how": "Took cheap magnesium tablets for a few weeks last year, noticed no difference and stopped.",
+  "objection": "I don't know if I'd like the taste or texture",
+  "habit": "you scroll Facebook and Instagram on your phone in the evening"
+ },
+ {
+  "id": "P014",
+  "name": "Karen Mitchell",
+  "age": 60,
+  "segment": "Part-time worker or early retiree on a tighter budget",
+  "income": 26000,
+  "behaviour": "Reads every review",
+  "behaviour_how": "Checks Trustpilot and Amazon reviews before buying from any brand she does not know.",
+  "objection": "I don't know if I'd like the taste or texture",
+  "habit": "you're juggling work with looking after an elderly parent"
+ },
+ {
+  "id": "P015",
+  "name": "Gillian Morris",
+  "age": 61,
+  "segment": "Part-time worker or early retiree on a tighter budget",
+  "income": 19000,
+  "behaviour": "Current supplement taker",
+  "behaviour_how": "Takes a multivitamin or vitamin D from Boots or Holland & Barrett and restocks when it runs out.",
+  "objection": "I tried magnesium before and felt no difference",
+  "habit": "you've been sleeping badly and feel tired by mid-afternoon"
+ },
+ {
+  "id": "P016",
+  "name": "Sarah Thompson",
+  "age": 45,
+  "segment": "Working professional in her late 40s or 50s",
+  "income": 59000,
+  "behaviour": "Self-care treat buyer",
+  "behaviour_how": "Buys nice wellness products from Instagram ads as a little treat for herself.",
+  "objection": "I tried magnesium before and felt no difference",
+  "habit": "you're juggling work with looking after an elderly parent"
+ },
+ {
+  "id": "P017",
+  "name": "Lorraine Bennett",
+  "age": 49,
+  "segment": "Part-time worker or early retiree on a tighter budget",
+  "income": 25000,
+  "behaviour": "Reads every review",
+  "behaviour_how": "Checks Trustpilot and Amazon reviews before buying from any brand she does not know.",
+  "objection": "I can't even buy it yet, so why sign up?",
+  "habit": "you scroll Facebook and Instagram on your phone in the evening"
+ },
+ {
+  "id": "P018",
+  "name": "Julie Hughes",
+  "age": 47,
+  "segment": "Part-time worker or early retiree on a tighter budget",
+  "income": 20000,
+  "behaviour": "Current supplement taker",
+  "behaviour_how": "Takes a multivitamin or vitamin D from Boots or Holland & Barrett and restocks when it runs out.",
+  "objection": "Gummies have sugar in them, that's not healthy",
+  "habit": "you're careful with money since the energy bills went up"
+ },
+ {
+  "id": "P019",
+  "name": "Fiona Campbell",
+  "age": 62,
+  "segment": "Senior manager or business owner",
+  "income": 83000,
+  "behaviour": "Prefers tablets, sceptical of gummies",
+  "behaviour_how": "Thinks gummies are sweets for children and that tablets are the serious option.",
+  "objection": "£4.99 delivery on one jar puts me off",
+  "habit": "you're juggling work with looking after an elderly parent"
+ },
+ {
+  "id": "P020",
+  "name": "Angela Scott",
+  "age": 55,
+  "segment": "Working professional in her late 40s or 50s",
+  "income": 50000,
+  "behaviour": "Self-care treat buyer",
+  "behaviour_how": "Buys nice wellness products from Instagram ads as a little treat for herself.",
+  "objection": "Gummies have sugar in them, that's not healthy",
+  "habit": "you're juggling work with looking after an elderly parent"
+ }
+]

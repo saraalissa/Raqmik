@@ -1,0 +1,14 @@
+{
+  "id": "P005",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "£24.99 for one month of magnesium is about five times what Boots charges for a tub, and I only pay full price when I have to. I'd join the free waitlist to see whether the Founding 500 discount and the first-jar guarantee are as good as they sound.",
+  "objection": "Why pay this much for gummies that contain sugar and glucose syrup when a Boots 3-for-2 gets me magnesium for a few pounds a pot? I can't tell from this page whether 180mg from citrate is any better than the cheap stuff.",
+  "would_change_my_mind": "A first jar at a clearly lower price, or an independent test showing the magnesium in the jar matches the label.",
+  "price_too_cheap": 4,
+  "price_cheap": 8,
+  "price_expensive": 15,
+  "price_too_expensive": 20,
+  "choice": "waitlist_only"
+}

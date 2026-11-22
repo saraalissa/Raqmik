@@ -1,0 +1,14 @@
+{
+  "id": "P008",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "I've never tried magnesium and £24.99 for a jar of gummies is a lot when Boots magnesium is about £5. The sugar and glucose syrup in a supplement also put me off, though I'd join the waitlist to see the price at launch.",
+  "objection": "Why would I pay five times the price of a supermarket or Boots magnesium for something that is mostly sugar, when I haven't got any proof it works better?",
+  "would_change_my_mind": "A launch price much closer to the Boots price, or proof that this form of magnesium works better than the cheap tablets I can already buy.",
+  "price_too_cheap": 4,
+  "price_cheap": 8,
+  "price_expensive": 17,
+  "price_too_expensive": 22,
+  "choice": "waitlist_only"
+}

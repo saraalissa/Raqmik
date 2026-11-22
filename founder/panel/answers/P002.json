@@ -1,0 +1,14 @@
+{
+  "id": "P002",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "values",
+  "reason": "I'd join the waitlist for the 20% off, but I'm not paying full price for something with sugar and glucose syrup in it, from a brand I've never heard of. I'd want to see what the sugar actually is per gummy before I'd commit.",
+  "objection": "Gummies have sugar in them, that's not healthy, and it's a new brand with no reviews I can check.",
+  "would_change_my_mind": "Clear per-gummy sugar numbers and real reviews from women my age who've taken it for a few weeks, plus the Founding 500 discount when it launches.",
+  "price_too_cheap": 8,
+  "price_cheap": 14,
+  "price_expensive": 22,
+  "price_too_expensive": 30,
+  "choice": "waitlist_only"
+}

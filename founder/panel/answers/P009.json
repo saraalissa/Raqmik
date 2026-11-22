@@ -1,0 +1,14 @@
+{
+  "id": "P009",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "Boots magnesium is about £5 and I'd only be guessing whether these gummies work any better. £24.99 for one jar of sweets with sugar and glucose syrup in them is a lot to pay on a hunch, even with a refund promise.",
+  "objection": "I can't tell if 180mg in a gummy does anything I'd notice, and it's a brand I've never heard of with no reviews or proof beyond the wording on the label.",
+  "would_change_my_mind": "Independent reviews or a friend I trust saying they've felt a real difference, plus a price nearer the Boots one.",
+  "price_too_cheap": 7,
+  "price_cheap": 12,
+  "price_expensive": 20,
+  "price_too_expensive": 25,
+  "choice": "waitlist_only"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "P003",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "I've heard magnesium mentioned plenty, but I've never tried it and I'm not sure a gummy with sugar and glucose syrup in it is going to do much for tiredness. I'd put my name on the waitlist to see what other people say, but I wouldn't spend money on it this week.",
+  "objection": "Does it actually do anything for tiredness? The label only says it 'contributes to the reduction of tiredness', and I can't tell from that whether I'd notice a difference after a month.",
+  "would_change_my_mind": "Hearing from someone my age, or from my pharmacist or GP, that it has helped with tiredness and that the amount is right for me.",
+  "price_too_cheap": 6,
+  "price_cheap": 12,
+  "price_expensive": 20,
+  "price_too_expensive": 30,
+  "choice": "waitlist_only"
+}
