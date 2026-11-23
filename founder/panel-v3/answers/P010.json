@@ -1,0 +1,14 @@
+{
+  "id": "P010",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "I've never tried magnesium and I'm not paying nearly £20 plus delivery to find out. Boots does it for about £5, and I'd want to see what other women my age say before I spend that much on a jar of sweets.",
+  "objection": "Why should I pay four times the Boots price for gummies with sugar and glucose syrup in them, from a brand nobody has heard of, with no reviews yet?",
+  "would_change_my_mind": "Real reviews from women my age who have used it for a month or more, and a price near Boots, around £10 a jar.",
+  "price_too_cheap": 5,
+  "price_cheap": 9,
+  "price_expensive": 16,
+  "price_too_expensive": 22,
+  "choice": "later"
+}

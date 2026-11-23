@@ -1,0 +1,123 @@
+{
+ "n": 20,
+ "seed": 61477,
+ "customer": {
+  "business": "Mëva magnesium berry gummies (UK, pre-launch, online only)",
+  "target": "UK women aged 45 to 65 in England, Scotland or Wales who care about their health, shop online on their phone and buy supplements or self-care products several times a year",
+  "where": "Great Britain (England, Scotland, Wales)",
+  "age": [
+   45,
+   65
+  ],
+  "currency": "£",
+  "names": [
+   "Sarah Thompson",
+   "Karen Mitchell",
+   "Julie Hughes",
+   "Amanda Clarke",
+   "Helen Wright",
+   "Nicola Evans",
+   "Lisa Roberts",
+   "Joanne Walker",
+   "Claire Robinson",
+   "Tracey Wood",
+   "Deborah Hall",
+   "Michelle Green",
+   "Susan Baker",
+   "Alison Turner",
+   "Gillian Morris",
+   "Fiona Campbell",
+   "Rachel Cooper",
+   "Jacqueline Ward",
+   "Angela Scott",
+   "Lorraine Bennett",
+   "Catherine Price",
+   "Elaine Davies",
+   "Mandy Shaw",
+   "Sharon Kelly"
+  ],
+  "segments": [
+   {
+    "name": "Working professional in her late 40s or 50s",
+    "share": 0.45,
+    "income": [
+     28000,
+     60000
+    ]
+   },
+   {
+    "name": "Senior manager or business owner",
+    "share": 0.2,
+    "income": [
+     60000,
+     110000
+    ]
+   },
+   {
+    "name": "Part-time worker or early retiree on a tighter budget",
+    "share": 0.35,
+    "income": [
+     14000,
+     28000
+    ]
+   }
+  ],
+  "behaviours": [
+   {
+    "name": "Current supplement taker",
+    "share": 0.22,
+    "how": "Takes a multivitamin or vitamin D from Boots or Holland & Barrett and restocks when it runs out."
+   },
+   {
+    "name": "Never tried magnesium",
+    "share": 0.18,
+    "how": "Has heard magnesium mentioned by friends or on Instagram but never bought it."
+   },
+   {
+    "name": "Prefers tablets, sceptical of gummies",
+    "share": 0.15,
+    "how": "Thinks gummies are sweets for children and that tablets are the serious option."
+   },
+   {
+    "name": "Tried magnesium before and felt nothing",
+    "share": 0.12,
+    "how": "Took cheap magnesium tablets for a few weeks last year, noticed no difference and stopped."
+   },
+   {
+    "name": "Deal hunter",
+    "share": 0.13,
+    "how": "Waits for Boots 3-for-2 and Holland & Barrett penny sales, rarely pays full price."
+   },
+   {
+    "name": "Reads every review",
+    "share": 0.12,
+    "how": "Checks Trustpilot and Amazon reviews before buying from any brand she does not know."
+   },
+   {
+    "name": "Self-care treat buyer",
+    "share": 0.08,
+    "how": "Buys nice wellness products from Instagram ads as a little treat for herself."
+   }
+  ],
+  "objections": [
+   "£24.99 a month is a lot when Boots magnesium is about £5",
+   "I've never heard of this brand and there are no reviews",
+   "Gummies have sugar in them, that's not healthy",
+   "I don't know if I'd like the taste or texture",
+   "£4.99 delivery on one jar puts me off",
+   "I tried magnesium before and felt no difference",
+   "I can't even buy it yet, so why sign up?",
+   "Does it actually do anything for tiredness?"
+  ],
+  "habits": [
+   "you scroll Facebook and Instagram on your phone in the evening",
+   "you do your weekly shop at Tesco and pick up bits in Boots",
+   "you're juggling work with looking after an elderly parent",
+   "you go to a Pilates class twice a week",
+   "you've been sleeping badly and feel tired by mid-afternoon",
+   "you're careful with money since the energy bills went up"
+  ],
+  "extra_fields": ",\n  \"choice\": one of \"none\" (would not buy), \"later\" (interested, but would wait until it has shipped and has reviews), \"one_jar\" (would pre-order 1 jar now at the early access price), \"bundle\" (would pre-order the 2-jar or 3-jar pack now)"
+ },
+ "pitch": "Mëva Magnesium Berry Gummies, a new UK brand for women in midlife, launching now (no customer reviews yet). Small glossy deep-purple pyramid gummies, berry flavour, made with pectin (vegan). They contain sugar and glucose syrup (not sugar-free).\nTwo gummies a day give 180mg magnesium (as magnesium citrate), 48% of your daily reference intake, printed on the front of the jar. Magnesium contributes to the reduction of tiredness and fatigue.\nPre-order now, early access until Monday 30 November: 1 jar £19.99 (£24.99 from January) + £4.99 delivery; 2 jars £39.98 (£19.99 a jar) or 3 jars £49.98 (£16.66 a jar), both with free UK delivery. One jar lasts 30 days.\nYou pay today; we ship as soon as our first batch is ready, by mid-January at the latest. One-off purchase, no subscription, nothing renews. Buy only on trymeva.co, card payment online.\nGuarantee: finish your first jar; if it's not for you, we refund it in full (claim within 45 days of delivery, first order only)."
+}
