@@ -1,0 +1,3 @@
+# Promise made on the pre-order page (23 Nov): "30-day check-in emails: day 1, 7, 21 and 30"
+Owed to every pre-order buyer, starting from DELIVERY (not from the order date). To write before the first batch ships (by mid-January): 4 short emails (day 1 how to take it; day 7 taste check + taste question; day 21 what to expect, honest "gradual"; day 30 review request + reorder reminder). GB-authorised claims only. Claude drafts, Sara approves, Muse sets up in Shopify Email.
+Also promised on the page: "Changed your mind before we ship? Email us and we cancel your pre-order with a full refund." Sara refunds in Shopify on request.
