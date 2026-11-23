@@ -1,0 +1,14 @@
+{
+  "id": "P017",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "I read every review before I buy from a brand I don't know, and this one has none yet. I'd have to pay now for something that won't arrive until January, from a company I've never heard of.",
+  "objection": "There are no reviews, and I can't check whether a brand that's only just launched will still be around when my jar arrives.",
+  "would_change_my_mind": "Real reviews from women my age on Trustpilot or Amazon, or a shipping date I can check against a proper retailer.",
+  "price_too_cheap": 8,
+  "price_cheap": 12,
+  "price_expensive": 20,
+  "price_too_expensive": 26,
+  "choice": "later"
+}

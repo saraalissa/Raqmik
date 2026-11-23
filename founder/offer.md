@@ -52,3 +52,15 @@ After: did it work · subscription traps (competitors' top brand complaint) · r
 - Reading: the offer reduced risk but cannot create trust that only real proof gives. Pre-launch, simulated buyers will not buy an unreviewed brand; treat the waitlist rise as the signal. Price sensitivity fell (£25 PME), so do not raise prices above the ladder.
 - Before launch: publish sugar grams (Nutribl label file), the lab test, and collect the first real reviews from Founding buyers (honest, post-purchase only).
 
+
+## Re-test v3 (23 Nov): the live early-access pre-order (seed 61477, 20 buyers, all valid)
+Pitch: founder/pitch-v3.md (1 jar £19.99 early access, 2 jars £39.98, 3 jars £49.98, pay now, ships by mid-January, no reviews yet).
+- 0 buy now · 19 "later" (interested, would wait for shipping + reviews) · 1 none.
+- Reasons: trust 12, price 6, quality 1, values 1. Median price points: cheap £12, getting expensive £19.99, too expensive £25.
+- Top blockers: no reviews from women their age (almost all), paying today for a January delivery, sugar, "tried magnesium before, nothing", £4.99 delivery on one jar, Boots ~£5.
+- Reading (offer lens): price is now inside the range (£19.99 = "getting expensive", not "too expensive"). The gap is trust and risk of pre-paying. Cheapest fixes, all honest:
+  1. Pre-order safety line: "Change your mind before we ship? Cancel for a full refund." (UK buyers can cancel a distance order before delivery anyway; costs almost nothing.)
+  2. Real trust signals on the page: founder face + story, UK BRCGS-certified supplier, made under GMP, lab test results when ready, the real waitlist count. No fake reviews.
+  3. Sugar grams on the page as soon as Nutribl sends them.
+  4. Optional: free delivery on 1 jar during early access (1-jar profit ~£11 → ~£6). Only if 1-jar orders stall.
+- Simulated buyers never pre-pay an unreviewed brand; real waitlist buyers (warm) are the test.

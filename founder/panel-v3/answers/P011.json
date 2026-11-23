@@ -1,0 +1,14 @@
+{
+  "id": "P011",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "It's a brand I've never heard of with no reviews, and I'd be paying £19.99 plus £4.99 postage upfront for something that won't ship until January. I'm not paying for a promise when money is tight, and I'd want to see what other women my age say first.",
+  "objection": "Does it actually do anything for tiredness? Magnesium is in lots of things and I've already got a multivitamin, so I'd want proof it's worth the extra money, not just a line on the jar.",
+  "would_change_my_mind": "A few honest reviews from women my age saying it helped their energy, or being able to try one jar before paying for it.",
+  "price_too_cheap": 8,
+  "price_cheap": 12,
+  "price_expensive": 22,
+  "price_too_expensive": 28,
+  "choice": "later"
+}

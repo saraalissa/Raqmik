@@ -1,0 +1,14 @@
+{
+  "id": "P015",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "I tried magnesium before and felt no difference, and I'm not paying £19.99 up front for a brand that has no reviews yet. I'd want to see if other women my age say it helped before I put my money down.",
+  "objection": "I tried magnesium before and felt no difference, so I don't see why these gummies would be any different, and I can't check anyone's experience because there are no reviews.",
+  "would_change_my_mind": "Reviews from women around my age saying their sleep and afternoon tiredness improved after a few weeks.",
+  "price_too_cheap": 8,
+  "price_cheap": 12,
+  "price_expensive": 18,
+  "price_too_expensive": 22,
+  "choice": "later"
+}
