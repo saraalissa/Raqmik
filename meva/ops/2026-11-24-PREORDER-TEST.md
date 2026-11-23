@@ -36,8 +36,8 @@ Fri 27 08:30 "It's open", Sun 29 10:00 "A few questions", Mon 30 18:00 "Tonight 
 - 0–1 from ads → ads don't sell yet; rely on the list, rethink before more ad spend.
 Waitlist orders are counted separately (free traffic).
 
-## First batch = 50 jars (Sara, 23 Nov)
-- Real cap: the first 50 jars ordered ship in the first batch; after that, orders ship with the second batch (~1 week later). Nutribl MOQ 10 and ~5 working days repeat lead time make this true.
-- Shown on the product page: "First batch: only 50 jars. X left." X = shop metafield meva.first_batch_jars_left (gid://shopify/Metafield/41855311609915), starts at 50.
-- Claude updates X after each order check: X = 50 − jars sold in paid pre-orders (1/2/3 per order). Never show fewer than the real number.
-- At 0 the page switches to "First batch is sold out. New orders ship with the second batch, about a week later." Order the first batch from Nutribl to match the real number sold (minimum 10).
+## First batch = 75 jars, shown as a bar (Sara, 23 Nov, replaces the "50 jars, X left" line)
+- Product page shows a bar: "51 women on the waitlist · First batch: 75 jars" (bar filled to waitlist ÷ batch). No sold/left numbers.
+- The label says WAITLIST, never "sold", "reserved" or "claimed": waitlist sign-ups are not orders.
+- Values: shop metafields meva.waitlist_count (51) and meva.first_batch_size (75). Claude updates waitlist_count to the real Shopify count.
+- The first batch really is capped at 75 jars; orders beyond it ship with the second batch (~1 week later).
