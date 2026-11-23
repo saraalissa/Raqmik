@@ -58,3 +58,4 @@ Total live: £50/day. R5 (£15 CBO) created but PAUSED; launching it needs rebal
 - 23 Nov to 10:13 UTC: spend £30.32; sign-ups 1.4 test 2, 1.4 SCALE 1, label page 1 (no ad tag). Waitlist total 50.
 - N1 £13.05 / N2 £15.76 lifetime, 0 sign-ups: below £18 gate → wait; decide 24 Nov with G5. No budget raised.
 - 23 Nov (Sara: "طفي n1,2"): PAUSED ad sets N1 120247489911500424 and N2 120247489912090424 (0 sign-ups, ~£13/£16 spend). Daily spend now ≈ £56.60: scaling £25, 1.4 test £21.60, G5 (R4) £10.
+- 23 Nov (Sara: "اوكي تمام", pause all until launch): PAUSED campaigns R2 120247382706230424 (1.4 test), R4 CBO 120247411109620424 (G5), SCALING CBO 120247489906720424 (1.4 SCALE). Daily spend → £0. Waitlist 50. Plan: restart 1.4 test (~£20/day) ~5 days before launch once label + lab are approved; launch day = new Purchase campaign with 1.4 (same post) + retargeting (site visitors, ad engagers, waitlist list).
