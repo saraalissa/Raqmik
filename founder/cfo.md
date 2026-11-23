@@ -20,6 +20,15 @@
 - Not financial, tax or legal advice: an accountant should check VAT, the US LLC structure and UK tax before money moves.
 
 ---
+## Update 23 Nov: real costs and efficiency
+- New one-off costs: ISO 17025 lab CoA ~£300–800 (mid £550, quotes pending); Flex refused the liability cap → product liability insurance is needed before sale (in model as £25/month, estimate).
+- Startup now £2,763 (stock £208, lab £550, waitlist ads spent £760, waitlist ads to 15 Dec at £56.60/day £1,245).
+- Year 1 by cost per new buyer: £20 → +£1,226 operating, −£1,537 after startup; £30 → −£10,987; £40 → −£20,437.
+- **Value of one waitlist sign-up** = list→buyer rate × £23.5 (first-order £16.42 + 30% repeats): 20% → £4.70; 30% → £7.04; 40% → £9.38. Recent cost per sign-up £7.50–£15 → we pay more than a sign-up is worth unless ≥ 30–40% of the list buys.
+- **First batch (50 jars ≈ 26 orders)** at Founding price leaves ≈ £265 (≈ £10.19 per order) against ≈ £2,900 of set-up and list-building (Flex £395, lab £550, ads ≈ £2,000). The first batch is a paid test (~£2.6k), not a profit.
+- **Efficiency rule:** 50 jars need ~100–130 sign-ups (at 20–26% conversion). Waitlist is 50 now → stop list-building ads at ~130 sign-ups (≈ 5 Dec at current pace). If launch slips to January, cut list ads to the 1.4 test only (£21.60/day) over Christmas.
+
+---
 ## Real ad data check (22 Nov, Meta spend via Windsor ÷ Shopify waitlist tags)
 - 14–22 Nov: £690.98 spend, 46 waitlist sign-ups = **£15.02 per sign-up** (includes the days the page was broken).
 - 19–22 Nov: £259.95 / 21 = **£12.38**. 20–22 Nov: £193.70 / 18 = **£10.76**.
