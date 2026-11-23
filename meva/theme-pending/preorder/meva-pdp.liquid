@@ -376,7 +376,7 @@ html.mv-joined .mv5 .qj{display:none}
   <section class="pdp mv-pdp-main"><div class="wrap">
     <div class="gal">
       {%- if p.media.size > 0 -%}
-      <div class="stage" id="mv-stage">{%- unless wl -%}<div class="bfstage" style="position:absolute;left:10px;right:10px;bottom:10px;z-index:3;display:flex;align-items:center;gap:10px;background:rgba(18,10,14,.9);color:#fff;border-radius:14px;padding:9px 12px;pointer-events:none"><span style="font-family:var(--display,'Inter Tight',Arial,sans-serif);font-weight:900;font-size:13px;line-height:.95;letter-spacing:-.02em;text-transform:uppercase;border-right:1.5px dashed rgba(255,216,77,.6);padding-right:10px">Black<br>Friday</span><span style="display:flex;flex-direction:column;min-width:0;flex:1"><b style="font-size:14.5px;line-height:1.15">Every pack {{ v2.price | divided_by: 2 | money }} a jar or less</b><small style="font-size:11.5px;color:rgba(255,255,255,.8)">Early access &middot; pre-order</small></span><span style="background:#ffd84d;color:#120a0e;font-size:11px;font-weight:800;border-radius:999px;padding:4px 9px;white-space:nowrap">Ends in <b data-bfend>&hellip;</b></span></div>{%- endunless -%}
+      <div class="stage" id="mv-stage">
         {%- for m in p.media -%}{%- if m.media_type == 'image' -%}
         {%- liquid
           assign ld = 'lazy'
@@ -391,7 +391,7 @@ html.mv-joined .mv5 .qj{display:none}
         {%- endif -%}{%- endfor -%}
         <div class="arrows"><button type="button" data-mv-prev aria-label="Previous photo">‹</button><button type="button" data-mv-next aria-label="Next photo">›</button></div>
       </div>
-      <div class="thumbs" id="mv-thumbs">
+      {%- unless wl -%}<div class="bfstage" style="display:flex;margin:10px auto 0;max-width:620px;align-items:center;gap:10px;background:#120a0e;color:#fff;border-radius:14px;padding:9px 12px"><span style="font-family:var(--display,'Inter Tight',Arial,sans-serif);font-weight:900;font-size:13px;line-height:.95;letter-spacing:-.02em;text-transform:uppercase;border-right:1.5px dashed rgba(255,216,77,.6);padding-right:10px">Black<br>Friday</span><span style="display:flex;flex-direction:column;min-width:0;flex:1"><b style="font-size:14.5px;line-height:1.15">Every pack {{ v2.price | divided_by: 2 | money }} a jar or less</b><small style="font-size:11.5px;color:rgba(255,255,255,.8)">Early access &middot; pre-order</small></span><span style="background:#ffd84d;color:#120a0e;font-size:11px;font-weight:800;border-radius:999px;padding:4px 9px;white-space:nowrap">Ends in <b data-bfend>&hellip;</b></span></div>{%- endunless -%}<div class="thumbs" id="mv-thumbs">
         {%- for m in p.media -%}{%- if m.media_type == 'image' -%}
         <button type="button" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}" aria-label="Photo {{ forloop.index }}">{{ m | image_url: width: 200 | image_tag: alt: '' }}</button>
         {%- if forloop.first %}
@@ -400,7 +400,7 @@ html.mv-joined .mv5 .qj{display:none}
         {%- endif -%}{%- endfor -%}
       </div>
       {%- else -%}
-      <div class="stage" id="mv-stage">{%- unless wl -%}<div class="bfstage" style="position:absolute;left:10px;right:10px;bottom:10px;z-index:3;display:flex;align-items:center;gap:10px;background:rgba(18,10,14,.9);color:#fff;border-radius:14px;padding:9px 12px;pointer-events:none"><span style="font-family:var(--display,'Inter Tight',Arial,sans-serif);font-weight:900;font-size:13px;line-height:.95;letter-spacing:-.02em;text-transform:uppercase;border-right:1.5px dashed rgba(255,216,77,.6);padding-right:10px">Black<br>Friday</span><span style="display:flex;flex-direction:column;min-width:0;flex:1"><b style="font-size:14.5px;line-height:1.15">Every pack {{ v2.price | divided_by: 2 | money }} a jar or less</b><small style="font-size:11.5px;color:rgba(255,255,255,.8)">Early access &middot; pre-order</small></span><span style="background:#ffd84d;color:#120a0e;font-size:11px;font-weight:800;border-radius:999px;padding:4px 9px;white-space:nowrap">Ends in <b data-bfend>&hellip;</b></span></div>{%- endunless -%}
+      <div class="stage" id="mv-stage">
         <div class="slide" data-on>{%- if img_jar != blank -%}{{ img_jar | image_url: width: 1200 | image_tag: alt: img_jar.alt, loading: 'eager', fetchpriority: 'high', sizes: '(max-width: 900px) 100vw, 55vw', widths: '600, 900, 1200' }}{%- endif -%}</div>
         <div class="slide dose"><img src="{{ 'meva-ad-A4-feed.jpg' | file_img_url: '1080x' }}" alt="A hand holding a jar of Mëva with the dose circled in red: 180mg magnesium, 2 a day" loading="lazy" width="1080" height="1350"></div>
         <div class="slide card"><h3>What&#39;s in every gummy</h3><ul><li class="ck">180mg magnesium a day (citrate)</li><li class="ck">Ripe red berry</li><li class="ck">Plant pectin, no gelatine</li><li class="ck">Colour from spirulina and anthocyanins</li><li class="ck">None of the 14 major allergens</li></ul></div>
@@ -410,7 +410,7 @@ html.mv-joined .mv5 .qj{display:none}
         <div class="slide">{%- if section.settings.moment2_image != blank -%}{{ section.settings.moment2_image | image_url: width: 1200 | image_tag: alt: section.settings.moment2_image.alt, loading: 'lazy' }}{%- endif -%}</div>
         <div class="arrows"><button type="button" data-mv-prev aria-label="Previous photo">‹</button><button type="button" data-mv-next aria-label="Next photo">›</button></div>
       </div>
-      <div class="thumbs" id="mv-thumbs">
+      {%- unless wl -%}<div class="bfstage" style="display:flex;margin:10px auto 0;max-width:620px;align-items:center;gap:10px;background:#120a0e;color:#fff;border-radius:14px;padding:9px 12px"><span style="font-family:var(--display,'Inter Tight',Arial,sans-serif);font-weight:900;font-size:13px;line-height:.95;letter-spacing:-.02em;text-transform:uppercase;border-right:1.5px dashed rgba(255,216,77,.6);padding-right:10px">Black<br>Friday</span><span style="display:flex;flex-direction:column;min-width:0;flex:1"><b style="font-size:14.5px;line-height:1.15">Every pack {{ v2.price | divided_by: 2 | money }} a jar or less</b><small style="font-size:11.5px;color:rgba(255,255,255,.8)">Early access &middot; pre-order</small></span><span style="background:#ffd84d;color:#120a0e;font-size:11px;font-weight:800;border-radius:999px;padding:4px 9px;white-space:nowrap">Ends in <b data-bfend>&hellip;</b></span></div>{%- endunless -%}<div class="thumbs" id="mv-thumbs">
         <button type="button" aria-pressed="true" aria-label="Jar">{%- if img_jar != blank -%}{{ img_jar | image_url: width: 200 | image_tag: alt: '' }}{%- endif -%}</button>
         <button type="button" aria-pressed="false" aria-label="The dose on the front"><img src="{{ 'meva-ad-A4-feed.jpg' | file_img_url: '200x' }}" alt="" loading="lazy" width="200" height="250"></button>
         <button type="button" aria-pressed="false">Inside</button>
