@@ -35,7 +35,7 @@ Magnesium contributes to the reduction of tiredness and fatigue. That's the offi
 
 **What we're still doing before launch**
 - We are arranging an accredited lab test of our batch, and we will publish the results on the site.
-- Our label is being reviewed by our UK food business operator.
+- Our label goes through a check by our UK food business operator.
 
 **One jar = 30 days. No subscription.**
 You buy a jar when you want one. Nothing renews.
