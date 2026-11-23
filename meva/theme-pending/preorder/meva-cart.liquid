@@ -1,0 +1,157 @@
+{%- comment -%} Mëva cart page (pre-order theme, 23 Nov): savings pill, total savings, free-delivery bar, trust line, express checkout. Savings shown are only discounts really applied in this cart. {%- endcomment -%}
+{%- liquid
+  assign p = all_products[section.settings.product_handle]
+  assign v1 = p.variants.first
+  assign v2 = p.variants.first
+  for v in p.variants
+    if v.title contains '2'
+      assign v2 = v
+    elsif v.title contains '1'
+      assign v1 = v
+    endif
+  endfor
+  assign threshold = 2900
+  assign remaining = threshold | minus: cart.total_price
+  assign pct = cart.total_price | times: 100 | divided_by: threshold
+  if pct > 100
+    assign pct = 100
+  endif
+  assign single_line = 0
+  assign single_qty = 0
+  for item in cart.items
+    if item.variant_id == v1.id
+      assign single_line = forloop.index
+      assign single_qty = item.quantity
+    endif
+  endfor
+-%}
+<style>
+.mv5 .ct{padding-block:clamp(20px,4vw,48px) clamp(56px,7vw,96px)}
+.mv5 .ct .wrap{max-width:640px;display:flex;flex-direction:column;gap:0}
+.mv5 .ct h1{font-size:clamp(30px,4.4vw,40px);display:flex;align-items:center;gap:12px;margin:0 0 6px}
+.mv5 .ct h1 .cnt{font-family:var(--body);font-size:15px;font-weight:700;background:var(--lilac);color:var(--berry);border-radius:999px;padding:4px 12px;letter-spacing:0}
+.mv5 .lines{list-style:none;margin:8px 0 0;padding:0}
+.mv5 .ln2{display:grid;grid-template-columns:84px 1fr auto;gap:14px;align-items:start;padding:18px 0;border-bottom:1.5px solid var(--line)}
+.mv5 .ln2 .im{width:84px;height:84px;border-radius:16px;overflow:hidden;background:var(--lilac)}
+.mv5 .ln2 .im img{width:100%;height:100%;object-fit:cover}
+.mv5 .ln2 .nm{display:flex;flex-direction:column;gap:3px;min-width:0}
+.mv5 .ln2 .nm a.t{font-weight:800;color:var(--plum);text-decoration:none;font-size:16px;line-height:1.25}
+.mv5 .ln2 .nm span{color:var(--muted);font-size:14px}
+.mv5 .ln2 .nm .po{font-size:13px;font-weight:700;color:var(--berry)}
+.mv5 .ln2 .nm s{color:var(--muted);margin-left:6px}
+.mv5 .ctl{display:flex;align-items:center;gap:12px;margin-top:8px}
+.mv5 .qty{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:12px;background:#fff}
+.mv5 .qty a{width:40px;height:40px;display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--plum);font-weight:800;font-size:18px}
+.mv5 .qty b{min-width:28px;text-align:center;font-size:15px}
+.mv5 .rm{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;color:var(--plum)}
+.mv5 .savepill{align-self:flex-start;margin-top:8px;background:#1f6b47;color:#fff!important;font-weight:800;font-size:13.5px;border-radius:999px;padding:5px 12px}
+.mv5 .ln2 .pr{font-family:var(--display);font-weight:800;font-size:18px;color:var(--plum);white-space:nowrap}
+.mv5 .tsave{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#e8f3ec;color:#1f6b47;border-radius:16px;padding:14px 16px;margin-top:18px;font-weight:800;font-size:16px}
+.mv5 .tsave b{font-size:20px}
+.mv5 .fd{margin-top:18px;display:grid;gap:8px;font-size:15px}
+.mv5 .fd .bar{height:8px;border-radius:999px;background:#efe3da;overflow:hidden}
+.mv5 .fd .bar i{display:block;height:100%;background:linear-gradient(90deg,#f6c56b,#b3123f);border-radius:999px}
+.mv5 .upg{margin-top:14px;border:2px dashed var(--berry);border-radius:16px;padding:12px 14px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#fffafd}
+.mv5 .upg p{font-weight:600;font-size:14.5px;max-width:38ch;margin:0}
+.mv5 .upg .btn{min-height:42px;padding:0 18px;font-size:14.5px}
+.mv5 .trustln{margin:16px 0 0;text-align:center;color:var(--muted);font-size:14px}
+.mv5 .tot{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:22px;font-size:16px}
+.mv5 .tot b{font-family:var(--display);font-size:24px;font-weight:800;color:var(--plum)}
+.mv5 .ct .note{font-size:13.5px;color:var(--muted);margin:6px 0 0}
+.mv5 .sumf{display:grid;gap:10px;margin-top:16px}
+.mv5 .sumf .btn{width:100%;min-height:58px;font-size:17px}
+.mv5 .empty{text-align:center;display:flex;flex-direction:column;gap:16px;align-items:center;padding-block:40px}
+.mv5 .empty p{color:var(--muted)}
+</style>
+
+<div class="mv5"><section class="ct"><div class="wrap">
+{%- if cart.item_count == 0 -%}
+  <div class="empty">
+    <h1>Your basket is empty</h1>
+    <p>Two berry gummies a day, with only the claims UK law allows.</p>
+    <a class="btn" href="{{ p.url }}">Shop {{ section.settings.brand_name }}</a>
+  </div>
+{%- else -%}
+  <h1>Cart <span class="cnt">{{ cart.item_count }}</span></h1>
+  <ul class="lines">
+    {%- for item in cart.items -%}
+    {%- assign line_save = item.original_line_price | minus: item.final_line_price -%}
+    <li class="ln2">
+      <div class="im">{%- if item.image -%}{{ item.image | image_url: width: 200 | image_tag: alt: item.product.title }}{%- endif -%}</div>
+      <div class="nm">
+        <a class="t" href="{{ item.url }}">{{ item.product.title }}</a>
+        {%- unless item.product.has_only_default_variant -%}<span>{{ item.variant.title }}</span>{%- endunless -%}
+        <span>{{ item.final_price | money }}{% if line_save > 0 %}<s>{{ item.original_price | money }}</s>{% endif %}</span>
+        {%- for prop in item.properties -%}{%- if prop.first == 'Pre-order' -%}<span class="po">Pre-order · {{ prop.last }}</span>{%- endif -%}{%- endfor -%}
+        <div class="ctl">
+          <div class="qty" aria-label="Quantity">
+            <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity={{ item.quantity | minus: 1 }}" aria-label="Remove one">−</a>
+            <b>{{ item.quantity }}</b>
+            <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity={{ item.quantity | plus: 1 }}" aria-label="Add one">+</a>
+          </div>
+          <a class="rm" href="{{ item.url_to_remove }}" aria-label="Remove {{ item.product.title }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></a>
+        </div>
+        {%- if line_save > 0 -%}<span class="savepill">You save {{ line_save | money }}</span>{%- endif -%}
+      </div>
+      <div class="pr">{{ item.final_line_price | money }}</div>
+    </li>
+    {%- endfor -%}
+  </ul>
+
+  {%- if cart.total_discount > 0 -%}
+  <div class="tsave"><span>Your early access saving</span><b>{{ cart.total_discount | money }}</b></div>
+  {%- endif -%}
+
+  <div class="fd" role="status">
+    {%- if remaining <= 0 -%}
+      <span><b>Free UK delivery</b> is included in your order</span>
+    {%- else -%}
+      <span>You&#39;re <b>{{ remaining | money }}</b> away from <b>free UK delivery</b></span>
+    {%- endif -%}
+    <span class="bar" aria-hidden="true"><i style="width:{{ pct }}%"></i></span>
+  </div>
+
+  {%- if single_line > 0 and single_qty == 1 and cart.items.size == 1 -%}
+  <div class="upg">
+    <p>Switch to <b>2 jars for {{ v2.price | money }}</b>: 60 days and free UK delivery.</p>
+    <button class="btn" type="button" data-line="{{ single_line }}" data-to="{{ v2.id }}" id="mv-upg">Switch</button>
+  </div>
+  {%- endif -%}
+
+  <p class="trustln">First-jar guarantee &middot; Secure checkout &middot; No subscription</p>
+
+  <div class="tot"><span>Estimated total</span><b>{{ cart.total_price | money }}</b></div>
+  <p class="note">Prices include VAT. Delivery is {% if remaining <= 0 %}free{% else %}{{ section.settings.single_delivery }}, added{% endif %} at checkout. Pre-order: ships as soon as our first batch is ready, by mid-January at the latest.</p>
+
+  <form class="sumf" action="{{ routes.cart_url }}" method="post">
+    <button class="btn" type="submit" name="checkout">Check out</button>
+    {%- if additional_checkout_buttons -%}<div class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>{%- endif -%}
+  </form>
+{%- endif -%}
+</div></section></div>
+
+<script>
+(function(){
+  var b=document.getElementById('mv-upg'); if(!b) return;
+  b.addEventListener('click',function(){
+    b.disabled=true; b.textContent='Switching…';
+    var line=parseInt(b.getAttribute('data-line'),10), to=parseInt(b.getAttribute('data-to'),10);
+    fetch('/cart/change.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({line:line,quantity:0})})
+      .then(function(){return fetch('/cart/add.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:to,quantity:1,properties:{'Pre-order':'Ships by mid-January 2027'}})});})
+      .then(function(){window.location.reload();})
+      .catch(function(){b.disabled=false;b.textContent='Switch';});
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Mëva cart",
+  "settings": [
+    { "type": "text", "id": "brand_name", "label": "Brand name", "default": "Mëva" },
+    { "type": "text", "id": "product_handle", "label": "Product handle", "default": "meva-magnesium-gummies" },
+    { "type": "text", "id": "single_delivery", "label": "Delivery price for 1 jar", "default": "£4.99" },
+    { "type": "text", "id": "guarantee_days", "label": "Guarantee days", "default": "30" }
+  ]
+}
+{% endschema %}
