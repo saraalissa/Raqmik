@@ -15,5 +15,5 @@
 .mv5 .bfonly{display:none!important}
 </style>
 <script>(function(){var E=Date.UTC(2026,10,30,23,59,59);function f(ms){var d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5),m=Math.floor(ms%36e5/6e4);return d>0?d+'d '+h+'h':h+'h '+m+'m';}
-function t(){var n=Date.now();if(n>E){document.querySelectorAll('.bfhero.bfnow,.mvlaunch,[data-bfline]').forEach(function(e){e.style.display='none'});return;}document.querySelectorAll('[data-bfend]').forEach(function(e){e.textContent=f(E-n)});}
+function t(){var n=Date.now();if(n>E){document.querySelectorAll('.bfhero.bfnow,.mvlaunch,[data-bfline],.bfstage').forEach(function(e){e.style.display='none'});return;}document.querySelectorAll('[data-bfend]').forEach(function(e){e.textContent=f(E-n)});}
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',t)}else{t()}setInterval(t,60000);})();</script>
