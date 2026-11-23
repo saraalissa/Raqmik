@@ -82,7 +82,7 @@
         <a class="t" href="{{ item.url }}">{{ item.product.title }}</a>
         {%- unless item.product.has_only_default_variant -%}<span>{{ item.variant.title }}</span>{%- endunless -%}
         <span>{{ item.final_price | money }}{% if line_save > 0 %}<s>{{ item.original_price | money }}</s>{% endif %}</span>
-        {%- for prop in item.properties -%}{%- if prop.first == 'Pre-order' -%}<span class="po">Pre-order · {{ prop.last }}</span>{%- endif -%}{%- endfor -%}
+        
         <div class="ctl">
           <div class="qty" aria-label="Quantity">
             <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity={{ item.quantity | minus: 1 }}" aria-label="Remove one">−</a>
@@ -121,7 +121,7 @@
   <p class="trustln">First-jar guarantee &middot; Secure checkout &middot; No subscription</p>
 
   <div class="tot"><span>Estimated total</span><b>{{ cart.total_price | money }}</b></div>
-  <p class="note">Prices include VAT. Delivery is {% if remaining <= 0 %}free{% else %}{{ section.settings.single_delivery }}, added{% endif %} at checkout. Pre-order: ships as soon as our first batch is ready, by mid-January at the latest.</p>
+  <p class="note">Prices include VAT. Delivery is {% if remaining <= 0 %}free{% else %}{{ section.settings.single_delivery }}, added{% endif %} at checkout. </p><p class="note" style="font-weight:600;color:var(--plum)">Ships with our first batch, by mid-January. Change your mind before then? Full refund.</p>
 
   <form class="sumf" action="{{ routes.cart_url }}" method="post">
     <button class="btn" type="submit" name="checkout">Check out</button>
