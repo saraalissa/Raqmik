@@ -16,18 +16,16 @@ Approved by Sara on 23 Nov. Send each email only after Sara confirms the pre-ord
 
 ## Email 1: Tuesday 24 Nov, 09:30 UK (or as soon as the theme is live)
 **Subject:** Your early access is open
-**Preview text:** 20% off every pack, until Monday 30 November.
+**Preview text:** Every pack £19.99 a jar or less, until Monday.
 
 Hi {{ customer.first_name | default: "there" }},
 
 You joined the list, so you get in first: Mëva is open for pre-order, with early access pricing.
 
-**Early access price, until Monday 30 November at midnight: 20% off every pack.**
-- 1 jar: £19.99 (+ £4.99 delivery)
-- 2 jars: £31.98, free UK delivery ← our pick, 60 days
-- 3 jars: £39.98, free UK delivery
-
-From January these go back to £24.99 / £39.98 / £49.98.
+**Early access, until Monday 30 November at midnight: every pack is £19.99 a jar or less.**
+- 1 jar: £19.99 (+ £4.99 delivery). Your Founding price: £24.99 from January.
+- 2 jars: £39.98 (£19.99 a jar), free UK delivery ← our pick, 60 days
+- 3 jars: £49.98 (£16.66 a jar), free UK delivery
 
 **How the pre-order works**
 We ship the moment our first batch is ready, by mid-January at the latest. You pay today and your order is first in the queue.
@@ -58,7 +56,7 @@ A few things people have asked this week:
 
 **What if it's not for me?** Finish your first jar. If it's not for you, email us and we'll refund it.
 
-The early access price (20% off every pack) ends **tomorrow, Monday 30 November, at midnight**.
+The early access price on a single jar (£19.99) ends **tomorrow, Monday 30 November, at midnight**.
 
 [Button: See the packs] (utm_content=email2)
 
@@ -74,7 +72,7 @@ Hi {{ customer.first_name | default: "there" }},
 
 A quick one: the early access price ends tonight at midnight.
 
-2 jars £31.98 with free UK delivery (£39.98 from January). Ships by mid-January at the latest.
+1 jar £19.99 (£24.99 from January), or 2 jars £39.98 with free UK delivery. Ships by mid-January at the latest.
 
 [Button: Pre-order now] (utm_content=email3)
 
