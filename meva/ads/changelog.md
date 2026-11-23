@@ -51,3 +51,9 @@ Total live: £50/day. R5 (£15 CBO) created but PAUSED; launching it needs rebal
 - Lesson: when pausing an ad, check the other ACTIVE ads in the same ad set/CBO, or pause the ad set.
 - Spend now ≈ £76.60/day: scaling £25, 1.4 £21.60, N1 £10, N2 £10, G5 (R4) £10.
 - 22 Nov: Sara: keep G5 running 2 days (decide 24 Nov).
+
+## 2026-11-23 10:15 UTC — daily check (scheduled)
+- Zombie check: today only 1.4 test, 1.4 SCALE, N1, N2, G5 are spending. No other ad active. No changes made.
+- 22 Nov (UK) spend £113.04 total (incl. £50.49 on ads paused during the day). Shopify sign-ups 22 Nov: 1.4 test 2 (£27.78 → £13.89 each), 1.4 SCALE 1 (£19.05), G5 1 (£5.76), N1 0 (£10.03), N2 0 (£9.99), 2.2 1 (paused), footer newsletter 1 (organic).
+- 23 Nov to 10:13 UTC: spend £30.32; sign-ups 1.4 test 2, 1.4 SCALE 1, label page 1 (no ad tag). Waitlist total 50.
+- N1 £13.05 / N2 £15.76 lifetime, 0 sign-ups: below £18 gate → wait; decide 24 Nov with G5. No budget raised.
