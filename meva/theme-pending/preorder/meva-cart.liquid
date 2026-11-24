@@ -142,7 +142,7 @@
   <p class="trustln">First-jar guarantee &middot; Secure checkout &middot; No subscription</p>
 
   <div class="tot"><span>Estimated total</span><b>{{ cart.total_price | money }}</b></div>
-  <p class="note">Prices include VAT. Delivery is {% if remaining <= 0 or bf_on %}free{% else %}{{ section.settings.single_delivery }}, added at checkout{% endif %}. </p><p class="note" style="font-weight:600;color:var(--plum)">Ships with our first batch, by mid-January. Change your mind before then? Full refund.</p>
+  <p class="note">Prices include VAT. Delivery is {% if remaining <= 0 or bf_on %}free{% else %}{{ section.settings.single_delivery }}, added at checkout{% endif %}. </p><p class="note" style="font-weight:600;color:var(--plum)">Ships in our first batch, by mid-January &middot; Full refund if you change your mind before then.</p>
 
   <form class="sumf" action="{{ routes.cart_url }}" method="post">
     <button class="btn" type="submit" name="checkout">Check out</button>
