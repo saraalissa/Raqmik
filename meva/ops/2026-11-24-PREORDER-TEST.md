@@ -44,3 +44,11 @@ Waitlist orders are counted separately (free traffic).
 - The label says WAITLIST, never "sold", "reserved" or "claimed": waitlist sign-ups are not orders.
 - Values: shop metafields meva.waitlist_count (51) and meva.first_batch_size (75). Claude updates waitlist_count to the real Shopify count.
 - The first batch really is capped at 75 jars; orders beyond it ship with the second batch (~1 week later).
+
+## Go-live log (24 Nov)
+- Sara published theme 146296930363 (pre-order) as MAIN.
+- Claude renamed checkout delivery methods: "Pre-order · Royal Mail Tracked · ships by mid-January" (£4.99, under £29) and "Pre-order · Free UK delivery · ships by mid-January" (£29+); next-day (Royal Mail Tracked 24) set inactive. Restore after the test: "Royal Mail Tracked (2-3 working days)", "Free UK delivery · Royal Mail Tracked (2-3 working days)", next-day active.
+- Active discounts: automatic free UK delivery on every order (24–30 Nov 23:59 UTC); FOUNDING20 code.
+- Live check: offer cards, countdown, waitlist bar and guarantee box render; Add to basket adds 3 jars £49.98 with property "Pre-order: Ships by mid-January 2027".
+- Waitlist bar stays 51 (Shopify shows 53 tagged "waitlist", including at least one bad address); update when confirmed.
+- Next: Sara's test order → check order, discount, Meta Purchase event → ads only with Sara's OK on the spend.
