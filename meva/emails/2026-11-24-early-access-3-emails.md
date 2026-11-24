@@ -1,6 +1,6 @@
 # For Muse: 3 BLACK FRIDAY emails to the waitlist (24–30 Nov 2026)
 
-UPDATED 24 Nov (Sara), dates changed to "ships in January" (matches site, checkout and ad): offer is now "Buy 2, get 1 free / Buy 3, get 2 free" + free UK delivery on every order until 30 Nov. The 2-jar pack is gone. Waitlist members also have their Founding code FOUNDING20 (20% off a single jar, once). **Do not send the 24 Nov "What's in the jar" email**; email 1 below replaces it.
+UPDATED 24 Nov (Sara): no month in emails or ads (the dispatch month is shown only under the buy button and at checkout). offer is now "Buy 2, get 1 free / Buy 3, get 2 free" + free UK delivery on every order until 30 Nov. The 2-jar pack is gone. Waitlist members also have their Founding code FOUNDING20 (20% off a single jar, once). **Do not send the 24 Nov "What's in the jar" email**; email 1 below replaces it.
 
 Send each email only after Sara confirms the pre-order theme is LIVE.
 
@@ -14,7 +14,7 @@ Send each email only after Sara confirms the pre-order theme is LIVE.
 
 ---
 
-## Email 1: as soon as the theme is live (Tuesday 24 Nov, 09:30 UK if ready)
+## Email 1: send TODAY, Tuesday 24 Nov (theme is live)
 **Subject:** You're in first: buy 2, get 1 free
 **Preview text:** Black Friday on Mëva, plus your Founding code.
 
@@ -27,7 +27,7 @@ You joined the list, so you get in first. Mëva is open, with a Black Friday off
 - 1 jar: £24.99. **Your Founding code FOUNDING20 takes 20% off a single jar** (£19.99), as promised.
 - **Free UK delivery on every order** until Monday.
 
-**How it works:** you reserve today at the Black Friday price. It's freshly made in our first batch and ships in January. Change your mind before then? Full refund.
+**How it works:** it's a pre-order: you reserve today at the Black Friday price, and your jars are freshly made in our first batch. Change your mind before it ships? Full refund.
 
 180mg magnesium in two berry gummies a day, printed on the front. Magnesium contributes to the reduction of tiredness and fatigue. Vegan, no subscription, and our first-jar guarantee: finish your first jar, and if it's not for you, we refund it.
 
@@ -47,7 +47,7 @@ Hi {{ customer.first_name | default: "there" }},
 
 A few things people have asked this week:
 
-**When will it arrive?** We ship with our first batch in January, Royal Mail Tracked, and we'll email you your dispatch date.
+**When will it arrive?** It's a pre-order: we ship with our first batch, Royal Mail Tracked, and we'll email you your dispatch date.
 
 **Is there a subscription?** No. You buy a jar when you want one. Nothing renews.
 
@@ -71,7 +71,7 @@ Hi {{ customer.first_name | default: "there" }},
 
 A quick one: Black Friday ends tonight at midnight.
 
-3 jars for the price of 2 (£49.98), or 5 jars for the price of 3 (£74.97), with free UK delivery. Freshly made in our first batch, ships in January.
+3 jars for the price of 2 (£49.98), or 5 jars for the price of 3 (£74.97), with free UK delivery. Pre-order now, freshly made in our first batch.
 
 [Button: Shop now] (utm_content=email3)
 
