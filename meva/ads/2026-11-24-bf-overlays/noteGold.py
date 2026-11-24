@@ -2,7 +2,7 @@ import numpy as np, cv2
 from PIL import Image, ImageDraw, ImageFont
 F='/usr/share/fonts/opentype/inter/'
 def font(n,s): return ImageFont.truetype(F+n,s)
-src=np.array(Image.open('win/feed.jpg').convert('RGB'))
+src=np.array(Image.open('win/feed_nocircle.png').convert('RGB'))
 r,g,b=[src[...,i].astype(int) for i in range(3)]
 red=((r>150)&(r-np.maximum(g,b)>70)).astype(np.uint8)
 H,W=red.shape
@@ -39,9 +39,20 @@ glow=glow.filter(ImageFilter.GaussianBlur(6))
 out.alpha_composite(glow)
 td.text((TX,TY),txt,font=cf,fill=RED)
 out.alpha_composite(tl)
+# --- new hand-drawn circle around the dose text (clear of the letters)
+import math as _m
+_cx,_cy,_a,_b,_rot=604,866,262,58,_m.radians(-4)
+_pts=[]
+for i in range(0,381):
+    t=_m.radians(-200+i)          # a bit more than one turn, like a hand-drawn loop
+    rr=1+0.025*_m.sin(t*3)+ (0.04 if i>350 else 0)
+    x=_a*rr*_m.cos(t); y=_b*rr*_m.sin(t)
+    _pts.append((_cx+x*_m.cos(_rot)-y*_m.sin(_rot), _cy+x*_m.sin(_rot)+y*_m.cos(_rot)))
+_d=ImageDraw.Draw(out)
+_d.line(_pts,fill=(214,32,38,255),width=7,joint='curve')
 d=ImageDraw.Draw(out)
 # arrow: from the end of the note, sweeping down the right side (outside the jar) into the circle
-P=[(TX+tw-30,TY+100),(1060,330),(1025,874),(856,874)]
+P=[(TX+tw-30,TY+100),(1060,330),(1040,850),(900,848)]
 pts=[]
 for i in range(81):
     t=i/80
