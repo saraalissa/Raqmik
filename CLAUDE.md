@@ -17,11 +17,10 @@
 - Do NOT default to elderly / fully silver-haired / grandmother-looking women. Grey streaks are fine; "old lady" is not.
 - In every prompt: state an age of 45–52 unless a specific older age is asked for, and describe energetic, fashionable styling.
 
-## Image generation tool — Sara's instruction
-- Generate ALL images in Higgsfield with model `soul_2` (Higgsfield Soul 2.0), quality 2k.
-- soul_2 accepts ONE reference image: use the real jar (media 32c23d56-d26d-4e03-b5d4-e8b77bb7008f) whenever the jar appears; describe the glossy gummies in the prompt.
+## Image generation tool — Sara's instruction (updated 24 Nov)
+- Do NOT use Soul (`soul_2`) any more (Sara, 24 Nov: "ما تستخدم سول").
+- Generate images in Higgsfield with `gpt_image_2_6`. Whenever the jar appears, pass the product master 46327c51-a76d-4514-8f9e-5758422e4649 as a reference; describe the glossy gummies in the prompt.
 - Still check label text and gummy gloss at full size before showing Sara.
-- Soul 2.0 cannot draw the jar correctly. Proven workflow (18 Nov): 1) make the scene/woman in soul_2; 2) swap in the real jar with gpt_image_2_6 using [scene, product master 46327c51-a76d-4514-8f9e-5758422e4649] as references, keeping the woman and pose identical.
 
 ## Shopify themes workflow (18 Nov)
 - LIVE: "Mëva - LIVE" id 146111430715 (published 19 Nov: product page = 16 Nov version, meva-pdp). Writes to live are blocked.
