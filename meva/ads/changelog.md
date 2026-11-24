@@ -87,3 +87,8 @@ Total live: £50/day. R5 (£15 CBO) created but PAUSED; launching it needs rebal
 - Ad set 120247508332700424 budget $60/day; campaign 120247508332000424 spend cap $150; ends 2026-11-26 03:00 UTC.
 - ENABLED: campaign 120247508332000424, ad set 120247508332700424, ad BF_1.4_no-hunting_b2g1_jan 120247510773940424 (only ad).
 - Decision (≈£118): 5+ paid orders from ads → scale; 2–4 → improve; 0–1 → stop before signing. Amjad gate: 2–3× AOV + 2–3 days.
+- 24 Nov ~06:10 UTC (Sara: no month in the ad; 2 ad sets × $30, one ad each):
+  - Ad "…_jan" 120247510773940424 paused then ARCHIVED.
+  - Ad set A 120247508332700424 renamed "PO | 1.4 no-hunting | GB W45-65 | Purchase", $30/day, ad BF_1.4_no-hunting_b2g1_po 120247512020340424 ACTIVE ("Pre-order yours at the Black Friday price", no month).
+  - Ad set B 120247512092560424 "PO | G3b gummy vs capsule | GB W45-65 | Purchase" (duplicate of A: same targeting/optimisation), $30/day, ends 26 Nov 03:00 UTC, ad BF_G3b_no-water_b2g1_po 120247512095100424 ACTIVE.
+  - Campaign cap $150 unchanged. Amjad gate per ad set not reachable within cap: read results as directional.
