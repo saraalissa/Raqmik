@@ -81,3 +81,9 @@ Total live: £50/day. R5 (£15 CBO) created but PAUSED; launching it needs rebal
 - ARCHIVED ad set B 120247508333090424 (G5) and 7 old ads in ad set A: PO_1.4 120247508341820424, PO_1.4_launch 120247508469240424, PO_G3b 120247508466510424, EA2_1.4 120247508666850424, EA2_G3b 120247508667700424, EA3_1.4 120247508700010424, EA4_1.4 120247509674370424.
 - Campaign 120247508332000424 now = 1 ad set (120247508332700424) + 1 ad BF_1.4_no-hunting_b2g1 120247509827960424. All still PAUSED.
 - 24 Nov (Sara: "ships in January" everywhere): NEW ad BF_1.4_no-hunting_b2g1_jan 120247510773940424 (same creative, copy "Freshly made in our first batch, ships in January"), PAUSED. Old BF_1.4_no-hunting_b2g1 120247509827960424 ARCHIVED. Ad set end_time set to 2026-11-26T03:00 UTC. Checkout method names now "Pre-order: ships in January (...)". Theme v3 146306793531 has the January wording (Sara to publish).
+
+## 2026-11-24 ~05:55 UTC — PRE-ORDER campaign LIVE (Sara: "موافقة على 60$ باليوم وسقف 150$")
+- Test order #1001 OK (3 jars, "Pre-order: Ships in January 2027", checkout "Pre-order: ships in January", BF free shipping applied); cancelled; MEVATEST100 deleted. Meta Purchase event: Sara to confirm in Events Manager.
+- Ad set 120247508332700424 budget $60/day; campaign 120247508332000424 spend cap $150; ends 2026-11-26 03:00 UTC.
+- ENABLED: campaign 120247508332000424, ad set 120247508332700424, ad BF_1.4_no-hunting_b2g1_jan 120247510773940424 (only ad).
+- Decision (≈£118): 5+ paid orders from ads → scale; 2–4 → improve; 0–1 → stop before signing. Amjad gate: 2–3× AOV + 2–3 days.
