@@ -14,9 +14,10 @@ Dear Alison,
 Good news on our side: we have taken our first customer orders, so we'd like to move forward now.
 
 1. **Lab test: please go ahead.** We approve the third-party test on lot 27627-226103050 (1 product, £180). Please send the invoice and we will pay it the same day. Could you confirm the laboratory, that magnesium, heavy metals (lead, cadmium, mercury), PAHs and microbiology are within its UKAS ISO/IEC 17025 scope, and the earliest result date? If an express turnaround is available, please quote it.
-2. **Reserve stock:** could you reserve 75 jars of PL-541 from lot 27627-226103050 for us while the test runs, so they are not sold in the meantime?
-3. **Trade account:** I am registering our account on your website today (Organo LLC, trading as Mëva) and will confirm once done, so you can upgrade it.
-4. **Fastest route:** while the test runs, can we prepare and approve the label artwork so you can print in parallel? Once the certificate is in, how many working days to label and deliver to Northstar (Newcastle)? What is the latest approval date to have stock at Northstar before Christmas?
+2. **First order: 10 jars.** Per your price list the minimum order for PL-541 is 10 jars (Tier 1, £3.96 + £0.10 label print + £0.10 application). We would like to start with **10 labelled jars from lot 27627-226103050**, and reorder from the same lot as orders come in. Please confirm: (a) there is no set-up, artwork or label-template fee on the first order; (b) the delivery cost to Northstar (Newcastle) per order; (c) that later reorders from the same lot are covered by the same lab certificate.
+3. **Reserve stock:** could you reserve a further 65 jars from the same lot (75 in total) for our reorders, so they are not sold while we grow?
+4. **Trade account:** I am registering our account on your website today (Organo LLC, trading as Mëva) and will confirm once done, so you can upgrade it.
+5. **Fastest route:** while the test runs, can we prepare and approve the label artwork so you can print in parallel? Once the certificate is in, how many working days to label and deliver to Northstar (Newcastle)? What is the latest approval date to have stock at Northstar before Christmas?
 
 We can turn around approvals and payments within 24 hours.
 
