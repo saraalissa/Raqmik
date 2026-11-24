@@ -13,24 +13,26 @@
   assign v2 = p.variants.first
   assign v3 = p.variants.first
   for v in p.variants
-    if v.title contains '3'
+    if v.title contains '5'
       assign v3 = v
-    elsif v.title contains '2'
+    elsif v.title contains '3'
       assign v2 = v
+    elsif v.title contains '2'
+      assign vtwo = v
     else
       assign v1 = v
     endif
   endfor
-  assign each3 = v3.price | divided_by: 3
-  assign each2 = v2.price | divided_by: 2
-  assign save3 = v3.price | times: 100.0 | divided_by: v1.price | divided_by: 3 | round | minus: 100 | abs
-  assign save2 = v2.price | times: 100.0 | divided_by: v1.price | divided_by: 2 | round | minus: 100 | abs
+  assign each3 = v3.price | divided_by: 5
+  assign each2 = v2.price | divided_by: 3
+  assign save3 = v3.price | times: 100.0 | divided_by: v1.price | divided_by: 5 | round | minus: 100 | abs
+  assign save2 = v2.price | times: 100.0 | divided_by: v1.price | divided_by: 3 | round | minus: 100 | abs
   assign n = section.settings.jar_count
   assign pd1 = v1.price | times: 1.0 | divided_by: n | round
-  assign pd2 = v2.price | times: 1.0 | divided_by: n | divided_by: 2 | round
-  assign pd3 = v3.price | times: 1.0 | divided_by: n | divided_by: 3 | round
-  assign sv2 = v1.price | times: 2 | minus: v2.price
-  assign sv3 = v1.price | times: 3 | minus: v3.price
+  assign pd2 = v2.price | times: 1.0 | divided_by: n | divided_by: 3 | round
+  assign pd3 = v3.price | times: 1.0 | divided_by: n | divided_by: 5 | round
+  assign sv2 = v1.price | times: 3 | minus: v2.price
+  assign sv3 = v1.price | times: 5 | minus: v3.price
   assign brand = section.settings.brand_name
   assign wl = section.settings.waitlist_mode
   assign cta_url = p.url
@@ -254,7 +256,7 @@
   {%- assign hb = section.settings.hero_banner -%}
   {%- assign hbm = section.settings.hero_banner_mobile -%}<section class="hero{% if hb != blank %} hb{% endif %}{% if hbm != blank %} hbm{% endif %}">{%- if hb != blank -%}<div class="hbimg"><picture>{%- if hbm != blank -%}<source media="(max-width: 860px)" srcset="{{ hbm | image_url: width: 600 }} 600w, {{ hbm | image_url: width: 941 }} 941w" sizes="100vw">{%- endif -%}{{ hb | image_url: width: 2000 | image_tag: alt: hb.alt, loading: 'eager', fetchpriority: 'high', sizes: '100vw', widths: '800, 1200, 1600, 2000' }}</picture></div>{%- endif -%}<div class="wrap">
     <div class="txt">
-      {%- if wl -%}<a class="bfhero bfsoon" href="/products/meva-magnesium-gummies?reserve=3#club"><span class="bft">Black<br>Friday</span><span class="bfm"><em>27&ndash;30 Nov &middot; UK</em><strong>3 jars for the price of 2</strong><small>Reserve that weekend, ship first. Nothing to pay today.</small></span><span class="bfj"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"></span><span class="bfc">Starts in <b data-bfc>&hellip;</b></span></a><a class="bfhero bfon" href="/products/meva-magnesium-gummies?reserve=3#club"><span class="bft">Black<br>Friday</span><span class="bfm"><em>It&#39;s on &middot; ends Mon 30 Nov</em><strong>3 jars for the price of 2</strong><small>+ first-batch shipping priority. Nothing to pay today.</small></span><span class="bfj"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"></span><span class="bfc">Ends in <b data-bfc>&hellip;</b></span></a>{%- else -%}<a class="bfhero bfnow" href="#buy-top"><span class="bft">Black<br>Friday</span><span class="bfm"><em>Early access &middot; ends Mon 30 Nov</em><strong>Every pack {{ v2.price | divided_by: 2 | money }} a jar or less</strong><small>1 jar {{ v1.price | times: 0.8 | money }} (from {{ v1.price | money }} on 1 December) &middot; 2+ jars free UK delivery</small></span><span class="bfj"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"></span><span class="bfc">Ends in <b data-bfend>&hellip;</b></span></a>{%- endif -%}
+      {%- if wl -%}<a class="bfhero bfsoon" href="/products/meva-magnesium-gummies?reserve=3#club"><span class="bft">Black<br>Friday</span><span class="bfm"><em>27&ndash;30 Nov &middot; UK</em><strong>3 jars for the price of 2</strong><small>Reserve that weekend, ship first. Nothing to pay today.</small></span><span class="bfj"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"></span><span class="bfc">Starts in <b data-bfc>&hellip;</b></span></a><a class="bfhero bfon" href="/products/meva-magnesium-gummies?reserve=3#club"><span class="bft">Black<br>Friday</span><span class="bfm"><em>It&#39;s on &middot; ends Mon 30 Nov</em><strong>3 jars for the price of 2</strong><small>+ first-batch shipping priority. Nothing to pay today.</small></span><span class="bfj"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"></span><span class="bfc">Ends in <b data-bfc>&hellip;</b></span></a>{%- else -%}<a class="bfhero bfnow" href="#buy-top"><span class="bft">Black<br>Friday</span><span class="bfm"><em>Early access &middot; ends Mon 30 Nov</em><strong>Buy 2, get 1 free + free UK delivery</strong><small>3 jars {{ v2.price | money }} &middot; 5 jars {{ v3.price | money }} &middot; until Mon 30 Nov</small></span><span class="bfj"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"><img src="{{ 'meva-jar-cut.png' | file_img_url: '160x' }}" alt="" loading="lazy" width="60" height="90"></span><span class="bfc">Ends in <b data-bfend>&hellip;</b></span></a>{%- endif -%}
       <p class="kick">For the women who hold everyone together</p>
       <h1>Tired of being tired? <em>Same, babe.</em></h1>
       <p class="lead">You look after everyone. So who&#39;s looking after you? {{ brand }} is two berry gummies with 180mg magnesium, the real dose on the front, and no wellness hype. All dose. No drama.</p>
@@ -340,21 +342,21 @@
         <ul><li>Delivery {{ section.settings.single_delivery }}</li><li>First-jar guarantee</li></ul>
         {%- if wl -%}<a class="btn o" href="{{ p.url }}?reserve=1#club">Reserve 1 jar</a>{%- else -%}<a class="btn o" href="{{ p.url }}?variant={{ v1.id }}">Choose 1 jar</a>{%- endif -%}
       </div>
-      <div class="pkc"><span class="pflag">Free delivery</span><div class="pimg"><img src="{{ 'packjar2.png' | file_url }}" alt="2 jars of Mëva" loading="lazy" width="400" height="280"></div>
-        <h3>2 jars</h3><p class="pdur">{{ n | times: 2 }} days &middot; {{ n | times: 4 }} gummies</p>
+      <div class="pkc"><span class="pflag">Most popular</span><div class="pimg"><img src="{{ 'packjar3.png' | file_url }}" alt="3 jars of Mëva" loading="lazy" width="400" height="280"></div>
+        <h3>3 jars</h3><p class="psave">Buy 2, get 1 free</p><p class="pdur">{{ n | times: 3 }} days &middot; {{ n | times: 6 }} gummies</p>
         <p class="ppr">{{ v2.price | money }}</p>
-        <div class="pmeta"><div><span>Per jar</span><b>{{ each2 | money }}</b></div><div><span>Per day</span><b>{{ v2.price | times: 1.0 | divided_by: n | divided_by: 2 | round | money }}</b></div></div>
+        <div class="pmeta"><div><span>Per jar</span><b>{{ each2 | money }}</b></div><div><span>Per day</span><b>{{ v2.price | times: 1.0 | divided_by: n | divided_by: 3 | round | money }}</b></div></div>
         <p class="psave">You save {{ save2 }}%</p>
         <ul><li>Free UK delivery on 2+ jars</li><li>First-jar guarantee</li></ul>
-        {%- if wl -%}<a class="btn" href="{{ p.url }}?reserve=2#club">Reserve 2 jars</a>{%- else -%}<a class="btn" href="{{ p.url }}?variant={{ v2.id }}">Choose 2 jars</a>{%- endif -%}
+        {%- if wl -%}<a class="btn" href="{{ p.url }}?reserve=2#club">Reserve 2 jars</a>{%- else -%}<a class="btn" href="{{ p.url }}?variant={{ v2.id }}">Choose 3 jars</a>{%- endif -%}
       </div>
-      <div class="pkc best"><span class="pflag">Best value</span><div class="pimg"><img src="{{ 'packjar3.png' | file_url }}" alt="3 jars of Mëva" loading="lazy" width="400" height="280"></div>
-        <h3>3 jars</h3><p class="pdur">{{ n | times: 3 }} days &middot; {{ n | times: 6 }} gummies</p>
+      <div class="pkc best"><span class="pflag">Best value</span><div class="pimg"><img src="{{ 'packjar5.png' | file_url }}" alt="5 jars of Mëva" loading="lazy" width="400" height="280"></div>
+        <h3>5 jars</h3><p class="psave">Buy 3, get 2 free</p><p class="pdur">{{ n | times: 5 }} days &middot; {{ n | times: 10 }} gummies</p>
         <p class="ppr">{{ v3.price | money }}</p>
-        <div class="pmeta"><div><span>Per jar</span><b>{{ each3 | money }}</b></div><div><span>Per day</span><b>{{ v3.price | times: 1.0 | divided_by: n | divided_by: 3 | round | money }}</b></div></div>
+        <div class="pmeta"><div><span>Per jar</span><b>{{ each3 | money }}</b></div><div><span>Per day</span><b>{{ v3.price | times: 1.0 | divided_by: n | divided_by: 5 | round | money }}</b></div></div>
         <p class="psave">You save {{ save3 }}%</p>
         <ul><li>Free UK delivery on 2+ jars</li><li>First-jar guarantee</li></ul>
-        {%- if wl -%}<a class="btn" href="{{ p.url }}?reserve=3#club">Reserve 3 jars</a>{%- else -%}<a class="btn" href="{{ p.url }}?variant={{ v3.id }}">Choose 3 jars</a>{%- endif -%}
+        {%- if wl -%}<a class="btn" href="{{ p.url }}?reserve=3#club">Reserve 3 jars</a>{%- else -%}<a class="btn" href="{{ p.url }}?variant={{ v3.id }}">Choose 5 jars</a>{%- endif -%}
       </div>
     </div>
   </div></section>
@@ -422,17 +424,17 @@
       {%- form 'product', p, id: 'mv-buy' -%}
       {%- liquid
         assign pd1 = v1.price | times: 1.0 | divided_by: n | round
-        assign pd2 = v2.price | times: 1.0 | divided_by: n | divided_by: 2 | round
-        assign pd3 = v3.price | times: 1.0 | divided_by: n | divided_by: 3 | round
-        assign sv2 = v1.price | times: 2 | minus: v2.price
-        assign sv3 = v1.price | times: 3 | minus: v3.price
+        assign pd2 = v2.price | times: 1.0 | divided_by: n | divided_by: 3 | round
+        assign pd3 = v3.price | times: 1.0 | divided_by: n | divided_by: 5 | round
+        assign sv2 = v1.price | times: 3 | minus: v2.price
+        assign sv3 = v1.price | times: 5 | minus: v3.price
       -%}
-      {%- unless wl -%}<div class="mvlaunch" hidden style="background:#fff3c4;border:1.5px solid #ffd84d;border-radius:18px;padding:14px 16px;margin:12px 0 14px;color:#3d0f27"><p style="margin:0;font-weight:800;font-size:16px">Early access, until Monday 30 November: every pack {{ v2.price | divided_by: 2 | money }} a jar or less</p><p style="margin:6px 0 0;font-weight:700;font-size:15px">1 jar {{ v1.price | times: 0.8 | money }} (from {{ v1.price | money }} on 1 December) &middot; 2 jars {{ v2.price | money }} &middot; 3 jars {{ v3.price | money }}, free UK delivery on 2+ jars</p><p style="margin:6px 0 0;font-size:13px;line-height:1.45">The 1-jar early access price is applied automatically in your basket and ends Monday 30 November at midnight. We ship the moment our first batch is ready, by mid-January at the latest.</p></div><script>(function(){var n=Date.now();if(n<=Date.UTC(2026,10,30,23,59,59)){document.querySelectorAll('.mvlaunch').forEach(function(e){e.hidden=false})}})();</script>{%- endunless -%}
+      
       <fieldset><legend>Choose your pack</legend>
         <div class="packs2">
           <label class="pk2"><input type="radio" name="id" value="{{ v1.id }}" data-price="{{ v1.price | money }}" data-note="1 jar · + {{ section.settings.single_delivery }} delivery" {% if sel == v1.id %}checked{% endif %} data-avail="{{ v1.available }}" data-pack="1"><span class="t"><b>1 jar</b><span class="sup">{{ n }}-day supply</span></span><span class="p"><b>{{ v1.price | money }}</b><small>~{{ pd1 | money }} a day</small></span><span class="extra"><span class="ln"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>UK delivery {{ section.settings.single_delivery }}</span><span class="ln"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>First-jar guarantee</span></span></label>
-          <label class="pk2"><input type="radio" name="id" value="{{ v2.id }}" data-price="{{ v2.price | money }}" data-note="2 jars · free delivery" {% if sel == v2.id %}checked{% endif %} data-avail="{{ v2.available }}" data-pack="2"><span class="t"><b>2 jars</b><span class="tag">Our pick</span><span class="sup">{{ n | times: 2 }}-day supply</span></span><span class="p"><b>{{ v2.price | money }}</b><small>~{{ pd2 | money }} a day</small></span><span class="extra"><span class="savepill">Save {{ sv2 | money }} vs 2 single jars</span><span class="ln fs"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>FREE UK delivery included</span><span class="ln"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>First-jar guarantee</span></span></label>
-          <label class="pk2"><input type="radio" name="id" value="{{ v3.id }}" data-price="{{ v3.price | money }}" data-note="3 jars · free delivery" {% if sel == v3.id %}checked{% endif %} data-avail="{{ v3.available }}" data-pack="3"><span class="t"><b>3 jars</b><span class="tag">Best price</span><span class="sup">{{ n | times: 3 }}-day supply</span></span><span class="p"><b>{{ v3.price | money }}</b><small>~{{ pd3 | money }} a day</small></span><span class="extra"><span class="savepill">Save {{ sv3 | money }} vs 3 single jars</span><span class="ln fs"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>FREE UK delivery included</span><span class="ln"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>First-jar guarantee</span></span></label>
+          <label class="pk2"><input type="radio" name="id" value="{{ v2.id }}" data-price="{{ v2.price | money }}" data-note="3 jars · buy 2, get 1 free" {% if sel == v2.id %}checked{% endif %} data-avail="{{ v2.available }}" data-pack="3"><span class="t"><b>3 jars</b><span class="tag">Buy 2, get 1 free</span><span class="sup">{{ n | times: 3 }}-day supply</span></span><span class="p"><b>{{ v2.price | money }}</b><small>~{{ pd2 | money }} a day</small></span><span class="extra"><span class="savepill">Save {{ sv2 | money }} vs 2 single jars</span><span class="ln fs"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>FREE UK delivery included</span><span class="ln"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>First-jar guarantee</span></span></label>
+          <label class="pk2"><input type="radio" name="id" value="{{ v3.id }}" data-price="{{ v3.price | money }}" data-note="5 jars · buy 3, get 2 free" {% if sel == v3.id %}checked{% endif %} data-avail="{{ v3.available }}" data-pack="5"><span class="t"><b>5 jars</b><span class="tag">Buy 3, get 2 free</span><span class="sup">{{ n | times: 5 }}-day supply</span></span><span class="p"><b>{{ v3.price | money }}</b><small>~{{ pd3 | money }} a day</small></span><span class="extra"><span class="savepill">Save {{ sv3 | money }} vs 3 single jars</span><span class="ln fs"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>FREE UK delivery included</span><span class="ln"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>First-jar guarantee</span></span></label>
         </div>
       </fieldset>
       <input type="hidden" name="quantity" value="1">
@@ -519,8 +521,8 @@
   </div></section>
 
   <section class="ppacks"><div class="wrap">
-    <h2>Choose your pack</h2><p class="sub2">The same berry gummy. 1, 2 or 3 jars.</p>
-    <div class="g3"><div class="ppk"><div class="ph">{%- if img_jar != blank -%}{{ img_jar | image_url: width: 600 | image_tag: alt: img_jar.alt, loading: 'lazy', sizes: '(max-width: 860px) 100vw, 50vw' }}{%- endif -%}</div><div class="pb"><h3>1 jar</h3><p>{{ n }}-day supply · <b>{{ v1.price | money }}</b></p><a class="btn" href="{{ p.url }}?variant={{ v1.id }}#buy-top">Choose this pack</a></div></div><div class="ppk"><div class="ph">{%- if img_jar != blank -%}{{ img_jar | image_url: width: 600 | image_tag: alt: img_jar.alt, loading: 'lazy', sizes: '(max-width: 860px) 100vw, 50vw' }}{%- endif -%}<span class="ptag">Our pick</span></div><div class="pb"><h3>2 jars</h3><p>{{ n | times: 2 }}-day supply · <b>{{ v2.price | money }}</b></p><a class="btn" href="{{ p.url }}?variant={{ v2.id }}#buy-top">Choose this pack</a></div></div><div class="ppk"><div class="ph">{%- if img_jar != blank -%}{{ img_jar | image_url: width: 600 | image_tag: alt: img_jar.alt, loading: 'lazy', sizes: '(max-width: 860px) 100vw, 50vw' }}{%- endif -%}<span class="ptag">Best price</span></div><div class="pb"><h3>3 jars</h3><p>{{ n | times: 3 }}-day supply · <b>{{ v3.price | money }}</b></p><a class="btn" href="{{ p.url }}?variant={{ v3.id }}#buy-top">Choose this pack</a></div></div></div>
+    <h2>Choose your pack</h2><p class="sub2">The same berry gummy. 1, 3 or 5 jars.</p>
+    <div class="g3"><div class="ppk"><div class="ph">{%- if img_jar != blank -%}{{ img_jar | image_url: width: 600 | image_tag: alt: img_jar.alt, loading: 'lazy', sizes: '(max-width: 860px) 100vw, 50vw' }}{%- endif -%}</div><div class="pb"><h3>1 jar</h3><p>{{ n }}-day supply · <b>{{ v1.price | money }}</b></p><a class="btn" href="{{ p.url }}?variant={{ v1.id }}#buy-top">Choose this pack</a></div></div><div class="ppk"><div class="ph">{%- if img_jar != blank -%}{{ img_jar | image_url: width: 600 | image_tag: alt: img_jar.alt, loading: 'lazy', sizes: '(max-width: 860px) 100vw, 50vw' }}{%- endif -%}<span class="ptag">Our pick</span></div><div class="pb"><h3>3 jars · buy 2, get 1 free</h3><p>{{ n | times: 3 }}-day supply · <b>{{ v2.price | money }}</b></p><a class="btn" href="{{ p.url }}?variant={{ v2.id }}#buy-top">Choose this pack</a></div></div><div class="ppk"><div class="ph">{%- if img_jar != blank -%}{{ img_jar | image_url: width: 600 | image_tag: alt: img_jar.alt, loading: 'lazy', sizes: '(max-width: 860px) 100vw, 50vw' }}{%- endif -%}<span class="ptag">Best price</span></div><div class="pb"><h3>5 jars · buy 3, get 2 free</h3><p>{{ n | times: 5 }}-day supply · <b>{{ v3.price | money }}</b></p><a class="btn" href="{{ p.url }}?variant={{ v3.id }}#buy-top">Choose this pack</a></div></div></div>
   </div></section>
 
   <section class="faq" id="faq"><div class="wrap">
@@ -537,7 +539,7 @@
     </div>
   </div></section>
 
-  <div class="sbar"><div><b id="mv-sbp">{{ v2.price | money }}</b><small id="mv-sbt">2 jars · free delivery</small></div>{% if wl %}<a class="btn" href="#club">Reserve mine</a>{% else %}<button class="btn" type="submit" form="mv-buy">Add to basket</button>{% endif %}</div>
+  <div class="sbar"><div><b id="mv-sbp">{{ v2.price | money }}</b><small id="mv-sbt">3 jars · buy 2, get 1 free</small></div>{% if wl %}<a class="btn" href="#club">Reserve mine</a>{% else %}<button class="btn" type="submit" form="mv-buy">Add to basket</button>{% endif %}</div>
 {%- endunless -%}
 
 {%- unless is_product -%}

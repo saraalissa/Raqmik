@@ -13,24 +13,26 @@
   assign v2 = p.variants.first
   assign v3 = p.variants.first
   for v in p.variants
-    if v.title contains '3'
+    if v.title contains '5'
       assign v3 = v
-    elsif v.title contains '2'
+    elsif v.title contains '3'
       assign v2 = v
+    elsif v.title contains '2'
+      assign vtwo = v
     else
       assign v1 = v
     endif
   endfor
-  assign each3 = v3.price | divided_by: 3
-  assign each2 = v2.price | divided_by: 2
-  assign save3 = v3.price | times: 100.0 | divided_by: v1.price | divided_by: 3 | round | minus: 100 | abs
-  assign save2 = v2.price | times: 100.0 | divided_by: v1.price | divided_by: 2 | round | minus: 100 | abs
+  assign each3 = v3.price | divided_by: 5
+  assign each2 = v2.price | divided_by: 3
+  assign save3 = v3.price | times: 100.0 | divided_by: v1.price | divided_by: 5 | round | minus: 100 | abs
+  assign save2 = v2.price | times: 100.0 | divided_by: v1.price | divided_by: 3 | round | minus: 100 | abs
   assign n = section.settings.jar_count
   assign pd1 = v1.price | times: 1.0 | divided_by: n | round
-  assign pd2 = v2.price | times: 1.0 | divided_by: n | divided_by: 2 | round
-  assign pd3 = v3.price | times: 1.0 | divided_by: n | divided_by: 3 | round
-  assign sv2 = v1.price | times: 2 | minus: v2.price
-  assign sv3 = v1.price | times: 3 | minus: v3.price
+  assign pd2 = v2.price | times: 1.0 | divided_by: n | divided_by: 3 | round
+  assign pd3 = v3.price | times: 1.0 | divided_by: n | divided_by: 5 | round
+  assign sv2 = v1.price | times: 3 | minus: v2.price
+  assign sv3 = v1.price | times: 5 | minus: v3.price
   assign brand = section.settings.brand_name
   assign wl = section.settings.waitlist_mode
   assign cta_url = p.url
@@ -350,24 +352,24 @@ html.mv-joined .mv5 .qj{display:none}
         <p class="ppr">{{ v1.price | money }}</p>
         <div class="pmeta"><div><span>Per jar</span><b>{{ v1.price | money }}</b></div><div><span>Per day</span><b>{{ v1.price | times: 1.0 | divided_by: n | divided_by: 1 | round | money }}</b></div></div>
         <p class="psave none">Single jar price</p>
-        <ul><li>Delivery {{ section.settings.single_delivery }}</li><li>First-jar guarantee</li></ul>
+        <ul>{%- assign bf_now2 = "now" | date: "%s" | plus: 0 -%}<li>{% if bf_now2 <= 1796083199 %}Free UK delivery until 30 Nov{% else %}Delivery {{ section.settings.single_delivery }}{% endif %}</li><li>First-jar guarantee</li></ul>
         {%- if wl -%}<a class="btn o" href="{{ p.url }}?reserve=1#club">Reserve 1 jar</a>{%- else -%}<a class="btn o" href="{{ p.url }}?variant={{ v1.id }}">Choose 1 jar</a>{%- endif -%}
       </div>
-      <div class="pkc"><span class="pflag">Free delivery</span><div class="pimg"><img src="{{ 'packjar2.png' | file_url }}" alt="2 jars of Mëva" loading="lazy" width="400" height="280"></div>
-        <h3>2 jars</h3><p class="pdur">{{ n | times: 2 }} days &middot; {{ n | times: 4 }} gummies</p>
+      <div class="pkc"><span class="pflag">Most popular</span><div class="pimg"><img src="{{ 'packjar3.png' | file_url }}" alt="3 jars of Mëva" loading="lazy" width="400" height="280"></div>
+        <h3>3 jars</h3><p class="psave">Buy 2, get 1 free</p><p class="pdur">{{ n | times: 3 }} days &middot; {{ n | times: 6 }} gummies</p>
         <p class="ppr">{{ v2.price | money }}</p>
-        <div class="pmeta"><div><span>Per jar</span><b>{{ each2 | money }}</b></div><div><span>Per day</span><b>{{ v2.price | times: 1.0 | divided_by: n | divided_by: 2 | round | money }}</b></div></div>
+        <div class="pmeta"><div><span>Per jar</span><b>{{ each2 | money }}</b></div><div><span>Per day</span><b>{{ v2.price | times: 1.0 | divided_by: n | divided_by: 3 | round | money }}</b></div></div>
         <p class="psave">You save {{ save2 }}%</p>
         <ul><li>Free UK delivery on 2+ jars</li><li>First-jar guarantee</li></ul>
-        {%- if wl -%}<a class="btn" href="{{ p.url }}?reserve=2#club">Reserve 2 jars</a>{%- else -%}<a class="btn" href="{{ p.url }}?variant={{ v2.id }}">Choose 2 jars</a>{%- endif -%}
+        {%- if wl -%}<a class="btn" href="{{ p.url }}?reserve=2#club">Reserve 2 jars</a>{%- else -%}<a class="btn" href="{{ p.url }}?variant={{ v2.id }}">Choose 3 jars</a>{%- endif -%}
       </div>
-      <div class="pkc best"><span class="pflag">Best value</span><div class="pimg"><img src="{{ 'packjar3.png' | file_url }}" alt="3 jars of Mëva" loading="lazy" width="400" height="280"></div>
-        <h3>3 jars</h3><p class="pdur">{{ n | times: 3 }} days &middot; {{ n | times: 6 }} gummies</p>
+      <div class="pkc best"><span class="pflag">Best value</span><div class="pimg"><img src="{{ 'packjar5.png' | file_url }}" alt="5 jars of Mëva" loading="lazy" width="400" height="280"></div>
+        <h3>5 jars</h3><p class="psave">Buy 3, get 2 free</p><p class="pdur">{{ n | times: 5 }} days &middot; {{ n | times: 10 }} gummies</p>
         <p class="ppr">{{ v3.price | money }}</p>
-        <div class="pmeta"><div><span>Per jar</span><b>{{ each3 | money }}</b></div><div><span>Per day</span><b>{{ v3.price | times: 1.0 | divided_by: n | divided_by: 3 | round | money }}</b></div></div>
+        <div class="pmeta"><div><span>Per jar</span><b>{{ each3 | money }}</b></div><div><span>Per day</span><b>{{ v3.price | times: 1.0 | divided_by: n | divided_by: 5 | round | money }}</b></div></div>
         <p class="psave">You save {{ save3 }}%</p>
         <ul><li>Free UK delivery on 2+ jars</li><li>First-jar guarantee</li></ul>
-        {%- if wl -%}<a class="btn" href="{{ p.url }}?reserve=3#club">Reserve 3 jars</a>{%- else -%}<a class="btn" href="{{ p.url }}?variant={{ v3.id }}">Choose 3 jars</a>{%- endif -%}
+        {%- if wl -%}<a class="btn" href="{{ p.url }}?reserve=3#club">Reserve 3 jars</a>{%- else -%}<a class="btn" href="{{ p.url }}?variant={{ v3.id }}">Choose 5 jars</a>{%- endif -%}
       </div>
     </div>
   </div></section>
@@ -391,7 +393,7 @@ html.mv-joined .mv5 .qj{display:none}
         {%- endif -%}{%- endfor -%}
         <div class="arrows"><button type="button" data-mv-prev aria-label="Previous photo">‹</button><button type="button" data-mv-next aria-label="Next photo">›</button></div>
       </div>
-      {%- unless wl -%}<div class="bfstage" style="display:flex;margin:10px auto 0;max-width:620px;align-items:center;gap:10px;background:#120a0e;color:#fff;border-radius:14px;padding:9px 12px"><span style="font-family:var(--display,'Inter Tight',Arial,sans-serif);font-weight:900;font-size:13px;line-height:.95;letter-spacing:-.02em;text-transform:uppercase;border-right:1.5px dashed rgba(255,216,77,.6);padding-right:10px">Black<br>Friday</span><span style="display:flex;flex-direction:column;min-width:0;flex:1"><b style="font-size:14.5px;line-height:1.15">Every pack {{ v2.price | divided_by: 2 | money }} a jar or less</b><small style="font-size:11.5px;color:rgba(255,255,255,.8)">Early access &middot; ends Mon 30 Nov</small></span><span style="background:#ffd84d;color:#120a0e;font-size:11px;font-weight:800;border-radius:999px;padding:4px 9px;white-space:nowrap">Ends in <b data-bfend>&hellip;</b></span></div>{%- endunless -%}<div class="thumbs" id="mv-thumbs">
+      {%- unless wl -%}<div class="bfstage" style="display:flex;margin:10px auto 0;max-width:620px;align-items:center;gap:10px;background:#120a0e;color:#fff;border-radius:14px;padding:9px 12px"><span style="font-family:var(--display,'Inter Tight',Arial,sans-serif);font-weight:900;font-size:13px;line-height:.95;letter-spacing:-.02em;text-transform:uppercase;border-right:1.5px dashed rgba(255,216,77,.6);padding-right:10px">Black<br>Friday</span><span style="display:flex;flex-direction:column;min-width:0;flex:1"><b style="font-size:14.5px;line-height:1.15">Buy 2, get 1 free + free UK delivery</b><small style="font-size:11.5px;color:rgba(255,255,255,.8)">Ends Mon 30 Nov</small></span><span style="background:#ffd84d;color:#120a0e;font-size:11px;font-weight:800;border-radius:999px;padding:4px 9px;white-space:nowrap">Ends in <b data-bfend>&hellip;</b></span></div>{%- endunless -%}<div class="thumbs" id="mv-thumbs">
         {%- for m in p.media -%}{%- if m.media_type == 'image' -%}
         <button type="button" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}" aria-label="Photo {{ forloop.index }}">{{ m | image_url: width: 200 | image_tag: alt: '' }}</button>
         {%- if forloop.first %}
@@ -410,7 +412,7 @@ html.mv-joined .mv5 .qj{display:none}
         <div class="slide">{%- if section.settings.moment2_image != blank -%}{{ section.settings.moment2_image | image_url: width: 1200 | image_tag: alt: section.settings.moment2_image.alt, loading: 'lazy' }}{%- endif -%}</div>
         <div class="arrows"><button type="button" data-mv-prev aria-label="Previous photo">‹</button><button type="button" data-mv-next aria-label="Next photo">›</button></div>
       </div>
-      {%- unless wl -%}<div class="bfstage" style="display:flex;margin:10px auto 0;max-width:620px;align-items:center;gap:10px;background:#120a0e;color:#fff;border-radius:14px;padding:9px 12px"><span style="font-family:var(--display,'Inter Tight',Arial,sans-serif);font-weight:900;font-size:13px;line-height:.95;letter-spacing:-.02em;text-transform:uppercase;border-right:1.5px dashed rgba(255,216,77,.6);padding-right:10px">Black<br>Friday</span><span style="display:flex;flex-direction:column;min-width:0;flex:1"><b style="font-size:14.5px;line-height:1.15">Every pack {{ v2.price | divided_by: 2 | money }} a jar or less</b><small style="font-size:11.5px;color:rgba(255,255,255,.8)">Early access &middot; ends Mon 30 Nov</small></span><span style="background:#ffd84d;color:#120a0e;font-size:11px;font-weight:800;border-radius:999px;padding:4px 9px;white-space:nowrap">Ends in <b data-bfend>&hellip;</b></span></div>{%- endunless -%}<div class="thumbs" id="mv-thumbs">
+      {%- unless wl -%}<div class="bfstage" style="display:flex;margin:10px auto 0;max-width:620px;align-items:center;gap:10px;background:#120a0e;color:#fff;border-radius:14px;padding:9px 12px"><span style="font-family:var(--display,'Inter Tight',Arial,sans-serif);font-weight:900;font-size:13px;line-height:.95;letter-spacing:-.02em;text-transform:uppercase;border-right:1.5px dashed rgba(255,216,77,.6);padding-right:10px">Black<br>Friday</span><span style="display:flex;flex-direction:column;min-width:0;flex:1"><b style="font-size:14.5px;line-height:1.15">Buy 2, get 1 free + free UK delivery</b><small style="font-size:11.5px;color:rgba(255,255,255,.8)">Ends Mon 30 Nov</small></span><span style="background:#ffd84d;color:#120a0e;font-size:11px;font-weight:800;border-radius:999px;padding:4px 9px;white-space:nowrap">Ends in <b data-bfend>&hellip;</b></span></div>{%- endunless -%}<div class="thumbs" id="mv-thumbs">
         <button type="button" aria-pressed="true" aria-label="Jar">{%- if img_jar != blank -%}{{ img_jar | image_url: width: 200 | image_tag: alt: '' }}{%- endif -%}</button>
         <button type="button" aria-pressed="false" aria-label="The dose on the front"><img src="{{ 'meva-ad-A4-feed.jpg' | file_img_url: '200x' }}" alt="" loading="lazy" width="200" height="250"></button>
         <button type="button" aria-pressed="false">Inside</button>
@@ -447,10 +449,10 @@ html.mv-joined .mv5 .qj{display:none}
       {%- form 'product', p, id: 'mv-buy' -%}
       {%- liquid
         assign pd1 = v1.price | times: 1.0 | divided_by: n | round
-        assign pd2 = v2.price | times: 1.0 | divided_by: n | divided_by: 2 | round
-        assign pd3 = v3.price | times: 1.0 | divided_by: n | divided_by: 3 | round
-        assign sv2 = v1.price | times: 2 | minus: v2.price
-        assign sv3 = v1.price | times: 3 | minus: v3.price
+        assign pd2 = v2.price | times: 1.0 | divided_by: n | divided_by: 3 | round
+        assign pd3 = v3.price | times: 1.0 | divided_by: n | divided_by: 5 | round
+        assign sv2 = v1.price | times: 3 | minus: v2.price
+        assign sv3 = v1.price | times: 5 | minus: v3.price
       -%}
       
       <fieldset><legend>Choose your pack</legend>
@@ -458,20 +460,20 @@ html.mv-joined .mv5 .qj{display:none}
           {%- liquid
         assign ea_on = false
         assign now_s = "now" | date: "%s" | plus: 0
-        if wl == false and now_s <= 1796083199
+        if false
           assign ea_on = true
         endif
         assign ea1 = v1.price | times: 0.8
-      -%}<label class="pk2 pbx">{% if ea_on %}<span class="pbx-badge hot">Early access</span>{% endif %}<input type="radio" name="id" value="{{ v1.id }}" data-price="{% if ea_on %}{{ ea1 | money }}{% else %}{{ v1.price | money }}{% endif %}" data-note="1 jar · + {{ section.settings.single_delivery }} delivery" {% if sel == v1.id %}checked{% endif %} data-avail="{{ v1.available }}" data-pack="1"><span class="pbx-th"><img src="{{ 'packjar1.png' | file_url }}" alt="" width="120" height="84" loading="eager"></span><span class="pbx-t"><b>1 jar</b><span class="pbx-sup">{{ n | times: 1 }} days &middot; {{ n | times: 2 }} gummies</span><span class="pbx-del">+ {{ section.settings.single_delivery }} delivery</span></span><span class="pbx-p">{% if ea_on %}<b>{{ ea1 | money }}</b><small>{{ v1.price | money }} from 1 Dec</small>{% else %}<b>{{ v1.price | money }}</b><small>{{ pd1 | money }} a day</small>{% endif %}</span></label>
-          <label class="pk2 pbx"><span class="pbx-badge">Free delivery</span><input type="radio" name="id" value="{{ v2.id }}" data-price="{{ v2.price | money }}" data-note="2 jars · free delivery" {% if sel == v2.id %}checked{% endif %} data-avail="{{ v2.available }}" data-pack="2"><span class="pbx-th"><img src="{{ 'packjar2.png' | file_url }}" alt="" width="120" height="84" loading="eager"></span><span class="pbx-t"><b>2 jars</b>{% unless ea_on %}<span class="pbx-save">Save {{ save2 }}%</span>{% endunless %}{% unless wl %}<span class="pbx-save">The 60-Day Starter</span>{% endunless %}<span class="pbx-sup">{{ n | times: 2 }} days &middot; {{ n | times: 4 }} gummies</span><span class="pbx-del free">Free UK delivery</span></span><span class="pbx-p"><b>{{ v2.price | money }}</b>{% unless ea_on %}<s>{{ v1.price | times: 2 | money }}</s>{% endunless %}<small>{{ pd2 | money }} a day</small></span></label>
-          <label class="pk2 pbx best"><span class="pbx-badge hot">Best value</span><input type="radio" name="id" value="{{ v3.id }}" data-price="{{ v3.price | money }}" data-note="3 jars · free delivery" {% if sel == v3.id %}checked{% endif %} data-avail="{{ v3.available }}" data-pack="3"><span class="pbx-th"><img src="{{ 'packjar3.png' | file_url }}" alt="" width="120" height="84" loading="eager"></span><span class="pbx-t"><b>3 jars</b>{% unless ea_on %}<span class="pbx-save">Save {{ save3 }}%</span>{% endunless %}<span class="bfonly bftag">3 for the price of 2</span><span class="pbx-sup">{{ n | times: 3 }} days &middot; {{ n | times: 6 }} gummies</span><span class="pbx-del free">Free UK delivery</span></span><span class="pbx-p"><b>{{ v3.price | money }}</b>{% unless ea_on %}<s>{{ v1.price | times: 3 | money }}</s>{% endunless %}<small>{{ pd3 | money }} a day</small></span></label>
+      -%}<label class="pk2 pbx">{% if ea_on %}<span class="pbx-badge hot">Early access</span>{% endif %}<input type="radio" name="id" value="{{ v1.id }}" data-price="{% if ea_on %}{{ ea1 | money }}{% else %}{{ v1.price | money }}{% endif %}" data-note="1 jar · + {{ section.settings.single_delivery }} delivery" {% if sel == v1.id %}checked{% endif %} data-avail="{{ v1.available }}" data-pack="1"><span class="pbx-th"><img src="{{ 'packjar1.png' | file_url }}" alt="" width="120" height="84" loading="eager"></span><span class="pbx-t"><b>1 jar</b><span class="pbx-sup">{{ n | times: 1 }} days &middot; {{ n | times: 2 }} gummies</span>{%- assign bf_now = "now" | date: "%s" | plus: 0 -%}{% if bf_now <= 1796083199 %}<span class="pbx-del free">Free UK delivery until 30 Nov</span>{% else %}<span class="pbx-del">+ {{ section.settings.single_delivery }} delivery</span>{% endif %}</span><span class="pbx-p">{% if ea_on %}<b>{{ ea1 | money }}</b><small>{{ v1.price | money }} from 1 Dec</small>{% else %}<b>{{ v1.price | money }}</b><small>{{ pd1 | money }} a day</small>{% endif %}</span></label>
+          <label class="pk2 pbx"><span class="pbx-badge hot">Most popular</span><input type="radio" name="id" value="{{ v2.id }}" data-price="{{ v2.price | money }}" data-note="3 jars · buy 2, get 1 free" {% if sel == v2.id %}checked{% endif %} data-avail="{{ v2.available }}" data-pack="3"><span class="pbx-th"><img src="{{ 'packjar3.png' | file_url }}" alt="" width="120" height="84" loading="eager"></span><span class="pbx-t"><b>3 jars</b><span class="pbx-save">Buy 2, get 1 free</span><span class="pbx-sup">{{ n | times: 3 }} days &middot; {{ n | times: 6 }} gummies</span><span class="pbx-del free">Free UK delivery</span></span><span class="pbx-p"><b>{{ v2.price | money }}</b><s>{{ v1.price | times: 3 | money }}</s><small>{{ pd2 | money }} a day</small></span></label>
+          <label class="pk2 pbx best"><span class="pbx-badge hot">Best value</span><input type="radio" name="id" value="{{ v3.id }}" data-price="{{ v3.price | money }}" data-note="5 jars · buy 3, get 2 free" {% if sel == v3.id %}checked{% endif %} data-avail="{{ v3.available }}" data-pack="5"><span class="pbx-th"><img src="{{ 'packjar5.png' | file_url }}" alt="" width="120" height="84" loading="eager"></span><span class="pbx-t"><b>5 jars</b><span class="pbx-save">Buy 3, get 2 free</span><span class="pbx-sup">{{ n | times: 5 }} days &middot; {{ n | times: 10 }} gummies</span><span class="pbx-del free">Free UK delivery</span></span><span class="pbx-p"><b>{{ v3.price | money }}</b><s>{{ v1.price | times: 5 | money }}</s><small>{{ pd3 | money }} a day</small></span></label>
         </div>
       </fieldset>
       {%- if wl -%}<div class="bfonly bfmod"><p>3 jars for the price of 2 single jars. Reserve by Monday 30 November and your order ships in the first December batch. Nothing to pay today.</p><small>One best price applies &mdash; offers don&#39;t stack.</small></div>{%- endif -%}
       <input type="hidden" name="quantity" value="1">
       {%- unless wl -%}<input type="hidden" name="properties[Pre-order]" value="Ships by mid-January 2027">{%- endunless -%}
-      <button class="btn add" type="submit" id="mv-add">{% if wl %}Reserve mine{% else %}Add to basket{% endif %}</button>{%- unless wl -%}<p class="ntp" style="font-weight:600"><b>Reserve yours at the early access price.</b> Ships with our first batch, by mid-January. Change your mind before then? Full refund.</p>{%- endunless -%}
-      {%- if wl -%}<p class="ntp">Nothing to pay today &middot; Reservations ship first, in the order they came in</p>{%- else -%}<p class="ntp" data-bfline style="color:#b3123f">Early access price ends in <b data-bfend>7 days</b></p>{%- unless wl -%}{%- liquid
+      <button class="btn add" type="submit" id="mv-add">{% if wl %}Reserve mine{% else %}Add to basket{% endif %}</button>{%- unless wl -%}<p class="ntp" style="font-weight:600"><b>Reserve yours at the Black Friday price.</b> Ships with our first batch, by mid-January. Change your mind before then? Full refund.</p>{%- endunless -%}
+      {%- if wl -%}<p class="ntp">Nothing to pay today &middot; Reservations ship first, in the order they came in</p>{%- else -%}<p class="ntp" data-bfline style="color:#b3123f">Black Friday offer ends in <b data-bfend>7 days</b></p>{%- unless wl -%}{%- liquid
   assign fb_size = shop.metafields.meva.first_batch_size.value | default: 75
   assign wl_n = shop.metafields.meva.waitlist_count.value | default: 51
   assign fb_pct = wl_n | times: 100 | divided_by: fb_size
@@ -623,24 +625,24 @@ html.mv-joined .mv5 .qj{display:none}
         <p class="ppr">{{ v1.price | money }}</p>
         <div class="pmeta"><div><span>Per jar</span><b>{{ v1.price | money }}</b></div><div><span>Per day</span><b>{{ v1.price | times: 1.0 | divided_by: n | divided_by: 1 | round | money }}</b></div></div>
         <p class="psave none">Single jar price</p>
-        <ul><li>Delivery {{ section.settings.single_delivery }}</li><li>First-jar guarantee</li></ul>
+        <ul>{%- assign bf_now2 = "now" | date: "%s" | plus: 0 -%}<li>{% if bf_now2 <= 1796083199 %}Free UK delivery until 30 Nov{% else %}Delivery {{ section.settings.single_delivery }}{% endif %}</li><li>First-jar guarantee</li></ul>
         {%- if wl -%}<a class="btn o" href="{{ p.url }}?reserve=1#club">Reserve 1 jar</a>{%- else -%}<a class="btn o" href="{{ p.url }}?variant={{ v1.id }}">Choose 1 jar</a>{%- endif -%}
       </div>
-      <div class="pkc"><span class="pflag">Free delivery</span><div class="pimg"><img src="{{ 'packjar2.png' | file_url }}" alt="2 jars of Mëva" loading="lazy" width="400" height="280"></div>
-        <h3>2 jars</h3><p class="pdur">{{ n | times: 2 }} days &middot; {{ n | times: 4 }} gummies</p>
+      <div class="pkc"><span class="pflag">Most popular</span><div class="pimg"><img src="{{ 'packjar3.png' | file_url }}" alt="3 jars of Mëva" loading="lazy" width="400" height="280"></div>
+        <h3>3 jars</h3><p class="psave">Buy 2, get 1 free</p><p class="pdur">{{ n | times: 3 }} days &middot; {{ n | times: 6 }} gummies</p>
         <p class="ppr">{{ v2.price | money }}</p>
-        <div class="pmeta"><div><span>Per jar</span><b>{{ each2 | money }}</b></div><div><span>Per day</span><b>{{ v2.price | times: 1.0 | divided_by: n | divided_by: 2 | round | money }}</b></div></div>
+        <div class="pmeta"><div><span>Per jar</span><b>{{ each2 | money }}</b></div><div><span>Per day</span><b>{{ v2.price | times: 1.0 | divided_by: n | divided_by: 3 | round | money }}</b></div></div>
         <p class="psave">You save {{ save2 }}%</p>
         <ul><li>Free UK delivery on 2+ jars</li><li>First-jar guarantee</li></ul>
-        {%- if wl -%}<a class="btn" href="{{ p.url }}?reserve=2#club">Reserve 2 jars</a>{%- else -%}<a class="btn" href="{{ p.url }}?variant={{ v2.id }}">Choose 2 jars</a>{%- endif -%}
+        {%- if wl -%}<a class="btn" href="{{ p.url }}?reserve=2#club">Reserve 2 jars</a>{%- else -%}<a class="btn" href="{{ p.url }}?variant={{ v2.id }}">Choose 3 jars</a>{%- endif -%}
       </div>
-      <div class="pkc best"><span class="pflag">Best value</span><div class="pimg"><img src="{{ 'packjar3.png' | file_url }}" alt="3 jars of Mëva" loading="lazy" width="400" height="280"></div>
-        <h3>3 jars</h3><p class="pdur">{{ n | times: 3 }} days &middot; {{ n | times: 6 }} gummies</p>
+      <div class="pkc best"><span class="pflag">Best value</span><div class="pimg"><img src="{{ 'packjar5.png' | file_url }}" alt="5 jars of Mëva" loading="lazy" width="400" height="280"></div>
+        <h3>5 jars</h3><p class="psave">Buy 3, get 2 free</p><p class="pdur">{{ n | times: 5 }} days &middot; {{ n | times: 10 }} gummies</p>
         <p class="ppr">{{ v3.price | money }}</p>
-        <div class="pmeta"><div><span>Per jar</span><b>{{ each3 | money }}</b></div><div><span>Per day</span><b>{{ v3.price | times: 1.0 | divided_by: n | divided_by: 3 | round | money }}</b></div></div>
+        <div class="pmeta"><div><span>Per jar</span><b>{{ each3 | money }}</b></div><div><span>Per day</span><b>{{ v3.price | times: 1.0 | divided_by: n | divided_by: 5 | round | money }}</b></div></div>
         <p class="psave">You save {{ save3 }}%</p>
         <ul><li>Free UK delivery on 2+ jars</li><li>First-jar guarantee</li></ul>
-        {%- if wl -%}<a class="btn" href="{{ p.url }}?reserve=3#club">Reserve 3 jars</a>{%- else -%}<a class="btn" href="{{ p.url }}?variant={{ v3.id }}">Choose 3 jars</a>{%- endif -%}
+        {%- if wl -%}<a class="btn" href="{{ p.url }}?reserve=3#club">Reserve 3 jars</a>{%- else -%}<a class="btn" href="{{ p.url }}?variant={{ v3.id }}">Choose 5 jars</a>{%- endif -%}
       </div>
     </div>
   </div></section>
@@ -941,7 +943,7 @@ io.observe(el);})();
 .mv5 .bfmod small{display:block;margin-top:8px;font-size:12.5px;color:rgba(61,15,39,.7)}
 .mv5 .bftag{align-items:center;background:#ffd84d;color:#3d0f27;font-weight:800;font-size:11.5px;letter-spacing:.02em;padding:4px 9px;border-radius:999px;white-space:nowrap}
 </style>
-  <div class="sbar"><div><b id="mv-sbp">{% if wl %}2 jars{% else %}{{ v2.price | money }}{% endif %}</b><small id="mv-sbt">{% if wl %}Nothing to pay today{% else %}2 jars · free delivery{% endif %}</small></div>{% if wl %}<a class="btn" href="#club">Reserve mine</a>{% else %}<button class="btn" type="submit" form="mv-buy">Add to basket</button>{% endif %}</div>
+  <div class="sbar"><div><b id="mv-sbp">{% if wl %}2 jars{% else %}{{ v2.price | money }}{% endif %}</b><small id="mv-sbt">{% if wl %}Nothing to pay today{% else %}3 jars · buy 2, get 1 free{% endif %}</small></div>{% if wl %}<a class="btn" href="#club">Reserve mine</a>{% else %}<button class="btn" type="submit" form="mv-buy">Add to basket</button>{% endif %}</div>
 {%- endunless -%}
 
 {%- unless is_product -%}

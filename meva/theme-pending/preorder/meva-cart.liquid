@@ -2,14 +2,20 @@
 {%- liquid
   assign p = all_products[section.settings.product_handle]
   assign v1 = p.variants.first
-  assign v2 = p.variants.first
+  assign v3 = p.variants.first
   for v in p.variants
-    if v.title contains '2'
-      assign v2 = v
+    if v.title contains '3'
+      assign v3 = v
     elsif v.title contains '1'
       assign v1 = v
     endif
   endfor
+  assign bf_now = 'now' | date: '%s' | plus: 0
+  assign bf_on = false
+  if bf_now <= 1796083199
+    assign bf_on = true
+  endif
+  assign total_save = 0
   assign threshold = 2900
   assign remaining = threshold | minus: cart.total_price
   assign pct = cart.total_price | times: 100 | divided_by: threshold
@@ -75,13 +81,28 @@
   <h1>Cart <span class="cnt">{{ cart.item_count }}</span></h1>
   <ul class="lines">
     {%- for item in cart.items -%}
-    {%- assign line_save = item.original_line_price | minus: item.final_line_price -%}
+    {%- liquid
+      assign jars = 1
+      if item.variant.title contains '5'
+        assign jars = 5
+      elsif item.variant.title contains '3'
+        assign jars = 3
+      elsif item.variant.title contains '2'
+        assign jars = 2
+      endif
+      assign ref = v1.price | times: jars | times: item.quantity
+      assign line_save = ref | minus: item.final_line_price
+      if line_save < 0
+        assign line_save = 0
+      endif
+      assign total_save = total_save | plus: line_save
+    -%}
     <li class="ln2">
       <div class="im">{%- if item.image -%}{{ item.image | image_url: width: 200 | image_tag: alt: item.product.title }}{%- endif -%}</div>
       <div class="nm">
         <a class="t" href="{{ item.url }}">{{ item.product.title }}</a>
         {%- unless item.product.has_only_default_variant -%}<span>{{ item.variant.title }}</span>{%- endunless -%}
-        <span>{{ item.final_price | money }}{% if line_save > 0 %}<s>{{ item.original_price | money }}</s>{% endif %}</span>
+        <span>{{ item.final_line_price | money }}{% if line_save > 0 %}<s>{{ ref | money }}</s>{% endif %}</span>
         
         <div class="ctl">
           <div class="qty" aria-label="Quantity">
@@ -98,30 +119,30 @@
     {%- endfor -%}
   </ul>
 
-  {%- if cart.total_discount > 0 -%}
-  <div class="tsave"><span>Your early access saving</span><b>{{ cart.total_discount | money }}</b></div>
+  {%- if total_save > 0 -%}
+  <div class="tsave"><span>Your total savings</span><b>{{ total_save | money }}</b></div>
   {%- endif -%}
 
   <div class="fd" role="status">
-    {%- if remaining <= 0 -%}
-      <span><b>Free UK delivery</b> is included in your order</span>
+    {%- if remaining <= 0 or bf_on -%}
+      <span><b>Free UK delivery</b> is included in your order{% if bf_on and remaining > 0 %} (Black Friday, until 30 Nov){% endif %}</span>
     {%- else -%}
       <span>You&#39;re <b>{{ remaining | money }}</b> away from <b>free UK delivery</b></span>
     {%- endif -%}
-    <span class="bar" aria-hidden="true"><i style="width:{{ pct }}%"></i></span>
+    <span class="bar" aria-hidden="true"><i style="width:{% if bf_on %}100{% else %}{{ pct }}{% endif %}%"></i></span>
   </div>
 
   {%- if single_line > 0 and single_qty == 1 and cart.items.size == 1 -%}
   <div class="upg">
-    <p>Switch to <b>2 jars for {{ v2.price | money }}</b>: 60 days and free UK delivery.</p>
-    <button class="btn" type="button" data-line="{{ single_line }}" data-to="{{ v2.id }}" id="mv-upg">Switch</button>
+    <p><b>Buy 2, get 1 free:</b> switch to 3 jars for {{ v3.price | money }} ({{ v3.price | divided_by: 3 | money }} a jar), 90 days.</p>
+    <button class="btn" type="button" data-line="{{ single_line }}" data-to="{{ v3.id }}" id="mv-upg">Switch</button>
   </div>
   {%- endif -%}
 
   <p class="trustln">First-jar guarantee &middot; Secure checkout &middot; No subscription</p>
 
   <div class="tot"><span>Estimated total</span><b>{{ cart.total_price | money }}</b></div>
-  <p class="note">Prices include VAT. Delivery is {% if remaining <= 0 %}free{% else %}{{ section.settings.single_delivery }}, added{% endif %} at checkout. </p><p class="note" style="font-weight:600;color:var(--plum)">Ships with our first batch, by mid-January. Change your mind before then? Full refund.</p>
+  <p class="note">Prices include VAT. Delivery is {% if remaining <= 0 or bf_on %}free{% else %}{{ section.settings.single_delivery }}, added at checkout{% endif %}. </p><p class="note" style="font-weight:600;color:var(--plum)">Ships with our first batch, by mid-January. Change your mind before then? Full refund.</p>
 
   <form class="sumf" action="{{ routes.cart_url }}" method="post">
     <button class="btn" type="submit" name="checkout">Check out</button>

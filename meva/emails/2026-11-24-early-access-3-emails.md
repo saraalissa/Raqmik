@@ -1,38 +1,37 @@
-# For Muse: 3 EARLY ACCESS emails to the waitlist (pre-order, 24–30 Nov 2026)
+# For Muse: 3 BLACK FRIDAY emails to the waitlist (24–30 Nov 2026)
 
-UPDATE 23 Nov (Sara): early access starts NOW, not Black Friday. **Do not send the 24 Nov "What's in the jar" email**; email 1 below replaces it.
+UPDATED 24 Nov (Sara): offer is now "Buy 2, get 1 free / Buy 3, get 2 free" + free UK delivery on every order until 30 Nov. The 2-jar pack is gone. Waitlist members also have their Founding code FOUNDING20 (20% off a single jar, once). **Do not send the 24 Nov "What's in the jar" email**; email 1 below replaces it.
 
-Approved by Sara on 23 Nov. Send each email only after Sara confirms the pre-order theme is LIVE.
+Send each email only after Sara confirms the pre-order theme is LIVE.
 
 ## How to send (all three)
 - Tool: Shopify Email. Sender: Mëva <info@trymeva.co>.
-- Audience: tag **waitlist**, subscribed to email marketing. Exclude **needs-confirm**. Emails 2 and 3: also exclude anyone who has already ordered (Shopify segment: customers with 0 orders).
-- Links go to https://trymeva.co/products/meva-magnesium-gummies?utm_source=email&utm_medium=list&utm_campaign=early_access&utm_content=<email1|email2|email3>
+- Audience: tag **waitlist**, subscribed to email marketing. Exclude **needs-confirm**. Emails 2 and 3: also exclude anyone who has already ordered (customers with 0 orders).
+- Links: https://trymeva.co/products/meva-magnesium-gummies?utm_source=email&utm_medium=list&utm_campaign=black_friday&utm_content=<email1|email2|email3>
 - Send a test to info@trymeva.co and forward it to Sara first.
 - Do not add: countdown timers, "only X left", "high demand", reviews or testimonials, a "was £X" price, menopause/hormones/sleep/focus, or any claim except "Magnesium contributes to the reduction of tiredness and fatigue".
-- Image: the PRODUCT-MASTER jar image (same as email 1).
+- Image: the PRODUCT-MASTER jar image.
 
 ---
 
-## Email 1: Tuesday 24 Nov, 09:30 UK (or as soon as the theme is live)
-**Subject:** Black Friday early access is open
-**Preview text:** Every pack £19.99 a jar or less, until Monday.
+## Email 1: as soon as the theme is live (Tuesday 24 Nov, 09:30 UK if ready)
+**Subject:** You're in first: buy 2, get 1 free
+**Preview text:** Black Friday on Mëva, plus your Founding code.
 
 Hi {{ customer.first_name | default: "there" }},
 
-You joined the list, so you get in first: Mëva is open for pre-order, with early access pricing.
+You joined the list, so you get in first. Mëva is open, with a Black Friday offer until Monday 30 November at midnight:
 
-**Early access, until Monday 30 November at midnight: every pack is £19.99 a jar or less.**
-- 1 jar: £19.99 (+ £4.99 delivery). £24.99 from 1 December.
-- 2 jars: £39.98 (£19.99 a jar), free UK delivery ← our pick, 60 days
-- 3 jars: £49.98 (£16.66 a jar), free UK delivery
+- **3 jars, buy 2 get 1 free: £49.98** (£16.66 a jar, 90 days) ← most popular
+- **5 jars, buy 3 get 2 free: £74.97** (£14.99 a jar, 150 days)
+- 1 jar: £24.99. **Your Founding code FOUNDING20 takes 20% off a single jar** (£19.99), as promised.
+- **Free UK delivery on every order** until Monday.
 
-**How the pre-order works**
-We ship the moment our first batch is ready, by mid-January at the latest. You pay today and your order is first in the queue.
+**How it works:** you reserve today, and we ship with our first batch, by mid-January. Change your mind before then? Full refund.
 
 180mg magnesium in two berry gummies a day, printed on the front. Magnesium contributes to the reduction of tiredness and fatigue. Vegan, no subscription, and our first-jar guarantee: finish your first jar, and if it's not for you, we refund it.
 
-[Button: Pre-order at the early access price] (utm_content=email1)
+[Button: Shop the Black Friday offer] (utm_content=email1)
 
 Thank you for waiting for us.
 Sara
@@ -42,13 +41,13 @@ Founder, Mëva
 
 ## Email 2: Sunday 29 Nov, 10:00 UK
 **Subject:** A few questions you asked
-**Preview text:** Early access ends tomorrow night.
+**Preview text:** Buy 2, get 1 free ends tomorrow night.
 
 Hi {{ customer.first_name | default: "there" }},
 
 A few things people have asked this week:
 
-**When will it arrive?** We ship as soon as our first batch is ready, by mid-January at the latest, Royal Mail Tracked.
+**When will it arrive?** We ship with our first batch, by mid-January, Royal Mail Tracked.
 
 **Is there a subscription?** No. You buy a jar when you want one. Nothing renews.
 
@@ -56,7 +55,7 @@ A few things people have asked this week:
 
 **What if it's not for me?** Finish your first jar. If it's not for you, email us and we'll refund it.
 
-The early access price on a single jar (£19.99) ends **tomorrow, Monday 30 November, at midnight**.
+Buy 2, get 1 free (3 jars £49.98), buy 3, get 2 free (5 jars £74.97) and free UK delivery end **tomorrow, Monday 30 November, at midnight**. Your code FOUNDING20 still takes 20% off a single jar.
 
 [Button: See the packs] (utm_content=email2)
 
@@ -66,15 +65,15 @@ Sara
 
 ## Email 3: Monday 30 Nov, 18:00 UK
 **Subject:** Tonight at midnight
-**Preview text:** Last few hours of early access.
+**Preview text:** Last few hours of buy 2, get 1 free.
 
 Hi {{ customer.first_name | default: "there" }},
 
-A quick one: the early access price ends tonight at midnight.
+A quick one: Black Friday ends tonight at midnight.
 
-1 jar £19.99 (£24.99 from 1 December), or 2 jars £39.98 with free UK delivery. Ships by mid-January at the latest.
+3 jars for the price of 2 (£49.98), or 5 jars for the price of 3 (£74.97), with free UK delivery. Ships with our first batch, by mid-January.
 
-[Button: Pre-order now] (utm_content=email3)
+[Button: Shop now] (utm_content=email3)
 
 If now isn't the right time, no problem at all. You'll stay on the list.
 

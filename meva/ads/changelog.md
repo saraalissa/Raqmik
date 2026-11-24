@@ -68,3 +68,11 @@ Total live: £50/day. R5 (£15 CBO) created but PAUSED; launching it needs rebal
 - 23 Nov: urgency pass (Sara). Theme: 1-jar card shows £19.99 + '£24.99 from 1 Dec' + Early access badge; 'Save x%'/strike prices on 2/3 jars hidden during early access (would mislead vs £19.99 single); countdown under button to real end 30 Nov 23:59; BF early-access hero. New ad EA3_1.4_no-hunting 120247508700010424 (copy: £24.99 from 1 December, ends Monday) = the go-live ad; EA2 ads stay paused.
 - 23 Nov: first-batch cap 50 jars shown on PDP from metafield meva.first_batch_jars_left=50 (update after each order check).
 - 23 Nov late: pre-order wording softened (Sara): shown only under the Add-to-basket button and in the cart ('Reserve yours at the early access price. Ships with our first batch, by mid-January. Change your mind before then? Full refund.'); removed from announcement bar, BF strip, sticky bar, home copy. FAQ + order-line property keep the date (legal record). Go-live ad is now EA4_1.4_no-hunting 120247509674370424 (same wording); EA3 stays paused.
+
+## 2026-11-24 00:30 — Offer switched to Cinnora structure (Sara: "شيل العلبتين و ساوي كل التعديلات")
+- Shopify: new variant "5 jars" (gid://shopify/ProductVariant/45078686957627) £74.97 in UK price list. Packs shown: 1 jar £24.99 · 3 jars £49.98 "Buy 2, get 1 free" (Most popular, default) · 5 jars £74.97 "Buy 3, get 2 free" (Best value). 2-jar variant kept in Shopify (live waitlist theme still uses it) but hidden in the pre-order theme.
+- Discounts: 1-jar early access automatic discount DEACTIVATED. New automatic free shipping on every order 24–30 Nov (gid://shopify/DiscountAutomaticNode/1467964620859). FOUNDING20 fixed to 20% off the 1-jar variant (was $5 = ~£3.90), once per customer, for the waitlist.
+- Savings shown are real multibuy vs the £24.99 single price: 3 jars save £24.99 (33%), 5 jars save £49.98 (40%). No inflated "was" prices.
+- Theme 146296930363: packs, BF strip ("Buy 2, get 1 free + free UK delivery"), header bar, cart (savings vs single price, free delivery until 30 Nov, upsell 1 jar → 3 jars), new packjar5.png.
+- New go-live ad: BF_1.4_no-hunting_b2g1 (120247509827960424). EA/PO ads stay paused.
+- Margins before ads (approx.): 1 jar ~£10 with free delivery during BF (~£15 after), 3 jars ~£20, 5 jars ~£32.
