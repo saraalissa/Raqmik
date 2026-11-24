@@ -142,7 +142,7 @@
   <p class="trustln">First-jar guarantee &middot; Secure checkout &middot; No subscription</p>
 
   <div class="tot"><span>Estimated total</span><b>{{ cart.total_price | money }}</b></div>
-  <p class="note">Prices include VAT. Delivery is {% if remaining <= 0 or bf_on %}free{% else %}{{ section.settings.single_delivery }}, added at checkout{% endif %}. </p><p class="note" style="font-weight:600;color:var(--plum)">Freshly made in our first batch, ships in January. Change your mind before then? Full refund.</p>
+  <p class="note">Prices include VAT. Delivery is {% if remaining <= 0 or bf_on %}free{% else %}{{ section.settings.single_delivery }}, added at checkout{% endif %}. </p><p class="note" style="font-weight:600;color:var(--plum)">Freshly made in our first batch. Change your mind before it ships? Full refund.</p>
 
   <form class="sumf" action="{{ routes.cart_url }}" method="post">
     <button class="btn" type="submit" name="checkout">Check out</button>
@@ -158,7 +158,7 @@
     b.disabled=true; b.textContent='Switching…';
     var line=parseInt(b.getAttribute('data-line'),10), to=parseInt(b.getAttribute('data-to'),10);
     fetch('/cart/change.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({line:line,quantity:0})})
-      .then(function(){return fetch('/cart/add.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:to,quantity:1,properties:{'Pre-order':'Ships in January 2027'}})});})
+      .then(function(){return fetch('/cart/add.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:to,quantity:1,properties:{'Pre-order':'Yes'}})});})
       .then(function(){window.location.reload();})
       .catch(function(){b.disabled=false;b.textContent='Switch';});
   });
