@@ -252,8 +252,9 @@
 .mv5 .btn.done,.mv5 .btn.done:hover{background:#2f8f4e!important;border-color:#2f8f4e!important;color:#fff!important;cursor:default;opacity:1}
 .mv5 .qj{margin:4px 0 16px}
 html.mv-joined .mv5 .qj{display:none}
-.mv5 #mv-stage .arrows{inset:50% 8px auto 8px;transform:translateY(-50%);justify-content:space-between;pointer-events:none}
-.mv5 #mv-stage .arrows button{pointer-events:auto;width:34px;height:34px;font-size:15px;background:rgba(255,255,255,.82);backdrop-filter:blur(4px)}
+.mv5 #mv-stage .arrows{inset:auto 10px 10px auto;transform:none;gap:6px;justify-content:flex-end;pointer-events:none}
+.mv5 #mv-stage .arrows button{pointer-events:auto;width:30px;height:30px;font-size:14px;background:rgba(255,255,255,.7);backdrop-filter:blur(4px);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.arrows{opacity:0;transition:opacity .2s}#mv-stage:hover .arrows,.arrows:focus-within{opacity:1}@media (hover:none){.arrows{display:none!important}}
 .mv5 #mv-thumbs{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px) / 6);overflow-x:auto;scrollbar-width:none}
 .mv5 #mv-thumbs::-webkit-scrollbar{display:none}
 .mv5 #mv-stage .slide img{width:100%;height:100%;object-fit:cover}
