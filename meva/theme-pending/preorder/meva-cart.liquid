@@ -101,7 +101,7 @@
       <div class="im">{%- if item.image -%}{{ item.image | image_url: width: 200 | image_tag: alt: item.product.title }}{%- endif -%}</div>
       <div class="nm">
         <a class="t" href="{{ item.url }}">{{ item.product.title }}</a>
-        {%- unless item.product.has_only_default_variant -%}<span>{{ item.variant.title }}</span>{%- endunless -%}
+        <span>{% if jars == 5 %}Buy 3 Get 2 FREE (5 jars){% elsif jars == 3 %}Buy 2 Get 1 FREE (3 jars){% elsif jars == 1 %}Buy One (1 jar){% else %}{{ item.variant.title }}{% endif %}</span>
         <span>{{ item.final_line_price | money }}{% if line_save > 0 %}<s>{{ ref | money }}</s>{% endif %}</span>
         
         <div class="ctl">
