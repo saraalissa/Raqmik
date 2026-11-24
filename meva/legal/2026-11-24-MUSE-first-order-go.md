@@ -43,24 +43,3 @@ Kind regards,
 Sara Al Issa
 Founder, Organo LLC (Mëva)
 info@trymeva.co
-
----
-
-## 3. Thank-you to our first customer (order #1002, Margaret Hartley)
-
-Send as a personal plain-text email from info@trymeva.co (not Shopify Email, no images). Use the email address on order #1002 in Shopify.
-
-Subject: You're our very first customer
-
-Hi Margaret,
-
-I'm Sara, the founder of Mëva. Your order is the very first one we've ever received, and I wanted to say thank you personally.
-
-Your jar is part of our first batch. I'll email you the moment it ships, with your tracking link. If you have any questions in the meantime, just reply to this email; it comes straight to me.
-
-Thank you for taking a chance on us.
-
-Sara
-Founder, Mëva
-
-Do not add a delivery date, discount or anything else to this email.
