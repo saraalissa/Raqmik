@@ -80,3 +80,4 @@ Total live: £50/day. R5 (£15 CBO) created but PAUSED; launching it needs rebal
 ## 2026-11-24 — Pre-order campaign cleaned up (Sara: "موافقة")
 - ARCHIVED ad set B 120247508333090424 (G5) and 7 old ads in ad set A: PO_1.4 120247508341820424, PO_1.4_launch 120247508469240424, PO_G3b 120247508466510424, EA2_1.4 120247508666850424, EA2_G3b 120247508667700424, EA3_1.4 120247508700010424, EA4_1.4 120247509674370424.
 - Campaign 120247508332000424 now = 1 ad set (120247508332700424) + 1 ad BF_1.4_no-hunting_b2g1 120247509827960424. All still PAUSED.
+- 24 Nov (Sara: "ships in January" everywhere): NEW ad BF_1.4_no-hunting_b2g1_jan 120247510773940424 (same creative, copy "Freshly made in our first batch, ships in January"), PAUSED. Old BF_1.4_no-hunting_b2g1 120247509827960424 ARCHIVED. Ad set end_time set to 2026-11-26T03:00 UTC. Checkout method names now "Pre-order: ships in January (...)". Theme v3 146306793531 has the January wording (Sara to publish).
