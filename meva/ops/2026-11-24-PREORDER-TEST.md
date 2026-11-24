@@ -8,6 +8,9 @@ Decision: real sales, no refunds. Buyers pre-order at a launch price and wait; w
 - Never write "was £X": those prices were never charged. Use "from January".
 - The old "Black Friday: 3 jars for the price of 2" is removed in the pre-order theme (3 jars is already the price of 2 singles every day).
 
+## Backup of the live site (24 Nov)
+- Theme 146303778875 "BACKUP – Live site 24 Nov (before pre-order) – DO NOT TOUCH": exact copy of the live theme 146150785083 as it was before the pre-order launch. To go back: publish 146303778875 (or 146150785083 if it is still unchanged).
+
 ## Website: theme "Mëva - PRE-ORDER TEST (draft)" 146296930363, separate from live
 - Live theme 146150785083 is untouched. Publish 146296930363 to launch; republish 146150785083 to go back.
 - Product page: real checkout, launch-price box (shows only 27–30 Nov), "Pre-order: ships as soon as our first batch is ready, by mid-January 2027 at the latest", order-line property "Pre-order: Ships by mid-January 2027", header bar with the launch offer. Club pop-up and the old Black Friday reserve banner are off in this theme.
