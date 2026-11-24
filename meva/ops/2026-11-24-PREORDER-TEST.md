@@ -52,3 +52,5 @@ Waitlist orders are counted separately (free traffic).
 - Live check: offer cards, countdown, waitlist bar and guarantee box render; Add to basket adds 3 jars £49.98 with property "Pre-order: Ships by mid-January 2027".
 - Waitlist bar stays 51 (Shopify shows 53 tagged "waitlist", including at least one bad address); update when confirmed.
 - Next: Sara's test order → check order, discount, Meta Purchase event → ads only with Sara's OK on the spend.
+- Checkout delivery fixed by Muse (estimated delivery dates off; "Royal Mail Tracked £3.49 · Mon 30 Nov–Tue 1 Dec" gone). Checkout now shows "Pre-order: ships by mid-January (tracked UK delivery)". Test code MEVATEST100 (100%, 1 use, ends 26 Nov) created for Sara's test order; delete after.
+- Live theme is now locked for API writes. Edits go to a copy: "Mëva - PRE-ORDER v2 (edits 24 Nov)" 146306400315 (removed the "Free UK delivery on 2+ jars" and "first-jar guarantee" perk lines). Sara publishes it.
