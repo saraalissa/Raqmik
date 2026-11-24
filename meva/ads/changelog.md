@@ -76,3 +76,7 @@ Total live: £50/day. R5 (£15 CBO) created but PAUSED; launching it needs rebal
 - Theme 146296930363: packs, BF strip ("Buy 2, get 1 free + free UK delivery"), header bar, cart (savings vs single price, free delivery until 30 Nov, upsell 1 jar → 3 jars), new packjar5.png.
 - New go-live ad: BF_1.4_no-hunting_b2g1 (120247509827960424). EA/PO ads stay paused.
 - Margins before ads (approx.): 1 jar ~£10 with free delivery during BF (~£15 after), 3 jars ~£20, 5 jars ~£32.
+
+## 2026-11-24 — Pre-order campaign cleaned up (Sara: "موافقة")
+- ARCHIVED ad set B 120247508333090424 (G5) and 7 old ads in ad set A: PO_1.4 120247508341820424, PO_1.4_launch 120247508469240424, PO_G3b 120247508466510424, EA2_1.4 120247508666850424, EA2_G3b 120247508667700424, EA3_1.4 120247508700010424, EA4_1.4 120247509674370424.
+- Campaign 120247508332000424 now = 1 ad set (120247508332700424) + 1 ad BF_1.4_no-hunting_b2g1 120247509827960424. All still PAUSED.
