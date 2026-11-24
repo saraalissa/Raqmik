@@ -1,0 +1,268 @@
+{% comment %}
+  Mëva — Order confirmation email v3 (Shopify: Settings → Notifications → Order confirmation)
+  v3 (24 Nov 2026, Claude review of Sara's v2):
+  - "mid-January" → "January" (matches site, checkout and ads).
+  - Timeline no longer promises what you will feel or "what's happening in your body"
+    (implied health claims). Only GB-register claim wording is used.
+  - "48% of your daily intake" → "48% of the Nutrient Reference Value (NRV)".
+  - Guarantee matches the site's terms (45 days from delivery).
+  - Adds: variant (pack) name, discounts, subtotal, delivery address, cancellation rights,
+    order status link, company details.
+  - Pack count now multiplies by quantity (2 × "3 jars" = 6 jars).
+  IMAGE SPACES ARE EMPTY PLACEHOLDERS — Sara adds the final images.
+{% endcomment %}
+{% assign jars = 0 %}
+{% for line in line_items %}
+  {% assign per = 1 %}
+  {% if line.variant.title contains '5' %}{% assign per = 5 %}
+  {% elsif line.variant.title contains '3' %}{% assign per = 3 %}
+  {% elsif line.variant.title contains '2' %}{% assign per = 2 %}
+  {% endif %}
+  {% assign add = per | times: line.quantity %}
+  {% assign jars = jars | plus: add %}
+{% endfor %}
+{% if jars < 1 %}{% assign jars = 1 %}{% endif %}
+{% assign supply_days = jars | times: 30 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Mëva order is confirmed</title>
+</head>
+<body style="margin:0;padding:0;background:#FFFFFF;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+<tr><td align="center" style="padding:28px 12px;">
+<table role="presentation" width="560" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;">
+
+  <!-- Logo -->
+  <tr><td align="center" style="padding-bottom:14px;">
+    <span style="font-family:Georgia,'Times New Roman',serif;font-size:24px;font-weight:bold;color:#1A1A1A;letter-spacing:1px;">mëva</span>
+  </td></tr>
+
+  <!-- Confirmed -->
+  <tr><td align="center">
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:30px;font-weight:bold;color:#1A1A1A;">Your order is confirmed.</div>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:19px;color:#666666;margin:8px 0 0;">
+      Thank you{% if customer.first_name %}, {{ customer.first_name }}{% endif %}. Your order is freshly made in our first batch and ships in January.
+      We'll email you the tracking link the day it leaves our warehouse.
+    </p>
+  </td></tr>
+
+  <!-- IMAGE SPACE: HERO -->
+  <tr><td style="padding-top:20px;">
+    <div style="background:#F4E9E2;border:2px dashed #C9A18F;border-radius:10px;height:320px;text-align:center;">
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:2px;color:#A9806A;padding-top:150px;">IMAGE SPACE — HERO</div>
+    </div>
+  </td></tr>
+
+  <!-- Welcome -->
+  <tr><td align="center" style="padding-top:24px;">
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:23px;color:#1A1A1A;">Welcome to Mëva</div>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:13.5px;line-height:20px;color:#555555;margin:8px 0 0;">
+      Magnesium the simple way: two berry gummies a day, 180mg of magnesium.
+      {{ jars }} jar{% if jars > 1 %}s{% endif %} = {{ supply_days }} days.
+    </p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#888888;margin:14px 0 0;">
+      Your order number is {{ name }}.
+    </p>
+  </td></tr>
+
+  <!-- Order details -->
+  <tr><td style="padding-top:16px;">
+    <div style="font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:bold;color:#1A1A1A;">Order details</div>
+    {% for line in line_items %}
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;">
+      <tr>
+        <td width="72" valign="top">
+          <div style="width:64px;height:64px;background:#F4E9E2;border:2px dashed #C9A18F;border-radius:8px;text-align:center;">
+            <div style="font-family:Arial,Helvetica,sans-serif;font-size:8.5px;letter-spacing:1px;color:#A9806A;padding-top:26px;">IMAGE</div>
+          </div>
+        </td>
+        <td valign="top" style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:19px;color:#1A1A1A;padding-left:12px;">
+          {{ line.product.title | default: line.title }}{% if line.variant.title != blank and line.variant.title != 'Default Title' %} · {{ line.variant.title }}{% endif %}<br>
+          <span style="color:#666666;">Quantity: {{ line.quantity }}</span>
+        </td>
+        <td valign="top" align="right" style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#1A1A1A;">
+          {% if line.original_line_price > line.final_line_price %}<span style="color:#999999;text-decoration:line-through;">{{ line.original_line_price | money }}</span><br>{% endif %}{{ line.final_line_price | money }}
+        </td>
+      </tr>
+    </table>
+    {% endfor %}
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:12px;">
+      <tr>
+        <td style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#666666;">Subtotal</td>
+        <td align="right" style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#666666;">{{ subtotal_price | money }}</td>
+      </tr>
+      {% if discounts_amount > 0 %}
+      <tr>
+        <td style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#666666;">Discount</td>
+        <td align="right" style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#666666;">-{{ discounts_amount | money }}</td>
+      </tr>
+      {% endif %}
+      <tr>
+        <td style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#666666;">Delivery · pre-order, ships in January (tracked UK delivery)</td>
+        <td align="right" style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#666666;">{% if shipping_price == 0 %}Free{% else %}{{ shipping_price | money }}{% endif %}</td>
+      </tr>
+      <tr>
+        <td style="font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold;color:#1A1A1A;padding-top:4px;">Total</td>
+        <td align="right" style="font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold;color:#1A1A1A;padding-top:4px;">{{ total_price | money }}</td>
+      </tr>
+    </table>
+    {% if shipping_address %}
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:12.5px;line-height:18px;color:#666666;margin:14px 0 0;">
+      <strong style="color:#1A1A1A;">Delivering to</strong><br>
+      {{ shipping_address.name }}<br>{{ shipping_address.address1 }}{% if shipping_address.address2 != blank %}, {{ shipping_address.address2 }}{% endif %}<br>
+      {{ shipping_address.city }} {{ shipping_address.zip }}
+    </p>
+    {% endif %}
+    <div style="padding-top:16px;">
+      <a href="{{ order_status_url }}" style="display:inline-block;background:#3D0F27;color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:bold;text-decoration:none;padding:11px 26px;border-radius:8px;">View your order →</a>
+    </div>
+  </td></tr>
+
+  <tr><td style="border-bottom:1px solid #E5E5E5;padding-top:20px;"></td></tr>
+
+  <!-- VIDEO SPACE -->
+  <tr><td style="padding-top:20px;">
+    <div style="background:#111111;border-radius:6px;height:300px;text-align:center;">
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:2px;color:#777777;padding-top:140px;">VIDEO / GIF SPACE</div>
+    </div>
+  </td></tr>
+
+  <!-- Routine (no promised effects) -->
+  <tr><td style="padding-top:26px;">
+    <div style="font-family:Arial,Helvetica,sans-serif;font-size:10.5px;font-weight:bold;letter-spacing:2.5px;color:#D96C4A;">WHEN YOUR JARS ARRIVE</div>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:22px;color:#1A1A1A;margin-top:5px;">Your Mëva routine:</div>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px;">
+      <tr>
+        <td width="30" valign="top"><span style="font-size:19px;color:#B03A6B;">✱</span></td>
+        <td style="font-family:Arial,Helvetica,sans-serif;font-size:13.5px;line-height:20px;color:#555555;padding-bottom:16px;">
+          <strong style="color:#1A1A1A;">Day 1</strong><br>
+          Two gummies a day, at the same time each day. Chew, no water needed.
+          Pick a moment you never miss: with breakfast, or with your evening tea.
+        </td>
+      </tr>
+      <tr>
+        <td width="30" valign="top"><span style="font-size:19px;color:#B03A6B;">✱</span></td>
+        <td style="font-family:Arial,Helvetica,sans-serif;font-size:13.5px;line-height:20px;color:#555555;padding-bottom:16px;">
+          <strong style="color:#1A1A1A;">{% if jars == 1 %}Weeks 2–3{% else %}The first month{% endif %}</strong><br>
+          Keep the routine going. Magnesium contributes to the reduction of tiredness and fatigue
+          and to normal psychological function. Everyone is different, so we'll check in with you by email along the way.
+        </td>
+      </tr>
+      <tr>
+        <td width="30" valign="top"><span style="font-size:19px;color:#B03A6B;">✱</span></td>
+        <td style="font-family:Arial,Helvetica,sans-serif;font-size:13.5px;line-height:20px;color:#555555;">
+          <strong style="color:#1A1A1A;">{% if jars == 1 %}Day 30: end of your jar{% else %}End of jar 1{% endif %}</strong><br>
+          Finish your first jar, then decide whether Mëva has earned a place in your day.
+          {% if jars > 1 %}Your other {{ jars | minus: 1 }} jar{% if jars > 2 %}s keep{% else %} keeps{% endif %} you going for {{ supply_days | minus: 30 }} more days.{% endif %}
+          Not for you? Our first-jar guarantee has you covered.
+        </td>
+      </tr>
+    </table>
+
+    <div style="text-align:center;padding-top:20px;">
+      <a href="https://trymeva.co/products/meva-magnesium-gummies" style="display:inline-block;background:#D96C4A;color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;font-size:13.5px;font-weight:bold;text-decoration:none;padding:12px 34px;border-radius:8px;">Read up →</a>
+    </div>
+  </td></tr>
+
+  <!-- Claims panel (GB register wording) -->
+  <tr><td style="padding-top:26px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FBEEE7;border-radius:12px;">
+      <tr><td style="padding:20px 22px;">
+        <div style="font-family:Georgia,'Times New Roman',serif;font-size:17px;color:#1A1A1A;">Magnesium contributes to:</div>
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:12px;">
+          <tr><td style="padding-bottom:8px;"><span style="font-size:15px;color:#B03A6B;">✱</span>&nbsp; <span style="display:inline-block;border:1.5px solid #3D0F27;border-radius:999px;padding:6px 14px;font-family:Arial,Helvetica,sans-serif;font-size:12.5px;color:#3D0F27;background:#FFFFFF;">The reduction of tiredness and fatigue</span></td></tr>
+          <tr><td style="padding-bottom:8px;"><span style="font-size:15px;color:#B03A6B;">✱</span>&nbsp; <span style="display:inline-block;border:1.5px solid #3D0F27;border-radius:999px;padding:6px 14px;font-family:Arial,Helvetica,sans-serif;font-size:12.5px;color:#3D0F27;background:#FFFFFF;">Normal psychological function</span></td></tr>
+          <tr><td><span style="font-size:15px;color:#B03A6B;">✱</span>&nbsp; <span style="display:inline-block;border:1.5px solid #3D0F27;border-radius:999px;padding:6px 14px;font-family:Arial,Helvetica,sans-serif;font-size:12.5px;color:#3D0F27;background:#FFFFFF;">Normal muscle function</span></td></tr>
+        </table>
+        <p style="font-family:Arial,Helvetica,sans-serif;font-size:12.5px;color:#555555;margin:12px 0 0;">
+          180mg magnesium per 2 gummies = 48% of the Nutrient Reference Value (NRV).
+        </p>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- How it works -->
+  <tr><td style="padding-top:26px;">
+    <div style="font-family:Arial,Helvetica,sans-serif;font-size:10.5px;font-weight:bold;letter-spacing:2.5px;color:#D96C4A;">QUESTIONS ANSWERED</div>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:22px;color:#1A1A1A;margin-top:5px;">Here's how it works:</div>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:13.5px;line-height:20px;color:#555555;margin:10px 0 0;">
+      Magnesium is a mineral your body uses every day, and it has to come from what you eat
+      or from a supplement. Two Mëva gummies give you 180mg of magnesium a day, in a form that's easy to keep up.
+    </p>
+
+    <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:16px;">
+      <tr><td width="30" align="center"><span style="font-size:17px;color:#D96C4A;">✱</span></td><td><span style="display:inline-block;border:1.5px solid #D96C4A;border-radius:999px;padding:5px 14px;font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:1.5px;color:#8A4B2A;">YOU TAKE 2 GUMMIES</span></td></tr>
+      <tr><td align="center" style="color:#D96C4A;">|</td><td></td></tr>
+      <tr><td width="30" align="center"><span style="font-size:17px;color:#D96C4A;">✱</span></td><td><span style="display:inline-block;border:1.5px solid #D96C4A;border-radius:999px;padding:5px 14px;font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:1.5px;color:#8A4B2A;">180MG MAGNESIUM</span></td></tr>
+      <tr><td align="center" style="color:#D96C4A;">|</td><td></td></tr>
+      <tr><td width="30" align="center"><span style="font-size:17px;color:#D96C4A;">✱</span></td><td><span style="display:inline-block;border:1.5px solid #D96C4A;border-radius:999px;padding:5px 14px;font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:1.5px;color:#8A4B2A;">48% OF THE NRV</span></td></tr>
+      <tr><td align="center" style="color:#D96C4A;">|</td><td></td></tr>
+      <tr><td width="30" align="center"><span style="font-size:17px;color:#D96C4A;">✱</span></td><td><span style="display:inline-block;border:1.5px solid #D96C4A;border-radius:999px;padding:5px 14px;font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:1.5px;color:#8A4B2A;">EVERY DAY: THAT'S THE METHOD</span></td></tr>
+    </table>
+  </td></tr>
+
+  <!-- IMAGE SPACE: GUMMIES -->
+  <tr><td style="padding-top:24px;">
+    <div style="background:#F4E9E2;border:2px dashed #C9A18F;border-radius:10px;height:300px;text-align:center;">
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:2px;color:#A9806A;padding-top:140px;">IMAGE SPACE — GUMMIES CLOSE-UP</div>
+    </div>
+  </td></tr>
+
+  <!-- Label panel -->
+  <tr><td style="padding-top:24px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FBEEE7;border-radius:12px;">
+      <tr><td style="padding:20px 22px;">
+        <div style="font-family:Georgia,'Times New Roman',serif;font-size:17px;color:#1A1A1A;">What you get is exactly what's on the label:</div>
+        <p style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:19px;color:#555555;margin:8px 0 0;">
+          180mg of magnesium in every daily serving of two gummies. 60 gummies, 30 days per jar.
+          Pectin-based and vegan, made without gelatine. The full ingredient list is printed on every jar.
+        </p>
+        <p style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#3D0F27;margin:12px 0 0;">
+          <strong>VEGAN</strong> &nbsp;·&nbsp; <strong>GELATINE-FREE</strong> &nbsp;·&nbsp; <strong>NO SUBSCRIPTION</strong> &nbsp;·&nbsp; <strong>FIRST-JAR GUARANTEE</strong>
+        </p>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- Guarantee + cancellation -->
+  <tr><td style="padding-top:22px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#3D0F27;border-radius:12px;">
+      <tr><td align="center" style="padding:20px 24px;">
+        <div style="font-family:Georgia,'Times New Roman',serif;font-size:18px;color:#FFFFFF;">Finish your first jar. Not for you? We'll refund it.</div>
+        <p style="font-family:Arial,Helvetica,sans-serif;font-size:11.5px;line-height:17px;color:#E8CFC0;margin:7px 0 0;">
+          Email us within 45 days of delivery. First order only, one per household. Full terms: trymeva.co/pages/refunds
+        </p>
+      </td></tr>
+    </table>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px;color:#666666;margin:12px 0 0;text-align:center;">
+      Changed your mind? You can cancel for a full refund any time before your order ships. Just reply to this email.
+      After delivery, you also have 14 days to cancel under UK consumer law.
+    </p>
+  </td></tr>
+
+  <!-- Footer bar -->
+  <tr><td style="padding-top:22px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#D96C4A;border-radius:10px;">
+      <tr><td align="center" style="padding:16px 18px;">
+        <div style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-weight:bold;color:#FFFFFF;">All dose. No drama.</div>
+        <p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#FFE9DF;margin:7px 0 0;">
+          TRACKED UK DELIVERY &nbsp;·&nbsp; FIRST-JAR GUARANTEE &nbsp;·&nbsp; SECURE CHECKOUT &nbsp;·&nbsp; INFO@TRYMEVA.CO
+        </p>
+      </td></tr>
+    </table>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;color:#999999;text-align:center;margin:12px 0 0;">
+      Questions? Reply to this email or write to info@trymeva.co.<br>
+      Food supplement. Do not exceed the recommended daily intake. Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle. Keep out of reach of young children.<br>
+      Mëva is a trading name of Organo LLC.
+    </p>
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>
