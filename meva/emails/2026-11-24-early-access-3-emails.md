@@ -71,7 +71,7 @@ Hi {{ customer.first_name | default: "there" }},
 
 A quick one: Black Friday ends tonight at midnight.
 
-3 jars for the price of 2 (£49.98), or 5 jars for the price of 3 (£74.97), with free UK delivery. Tracked UK delivery.
+3 jars for the price of 2 (£49.98), or 5 jars for the price of 3 (£74.97), with free tracked UK delivery.
 
 [Button: Shop now] (utm_content=email3)
 
