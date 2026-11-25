@@ -1,0 +1,26 @@
+<script>
+/* Mëva order source tracking: copies the ad's UTM tags onto the order as hidden line-item
+   properties (_src_*), visible in Shopify admin only. Uses the landing URL; keeps it for the
+   browser session only if the visitor accepted marketing cookies. */
+(function(){
+  var keys=['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
+  var q=new URLSearchParams(location.search), src={};
+  keys.forEach(function(k){ if(q.get(k)) src[k]=q.get(k).slice(0,120); });
+  if(q.get('fbclid')) src.fbclid='yes';
+  var ok=function(){ try{ return window.Shopify&&Shopify.customerPrivacy&&Shopify.customerPrivacy.marketingAllowed(); }catch(e){ return false; } };
+  try{
+    if(Object.keys(src).length){ if(ok()) sessionStorage.setItem('meva_src',JSON.stringify(src)); }
+    else if(ok()){ src=JSON.parse(sessionStorage.getItem('meva_src')||'{}'); }
+  }catch(e){}
+  if(!Object.keys(src).length){ src={utm_source:(document.referrer?'referral':'direct')}; if(document.referrer){ try{src.utm_medium=new URL(document.referrer).hostname;}catch(e){} } }
+  function tag(){
+    document.querySelectorAll('form[action*="/cart/add"]').forEach(function(f){
+      Object.keys(src).forEach(function(k){
+        var n='properties[_src_'+k.replace('utm_','')+']';
+        if(!f.querySelector('input[name="'+n+'"]')){ var i=document.createElement('input'); i.type='hidden'; i.name=n; i.value=src[k]; f.appendChild(i); }
+      });
+    });
+  }
+  if(document.readyState!=='loading') tag(); else document.addEventListener('DOMContentLoaded',tag);
+})();
+</script>
