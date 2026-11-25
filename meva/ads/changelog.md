@@ -92,3 +92,12 @@ Total live: £50/day. R5 (£15 CBO) created but PAUSED; launching it needs rebal
   - Ad set A 120247508332700424 renamed "PO | 1.4 no-hunting | GB W45-65 | Purchase", $30/day, ad BF_1.4_no-hunting_b2g1_po 120247512020340424 ACTIVE ("Pre-order yours at the Black Friday price", no month).
   - Ad set B 120247512092560424 "PO | G3b gummy vs capsule | GB W45-65 | Purchase" (duplicate of A: same targeting/optimisation), $30/day, ends 26 Nov 03:00 UTC, ad BF_G3b_no-water_b2g1_po 120247512095100424 ACTIVE.
   - Campaign cap $150 unchanged. Amjad gate per ad set not reachable within cap: read results as directional.
+
+## 2026-11-24/25 — ABO: Daily + 2 Black Friday copies (Sara)
+- Account currency is GBP (budgets in pence): 3000 = £30/day; campaign spend cap 15000 = £150.
+- Sara (in Ads Manager) paused ad sets 1.4 (120247508332700424), G3b (120247512092560424), Copy (120247517070950424); created "PO | 1.4 no-hunting | … - Daily" 120247520836310424 (£23/day) — it got the first sale (#1002, £9.42 cost).
+- Claude duplicated Daily ×2 (no ads copied) and added one Black Friday ad each, £30/day each, ACTIVE:
+  - 120247525735090424 "PO | BF 3for2 GOLD | …" → ad BF_1.4_3for2_gold 120247525771780424 (image meva-bf-winner-gold-feed.jpg)
+  - 120247525779280424 "PO | BF 3for2 BLACK | …" → ad BF_1.4_3for2_black 120247525784150424 (image meva-bf-winner-black-feed.jpg)
+- Single-image ads (non-dynamic), Advantage+ creative enhancements opted out; copy = "Pre-order yours at the Black Friday price", no month.
+- Daily spend now ≈ £83 (Daily £23 + £30 + £30). Campaign cap £150 (≈£41 spent by 24 Nov evening) → cap reached ~25 Nov unless raised (Sara's decision). Account lifetime limit £1,000 (£205 left on 24 Nov).
