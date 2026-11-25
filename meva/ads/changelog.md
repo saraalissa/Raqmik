@@ -101,3 +101,4 @@ Total live: £50/day. R5 (£15 CBO) created but PAUSED; launching it needs rebal
   - 120247525779280424 "PO | BF 3for2 BLACK | …" → ad BF_1.4_3for2_black 120247525784150424 (image meva-bf-winner-black-feed.jpg)
 - Single-image ads (non-dynamic), Advantage+ creative enhancements opted out; copy = "Pre-order yours at the Black Friday price", no month.
 - Daily spend now ≈ £83 (Daily £23 + £30 + £30). Campaign cap £150 (≈£41 spent by 24 Nov evening) → cap reached ~25 Nov unless raised (Sara's decision). Account lifetime limit £1,000 (£205 left on 24 Nov).
+- 25 Nov (Sara: "اي"): GOLD 120247525735090424 and BLACK 120247525779280424 → £20/day each; Daily stays £23 → ≈ £63/day. Campaign spend cap £150 → £240. End time of Daily, GOLD, BLACK set to 2026-11-28 00:00 UTC (end of Fri 27 Nov). Decision on Fri 27 evening (Amjad gate: ~£60–78 per ad set by then).
