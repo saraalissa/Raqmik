@@ -102,3 +102,9 @@ Total live: £50/day. R5 (£15 CBO) created but PAUSED; launching it needs rebal
 - Single-image ads (non-dynamic), Advantage+ creative enhancements opted out; copy = "Pre-order yours at the Black Friday price", no month.
 - Daily spend now ≈ £83 (Daily £23 + £30 + £30). Campaign cap £150 (≈£41 spent by 24 Nov evening) → cap reached ~25 Nov unless raised (Sara's decision). Account lifetime limit £1,000 (£205 left on 24 Nov).
 - 25 Nov (Sara: "اي"): GOLD 120247525735090424 and BLACK 120247525779280424 → £20/day each; Daily stays £23 → ≈ £63/day. Campaign spend cap £150 → £240. End time of Daily, GOLD, BLACK set to 2026-11-28 00:00 UTC (end of Fri 27 Nov). Decision on Fri 27 evening (Amjad gate: ~£60–78 per ad set by then).
+
+## 2026-11-25 — ALL pre-order ads PAUSED (Sara: "وقف كل الاعلانات")
+- Paused ad sets Copy 120247517070950424 (Sara had re-enabled it; £42.63 on 25 Nov), Daily 120247520836310424, GOLD 120247525735090424, BLACK 120247525779280424. Campaign pause itself was declined at the prompt; all ad sets paused, so no spend.
+- Final test totals 24–25 Nov: spend £139.58, 25 link clicks (~£5.60/click), 1 purchase (#1002, 1 jar £24.99, Daily ad set). No spend 26–27 Nov (confirmed).
+- Diagnosis (with Clarity 24–27 Nov): traffic cost in Black Friday week + Purchase objective on a new pixel; no site fault; first screen is the weak point.
+- Next test (proposed): from Tue 1 Dec, one ad set, 1.4 creative, ~£40/day for 7 days without toggling, judge at 150–200 clicks; 3-for-2 offer in the first gallery image.
