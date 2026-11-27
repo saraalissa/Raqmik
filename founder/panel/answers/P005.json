@@ -1,0 +1,13 @@
+{
+  "id": "P005",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "Thirty-six dollars for a lip balm is a lot on my fixed income. I don't wear much color anymore, and a plain balm from the drugstore or Ulta takes care of my cracked winter lips just fine.",
+  "objection": "I've never heard of this brand, there are no reviews, and it's only sold through Facebook ads. I buy from names I know at the store where I can see and try it, and I'm not paying $36 to gamble on a little pink tint I don't need.",
+  "would_change_my_mind": "If it were sold at Ulta or a department store counter where I could try it, and my friends or real reviews said it truly healed dry, cracked lips better than my usual balm.",
+  "price_too_cheap": 4,
+  "price_cheap": 8,
+  "price_expensive": 15,
+  "price_too_expensive": 22
+}

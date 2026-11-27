@@ -1,0 +1,7 @@
+# MAHSA pH Lip Balm
+
+- What it is: a clear pH color-changing lip balm that turns a sheer pink on the lips and is formulated to stay moisturizing, sold under the existing MAHSA brand (which already sells a Complexion Stick at mymahsa.com).
+- Who it is for: women 50+ in the US who stopped wearing lipstick because "no color suits me", it dries their lips, or it bleeds into the lines around the mouth.
+- What it sells, at what price: one balm at about $36 (planned range $34-$39, not final), a 2-pack at about $59 via a bundle app; later a bundle with the Complexion Stick. Free US shipping. 365-day money-back guarantee that also covers opened product. One-time purchase, no subscription.
+- Where and how: online only (Shopify store mymahsa.com), customers found through Meta ads (Facebook/Instagram) with an ABO test campaign of three ad angles, plus UGC video. Product made by a contract manufacturer (not chosen yet).
+- Budget and constraints: total budget before launch under $1,500 (first factory order, samples, photo/video, test ads). Store fixed costs $100-300 a month (Shopify plan, apps, domain), not counting ads. factory not chosen, unit cost unknown (working assumption $5 per unit incl. packaging, shipping ~$5 per order - both estimates). Positioning rule: honest claims only (no fake counters, no fake reviews, no anti-aging claims). The category is crowded with 14+ copycat brands selling the same Red 27 pH lipstick via advertorials and buy-1-get-1 offers.

@@ -1,0 +1,222 @@
+[
+ {
+  "id": "P001",
+  "name": "Pablo",
+  "age": 60,
+  "segment": "Comfortable, high income",
+  "income": 184000,
+  "behaviour": "Facebook ad buyer",
+  "behaviour_how": "Buys things she discovers in Facebook ads and advertorial articles.",
+  "objection": "What is actually in it? I have sensitive lips",
+  "habit": "you shop at Ulta when there is a coupon"
+ },
+ {
+  "id": "P002",
+  "name": "Talia",
+  "age": 61,
+  "segment": "Working, mid income",
+  "income": 79000,
+  "behaviour": "Department-store loyal",
+  "behaviour_how": "Buys her makeup from known brands at Ulta, Sephora or a department store counter.",
+  "objection": "It will probably dry my lips like the others",
+  "habit": "your granddaughter shows you products on TikTok"
+ },
+ {
+  "id": "P003",
+  "name": "Zara",
+  "age": 74,
+  "segment": "Comfortable, high income",
+  "income": 193000,
+  "behaviour": "Deal hunter",
+  "behaviour_how": "Waits for buy-one-get-one offers and compares prices before buying.",
+  "objection": "It will probably dry my lips like the others",
+  "habit": "you drink coffee through the morning"
+ },
+ {
+  "id": "P004",
+  "name": "Seth",
+  "age": 73,
+  "segment": "Comfortable, high income",
+  "income": 112000,
+  "behaviour": "Deal hunter",
+  "behaviour_how": "Waits for buy-one-get-one offers and compares prices before buying.",
+  "objection": "$36 is a lot for a lip balm when similar ones sell for $10 to $20",
+  "habit": "you scroll Facebook most evenings after dinner"
+ },
+ {
+  "id": "P005",
+  "name": "Jade",
+  "age": 70,
+  "segment": "Retired on a fixed income",
+  "income": 31000,
+  "behaviour": "Department-store loyal",
+  "behaviour_how": "Buys her makeup from known brands at Ulta, Sephora or a department store counter.",
+  "objection": "I don't wear much color anymore, a plain balm is enough",
+  "habit": "you live in a dry climate and your lips crack in winter"
+ },
+ {
+  "id": "P006",
+  "name": "Nadia",
+  "age": 51,
+  "segment": "Working, mid income",
+  "income": 107000,
+  "behaviour": "Sensitive and careful",
+  "behaviour_how": "Has sensitive skin or allergies and reads the full ingredient list first.",
+  "objection": "It will probably dry my lips like the others",
+  "habit": "you have a drawer of lipsticks you wore once"
+ },
+ {
+  "id": "P007",
+  "name": "Rosa",
+  "age": 61,
+  "segment": "Working, mid income",
+  "income": 56000,
+  "behaviour": "Burned before",
+  "behaviour_how": "Has been charged for a subscription she did not want or got a product that did not work, now distrusts online offers.",
+  "objection": "I want to see real reviews from women my age first",
+  "habit": "your granddaughter shows you products on TikTok"
+ },
+ {
+  "id": "P008",
+  "name": "Priya",
+  "age": 75,
+  "segment": "Working, mid income",
+  "income": 88000,
+  "behaviour": "Gift buyer",
+  "behaviour_how": "Often buys beauty items as gifts for her sister, daughter or friends.",
+  "objection": "I don't wear much color anymore, a plain balm is enough",
+  "habit": "you drink coffee through the morning"
+ },
+ {
+  "id": "P009",
+  "name": "Ada",
+  "age": 55,
+  "segment": "Retired on a fixed income",
+  "income": 52000,
+  "behaviour": "Facebook ad buyer",
+  "behaviour_how": "Buys things she discovers in Facebook ads and advertorial articles.",
+  "objection": "What is actually in it? I have sensitive lips",
+  "habit": "your granddaughter shows you products on TikTok"
+ },
+ {
+  "id": "P010",
+  "name": "Ines",
+  "age": 61,
+  "segment": "Working, mid income",
+  "income": 110000,
+  "behaviour": "Facebook ad buyer",
+  "behaviour_how": "Buys things she discovers in Facebook ads and advertorial articles.",
+  "objection": "What is actually in it? I have sensitive lips",
+  "habit": "your granddaughter shows you products on TikTok"
+ },
+ {
+  "id": "P011",
+  "name": "Raj",
+  "age": 59,
+  "segment": "Working, mid income",
+  "income": 95000,
+  "behaviour": "Reads every review",
+  "behaviour_how": "Checks Trustpilot and Amazon reviews and looks for photos from women her age before buying.",
+  "objection": "$36 is a lot for a lip balm when similar ones sell for $10 to $20",
+  "habit": "your granddaughter shows you products on TikTok"
+ },
+ {
+  "id": "P012",
+  "name": "Gabriel",
+  "age": 62,
+  "segment": "Retired on a fixed income",
+  "income": 29000,
+  "behaviour": "Deal hunter",
+  "behaviour_how": "Waits for buy-one-get-one offers and compares prices before buying.",
+  "objection": "Every color-changing lipstick ad looks the same, I don't trust them",
+  "habit": "you have a drawer of lipsticks you wore once"
+ },
+ {
+  "id": "P013",
+  "name": "Kai",
+  "age": 57,
+  "segment": "Retired on a fixed income",
+  "income": 31000,
+  "behaviour": "Burned before",
+  "behaviour_how": "Has been charged for a subscription she did not want or got a product that did not work, now distrusts online offers.",
+  "objection": "Will the pink even suit my skin tone?",
+  "habit": "you live in a dry climate and your lips crack in winter"
+ },
+ {
+  "id": "P014",
+  "name": "Harper",
+  "age": 50,
+  "segment": "Retired on a fixed income",
+  "income": 32000,
+  "behaviour": "Reads every review",
+  "behaviour_how": "Checks Trustpilot and Amazon reviews and looks for photos from women her age before buying.",
+  "objection": "It will probably dry my lips like the others",
+  "habit": "you have a drawer of lipsticks you wore once"
+ },
+ {
+  "id": "P015",
+  "name": "Ben",
+  "age": 58,
+  "segment": "Working, mid income",
+  "income": 88000,
+  "behaviour": "Burned before",
+  "behaviour_how": "Has been charged for a subscription she did not want or got a product that did not work, now distrusts online offers.",
+  "objection": "$36 is a lot for a lip balm when similar ones sell for $10 to $20",
+  "habit": "you have a drawer of lipsticks you wore once"
+ },
+ {
+  "id": "P016",
+  "name": "Farah",
+  "age": 56,
+  "segment": "Comfortable, high income",
+  "income": 120000,
+  "behaviour": "Department-store loyal",
+  "behaviour_how": "Buys her makeup from known brands at Ulta, Sephora or a department store counter.",
+  "objection": "I've been caught by hidden subscriptions before",
+  "habit": "you have a drawer of lipsticks you wore once"
+ },
+ {
+  "id": "P017",
+  "name": "Levi",
+  "age": 70,
+  "segment": "Retired on a fixed income",
+  "income": 47000,
+  "behaviour": "Sensitive and careful",
+  "behaviour_how": "Has sensitive skin or allergies and reads the full ingredient list first.",
+  "objection": "What is actually in it? I have sensitive lips",
+  "habit": "you scroll Facebook most evenings after dinner"
+ },
+ {
+  "id": "P018",
+  "name": "Nia",
+  "age": 60,
+  "segment": "Working, mid income",
+  "income": 94000,
+  "behaviour": "Reads every review",
+  "behaviour_how": "Checks Trustpilot and Amazon reviews and looks for photos from women her age before buying.",
+  "objection": "I've been caught by hidden subscriptions before",
+  "habit": "you drink coffee through the morning"
+ },
+ {
+  "id": "P019",
+  "name": "Keisha",
+  "age": 68,
+  "segment": "Comfortable, high income",
+  "income": 124000,
+  "behaviour": "Facebook ad buyer",
+  "behaviour_how": "Buys things she discovers in Facebook ads and advertorial articles.",
+  "objection": "I've been caught by hidden subscriptions before",
+  "habit": "you shop at Ulta when there is a coupon"
+ },
+ {
+  "id": "P020",
+  "name": "Emil",
+  "age": 70,
+  "segment": "Retired on a fixed income",
+  "income": 28000,
+  "behaviour": "Gift buyer",
+  "behaviour_how": "Often buys beauty items as gifts for her sister, daughter or friends.",
+  "objection": "Will the pink even suit my skin tone?",
+  "habit": "you have a drawer of lipsticks you wore once"
+ }
+]

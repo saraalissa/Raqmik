@@ -1,0 +1,13 @@
+{
+  "id": "P009",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "Thirty-six dollars for a lip balm is a lot on my budget, and those color-changing pH balms are all over TikTok for under ten dollars at the drugstore. With no reviews and my sensitive lips, I'm not paying boutique prices to be the first one to try it.",
+  "objection": "I don't know what's in it until I go dig through the website, and on sensitive lips one wrong ingredient means burning and peeling. Plus it costs four times what my granddaughter's version costs.",
+  "would_change_my_mind": "Seeing the ingredient list right in the ad with no fragrance or flavoring, plus some real reviews from women my age with sensitive lips, and a first-order price closer to $20.",
+  "price_too_cheap": 5,
+  "price_cheap": 12,
+  "price_expensive": 22,
+  "price_too_expensive": 32
+}

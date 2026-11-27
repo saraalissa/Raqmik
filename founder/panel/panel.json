@@ -1,0 +1,95 @@
+{
+ "n": 20,
+ "seed": 487782,
+ "customer": {
+  "business": "MAHSA pH Lip Balm (online, US)",
+  "target": "US women 50 to 75 who buy beauty products online and have mostly given up on lipstick because it dries their lips, bleeds into lip lines, or no shade suits them",
+  "where": "United States, shopping on Facebook/Instagram and Shopify stores",
+  "age": [
+   50,
+   75
+  ],
+  "segments": [
+   {
+    "name": "Retired on a fixed income",
+    "share": 0.35,
+    "income": [
+     25000,
+     55000
+    ]
+   },
+   {
+    "name": "Working, mid income",
+    "share": 0.4,
+    "income": [
+     55000,
+     110000
+    ]
+   },
+   {
+    "name": "Comfortable, high income",
+    "share": 0.25,
+    "income": [
+     110000,
+     220000
+    ]
+   }
+  ],
+  "behaviours": [
+   {
+    "name": "Facebook ad buyer",
+    "share": 0.2,
+    "how": "Buys things she discovers in Facebook ads and advertorial articles."
+   },
+   {
+    "name": "Burned before",
+    "share": 0.15,
+    "how": "Has been charged for a subscription she did not want or got a product that did not work, now distrusts online offers."
+   },
+   {
+    "name": "Reads every review",
+    "share": 0.15,
+    "how": "Checks Trustpilot and Amazon reviews and looks for photos from women her age before buying."
+   },
+   {
+    "name": "Department-store loyal",
+    "share": 0.15,
+    "how": "Buys her makeup from known brands at Ulta, Sephora or a department store counter."
+   },
+   {
+    "name": "Deal hunter",
+    "share": 0.15,
+    "how": "Waits for buy-one-get-one offers and compares prices before buying."
+   },
+   {
+    "name": "Sensitive and careful",
+    "share": 0.1,
+    "how": "Has sensitive skin or allergies and reads the full ingredient list first."
+   },
+   {
+    "name": "Gift buyer",
+    "share": 0.1,
+    "how": "Often buys beauty items as gifts for her sister, daughter or friends."
+   }
+  ],
+  "objections": [
+   "$36 is a lot for a lip balm when similar ones sell for $10 to $20",
+   "Every color-changing lipstick ad looks the same, I don't trust them",
+   "Will the pink even suit my skin tone?",
+   "It will probably dry my lips like the others",
+   "I've been caught by hidden subscriptions before",
+   "I want to see real reviews from women my age first",
+   "What is actually in it? I have sensitive lips",
+   "I don't wear much color anymore, a plain balm is enough"
+  ],
+  "habits": [
+   "you scroll Facebook most evenings after dinner",
+   "you have a drawer of lipsticks you wore once",
+   "you drink coffee through the morning",
+   "you live in a dry climate and your lips crack in winter",
+   "you shop at Ulta when there is a coupon",
+   "your granddaughter shows you products on TikTok"
+  ]
+ },
+ "pitch": "MAHSA pH Lip Balm, from MAHSA (mymahsa.com), a small online beauty brand for women over 50.\nA clear balm that turns a sheer pink on your lips. It does not create a unique shade: it is a sheer pink that lets your own lip color show through, deeper the more you layer.\nMade to stay moisturizing so you don't need a balm underneath; the full ingredient list is on the product page.\n$36 for one, or $59 for two. Free shipping in the US, delivered in about 5-8 days.\n365-day money-back guarantee, even if you opened and used it or just don't like the color. One-time purchase, no subscription.\nSold online only, through the website and Facebook/Instagram ads. New product, no customer reviews yet."
+}

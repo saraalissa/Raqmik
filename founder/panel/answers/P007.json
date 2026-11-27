@@ -1,0 +1,13 @@
+{
+  "id": "P007",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "Thirty-six dollars for a lip balm from a website I've never heard of, that I only saw in an ad, with not one review? I've been burned that way before. I'm not going to be the first one to try it.",
+  "objection": "There are no reviews at all, so I have no idea if it really works on lips like mine or if it'll bleed into my lines like everything else. And a 365-day guarantee is only worth something if they actually pay you back. Plenty of companies promise that and then you never hear from them.",
+  "would_change_my_mind": "Real reviews and before-and-after photos from women in their 60s, or a friend or my granddaughter's mom trying it first and telling me it's good",
+  "price_too_cheap": 6,
+  "price_cheap": 12,
+  "price_expensive": 22,
+  "price_too_expensive": 35
+}
