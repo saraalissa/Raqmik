@@ -54,3 +54,7 @@ Waitlist orders are counted separately (free traffic).
 - Next: Sara's test order → check order, discount, Meta Purchase event → ads only with Sara's OK on the spend.
 - Checkout delivery fixed by Muse (estimated delivery dates off; "Royal Mail Tracked £3.49 · Mon 30 Nov–Tue 1 Dec" gone). Checkout now shows "Pre-order: ships by mid-January (tracked UK delivery)". Test code MEVATEST100 (100%, 1 use, ends 26 Nov) created for Sara's test order; delete after.
 - Live theme is now locked for API writes. Edits go to a copy: "Mëva - PRE-ORDER v2 (edits 24 Nov)" 146306400315 (removed the "Free UK delivery on 2+ jars" and "first-jar guarantee" perk lines). Sara publishes it.
+
+## After Black Friday (Sara, 27 Nov)
+- Prices from Tue 1 Dec 00:01 UK: 3 jars £59.98, 5 jars £89.97 (1 jar £24.99 unchanged). Scheduled task "Raise 3/5-jar prices after Black Friday" does the price-list change.
+- Theme v8 146455691323 "Mëva - v8 (auto switch after Black Friday)" = live v7 + automatic switch after 30 Nov 23:59 UTC: pack labels Buy 2 Get 1 FREE / Buy 3 Get 2 FREE → Pack of 3 / Pack of 5; announcement → "Free UK delivery on 2+ jars | First-jar guarantee | Vegan & gelatine-free | No subscription"; under-button and cart wording without Black Friday. Sara to publish v8 before 1 Dec. Test copy 146455724091 shows the post-BF state (do not publish).
