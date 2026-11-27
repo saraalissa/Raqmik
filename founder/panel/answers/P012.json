@@ -1,0 +1,13 @@
+{
+  "id": "P012",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "Thirty-six dollars for a tinted lip balm is a lot on my budget, and I already have a drawer full of lipsticks I wore once. Even two for $59 isn't the kind of deal I wait for, and with no reviews it looks like every other color-changing ad I scroll past.",
+  "objection": "Paying $36 up front for a brand-new product nobody has reviewed yet, when the year-long guarantee still means I have to chase a refund if it dries my lips like the rest.",
+  "would_change_my_mind": "A real price drop or buy-one-get-one under $25, plus reviews from women my age saying it actually doesn't dry out or bleed.",
+  "price_too_cheap": 5,
+  "price_cheap": 12,
+  "price_expensive": 20,
+  "price_too_expensive": 30
+}

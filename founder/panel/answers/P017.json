@@ -1,0 +1,13 @@
+{
+  "id": "P017",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "Thirty-six dollars for one lip balm is too much on my fixed income, especially when the drugstore has color-changing balms for under ten. The money-back promise is nice, but I'd still have to pay up front and then go through the trouble of sending it back if my lips react.",
+  "objection": "The ad doesn't tell me what's in it. These color-changing balms usually have dyes and sometimes fragrance, and with my sensitive lips that's the first thing I worry about. Nobody has reviewed it yet, so I can't tell if anyone with sensitive lips has tried it.",
+  "would_change_my_mind": "Seeing the full ingredient list right in the ad, with no fragrance and no dyes I know bother me, plus a smaller trial size for around $15.",
+  "price_too_cheap": 4,
+  "price_cheap": 9,
+  "price_expensive": 16,
+  "price_too_expensive": 25
+}

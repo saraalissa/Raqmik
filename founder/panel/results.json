@@ -1,0 +1,132 @@
+{
+ "business": "MAHSA pH Lip Balm (online, US)",
+ "seed": 487782,
+ "dealt": 20,
+ "answered": 20,
+ "skipped": [],
+ "buys": 0,
+ "passes": 20,
+ "buy_rate": 0.0,
+ "by_segment": [
+  [
+   "Comfortable, high income",
+   5,
+   0.0
+  ],
+  [
+   "Working, mid income",
+   8,
+   0.0
+  ],
+  [
+   "Retired on a fixed income",
+   7,
+   0.0
+  ]
+ ],
+ "by_behaviour": [
+  [
+   "Facebook ad buyer",
+   4,
+   0.0
+  ],
+  [
+   "Department-store loyal",
+   3,
+   0.0
+  ],
+  [
+   "Deal hunter",
+   3,
+   0.0
+  ],
+  [
+   "Sensitive and careful",
+   2,
+   0.0
+  ],
+  [
+   "Burned before",
+   3,
+   0.0
+  ],
+  [
+   "Gift buyer",
+   2,
+   0.0
+  ],
+  [
+   "Reads every review",
+   3,
+   0.0
+  ]
+ ],
+ "by_income": [
+  [
+   "$107,000 and up",
+   7,
+   0.0
+  ],
+  [
+   "$52,000 to $107,000",
+   7,
+   0.0
+  ],
+  [
+   "under $52,000",
+   6,
+   0.0
+  ]
+ ],
+ "why_not": [
+  [
+   "trust",
+   12,
+   [
+    "I buy my makeup from brands I know, at Ulta or the counter where I can try it on. A $36 balm from a website I've never heard of, with no reviews, from a Facebook ad? I'd scroll right past it.",
+    "Thirty-six dollars for a tinted balm from a brand I've never heard of, with not a single review, from an Instagram ad? I've bought these color-changing balms before and they all ended up drying my lips by lunchtime, so I'll pass. I can afford it, I just don't pay full price for a gamble."
+   ],
+   [
+    "P002",
+    "P003"
+   ]
+  ],
+  [
+   "price",
+   8,
+   [
+    "$36 is a lot for a tinted balm from a brand I've never heard of with zero reviews, when I can get a color-changing balm at Ulta for a fraction of that with a coupon. The guarantee is nice, but I'd still have to find out the hard way whether it burns my lips and then chase a refund.",
+    "$36 for a tinted lip balm is more than I'll pay when I can get something similar for $10 to $20 at the drugstore. Even the two-for-$59 deal still works out to almost $30 each, and that's no bargain to me."
+   ],
+   [
+    "P001",
+    "P004"
+   ]
+  ]
+ ],
+ "why_yes": [],
+ "flip": [
+  "Seeing the full ingredient list right in the ad showing it's fragrance-free and gentle, plus a few real reviews from women over 50 with sensitive lips, and a lower intro price around $20.",
+  "Seeing it at Ulta or Sephora where I could try it, or my granddaughter showing me real women my age using it on TikTok and saying it doesn't dry them out.",
+  "A real deal like buy-one-get-one, plus honest reviews from women over 60 saying it stays moisturizing through the day and doesn't bleed into the lines.",
+  "A real buy-one-get-one offer that brings it to about $18 a tube, plus some reviews from women my age.",
+  "If it were sold at Ulta or a department store counter where I could try it, and my friends or real reviews said it truly healed dry, cracked lips better than my usual balm.",
+  "Seeing the full ingredient list up front with no fragrance, flavoring or the usual irritants, plus a handful of honest reviews from women my age with sensitive lips saying it didn't dry or burn.",
+  "Real reviews and before-and-after photos from women in their 60s, or a friend or my granddaughter's mom trying it first and telling me it's good",
+  "Real reviews from women my age saying it doesn't dry out or feather, or a friend telling me she loves hers.",
+  "Seeing the ingredient list right in the ad with no fragrance or flavoring, plus some real reviews from women my age with sensitive lips, and a first-order price closer to $20.",
+  "Seeing reviews from women my age with sensitive lips saying it didn't irritate them, and the ad saying right up front that it's fragrance-free.",
+  "A good number of real reviews with photos from women over 50 showing how the pink looks on older lips, ideally on Amazon or Trustpilot.",
+  "A real price drop or buy-one-get-one under $25, plus reviews from women my age saying it actually doesn't dry out or bleed.",
+  "Real reviews from women my age with photos of the color on their lips, plus a cheaper single trial size, maybe around $15, so it wouldn't hurt if it didn't work out.",
+  "Real reviews on Trustpilot or Amazon with photos from women over 50 saying it kept their lips soft and didn't bleed into the lines.",
+  "Real reviews from women my age saying it didn't dry or bleed, and someone confirming they actually got their refund without a fight.",
+  "Seeing it sold at Ulta or Sephora, or a lot of real reviews from women my age with photos showing it doesn't dry out or bleed into the lines.",
+  "Seeing the full ingredient list right in the ad, with no fragrance and no dyes I know bother me, plus a smaller trial size for around $15.",
+  "A good number of real reviews on Trustpilot or Amazon with photos from women in their 60s showing the color and no bleeding into lip lines.",
+  "Real reviews and before-and-after photos from women over 60, ideally from someone I'd trust, showing it doesn't dry out or bleed and that people really got their refunds.",
+  "A small trial size around ten dollars, or my daughter or a friend telling me she uses it and it really doesn't dry out or bleed into the lines."
+ ],
+ "purchases_first_month_per_buyer": null,
+ "price_answers": 20
+}

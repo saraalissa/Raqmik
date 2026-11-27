@@ -1,0 +1,59 @@
+{
+  "business": "MAHSA pH Lip Balm (online, US)",
+  "unit": "order (one balm, existing MAHSA customers, no paid ads)",
+  "price": 28.0,
+  "variable": [
+    {
+      "label": "Balm + packaging (ESTIMATE, no factory quote yet)",
+      "cost": 5.0
+    },
+    {
+      "label": "US shipping, free to buyer (ESTIMATE)",
+      "cost": 5.0
+    },
+    {
+      "label": "Card fees 2.9% + $0.30",
+      "cost": 1.11
+    },
+    {
+      "label": "Refund reserve 10% for 365-day guarantee (ESTIMATE)",
+      "cost": 2.8
+    }
+  ],
+  "fixed_monthly": [
+    {
+      "label": "Shopify plan, apps, domain (founder: $100-300)",
+      "cost": 200
+    }
+  ],
+  "startup": [
+    {
+      "label": "Samples from 2-3 factories (ESTIMATE)",
+      "cost": 100
+    },
+    {
+      "label": "First batch 200 units x $5 (ESTIMATE, MOQ unknown)",
+      "cost": 1000
+    },
+    {
+      "label": "Test ads (7-10 days)",
+      "cost": 400
+    }
+  ],
+  "days_per_month": 30,
+  "plan_per_day": 2,
+  "ramp_per_day": [
+    0.3,
+    0.5,
+    0.7,
+    1.0,
+    1.0,
+    1.2,
+    1.5,
+    1.5,
+    1.8,
+    2.0,
+    2.0,
+    2.0
+  ]
+}
